@@ -24,7 +24,7 @@ from src.motor.estado import jugar_batalla
 from src.motor.persistencia import nueva_partida, semilla_de_batalla
 from src.motor.seleccion import elegir_enfrentamiento
 from src.render import estilo as E
-from src.render.enfrentamiento import CARPETA, CX_A, CX_D, fotograma_base
+from src.render.enfrentamiento import CARPETA, fotograma_base
 from src.render.mapa import MapaGalicia
 
 def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
@@ -38,22 +38,28 @@ def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
 
     # Todo lo común con la pantalla de enfrentamiento (4.3) viene de `fotograma_base`
     img, d = fotograma_base(estado, f, MapaGalicia(), 27)
-    cx_a, cx_d = CX_A, CX_D
 
-    # --- Dados (el borde dorado marca quién gana la tirada) y la puntuación, separada a un lado ---
-    lado, sep = 88, 10
-    y_dados = 1322
-    for cx, dados_pts, pts, mult in (
-        (cx_a, [(t.dado_a, t.puntos_a) for t in r.tiradas], r.puntos_a, r.mult_a),
-        (cx_d, [(t.dado_b, t.puntos_b) for t in r.tiradas], r.puntos_b, r.mult_b),
-    ):
-        ancho_dados = 3 * lado + 2 * sep
-        x0 = cx - ancho_dados / 2 - 20
-        for i, (dado, ganado) in enumerate(dados_pts):
-            E.dibujar_dado(d, x0 + i * (lado + sep), y_dados, lado, dado, resaltado=ganado > 0)
-        E.texto_centrado_exacto(d, x0 + ancho_dados + 52, y_dados + lado / 2, f"{pts}", 76, E.FONDO, borde=7, color_borde=E.BLANCO)
-        if mult > 1:  # multiplicador: pastilla de vaca bajo los dados del bando con más vacas
-            E.pastilla_vaca(img, x0 + ancho_dados / 2, 1460, f"×{str(mult).replace('.', ',')}", 46, 26)
+    # --- Dados en vertical: una columna por bando, fila a fila, para ver de dónde sale cada punto ---
+    lado, sep, y0 = 80, 10, 1222
+    for i, t in enumerate(r.tiradas):
+        y = y0 + i * (lado + sep)
+        for cx, dado, ganado, fuera in ((235, t.dado_a, t.puntos_a, -1), (E.ANCHO - 235, t.dado_b, t.puntos_b, 1)):
+            E.dibujar_dado(d, cx - lado / 2, y, lado, dado, resaltado=ganado > 0)
+            # los puntos ganados salen pegados al dado que los gana (por fuera); «=» si empatan
+            txt, color = (f"+{ganado}", E.VERDE_PUNTOS) if ganado > 0 else ("=" if t.puntos_a == t.puntos_b else "", E.GRIS_EMPATE)
+            if txt:
+                w = max(76, int(E.ancho_texto(txt, 50)) + 30)
+                bx = cx + fuera * (lado / 2 + 14 + w / 2)
+                d.rounded_rectangle((bx - w / 2, y + lado / 2 - 30, bx + w / 2, y + lado / 2 + 30), radius=30,
+                                    fill=color, outline=E.FONDO, width=4)
+                E.texto_centrado_exacto(d, bx, y + lado / 2, txt, 50, E.BLANCO)
+    # --- Marcador total en el centro y multiplicador bajo el bando con más vacas ---
+    ym = y0 + (3 * lado + 2 * sep) / 2
+    for cx, pts, mult in ((E.ANCHO / 2 - 70, r.puntos_a, r.mult_a), (E.ANCHO / 2 + 70, r.puntos_b, r.mult_b)):
+        E.texto_centrado_exacto(d, cx, ym - 25, f"{pts}", 100, E.FONDO, borde=8, color_borde=E.BLANCO)
+        if mult > 1:
+            E.pastilla_vaca(img, cx, ym + 60, f"×{str(mult).replace('.', ',')}", 46, 26)
+    E.texto_centrado_exacto(d, E.ANCHO / 2, ym - 25, "-", 80, E.FONDO, borde=8, color_borde=E.BLANCO)
 
     CARPETA.mkdir(parents=True, exist_ok=True)
     ruta.parent.mkdir(parents=True, exist_ok=True)

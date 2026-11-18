@@ -224,6 +224,8 @@ def caja_de_zoom(
     return cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2
 
 
+VERDE_PUNTOS = "#1F9D45"  # insignia «+N» junto al dado que gana los puntos
+GRIS_EMPATE = "#6B7280"
 AZUL_DEFENSA = "#1B5FD6"  # rótulo DEFENDE sobre el panel blanco
 
 

@@ -30,13 +30,13 @@ CARPETA = E.RAIZ / "output" / "muestras"
 SUPERMUESTREO = 2  # las siluetas se dibujan al doble y se reducen, para bordes suaves
 
 # Zonas del fotograma (y en píxeles)
-MAPA_Y0, MAPA_ALTO = 395, 510
+MAPA_Y0, MAPA_ALTO = 395, 440
 LINEA_Y = MAPA_Y0 + MAPA_ALTO  # justo bajo el mapa
 PANEL_FIN = E.ALTO - E.MARGEN_INF + 10
 
 # Columnas del panel: atacante, defensor y centro
 CX_A, CX_D, CX_C = 270, 690, E.ANCHO / 2
-Y_ROTULO, Y_SILUETA, ALTO_SILUETA, Y_NOMBRE, Y_VACAS = 938, 975, 125, 1110, 1262
+Y_ROTULO, Y_SILUETA, ALTO_SILUETA, Y_NOMBRE, Y_VACAS = 866, 900, 110, 1035, 1172
 
 
 def num(n: int) -> str:

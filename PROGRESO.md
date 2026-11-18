@@ -360,3 +360,12 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Cómo se resolvió:** `MAR` pasa a `#7CC6F0` y el mapa lo usa de fondo; `panel_vaca`/`pegar_panel` (en `estilo.py`) dibujan el panel blanco con manchas suaves en los bordes (determinista). Textos del panel en azul marino con halo blanco; ATACA rojo, DEFENDE azul; bordes marino en siluetas y dados (más gruesos). Se aplicó a `enfrentamiento.py`, `muestra_estilo.py` y `muestra_mapa.py`. 173 tests en verde.
 - **Problemas encontrados:** las primeras manchas eran enormes y angulosas y una tapaba el multiplicador; se hicieron más pequeñas, redondeadas y pegadas a los bordes.
 - **Pendiente:** que el usuario apruebe la pantalla (y aporte la fuente/licencia de la foto de hierba) para marcar 4.3 `[x]`.
+
+---
+
+## 2026-11-18 — Paso 4.3 (en curso): dados en vertical con «+N» junto al dado ganador
+
+- **Qué se pidió:** disposición vertical de los dados para ver de dónde salen los puntos; que los puntos ganados (p. ej. «+2» de Frades) aparezcan al lado del dado que los gana; mantener el resalte del dado ganador.
+- **Cómo se resolvió:** dos columnas de 3 dados (una por bando), fila a fila; borde dorado en el dado que gana la tirada y, por fuera de él, insignia verde «+N» (gris «=» en empate); marcador total en el centro y multiplicador bajo el total del bando con más vacas. El mapa se redujo de 510 a 440 px de alto para que cupieran los dados sin invadir la zona inferior reservada. Constantes de layout de `enfrentamiento.py` ajustadas (afecta también a la pantalla 4.3). Colores `VERDE_PUNTOS` y `GRIS_EMPATE` en `estilo.py`.
+- **Problemas encontrados:** al principio el total quedaba pegado a la columna del defensor; se separaron las columnas de dados hacia fuera (x = 235 y 845).
+- **Pendiente:** aprobación del usuario para marcar 4.3 `[x]` (y fuente/licencia de la foto de hierba). El dibujo de dados vive aún en `muestra_estilo.py`; en 4.4 pasa a `dados.py`/`marcador.py`.

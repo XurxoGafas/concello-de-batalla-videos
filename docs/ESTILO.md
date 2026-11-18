@@ -41,5 +41,7 @@ Los colores de cada concello son los de su bandera (paso 2.5; por ahora provisio
 
 - **Colores claros (2026-11-18):** el mar del mapa es **azul cielo** (`#7CC6F0`) y el panel de datos es **blanco con grandes manchas negras de vaca** (`panel_vaca`, manchas en los bordes y centro libre). Los textos del panel van en **azul marino con halo blanco** (nombres, puntuaciones), «ATACA» en rojo, «DEFENDE» en azul (`#1B5FD6`) y «VS» en dorado con borde marino; las siluetas y los dados llevan borde marino. Las pastillas de vaca conservan su contorno marino para destacar sobre el panel.
 
+- **Dados en vertical (2026-11-18):** cada bando tiene una **columna de 3 dados** (fila a fila, atacante a la izquierda y defensor a la derecha) para ver de qué dado sale cada punto. El dado que gana la tirada lleva **borde dorado** y, pegada a él por fuera, una insignia verde **«+N»** con los puntos ganados («=» gris en las dos si empatan). En el centro, el marcador «2 - 4» y, debajo del total del bando con más vacas, la pastilla del multiplicador. Para hacer sitio, el mapa baja a 440 px de alto (y = 395–835) y el panel empieza en y = 841.
+
 ## Pendiente de las siguientes fases
 Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y escenas (4.6).
