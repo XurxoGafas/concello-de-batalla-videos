@@ -31,3 +31,8 @@ Cada recurso externo se registra aquí con su fuente, fecha y licencia **antes d
 - **Fuente de la lista:** Wikidata (propiedad P41, «imagen de la bandera»; datos CC0), consulta del 2026-11-18: 317 municipios gallegos (incluye 4 desaparecidos), **142 con imagen de bandera** (110 SVG, 22 PNG, 9 JPG, 1 GIF). Faltan, por tanto, unos 171 concellos sin imagen en Wikidata.
 - **Imágenes:** alojadas en Wikimedia Commons. Solo se usan para extraer sus colores (paleta); no se redistribuyen ni se muestran. Pendiente comprobar la licencia de cada imagen si más adelante se quisieran mostrar las banderas en los vídeos. Las banderas municipales son símbolos oficiales aprobados por la Xunta por decreto (DOG).
 - **Estado:** la descarga de las imágenes está **bloqueada** por el límite de peticiones de Wikimedia desde esta red (error 429 con espera de 600 s, que no se levanta tras esperar). Se registra en `PROGRESO.md`.
+
+## Tipografía (paso 4.1)
+
+- **Lilita One** (Juan Montoreano). Licencia **SIL Open Font License 1.1** (uso libre, también comercial y dentro de vídeos; no se puede vender la fuente por sí sola). Descargada el 2026-11-18 de `https://github.com/google/fonts/tree/main/ofl/lilitaone` (Google Fonts). Archivos: `assets/fonts/LilitaOne-Regular.ttf` y `assets/fonts/OFL-LilitaOne.txt` (texto de la licencia).
+- Cobertura comprobada con un test: ñ Ñ á é í ó ú Á É Í Ó Ú ü Ü ¡ ¿ × « » y cifras. Solo trae un peso (ya es negrita, estilo redondeado de juego, parecido al del vídeo de referencia).

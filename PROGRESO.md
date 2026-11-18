@@ -258,3 +258,16 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **7 tests en verde (137 en total):** el comando exacto del plan imprime 10 batallas completas; misma semilla → misma salida y otra semilla → otra; las primeras batallas no dependen de cuántas se pidan; no escribe en `data/partida/`; una simulación completa de Galicia termina en 312 batallas con ganador; argumentos inválidos fallan; formato de números (1.234, 10,5).
 - **Problemas encontrados:** ninguno (limpié una línea mía mal escrita antes de probar).
 - **Pendiente:** la fase 3 está completa. Siguiente: fase 4 (gráficos), empezando por el paso 4.1 (guía visual), que exige aprobación del usuario de un fotograma de muestra. Antes conviene decidir con el usuario el paso 2.5 (banderas) o seguir con colores provisionales; también necesita elegir tipografía con licencia libre (registrar en `docs/FUENTES.md`, regla j) y revisar el vídeo de referencia.
+
+---
+
+## 2026-11-18 — Paso 4.1 EN CURSO (guía visual; falta la aprobación del usuario del fotograma de muestra)
+
+- **Qué se hizo:** se fijó la guía visual y se generó un fotograma de muestra con datos reales.
+- **Cómo se avanzó:**
+  - `src/render/estilo.py`: constantes (1080×1920, 30 fps, zonas seguras 60/140/220/420 px, paleta, tamaños de texto) y utilidades (texto centrado, partir nombres largos en 2 líneas, dado con puntos, contraste WCAG). `docs/ESTILO.md` explica cada decisión.
+  - **Tipografía:** Lilita One (SIL OFL 1.1), descargada de Google Fonts a `assets/fonts/` con su licencia; registrada en `docs/FUENTES.md` antes de usarla (regla j). Cobertura de ñ, tildes, ü, ¡, ¿ y × comprobada con un test (se añadió `fonttools` a `requirements.txt`).
+  - `src/render/muestra_estilo.py` genera `output/muestras/estilo.png`: título «CONCELLO DE BATALLA · Ep. 27», mapa con 120 batallas ya jugadas (colores provisionales), línea dorada, siluetas reales de los dos concellos con nombre y vacas, tres dados por bando y la insignia «×1,5». Se envió al usuario.
+  - 6 tests en `tests/test_estilo.py` (143 en total).
+- **Problemas encontrados:** en la primera versión los nombres largos se solapaban y la insignia del multiplicador tapaba la puntuación; se corrigió partiendo los nombres en dos líneas y recolocando el marcador.
+- **Pendiente:** que el usuario apruebe el fotograma (o pida cambios) para marcar 4.1 como `[x]`. Puntos a mirar por el usuario: el mapa ocupa poco ancho (Galicia es casi cuadrada y la zona segura recorta la altura); las zonas seguras son prudentes y se comprobarán con un vídeo real (6.3).

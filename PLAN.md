@@ -108,7 +108,7 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 
 Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fase 1 (intro) + 3 repeticiones de las fases 2–6 (fase 7) + cierre.
 
-### [ ] 4.1 Definir la guía visual
+### [~] 4.1 Definir la guía visual
 - **Qué:** Fijar la resolución (1080×1920), los fps (30 o 60), la paleta, las tipografías (con licencia libre, que soporten caracteres del gallego: ñ, á, é, í, ó, ú, ü), las zonas seguras (que la interfaz de TikTok/IG no tape nada) y el estilo de los dados, las siluetas de concello y los marcadores de vacas. Todos los textos en pantalla van en gallego.
 - **Archivos:** `docs/ESTILO.md`, `src/render/estilo.py`, `assets/fonts/`.
 - **Hecho cuando:** el usuario aprueba un fotograma de muestra estático (`output/muestras/estilo.png`) con texto en gallego.
