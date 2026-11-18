@@ -34,10 +34,10 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 - **Archivos:** `README.md`, `.gitignore`, `.env.example`, `requirements.txt` (o `package.json`), carpetas `src/`, `data/raw/`, `data/processed/`, `assets/audio/`, `assets/fonts/`, `output/`, `tests/`, `docs/`.
 - **Hecho cuando:** `git status` está limpio tras el primer commit, `.gitignore` excluye `output/`, `.env` y `data/raw/`, y el README explica en 5 líneas qué es el proyecto. ✅ Completado el 2026-11-18 sobre el repositorio real `XurxoGafas/concello-de-batalla-videos` (el intento anterior, en un repositorio distinto, no llegó a hacer push y se perdió al terminar esa sesión — ver `PROGRESO.md`).
 
-### [~] 1.2 Preparar el entorno y comprobar dependencias
+### [x] 1.2 Preparar el entorno y comprobar dependencias
 - **Qué:** Crear el entorno virtual, instalar las dependencias y comprobar que ffmpeg está disponible.
 - **Archivos:** `requirements.txt`, `scripts/check_env.py`.
-- **Hecho cuando:** `python scripts/check_env.py` imprime las versiones de Python, ffmpeg y las librerías clave sin errores.
+- **Hecho cuando:** `python scripts/check_env.py` imprime las versiones de Python, ffmpeg y las librerías clave sin errores. ✅ Completado el 2026-11-18: con la red activada, `pip install -r requirements.txt` funcionó en un entorno virtual y `check_env.py` terminó con «Entorno correcto».
 
 ---
 

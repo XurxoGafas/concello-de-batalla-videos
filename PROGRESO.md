@@ -100,3 +100,12 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Problemas encontrados:** (1) pérdida del trabajo del intento anterior de 1.1 por no haber hecho push — ya corregido con el commit de esta sesión y la nota añadida a `CLAUDE.md`; (2) red de `pip` bloqueada en esta cuenta, igual que en la sesión anterior — el usuario puede activar el acceso a la red para instalar paquetes desde los ajustes de su cuenta, o bien el paso 1.2 se puede cerrar ejecutando `check_env.py` en GitHub Actions (que instalará las dependencias desde el workflow de la fase 8) o en el propio ordenador del usuario.
 - **Pendiente:** paso 1.2 sigue `[~]` en curso. Para cerrarlo hace falta un entorno con red donde `pip install -r requirements.txt` funcione y `check_env.py` termine con «Entorno correcto» — candidatos: activar red en los ajustes de la cuenta de Claude para esta sesión, instalarlo en el ordenador del usuario, o adelantar el workflow de GitHub Actions (paso 8.2) para que sea ahí donde se verifique por primera vez. Se avisa al usuario de esta disyuntiva antes de decidir por cuenta propia.
 
+
+---
+
+## 2026-11-18 — Paso 1.2 completado (entorno y dependencias)
+
+- **Qué se hizo:** con el acceso a la red ya activado por el usuario, se creó un entorno virtual (`.venv`, ignorado por git), se instaló `requirements.txt` y se ejecutó `scripts/check_env.py`.
+- **Cómo se completó:** `python -m venv .venv` + `pip install -r requirements.txt` (pycairo se compiló sin problemas). Resultado de `check_env.py`: Python 3.13.18, ffmpeg 6.1.1, geopandas 1.2.0, shapely 2.2.0, pyproj 3.8.0, Pillow 13.0.0, pycairo 1.29.2, numpy 2.5.5, pandas 3.1.1, PyYAML 6.0.3, pytest 9.2.0 → «Entorno correcto». Paso 1.2 marcado `[x]` en `PLAN.md`.
+- **Problemas encontrados:** ninguno (el bloqueo de red de las sesiones anteriores ya no existe).
+- **Pendiente:** siguiente paso, 2.1 (conseguir los límites geográficos de los concellos). Hay que registrar fuente, fecha y licencia en `docs/FUENTES.md` (regla j). Recordar que el entorno de cada sesión es nuevo: habrá que repetir la instalación de dependencias.
