@@ -439,3 +439,11 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió:** que la hoja tenga filo solo por el lado que se cierra y el otro lado recto (lomo), para que parezca un cuchillo y no una daga.
 - **Cómo se resolvió:** hoja de un solo filo: lomo recto con la muesca de la uña, y filo curvo por el lado que mira al mango al girar (el que se cerraría hacia él), con un brillo en el filo. Muestra actualizada: `output/muestras/diseno_navaja_botella.png`.
 - **Pendiente:** aprobación del diseño; después, la animación del cruce.
+
+---
+
+## 2026-11-18 — Paso 4.4 (en curso): hoja sin círculo gris y con el brillo más corto
+
+- **Qué se pidió:** quitar el círculo gris de la parte exterior de la hoja y acortar la línea blanca del reflejo para que acabe antes del perfil.
+- **Cómo se resolvió:** eliminada la muesca de la uña (el círculo gris) y el brillo empieza y termina dentro de la hoja, sin tocar el contorno. Muestra: `output/muestras/diseno_navaja_botella.png`.
+- **Pendiente:** aprobación del diseño; después, la animación del cruce.
