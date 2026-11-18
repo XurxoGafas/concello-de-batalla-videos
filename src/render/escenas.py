@@ -35,6 +35,7 @@ from src.render.mapa import MapaGalicia
 
 CARPETA = E.RAIZ / "output" / "muestras"
 FUNDIDO = 0.2          # fundido cruzado entre escenas
+VELOCIDAD = 1.2        # el vídeo final se reproduce un 20 % más rápido (decisión del usuario, 2026-11-18)
 OBJETIVO = 85.0        # duración buscada del vídeo (el requisito es 80–90 s)
 D_INTRO = 2.0
 D_CIERRE_MIN, D_CIERRE_MAX = 10.0, 26.0
@@ -409,14 +410,16 @@ def construir_episodio(estado: dict, semilla_serie: str, mapa: MapaGalicia, obje
     return montar(escenas, final)
 
 
-def renderizar(m: Montaje, ruta: Path, fps: int = E.FPS, progreso: bool = False) -> Path:
-    n = math.ceil(m.duracion * fps)
+def renderizar(m: Montaje, ruta: Path, fps: int = E.FPS, progreso: bool = False,
+               velocidad: float = VELOCIDAD) -> Path:
+    """Renderiza el montaje; con `velocidad` > 1 se saltan instantes (el vídeo dura duracion / velocidad)."""
+    n = math.ceil(m.duracion / velocidad * fps)
 
     def gen():
         for i in range(n):
             if progreso and i % 150 == 0:
                 print(f"  fotograma {i}/{n}", flush=True)
-            yield fotograma_de_video(m, i / fps)
+            yield fotograma_de_video(m, min(i / fps * velocidad, m.duracion - 1e-6))
     return escribir_video(gen(), ruta, fps)
 
 

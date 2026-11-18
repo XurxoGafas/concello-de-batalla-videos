@@ -536,3 +536,8 @@ Las entradas no se borran. Las nuevas se añaden al final.
 **Cambio de plan (regla d):** PLAN.md 4.6 y DECISIONES.md actualizados; motivo: decisión del usuario del 2026-11-18.
 **Resultado:** vídeo de muestra de 85,0 s, render ≈151 s.
 **Pendiente:** aprobación del usuario de 4.6; la transición batalla→conquista aún usa fundido de 0,2 s; sonido en Fase 5.
+
+## 2026-11-18 — Paso 4.6 (revisión): vídeo un 20 % más rápido
+- **Qué se pidió:** hacer el vídeo un 20 % más rápido.
+- **Cómo:** `VELOCIDAD = 1.2` en `src/render/escenas.py`; `renderizar` toma muestras del montaje a ritmo ×1,2 (el montaje no cambia). La muestra pasa de 85,0 s a **70,9 s**.
+- **A tener en cuenta (regla d):** 70,9 s queda **por debajo del requisito de 80–90 s** de `PLAN.md`/`DECISIONES.md`. Pendiente de que el usuario decida: (a) aceptar ~71 s y bajar el requisito, o (b) alargar el contenido (p. ej. cierre más largo) para volver a 80–90 s con el ritmo nuevo. No se ha cambiado el plan hasta que decida. El audio de la Fase 5 deberá ajustarse a esta velocidad.
