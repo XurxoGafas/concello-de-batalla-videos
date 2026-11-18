@@ -42,7 +42,8 @@ def test_la_pantalla_tiene_el_tamano_y_el_panel_con_siluetas_y_texto(mapa, tmp_p
     # el texto (nombre) es blanco y está en su sitio; abajo del panel solo hay hierba
     assert (255, 255, 255) in {p for p in img.crop((0, EN.Y_NOMBRE, E.ANCHO, EN.Y_NOMBRE + 60)).get_flattened_data()}
     inferior = img.crop((0, E.ALTO - 300, E.ANCHO, E.ALTO))
-    assert max(p[1] for p in inferior.get_flattened_data()) > max(p[0] for p in inferior.get_flattened_data())
+    r, g, b = inferior.resize((1, 1), Image.BOX).getpixel((0, 0))
+    assert g > r + 10 and g > b + 30
 
 
 def test_los_textos_no_invaden_las_zonas_seguras(mapa):
@@ -58,3 +59,12 @@ def test_los_textos_no_invaden_las_zonas_seguras(mapa):
 def test_generar_crea_la_muestra(tmp_path):
     ruta = EN.generar(tmp_path / "e.png", previas=20)
     assert Image.open(ruta).size == (E.ANCHO, E.ALTO)
+
+
+def test_fondo_foto_cubre_el_fotograma_y_es_verde():
+    from src.render.fondo import fondo_foto
+
+    f = fondo_foto(E.ANCHO, E.ALTO)
+    assert f.size == (E.ANCHO, E.ALTO)
+    r, g, b = (sum(c) / (E.ANCHO * E.ALTO) for c in zip(*f.resize((54, 96)).get_flattened_data()))
+    assert g > r and g > b

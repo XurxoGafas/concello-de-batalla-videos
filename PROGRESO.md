@@ -341,3 +341,13 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Tests:** `tests/test_enfrentamiento.py` (5) → 170 en total, todos en verde.
 - **Problemas encontrados:** ninguno. La pantalla deja libre la zona de dados a propósito (continuidad con 4.4); las siluetas de territorios estrechos salen pequeñas.
 - **Pendiente:** que el usuario apruebe la muestra para marcar 4.3 `[x]`; después, 4.4 (dados y marcador).
+
+---
+
+## 2026-11-18 — Paso 4.3 (en curso): fondo con la foto de hierba del usuario
+
+- **Qué se pidió:** poner como fondo una foto de hierba que el usuario aportó (de una página «sin copyright»).
+- **Cómo se resolvió:** la imagen (`assets/img/hierba.avif`, 500×750) se escala para cubrir 1080×1920 y se recorta centrada, con un ligero afinado (`fondo_foto` en `src/render/fondo.py`). La usan `enfrentamiento.py` y las muestras (`estilo*.png`, `mapa_*.png`). La hierba dibujada por código se conserva como alternativa. Los tests de «zona inferior verde» se relajaron porque la foto es más apagada. 171 tests en verde.
+- **Licencia (regla j):** registrada en `docs/FUENTES.md` con lo que se sabe, pero **falta el nombre/URL de la página, el autor y el texto de la licencia**. Hasta tenerlos, no se publica ningún vídeo con este fondo.
+- **Problemas encontrados:** la foto es pequeña y se amplía ×2,5: queda algo suave, aceptable para un fondo. Para animar el viento (4.4+) la foto no ofrece fase de viento; se podría hacer un desplazamiento suave.
+- **Pendiente:** que el usuario facilite la fuente/licencia de la foto y apruebe la pantalla para marcar 4.3 `[x]`.

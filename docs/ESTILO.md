@@ -37,5 +37,7 @@ Los colores de cada concello son los de su bandera (paso 2.5; por ahora provisio
 
 - **Pantalla de enfrentamiento (4.3, `src/render/enfrentamiento.py`):** mapa con zoom y contornos rojos + panel con rótulo ATACA (rojo) / DEFENDE (blanco), silueta del territorio completo, nombre del dueño, «VS», y fila de pastillas de vaca (vacas de cada bando y dif. %). Los dados (4.4) aparecen debajo, en el hueco libre, reutilizando `fotograma_base`.
 
+- **Fondo (2026-11-18):** foto real de hierba aportada por el usuario (`assets/img/hierba.avif`, ver `docs/FUENTES.md`), escalada para cubrir el fotograma y recortada centrada (`fondo_foto`). Sustituye a la hierba dibujada por código (`fondo_hierba`, que se conserva como alternativa y por su soporte de viento animado).
+
 ## Pendiente de las siguientes fases
 Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y escenas (4.6).

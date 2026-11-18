@@ -19,7 +19,7 @@ from src.motor.estado import jugar_batalla
 from src.motor.persistencia import nueva_partida, semilla_de_batalla
 from src.motor.seleccion import elegir_atacante
 from src.render import estilo as E
-from src.render.fondo import fondo_hierba
+from src.render.fondo import fondo_foto
 from src.render.mapa import MapaGalicia
 
 CARPETA = E.RAIZ / "output" / "muestras"
@@ -27,7 +27,7 @@ MAPA_Y0 = 395
 
 
 def _base(episodio: int) -> tuple[Image.Image, ImageDraw.ImageDraw]:
-    img = fondo_hierba(E.ANCHO, E.ALTO)
+    img = fondo_foto(E.ANCHO, E.ALTO)
     d = ImageDraw.Draw(img)
     E.texto_centrado(d, E.ANCHO / 2, 232, "CONCELLO DE BATALLA", E.T_TITULO, E.ORO, borde=9)
     E.texto_centrado(d, E.ANCHO / 2, 318, f"Ep. {episodio}", E.T_SUBTITULO, E.BLANCO, borde=7)

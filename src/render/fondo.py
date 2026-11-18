@@ -93,3 +93,22 @@ def fondo_hierba(ancho: int, alto: int, semilla: int = 7, fase: float = 0.0) -> 
     vin = ImageChops.invert(vin.filter(ImageFilter.GaussianBlur(160)))
     sombra = Image.new("RGB", (ancho, alto), (4, 36, 14))
     return Image.composite(Image.blend(img, sombra, 0.55), img, vin)
+
+
+
+
+def fondo_foto(ancho: int, alto: int) -> Image.Image:
+    """Fondo con la foto de hierba de `assets/img/hierba.avif` (aportada por el usuario).
+
+    Se escala para cubrir todo el fotograma (la foto es pequeña, 500×750, así que se amplía y
+    se afina un poco) y se recorta centrada. Registrada en `docs/FUENTES.md`.
+    """
+    from pathlib import Path
+
+    ruta = Path(__file__).resolve().parents[2] / "assets" / "img" / "hierba.avif"
+    foto = Image.open(ruta).convert("RGB")
+    esc = max(ancho / foto.width, alto / foto.height)
+    foto = foto.resize((math.ceil(foto.width * esc), math.ceil(foto.height * esc)), Image.LANCZOS)
+    x, y = (foto.width - ancho) // 2, (foto.height - alto) // 2
+    foto = foto.crop((x, y, x + ancho, y + alto))
+    return foto.filter(ImageFilter.UnsharpMask(radius=2, percent=70, threshold=2))

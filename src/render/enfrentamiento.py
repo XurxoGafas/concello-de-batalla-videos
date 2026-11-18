@@ -23,7 +23,7 @@ from src.motor.multiplicador import diferencia_porcentual
 from src.motor.persistencia import nueva_partida, semilla_de_batalla
 from src.motor.seleccion import Enfrentamiento, elegir_enfrentamiento
 from src.render import estilo as E
-from src.render.fondo import fondo_hierba
+from src.render.fondo import fondo_foto
 from src.render.mapa import MapaGalicia, pintar
 
 CARPETA = E.RAIZ / "output" / "muestras"
@@ -57,7 +57,7 @@ def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio:
                    ) -> tuple[Image.Image, ImageDraw.ImageDraw]:
     """Título, mapa con zoom, líneas doradas, panel, siluetas, nombres, vacas y diferencia."""
     k, W, H = SUPERMUESTREO, E.ANCHO, E.ALTO
-    img = fondo_hierba(W, H)
+    img = fondo_foto(W, H)
     d = ImageDraw.Draw(img)
 
     E.texto_centrado(d, W / 2, 232, "CONCELLO DE BATALLA", E.T_TITULO, E.ORO, borde=9)

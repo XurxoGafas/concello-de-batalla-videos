@@ -36,3 +36,7 @@ Cada recurso externo se registra aquí con su fuente, fecha y licencia **antes d
 
 - **Lilita One** (Juan Montoreano). Licencia **SIL Open Font License 1.1** (uso libre, también comercial y dentro de vídeos; no se puede vender la fuente por sí sola). Descargada el 2026-11-18 de `https://github.com/google/fonts/tree/main/ofl/lilitaone` (Google Fonts). Archivos: `assets/fonts/LilitaOne-Regular.ttf` y `assets/fonts/OFL-LilitaOne.txt` (texto de la licencia).
 - Cobertura comprobada con un test: ñ Ñ á é í ó ú Á É Í Ó Ú ü Ü ¡ ¿ × « » y cifras. Solo trae un peso (ya es negrita, estilo redondeado de juego, parecido al del vídeo de referencia).
+
+## Imágenes
+
+- **Foto de hierba (fondo de los vídeos)** — `assets/img/hierba.avif` (500×750 px). Aportada por el usuario el 2026-11-18, que indica que procede de una página de imágenes **sin copyright (libre de derechos)**. **Pendiente:** anotar aquí el nombre/URL de la página, el autor y el texto exacto de la licencia (el usuario aún no los ha facilitado), y comprobar que permite uso comercial en redes sociales sin atribución obligatoria (o añadir la atribución a las descripciones). Regla j: hasta tenerlo registrado, no se publica ningún vídeo con este fondo. El fondo de hierba dibujado por código (`fondo_hierba`) se conserva como alternativa sin licencias externas.

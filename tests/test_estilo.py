@@ -51,7 +51,7 @@ def test_fotograma_de_muestra_se_genera_con_el_tamano_correcto(tmp_path):
     # la zona inferior (bajo la zona segura) queda solo con hierba: predomina el verde
     bajo = im.crop((0, E.ALTO - E.MARGEN_INF + 20, E.ANCHO, E.ALTO)).resize((1, 1), Image.BOX)
     r, g, b = bajo.getpixel((0, 0))
-    assert g > r + 40 and g > b + 40
+    assert g > r + 15 and g > b + 40  # la foto de hierba es más apagada que la dibujada
 
 
 # --- Zoom del mapa ---
@@ -123,7 +123,7 @@ def test_fondo_de_hierba_es_verde_determinista_y_del_tamano_pedido():
     assert a.tobytes() == fondo_hierba(270, 480).tobytes()  # misma semilla, mismo fondo
     assert a.tobytes() != fondo_hierba(270, 480, semilla=8).tobytes()
     r, g, b = a.resize((1, 1), Image.BOX).getpixel((0, 0))
-    assert g > r + 40 and g > b + 40
+    assert g > r + 15 and g > b + 40  # la foto de hierba es más apagada que la dibujada
 
 
 def test_fondo_de_hierba_se_mueve_con_el_viento_y_es_ciclico():

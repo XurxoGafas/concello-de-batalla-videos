@@ -3,7 +3,7 @@
 Genera en `output/muestras/` tres fotogramas con datos reales (se simulan N batallas con una
 semilla y se dibuja la siguiente, a mitad de tirada) para ver cómo se comporta el zoom:
 
-Sobre un fondo de hierba (`fondo_hierba`).
+Sobre la foto de hierba (`fondo_foto`).
 
 - `estilo.png`: dos territorios medianos (4 concellos contra 4).
 - `estilo_zoom_minimo.png`: dos concellos sueltos (el zoom no pasa de un mínimo).
