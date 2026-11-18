@@ -16,7 +16,7 @@ import random
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 from src.motor.estado import jugar_batalla
 from src.motor.multiplicador import diferencia_porcentual, multiplicadores
@@ -105,6 +105,9 @@ def dibujar_bando(img: Image.Image, d: ImageDraw.ImageDraw, estado: dict, mapa: 
     pintar(ImageDraw.Draw(sil), geom, caja_silueta(geom.bounds, 300, ALTO_SILUETA, k),
            estado["donos"][dono]["cor"]["colores"][0], E.FONDO, 3 * k)
     sil = sil.resize((300, ALTO_SILUETA), Image.LANCZOS)
+    # halo blanco alrededor de la silueta, para que se vea también sobre una mancha negra del panel
+    halo = sil.getchannel("A").filter(ImageFilter.MaxFilter(11)).filter(ImageFilter.GaussianBlur(1))
+    img.paste(Image.new("RGB", sil.size, E.BLANCO), (int(cx - 150), Y_SILUETA), halo)
     img.paste(sil.convert("RGB"), (int(cx - 150), Y_SILUETA), sil.getchannel("A"))
     lineas, t = E.dividir_nombre(estado["donos"][dono]["nome"], 52, ANCHO_NOMBRE, minimo=30)
     for n, linea in enumerate(lineas):

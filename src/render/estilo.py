@@ -309,28 +309,38 @@ AZUL_DEFENSA = "#1B5FD6"  # rótulo DEFENDE sobre el panel blanco
 
 
 def panel_vaca(ancho: int, alto: int, semilla: str = "panel") -> Image.Image:
-    """Panel blanco con grandes manchas de vaca (negras), determinista.
+    """Panel blanco con manchas de vaca Holstein (negras), determinista.
 
-    Las manchas son grandes y salen sobre todo por los bordes; el texto que se escribe encima
-    lleva siempre halo blanco, así que se lee también sobre una mancha.
+    Manchas medianas y repartidas por todo el panel (muestreo de disco de Poisson: ninguna mancha
+    demasiado cerca de otra), algo menos densas en el centro, donde van los dados y el marcador. El
+    texto que se escribe encima lleva siempre halo blanco, así que se lee también sobre una mancha.
     """
     k = 2
     img = Image.new("RGB", (ancho * k, alto * k), VACA_BLANCO)
     d = ImageDraw.Draw(img)
     rng = random.Random(semilla)
-    n = max(6, round(ancho * alto / 100_000))
-    for i in range(n):
-        lado = -1 if i % 2 == 0 else 1  # alternan izquierda y derecha, como las manchas de una vaca
-        x = ancho / 2 + lado * rng.uniform(0.40, 0.50) * ancho  # cerca del borde
-        y = (i + rng.uniform(0.2, 0.8)) * alto / n
-        r = rng.uniform(65, 100)
+    dist = 175  # separación mínima entre centros de manchas
+    puntos: list[tuple[float, float, float]] = []
+    intentos = 0
+    while intentos < 4000:
+        intentos += 1
+        x, y = rng.uniform(-30, ancho + 30), rng.uniform(-20, alto + 20)
+        cerca_centro = 1 - abs(x - ancho / 2) / (ancho / 2)  # 1 en el centro, 0 en los bordes
+        if rng.random() < 0.45 * cerca_centro:
+            continue
+        if all((x - px) ** 2 + (y - py) ** 2 >= dist ** 2 for px, py, _ in puntos):
+            puntos.append((x, y, rng.uniform(30, 52)))
+    for x, y, r in puntos:
         fases = [rng.uniform(0, 2 * math.pi) for _ in range(3)]
+        giro = rng.uniform(0, math.pi)
         pts = []
-        for j in range(48):  # contorno suave: círculo con 3 ondulaciones de baja frecuencia
+        for j in range(48):  # contorno suave: elipse con ondulaciones de baja frecuencia
             a_ = 2 * math.pi * j / 48
-            rr = r * (1 + 0.16 * math.sin(2 * a_ + fases[0]) + 0.12 * math.sin(3 * a_ + fases[1])
-                      + 0.08 * math.sin(5 * a_ + fases[2]))
-            pts.append(((x + math.cos(a_) * rr * 1.25) * k, (y + math.sin(a_) * rr) * k))
+            rr = r * (1 + 0.18 * math.sin(2 * a_ + fases[0]) + 0.12 * math.sin(3 * a_ + fases[1])
+                      + 0.07 * math.sin(5 * a_ + fases[2]))
+            ex, ey = math.cos(a_) * rr * 1.3, math.sin(a_) * rr
+            gx, gy = ex * math.cos(giro) - ey * math.sin(giro), ex * math.sin(giro) + ey * math.cos(giro)
+            pts.append(((x + gx) * k, (y + gy) * k))
         d.polygon(pts, fill=VACA_MANCHA)
     return img.resize((ancho, alto), Image.LANCZOS)
 

@@ -72,3 +72,8 @@ Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y es
 - Sorteo de atacante: ≈2 s recorriendo distintos dueños (territorio resaltado + panel con nombre, silueta y vacas) antes de fijar el atacante.
 - Zoom: interpolación *smootherstep* con tamaño de ventana exponencial y centro proporcional al zoom, redibujando el mapa en cada fotograma a 30 fps.
 - Cierre: rankings «MÁIS VITORIAS» y «MÁIS VACAS» (vacas del territorio acumulado).
+
+### Paleta Holstein y mapa grande en el sorteo (cambio 2026-11-19)
+- **Panel Holstein:** blanco con manchas negras **medianas (radio 30–52 px) y repartidas por todo el panel** (muestreo de disco de Poisson, separación mínima 175 px, algo menos densas en el centro). Las siluetas de los bandos llevan halo blanco para leerse también sobre una mancha. El usuario eligió Holstein frente a las otras paletas probadas (`output/muestras/paletas_vaca.png` y el diseño de Canva «Panel de batalla con paletas de vaca»).
+- **Intro:** el mapa general se ve desde el primer fotograma (sin fundido de entrada).
+- **Mapa grande en el sorteo del atacante:** la banda del mapa mide 740 px (en vez de 440) y el panel baja 300 px. Al hacer zoom al atacante, el mapa encoge hasta 440 px y el panel sube **en el mismo movimiento suave** (misma curva *smootherstep* que el zoom); en la 2.ª y 3.ª batalla ocurre lo contrario al alejarse. La ventana del mapa se calcula a partir de la escala y la altura de la banda en cada fotograma, así el mapa nunca se deforma.

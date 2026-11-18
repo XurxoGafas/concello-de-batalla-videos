@@ -77,7 +77,15 @@ def test_panel_de_vaca_es_blanco_con_manchas_y_determinista():
     blancos = sum(p == (255, 255, 255) for p in px) / len(px)
     negros = sum(max(p) < 60 for p in px) / len(px)
     assert 0.6 < blancos < 0.95 and 0.05 < negros < 0.35
-    assert a.getpixel((270, 300)) == (255, 255, 255)  # el centro, donde va el texto, queda blanco
+    # manchas repartidas: hay negro también en la franja central, pero menos que en los bordes
+    def negro(x0, x1):
+        zona = list(a.crop((x0, 0, x1, 600)).get_flattened_data())
+        return sum(max(p) < 60 for p in zona) / len(zona)
+    assert 0 < negro(180, 360) < max(negro(0, 180), negro(360, 540))
+    # manchas pequeñas: ningún cuadrado de 110 px es todo negro
+    for x in range(0, 430, 20):
+        for y in range(0, 490, 20):
+            assert a.crop((x, y, x + 110, y + 110)).convert("L").getextrema()[1] > 60
 
 
 def test_el_mar_del_mapa_es_azul_cielo(mapa):

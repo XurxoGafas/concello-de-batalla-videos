@@ -40,7 +40,6 @@ OBJETIVO = 85.0        # duración buscada del vídeo (el requisito es 80–90 s
 D_INTRO = 2.0
 D_CIERRE_MIN, D_CIERRE_MAX = 10.0, 26.0
 D_FINAL_SERIE = 9.0
-MAPA_INTRO_ALTO = 840  # el mapa de la intro y del cierre ocupa más que el del enfrentamiento
 
 
 class Escena(Protocol):
@@ -64,23 +63,49 @@ def _mezclar(a: Image.Image, b: Image.Image, p: float) -> Image.Image:
     return Image.blend(a, b, D.limitar(p))
 
 
+# Durante el sorteo del atacante el mapa es más alto (Galicia se ve más grande) y el panel queda
+# desplazado hacia abajo; al hacer zoom al atacante el mapa encoge y el panel sube, en un solo movimiento.
+MAPA_GRANDE = M.MAPA_ALTO + 300  # 740 px; el panel baja 300 px (debajo solo queda la zona vacía de dados)
+
+
+def componer(panel: Image.Image, banda: Image.Image) -> Image.Image:
+    """Fotograma con el mapa `banda` (1080 × alto variable) y el panel de `panel` (maquetación normal)
+    desplazado hacia abajo lo que el mapa crece; la línea dorada va siempre justo bajo el mapa."""
+    alto = banda.height
+    desp = alto - M.MAPA_ALTO
+    img = panel.copy()
+    if desp > 0:
+        franja = panel.crop((0, M.LINEA_Y, E.ANCHO, M.PANEL_FIN - desp))
+        img.paste(franja, (0, M.LINEA_Y + desp))
+    img.paste(banda, (0, M.MAPA_Y0))
+    return img
+
+
+def ventana_con_alto(v0, v1, u: float, alto: float):
+    """Interpola dos ventanas (pueden tener distinta proporción) para una banda de 1080 × `alto` px:
+    centro y escala como `_interpolar`; la altura de la ventana sale de la escala, así nunca se deforma."""
+    x0, y0, x1, y1 = _interpolar(v0, v1, u)
+    cx, cy, w = (x0 + x1) / 2, (y0 + y1) / 2, x1 - x0
+    h = w * alto / E.ANCHO
+    return (cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2)
+
+
 # ---------- Fase 1: intro ----------
 
 class EscenaIntro:
-    """Título, número de episodio y mapa general de Galicia (entra con un fundido). Su último fotograma
-    es el primero de la selección: el mapa y el panel son los mismos, así que no se nota el corte."""
+    """Título, número de episodio y mapa general de Galicia, visible desde el primer fotograma y en
+    tamaño grande. Es idéntico al primer fotograma del sorteo del atacante, así que no hay corte."""
 
     duracion = D_INTRO
     fundido = 0.0
 
     def __init__(self, estado: dict, episodio: int, mapa: MapaGalicia) -> None:
-        self.vacio, _ = M.marco_vacio(episodio)
-        self.lleno = self.vacio.copy()
-        ventana = mapa.ventana_general(E.ANCHO / M.MAPA_ALTO)
-        self.lleno.paste(mapa.dibujar(estado, ventana, E.ANCHO, M.MAPA_ALTO), (0, M.MAPA_Y0))
+        vacio, _ = M.marco_vacio(episodio)
+        ventana = mapa.ventana_general(E.ANCHO / MAPA_GRANDE)
+        self.img = componer(vacio, mapa.dibujar(estado, ventana, E.ANCHO, MAPA_GRANDE))
 
     def fotograma(self, t: float) -> Image.Image:
-        return _mezclar(self.vacio, self.lleno, _suave((t - 0.15) / 0.7))
+        return self.img.copy()
 
 
 # ---------- Fases 2 y 3: selección de atacante y defensor ----------
@@ -140,7 +165,7 @@ class EscenaSeleccion:
         self.estado, self.f, self.mapa = estado, f, mapa
         self.fundido = FUNDIDO if ventana_previa else 0.0
         prop = E.ANCHO / M.MAPA_ALTO
-        self.v0 = mapa.ventana_general(prop)
+        self.v0 = mapa.ventana_general(E.ANCHO / MAPA_GRANDE)  # vista general, con el mapa grande
         self.v1 = mapa.ventana_atacante(estado, f.atacante, prop)
         self.v2 = mapa.ventana_enfrentamiento(estado, f.atacante, f.defensor, prop)
         self.vprev, self.ganador_previo = ventana_previa, ganador_previo
@@ -179,16 +204,17 @@ class EscenaSeleccion:
             self._cache[clave] = img
         return self._cache[clave]
 
-    def _banda(self, ventana, contornos: tuple, nombres: tuple, cachear: bool = True) -> Image.Image:
+    def _banda(self, ventana, contornos: tuple, nombres: tuple, cachear: bool = True,
+               alto: int = M.MAPA_ALTO) -> Image.Image:
         """`contornos`: tuplas (clave, tipo, color, grosor); tipo «dono» (territorio) o «concello»."""
-        clave = ("banda", tuple(round(v, 1) for v in ventana), contornos, nombres)
+        clave = ("banda", tuple(round(v, 1) for v in ventana), contornos, nombres, alto)
         if clave in self._cache:
             return self._cache[clave]
         cont = []
         for ident, tipo, color, grosor in contornos:
             ids = self.estado["donos"][ident]["territorio"] if tipo == "dono" else [ident]
             cont.append((self.mapa.geometria(ids), color, grosor))
-        img = self.mapa.dibujar(self.estado, ventana, E.ANCHO, M.MAPA_ALTO, contornos=cont, nombres=list(nombres))
+        img = self.mapa.dibujar(self.estado, ventana, E.ANCHO, alto, contornos=cont, nombres=list(nombres))
         if cachear:
             self._cache[clave] = img
         return img
@@ -206,31 +232,35 @@ class EscenaSeleccion:
         f, ORO, ROJO = self.f, E.ORO, E.CONFLICTO
         if t >= self.duracion:
             return self.completo.copy()
-        # 1) alejarse desde la batalla anterior
+        # 1) alejarse desde la batalla anterior (el mapa crece a la vez que se aleja)
         if self.vprev is not None and t < self.t_a:
             u = _facil(t / D_ZOOM_SALIDA)
-            ventana = _interpolar(self.vprev, self.v0, u)
-            banda = self._banda(ventana, ((self.ganador_previo, "dono", ORO, 6),) if u < 1 else (), (), cachear=False)
-            return self._compuesto(self.vacio, banda)
-        # 2) sorteo del atacante (mapa general)
+            alto = round(M.MAPA_ALTO + (MAPA_GRANDE - M.MAPA_ALTO) * u)
+            ventana = ventana_con_alto(self.vprev, self.v0, u, alto)
+            banda = self._banda(ventana, ((self.ganador_previo, "dono", ORO, 6),) if u < 1 else (), (),
+                                cachear=False, alto=alto)
+            return componer(self.vacio, banda)
+        # 2) sorteo del atacante (mapa general grande)
         if t < self.t_z:
             i = self._paso(t, self.t_a, self.pasos_a) if t >= self.t_a else None
             if i is None:
-                return self._compuesto(self.vacio, self._banda(self.v0, (), ()))
+                return componer(self.vacio, self._banda(self.v0, (), (), alto=MAPA_GRANDE))
             bloqueado = t >= self.t_a_bloqueo
             cand = self.sec_a[i]
             color = ROJO if bloqueado else ORO
             clave = ("frame_a", cand, bloqueado)
             if clave not in self._cache:
-                banda = self._banda(self.v0, ((cand, "dono", color, 8),), ())
-                self._cache[clave] = self._compuesto(self._panel_candidato(cand, bloqueado), banda)
+                banda = self._banda(self.v0, ((cand, "dono", color, 8),), (), alto=MAPA_GRANDE)
+                self._cache[clave] = componer(self._panel_candidato(cand, bloqueado), banda)
             return self._cache[clave].copy()
         panel = self._panel_candidato(f.atacante, True)
-        # 3) zoom hasta el atacante
+        # 3) zoom hasta el atacante: el mapa encoge y el panel sube en el mismo movimiento
         if t < self.t_z + D_ZOOM_ENTRADA:
             u = _facil((t - self.t_z) / D_ZOOM_ENTRADA)
-            banda = self._banda(_interpolar(self.v0, self.v1, u), ((f.atacante, "dono", ROJO, 6),), (), cachear=False)
-            return self._compuesto(panel, banda)
+            alto = round(MAPA_GRANDE + (M.MAPA_ALTO - MAPA_GRANDE) * u)
+            ventana = ventana_con_alto(self.v0, self.v1, u, alto)
+            banda = self._banda(ventana, ((f.atacante, "dono", ROJO, 6),), (), cachear=False, alto=alto)
+            return componer(panel, banda)
         base_atq = ((f.atacante, "dono", ROJO, 6),)
         # 4) sorteo del defensor (vista del atacante y sus vecinos)
         if t < self.t_m:
@@ -249,9 +279,7 @@ class EscenaSeleccion:
         return self._compuesto(_mezclar(panel, self.completo, entra), banda)
 
     def _compuesto(self, panel: Image.Image, banda: Image.Image) -> Image.Image:
-        img = panel.copy()
-        img.paste(banda, (0, M.MAPA_Y0))
-        return img
+        return componer(panel, banda)
 
 
 # ---------- Fases 4–5: duelo, dados y marcador; fase 6: conquista ----------

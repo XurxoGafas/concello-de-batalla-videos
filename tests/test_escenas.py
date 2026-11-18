@@ -8,6 +8,7 @@ from src.motor.estado import jugar_batalla
 from src.motor.persistencia import nueva_partida, semilla_de_batalla
 from src.render import escenas as S
 from src.render import estilo as E
+from src.render import enfrentamiento as M
 from src.render import ranking as R
 from src.render.mapa import MapaGalicia
 
@@ -136,3 +137,23 @@ def test_un_episodio_que_acaba_la_serie_termina_con_la_escena_del_campeon(mapa):
     estado["batallas_jugadas"] = n
     m = S.construir_episodio(estado, "fin", mapa)
     assert _tipos(m)[-1] == "EscenaFinalSerie" and _tipos(m).count("EscenaBatalla") == 1
+
+
+def test_mapa_grande_en_el_sorteo_y_encoge_sin_saltos(montaje):
+    sel = montaje.escenas[1]
+    # durante el sorteo del atacante, la línea dorada bajo el mapa está más abajo (mapa grande)
+    def y_linea(img):
+        for y in range(M.LINEA_Y - 5, S.MAPA_GRANDE + M.MAPA_Y0 + 10):
+            r, g, b = img.getpixel((5, y))
+            if r > 200 and 150 < g < 210 and b < 90:
+                return y
+        return None
+    alturas = [y_linea(sel.fotograma(sel.t_z + k * S.D_ZOOM_ENTRADA / 10)) for k in range(11)]
+    assert alturas[0] == M.MAPA_Y0 + S.MAPA_GRANDE and alturas[-1] == M.LINEA_Y
+    assert all(b <= a for a, b in zip(alturas, alturas[1:]))          # siempre sube, nunca rebota
+    assert max(a - b for a, b in zip(alturas, alturas[1:])) < 80      # sin saltos bruscos
+
+
+def test_intro_muestra_el_mapa_desde_el_primer_fotograma(montaje):
+    intro = montaje.escenas[0]
+    assert intro.fotograma(0.0).tobytes() == intro.fotograma(intro.duracion).tobytes()
