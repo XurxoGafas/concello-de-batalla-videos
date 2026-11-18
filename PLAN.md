@@ -97,10 +97,10 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 - **Archivos:** `src/motor/persistencia.py`, `data/partida/estado_actual.json`, `data/partida/historial.jsonl`.
 - **Hecho cuando:** ejecutar 5 batallas seguidas en 5 procesos distintos da el mismo resultado que 5 batallas en un solo proceso con la misma semilla, y el contador de victorias de cada dueño es correcto tras la secuencia. ✅ Completado el 2026-11-18: `src/motor/persistencia.py`, 11 tests en verde (130 en total), incluido el de 5 procesos distintos frente a 1. Semilla de serie secreta (`SEMILLA_SERIE`) y semilla derivada por batalla (ver `docs/DECISIONES.md`).
 
-### [ ] 3.6 Simulación por consola
+### [x] 3.6 Simulación por consola
 - **Qué:** Un comando que simula N batallas e imprime el resultado en texto.
 - **Archivos:** `src/cli.py`.
-- **Hecho cuando:** `python -m src.cli simular --batallas 10 --semilla 42` imprime 10 batallas legibles, siempre iguales con la misma semilla.
+- **Hecho cuando:** `python -m src.cli simular --batallas 10 --semilla 42` imprime 10 batallas legibles, siempre iguales con la misma semilla. ✅ Completado el 2026-11-18: `src/cli.py`, 7 tests en verde (137 en total). **Fase 3 (motor) completa.**
 
 ---
 

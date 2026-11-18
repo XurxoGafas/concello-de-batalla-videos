@@ -248,3 +248,13 @@ Las entradas no se borran. Las nuevas se añaden al final.
   - No se ha creado todavía `data/partida/estado_actual.json`: la serie real empezará con el comando de la fase 6/8 y la semilla elegida por el usuario.
 - **Problemas encontrados:** ninguno de fondo (un test comparaba tuplas con listas tras pasar por JSON; se ajustó el test).
 - **Pendiente:** (1) el usuario debe elegir y guardar la semilla de serie antes de empezar la serie real (en GitHub Secrets, paso 8.1, y una copia propia); (2) siguiente paso 3.6 (simulación por consola, `src/cli.py`), que usará una semilla pasada por argumento para las pruebas.
+
+---
+
+## 2026-11-18 — Paso 3.6 completado (simulación por consola) · Fase 3 cerrada
+
+- **Qué se hizo:** `src/cli.py` con el comando `python -m src.cli simular --batallas N --semilla S`, y sus tests en `tests/test_cli.py`.
+- **Cómo se completó:** simula N batallas desde el estado inicial de Galicia y escribe cada una en texto: bandos (con el tamaño del territorio si tiene más de un concello), vacas, las 3 tiradas con quién suma, puntos, multiplicador, puntuación final con decimales, muerte súbita si la hay, ganador y estado resultante. Usa las mismas semillas derivadas que la persistencia (`semilla_de_batalla`), así que la batalla n-ésima de una semilla es la misma que jugaría la serie real con esa semilla de serie. **No guarda nada** en `data/partida/`. Se detiene si la partida termina.
+- **7 tests en verde (137 en total):** el comando exacto del plan imprime 10 batallas completas; misma semilla → misma salida y otra semilla → otra; las primeras batallas no dependen de cuántas se pidan; no escribe en `data/partida/`; una simulación completa de Galicia termina en 312 batallas con ganador; argumentos inválidos fallan; formato de números (1.234, 10,5).
+- **Problemas encontrados:** ninguno (limpié una línea mía mal escrita antes de probar).
+- **Pendiente:** la fase 3 está completa. Siguiente: fase 4 (gráficos), empezando por el paso 4.1 (guía visual), que exige aprobación del usuario de un fotograma de muestra. Antes conviene decidir con el usuario el paso 2.5 (banderas) o seguir con colores provisionales; también necesita elegir tipografía con licencia libre (registrar en `docs/FUENTES.md`, regla j) y revisar el vídeo de referencia.
