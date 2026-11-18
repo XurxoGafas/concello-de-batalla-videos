@@ -48,10 +48,10 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 - **Archivos:** `data/raw/concellos.*` (shapefile/GeoJSON), `docs/FUENTES.md`.
 - **Hecho cuando:** el archivo carga con geopandas, el número de concellos coincide con el número oficial actual y `docs/FUENTES.md` recoge la fuente y la licencia. ✅ Completado el 2026-11-18: fuente IGN (CC BY 4.0), 313 concellos, descarga reproducible con `scripts/descargar_concellos.py`.
 
-### [ ] 2.2 Simplificar la geometría y calcular las adyacencias
-- **Qué:** Simplificar los polígonos para dibujar rápido y calcular qué concellos son colindantes (comparten frontera, no solo un punto).
-- **Archivos:** `src/datos/geometria.py`, `data/processed/concellos.geojson`, `data/processed/adyacencias.json`.
-- **Hecho cuando:** existe un test que comprueba 3 parejas conocidas de vecinos (p. ej. Ordes–Cerceda) y 3 parejas que no lo son, todo concello tiene al menos un vecino y la relación es simétrica.
+### [x] 2.2 Simplificar la geometría y calcular las adyacencias
+- **Qué:** Simplificar los polígonos para dibujar rápido y calcular qué concellos son colindantes: se tocan por una línea **o solo por una esquina (un punto)**, según decidió el usuario el 2026-11-18. Los concellos sin contacto físico (la isla de A Illa de Arousa) se conectan a mano en `data/vecindades_manuales.json`.
+- **Archivos:** `src/datos/geometria.py`, `data/vecindades_manuales.json`, `data/processed/concellos.geojson`, `data/processed/adyacencias.json`, `tests/test_geometria.py`.
+- **Hecho cuando:** existe un test que comprueba 3 parejas conocidas de vecinos (p. ej. Ordes–Cerceda) y 3 parejas que no lo son, todo concello tiene al menos un vecino y la relación es simétrica. ✅ Completado el 2026-11-18: 313 concellos, 827 parejas de vecinos (826 por contacto + 1 manual), 18 tests en verde.
 
 ### [ ] 2.3 Conseguir el censo de vacas por concello
 - **Qué:** Localizar datos oficiales de cabezas de ganado bovino por concello (candidatas: Xunta – Consellería do Medio Rural, IGE, INE). Si un concello tiene oficialmente 0 vacas, se usa 1 vaca (para evitar divisiones por cero). Si falta el dato de algún concello en la fuente, listar esos concellos y preguntar al usuario cómo resolverlos (no inventar un valor).

@@ -1,0 +1,10 @@
+{
+  "descripcion": "Vecindades que no salen de la geometría (concellos sin contacto físico, como las islas). Se identifican por nombre y se añaden a las adyacencias de forma simétrica.",
+  "vecindades": [
+    {
+      "a": "A Illa de Arousa",
+      "b": "Vilanova de Arousa",
+      "motivo": "Isla sin frontera terrestre; la une al continente el puente de la PO-307 con Vilanova de Arousa. Decidido por el usuario el 2026-11-18."
+    }
+  ]
+}

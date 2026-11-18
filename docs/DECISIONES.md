@@ -53,6 +53,12 @@ El porcentaje se calcula como `(vacas_mayor − vacas_menor) / vacas_menor`, es 
 
 **Confirmado:** las vacas que cuentan para el multiplicador son las del **territorio completo** del dueño, no solo las del concello implicado directamente en la batalla. Las vacas se suman al conquistar: si A Coruña (1200 vacas) le gana a Arteixo (1500 vacas), A Coruña pasa a tener `1200 + 1500 = 2700` vacas en total, y esa cifra es la que se usará en cualquier batalla futura de ese territorio (ataque o defensa), sea con el concello que fue originalmente A Coruña o con cualquier otro concello limítrofe de su territorio combinado.
 
+## Vecindad entre concellos (paso 2.2)
+
+**Confirmado por el usuario (2026-11-18):** dos concellos son vecinos si sus fronteras se tocan, **aunque solo coincidan en una esquina (un único punto)**; no hace falta que compartan una línea. Con los datos del IGN salen 826 parejas por contacto (806 por línea y 20 solo por un punto).
+
+**Isla de A Illa de Arousa:** no toca a ningún concello. Sin una conexión manual no podría atacar ni ser atacada, y la serie no podría terminar con un único dueño. El usuario eligió conectarla a mano; hoy está conectada solo con **Vilanova de Arousa** (el puente de la PO-307 la une con ese concello). *Pendiente de confirmar:* el usuario eligió «Vilanova de Arousa y O Grove» basándose en un dato no verificado que le di (que el puente llegaba a ambos); las fuentes de la Xunta solo mencionan Vilanova. Si quiere añadir O Grove igualmente, basta una línea en `data/vecindades_manuales.json`.
+
 ## Fusión de territorio
 
 - El territorio y las vacas del perdedor pasan íntegros al ganador (ver sección anterior).
