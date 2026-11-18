@@ -159,10 +159,11 @@ def botella_sprite(alto: int = 280) -> Image.Image:
     return _recortar(im, alto=alto)
 
 
-ANGULO_NAVAJA, ANGULO_BOTELLA = 32, 28  # grados (antihorario) finales con los que se cruzan la navaja y la botella (como dos espadas)
-# Desplazamientos (px) de cada objeto respecto al centro al cruzarse: la navaja cruza por el cuello de
-# la botella y deja a la vista la etiqueta.
-DESPL_NAVAJA, DESPL_BOTELLA = (-6, -52), (6, 18)
+# Pose final del choque (grados, positivo = antihorario; px respecto al centro de la zona). La navaja va
+# **abierta y recta**, apoyada hacia la derecha, y golpea con el filo (su lado curvo) el hombro de la
+# botella, que se inclina hacia ella.
+ANGULO_NAVAJA, ANGULO_BOTELLA = -122, 14
+DESPL_NAVAJA, DESPL_BOTELLA = (-62, -24), (58, -24)
 
 
 def destello_sprite(tam: int = 260) -> Image.Image:
@@ -181,20 +182,14 @@ def destello_sprite(tam: int = 260) -> Image.Image:
     return im.resize((tam, tam), Image.LANCZOS)
 
 
-def navaja_botella_sprite(tam: int = 260) -> Image.Image:
-    """Icono estático del duelo: navaja y botella ya cruzadas, como dos espadas."""
-    nav = navaja_sprite(330).rotate(-ANGULO_NAVAJA, resample=Image.BICUBIC, expand=True)
-    bot = botella_sprite(300).rotate(-ANGULO_BOTELLA, resample=Image.BICUBIC, expand=True)
-    lado = max(nav.width, bot.width, nav.height, bot.height) + 120
-    img = Image.new("RGBA", (lado, lado), (0, 0, 0, 0))
-    for sp, (dx, dy) in ((bot, DESPL_BOTELLA), (nav, DESPL_NAVAJA)):  # la navaja va por delante
-        img.alpha_composite(sp, ((lado - sp.width) // 2 + dx, (lado - sp.height) // 2 + dy))
-    img = img.crop(img.getbbox())
-    lado = max(img.size)
-    cuadro = Image.new("RGBA", (lado, lado), (0, 0, 0, 0))
-    cuadro.alpha_composite(img, ((lado - img.width) // 2, (lado - img.height) // 2))
-    img = cuadro
-    return img.resize((tam, tam), Image.LANCZOS)
+def texto_sprite(texto: str, tam: int, color: str, color_borde: str = E.FONDO, borde: int = 9) -> Image.Image:
+    """Texto con trazo grueso como imagen RGBA (para animarlo: escalarlo, hacerlo aparecer…)."""
+    f = E.fuente(tam)
+    x0, y0, x1, y1 = ImageDraw.Draw(Image.new("L", (1, 1))).textbbox((0, 0), texto, font=f, anchor="ls", stroke_width=borde)
+    im = Image.new("RGBA", (x1 - x0 + 8, y1 - y0 + 8), (0, 0, 0, 0))
+    ImageDraw.Draw(im).text((4 - x0, 4 - y0), texto, font=f, fill=color, anchor="ls", stroke_width=borde,
+                            stroke_fill=color_borde)
+    return im
 
 
 # ---------- Pegado con escala y opacidad ----------

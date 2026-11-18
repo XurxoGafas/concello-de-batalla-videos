@@ -455,3 +455,12 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió:** hacer el vídeo de prueba con la navaja y la botella cruzándose como espadas antes de pasar a los dados (diseño aprobado por el usuario).
 - **Cómo se resolvió:** `_duelo` en `animacion_batalla.py`: la navaja entra desde la izquierda y la botella desde la derecha, girando (0,55 s); al chocar sale un destello dorado (`destello_sprite`) y un breve temblor; quedan cruzadas (navaja a 32°, botella a 28°, con la navaja cruzando por el cuello de la botella para que se lea la etiqueta) y se desvanecen antes de los dados. La fase del duelo dura ahora 1,7 s (antes 1,1 s). Vídeos regenerados: `batalla_sin_audio.mp4` (11,0 s) y `batalla_muerte_subita.mp4` (13,5 s); imagen fija del cruce: `output/muestras/duelo_cruzado.png`. Test nuevo del duelo: 185 tests en verde.
 - **Pendiente:** aprobación de los vídeos para marcar 4.4 `[x]`; después, 4.5 (conquista; ahí hay que decidir si el «icono de espada apuntando al ganador» pasa a ser la navaja).
+
+---
+
+## 2026-11-18 — Paso 4.4 (en curso): choque con la navaja abierta, «LIORTA!» y tarjeta en llamas
+
+- **Qué se pidió:** (a) la caja de «morte súbita» con llamas, no solo blanca; (b) choque con la navaja abierta y recta, el filo hacia la botella y inclinada a la derecha; (c) «LIORTA!» escrito debajo del choque; (d) se mantienen el ritmo de los dados y la velocidad del cruce.
+- **Cómo se resolvió:** `dados.py`: nuevas constantes de pose (navaja a -122°, botella a 14°) y `texto_sprite` (texto con borde grueso). `_duelo` usa `navaja_sprite(250, apertura=0)`, el destello y «LIORTA!» (dorado, rebote) centrado bajo el choque; los tiempos no cambian. `marcador.tarjeta_muerte_subita(img, u, t)` dibuja un degradado rojo→naranja con tres capas de lenguas (roja, naranja, amarilla) que oscilan con `t`, título blanco con borde oscuro. Tests: el de la tarjeta comprueba fuego y título blanco; test nuevo de «LIORTA!»; sprite de la navaja actualizado. 186 tests en verde. Vídeos regenerados en `output/muestras/`.
+- **Problemas:** la punta de la navaja se solapaba con la pastilla «dif. vacas»; se redujeron los sprites y se bajó el conjunto.
+- **Pendiente:** aprobación de los vídeos para marcar 4.4 `[x]`; después 4.5 (decidir si el icono del ganador pasa a ser la navaja).

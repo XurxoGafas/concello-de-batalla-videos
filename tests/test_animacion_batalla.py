@@ -85,9 +85,12 @@ def test_la_muerte_subita_cubre_la_zona_de_dados_y_el_ganador_queda_marcado():
     T = A.calcular_tiempos(r)
     en_sd = A.fotograma(BASE, r, T.rondas_sd[0] + A.D_RODAR + 0.5, T)
     centro = (E.ANCHO // 2, D.Y_MEDIO)
-    assert en_sd.getpixel((centro[0] + 150, centro[1] + 90)) == (255, 255, 255)  # tarjeta blanca
-    rojo = tuple(int(E.CONFLICTO[i:i + 2], 16) for i in (1, 3, 5))
-    assert rojo in {p for p in en_sd.crop((300, D.Y0, 780, D.Y0 + 60)).get_flattened_data()}  # título
+    r_, g_, b_ = en_sd.getpixel((100, D.Y0 + 20))  # tarjeta en llamas: rojo/naranja, sin azul
+    assert r_ > 100 and r_ > g_ + 40 and b_ < 60
+    amarillo = {p for p in en_sd.crop((60, D.Y0 + 150, 1020, D.Y0 + 250)).get_flattened_data() if p[0] > 230 and p[1] > 180 and p[2] < 100}
+    assert amarillo  # lenguas de fuego amarillas
+    blanco = {p for p in en_sd.crop((300, D.Y0, 780, D.Y0 + 70)).get_flattened_data()}
+    assert (255, 255, 255) in blanco  # título blanco
     final = A.fotograma(BASE, r, T.final + 0.9, T)
     oro = tuple(int(E.ORO[i:i + 2], 16) for i in (1, 3, 5))
     caja = (int(M.X_A) - 90, D.Y_MEDIO - 100, int(M.X_A) + 90, D.Y_MEDIO + 40)
@@ -95,7 +98,8 @@ def test_la_muerte_subita_cubre_la_zona_de_dados_y_el_ganador_queda_marcado():
 
 
 def test_espadas_y_sprites_tienen_transparencia_y_tamano():
-    assert A.D.navaja_botella_sprite(200).size == (200, 200)
+    assert A.D.navaja_sprite(200, apertura=0).size[0] > 150 and A.D.botella_sprite(200).size[1] == 200
+    assert A.D.texto_sprite("LIORTA!", 60, E.ORO).getpixel((0, 0))[3] == 0
     assert A.D.dado_sprite(80, 6).getpixel((0, 0))[3] == 0
     assert D.salida_rebote(0) == pytest.approx(0) and D.salida_rebote(1) == pytest.approx(1)
     assert max(D.salida_rebote(t / 100) for t in range(101)) > 1  # rebasa un poco (efecto «pop»)
@@ -119,3 +123,14 @@ def test_el_duelo_entra_por_los_lados_choca_en_el_centro_y_se_desvanece():
     assert tinta(T.espadas + 0.05, centro) is None  # al empezar, aún fuera de la zona central
     assert tinta(T.espadas + A.D_ENTRADA + 0.1, centro) is not None  # tras el choque, cruzadas en el centro
     assert A.D_ENTRADA + A.D_CHOQUE < A.D_ESPADAS - 0.2  # hay pausa con el cruce visible antes del fundido
+
+
+def test_el_duelo_muestra_liorta_debajo_del_choque():
+    r = r_normal()
+    T = A.calcular_tiempos(r)
+    antes = A.fotograma(BASE, r, T.espadas + 0.2, T)
+    despues = A.fotograma(BASE, r, T.espadas + 0.95, T)
+    zona = (300, D.Y_MEDIO + 90, 780, D.Y_MEDIO + 170)
+    oro = tuple(int(E.ORO[i:i + 2], 16) for i in (1, 3, 5))
+    assert oro not in {p for p in antes.crop(zona).get_flattened_data()}
+    assert oro in {p for p in despues.crop(zona).get_flattened_data()}

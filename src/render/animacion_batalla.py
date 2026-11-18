@@ -124,7 +124,7 @@ def _columnas(img: Image.Image, r: ResultadoBatalla, T: Tiempos, t: float) -> No
 
 
 def _muerte_subita(img: Image.Image, r: ResultadoBatalla, T: Tiempos, t: float) -> None:
-    caja = M.tarjeta_muerte_subita(img, (t - T.sd) / D_SD_ENTRADA)
+    caja = M.tarjeta_muerte_subita(img, (t - T.sd) / D_SD_ENTRADA, t)
     if t < T.sd + D_SD_ENTRADA:
         return
     ronda = max(i for i, ts in enumerate(T.rondas_sd) if t >= ts)
@@ -144,8 +144,9 @@ def _muerte_subita(img: Image.Image, r: ResultadoBatalla, T: Tiempos, t: float) 
 
 
 @functools.lru_cache(maxsize=1)
-def _sprites_duelo() -> tuple[Image.Image, Image.Image, Image.Image]:
-    return D.navaja_sprite(300), D.botella_sprite(262), D.destello_sprite(280)
+def _sprites_duelo() -> tuple[Image.Image, Image.Image, Image.Image, Image.Image]:
+    return (D.navaja_sprite(250, apertura=0), D.botella_sprite(215), D.destello_sprite(260),
+            D.texto_sprite("LIORTA!", 72, E.ORO, E.FONDO, 10))
 
 
 def _rotado(sprite: Image.Image, grados: float) -> Image.Image:
@@ -153,25 +154,25 @@ def _rotado(sprite: Image.Image, grados: float) -> Image.Image:
 
 
 def _duelo(img: Image.Image, t: float, dur: float) -> None:
-    """Entrada de la navaja (desde la izquierda) y la botella (desde la derecha) hasta cruzarse en X
-    como dos espadas: vuelan girando, chocan con un destello dorado y un pequeño temblor, y se
-    desvanecen en los últimos 0,2 s."""
-    nav, bot, destello = _sprites_duelo()
+    """La navaja (abierta y recta, inclinada a la derecha) entra desde la izquierda y la botella desde
+    la derecha; la navaja golpea la botella con el filo, con destello y temblor, y debajo del choque
+    aparece «LIORTA!». Todo se desvanece en los últimos 0,2 s."""
+    nav, bot, destello, texto = _sprites_duelo()
     e = D.salida_cubica(t / D_ENTRADA)
-    cx, cy = E.ANCHO / 2, D.Y_MEDIO
+    cx, cy = E.ANCHO / 2, D.Y_MEDIO - 5
     temblor = 0.0
     if t > D_ENTRADA:
         u = D.limitar((t - D_ENTRADA) / D_CHOQUE)
         temblor = 9 * (1 - u) * math.sin(u * 5 * math.pi)
     fade = 1 - D.limitar((t - (dur - 0.2)) / 0.2)
-    # (sprite, ángulo final, desplazamiento final, dirección de entrada)
     for sprite, ang, (dx, dy), lado in ((bot, D.ANGULO_BOTELLA, D.DESPL_BOTELLA, 1), (nav, D.ANGULO_NAVAJA, D.DESPL_NAVAJA, -1)):
         x = cx + dx + lado * (1 - e) * 520 + temblor * lado
         a = ang * e - lado * 25 * (1 - e)  # llega girando
         D.pegar(img, _rotado(sprite, a), x, cy + dy, opacidad=fade)
-    if t > D_ENTRADA:  # destello en el punto de cruce
+    if t > D_ENTRADA:
         u = D.limitar((t - D_ENTRADA) / D_CHOQUE)
-        D.pegar(img, destello, cx, cy, escala=0.35 + 0.9 * D.salida_cubica(u), opacidad=(1 - u) * fade)
+        D.pegar(img, destello, cx, cy - 10, escala=0.35 + 0.9 * D.salida_cubica(u), opacidad=(1 - u) * fade)
+        D.pegar(img, texto, cx, D.Y_MEDIO + 128, escala=D.salida_rebote((t - D_ENTRADA) / 0.35), opacidad=fade)
 
 
 def fotograma(base: Image.Image, r: ResultadoBatalla, t: float, T: Tiempos | None = None) -> Image.Image:

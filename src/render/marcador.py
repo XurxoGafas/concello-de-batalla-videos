@@ -6,6 +6,8 @@ Las funciones no guardan estado: reciben el instante y dibujan lo que toca.
 
 from __future__ import annotations
 
+import math
+
 from PIL import Image, ImageDraw
 
 from src.render import dados as D
@@ -58,16 +60,47 @@ def marcar_ganador(img: Image.Image, lado: str, u: float) -> None:
     D.pegar(img, caja, cx, Y_TOTAL, escala=s)
 
 
-def tarjeta_muerte_subita(img: Image.Image, u: float) -> tuple[float, float, float, float]:
-    """Tarjeta blanca que cubre la zona de dados con el título «MORTE SÚBITA».
+def _llamas(ancho: int, alto: int, t: float) -> Image.Image:
+    """Fondo de fuego RGBA: degradado rojo oscuro → naranja y lenguas de llama que oscilan con `t`."""
+    sc = 2
+    w, h = ancho * sc, alto * sc
+    im = Image.new("RGBA", (w, h))
+    px = ImageDraw.Draw(im)
+    for y in range(h):  # degradado vertical: arriba rojo oscuro, abajo naranja
+        k = y / h
+        px.line((0, y, w, y), fill=(int(120 + 120 * k), int(10 + 60 * k), 10, 255))
+    n = 11
+    capas = (("#E8240C", 1.0, 0.0), ("#FF8A00", 0.72, 1.3), ("#FFD83A", 0.42, 2.6))
+    for color, altura, fase in capas:
+        pts = [(0, h)]
+        for i in range(2 * n + 1):
+            x = i * w / (2 * n)
+            if i % 2 == 1:  # punta de llama
+                osc = 0.5 + 0.5 * math.sin(t * 9 + i * 1.7 + fase)
+                y = h * (1 - (0.38 + 0.4 * osc * (0.6 + 0.4 * math.sin(i * 2.3 + fase))) * altura)
+            else:  # valle
+                y = h * (1 - 0.12 * altura)
+            pts.append((x, y))
+        pts.append((w, h))
+        px.polygon(pts, fill=color)
+    return im.resize((ancho, alto), Image.LANCZOS)
 
-    `u` (0–1) es la entrada (sube desde abajo). Devuelve la caja (x0, y0, x1, y1) para colocar
-    dentro los dados de desempate."""
+
+def tarjeta_muerte_subita(img: Image.Image, u: float, t: float = 0.0) -> tuple[float, float, float, float]:
+    """Tarjeta en llamas que cubre la zona de dados con el título «MORTE SÚBITA».
+
+    `u` (0–1) es la entrada (sube desde abajo); `t` mueve las llamas. Devuelve la caja
+    (x0, y0, x1, y1) para colocar dentro los dados de desempate."""
     x0, x1 = 40, E.ANCHO - 40
     y0, y1 = D.Y0 - 6, D.Y0 + D.ALTO_ZONA + 4
-    desp = (1 - D.salida_cubica(u)) * 60
+    desp = int((1 - D.salida_cubica(u)) * 60)
+    ancho, alto = x1 - x0, y1 - y0
+    fuego = _llamas(ancho, alto, t)
+    mascara = Image.new("L", (ancho * 2, alto * 2), 0)
+    ImageDraw.Draw(mascara).rounded_rectangle((0, 0, ancho * 2 - 1, alto * 2 - 1), radius=72, fill=255)
+    img.paste(fuego, (x0, y0 + desp), mascara.resize((ancho, alto), Image.LANCZOS))
     d = ImageDraw.Draw(img)
-    d.rounded_rectangle((x0, y0 + desp, x1, y1 + desp), radius=36, fill=E.BLANCO, outline=E.FONDO, width=6)
-    E.texto_centrado_exacto(d, E.ANCHO / 2, y0 + 36 + desp, "MORTE SÚBITA", 58, E.CONFLICTO, borde=6,
-                            color_borde=E.BLANCO)
+    d.rounded_rectangle((x0, y0 + desp, x1, y1 + desp), radius=36, outline=E.FONDO, width=6)
+    E.texto_centrado_exacto(d, E.ANCHO / 2, y0 + 36 + desp, "MORTE SÚBITA", 58, E.BLANCO, borde=8,
+                            color_borde=E.FONDO)
     return x0, y0 + desp, x1, y1 + desp
