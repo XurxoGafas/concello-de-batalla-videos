@@ -163,3 +163,15 @@ Las entradas no se borran. Las nuevas se añaden al final.
   2. **Límite de Wikimedia:** tras 1 descarga de prueba, Commons y su servidor de archivos responden 429 con espera de 600 s, y sigue respondiendo 429 pasada esa espera (límite compartido de la red de la sesión). No se ha forzado ni rodeado. El script es reanudable: no repite lo ya descargado.
   3. El servicio de consultas de Wikidata dejó también de responder; se reutilizó el resultado de la primera consulta (guardado en `data/raw/banderas_wikidata.json`).
 - **Pendiente:** decidir con el usuario (a) cómo conseguir las imágenes (reintentar más tarde, ejecutar el script desde otro entorno sin límite, o aportarlas él) y (b) cómo completar los ~171 concellos sin imagen en Wikidata y qué color provisional/definitivo usar para los que no tengan bandera. El paso 2.4 queda en `[~]`.
+
+---
+
+## 2026-11-18 — Paso 2.4 completado (estado inicial con colores provisionales) y nuevo paso 2.5
+
+- **Qué se hizo:** se resolvió el bloqueo del 2.4 preguntando al usuario (regla f). Respondió: seguir con colores provisionales, genéricos y no repetidos, y que él enviará las banderas más adelante.
+- **Cómo se completó:**
+  - El estado inicial (`data/processed/estado_inicial.json`, 186 KB) ya tiene los 313 concellos, cada uno dueño de sí mismo, con vecinos, vacas, victorias a 0, episodio 0 y un color provisional distinto (tono, saturación y brillo variables, de modo que no se repiten). 40 tests en verde. Criterio «Hecho cuando» del 2.4 cumplido.
+  - **Cambio de plan (regla d):** se añadió el paso **2.5** a `PLAN.md` (colores reales de las banderas, a partir de las imágenes que envíe el usuario) y el paso 2.4 queda `[x]`. `docs/DECISIONES.md` recoge la decisión.
+  - Lo ya hecho para las banderas se aprovecha en el 2.5: `src/datos/colores.py` (paleta por imagen, 8 tests) y `scripts/descargar_banderas.py` (bloqueado por el límite de Wikimedia desde la red de la sesión; la lista de 142 banderas de Wikidata está guardada en `data/raw/banderas_wikidata.json`, ignorada por git).
+- **Problemas encontrados:** los que ya constan en la entrada anterior (cobertura de Wikidata del 45 % y límite de peticiones de Wikimedia).
+- **Pendiente:** (1) el usuario enviará las banderas (paso 2.5); acordar el formato/nombre de los archivos cuando las envíe; (2) siguiente paso: **3.1** (función del multiplicador), con los datos reales de vacas, que son muy desiguales (ver aviso en la entrada del 2.3).
