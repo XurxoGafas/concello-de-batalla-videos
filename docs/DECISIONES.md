@@ -151,3 +151,13 @@ No quedan dudas abiertas de las planteadas inicialmente en `PLAN.md`. La definic
 
 - El ganador absorbe todo el territorio y todas las vacas del perdedor; el dueño perdedor se elimina. El color efectivo de un concello es el de su dueño actual (el concello conserva su propia bandera en el estado, por si hiciera falta).
 - **Victorias acumuladas (decisión del usuario, 2026-11-18):** el ganador suma 1 por la batalla ganada y **no hereda** las victorias del perdedor; estas desaparecen con el dueño eliminado. Ejemplo: si O Porriño gana a Ordes, que tenía 10 victorias, O Porriño solo suma 1. El contador de cada dueño es, por tanto, el número de batallas que ha ganado él mismo (sustituye a la interpretación anterior, en la que se heredaban).
+
+## Semillas y persistencia de la partida (paso 3.5)
+
+**Decisión de diseño mía (revisable; afecta a la reproducibilidad y al secreto de los resultados):**
+
+- Hay una **semilla de serie secreta**, que no se guarda en el repositorio: se lee de la variable de entorno `SEMILLA_SERIE` (en GitHub, un *Secret*; en local, `.env`). Motivo: el repositorio es público; si la semilla estuviera dentro, cualquiera podría simular los resultados de los próximos días antes de que se publiquen los vídeos.
+- Cada batalla usa su propia semilla, derivada con SHA-256 de `semilla_serie:número_de_batalla` (número global y consecutivo). Esa semilla derivada **sí se guarda** en `data/partida/historial.jsonl` junto con todos los dados, así que cualquier batalla pasada se puede repetir o redibujar, pero no se pueden deducir las futuras.
+- No hace falta guardar el estado del generador aleatorio entre ejecuciones: 5 batallas en 5 procesos dan exactamente lo mismo que en 1.
+- **Consecuencia importante:** la semilla de serie debe mantenerse igual durante toda la serie y **no se puede recuperar si se pierde** (las batallas ya jugadas están en el historial, pero las siguientes cambiarían). Hay que guardarla en un sitio seguro además de en GitHub Secrets.
+- Archivos: `data/partida/estado_actual.json` (estado + `episodio` + `batallas_jugadas`) y `data/partida/historial.jsonl` (una línea por batalla). El estado se guarda de forma atómica y con formato estable (diffs pequeños en cada commit diario). Estado e historial se suben en el mismo commit al final de cada ejecución.

@@ -235,3 +235,16 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Cómo se completó:** `aplicar_conquista` en `src/motor/estado.py` pasó de `victorias += 1 + victorias_del_perdedor` a `victorias += 1`. Tests actualizados en `tests/test_estado.py` (el de herencia se sustituyó por uno de no herencia y otro con el ejemplo del usuario; en la simulación real, las victorias del dueño final son las batallas que ganó él mismo). 119 tests en verde. `docs/DECISIONES.md` y el paso 3.5 de `PLAN.md` actualizados (regla d); la entrada anterior de este archivo se conserva como historial.
 - **Problemas encontrados:** ninguno.
 - **Pendiente:** el paso 3.5 hereda este criterio: al persistir, el contador de cada dueño es el de batallas ganadas por él. Consecuencia para el ranking «Máis vitorias»: las victorias de un dueño eliminado desaparecen del ranking. Siguiente paso: 3.5.
+
+---
+
+## 2026-11-18 — Paso 3.5 completado (persistencia de la partida)
+
+- **Qué se hizo:** se implementó la persistencia en `src/motor/persistencia.py` con sus tests en `tests/test_persistencia.py`.
+- **Cómo se completó:**
+  - Funciones: `nueva_partida`, `cargar_estado`, `guardar_estado` (atómico, formato estable), `anadir_al_historial`/`leer_historial` (JSON Lines), `jugar_episodio` (juega 3 batallas encadenadas, avanza el número de episodio y se detiene si la partida termina) y `jugar_y_guardar`.
+  - **Decisión mía (revisable, en `docs/DECISIONES.md`):** semilla de serie **secreta** (`SEMILLA_SERIE`, añadida a `.env.example`, no se guarda en el repositorio) y semilla por batalla derivada con SHA-256 de `semilla_serie:nº_de_batalla`, que sí se guarda en el historial. Así no hace falta arrastrar el estado del generador entre procesos, y como el repositorio es público nadie puede adelantar los resultados futuros. Contrapartida: la semilla de serie no se puede recuperar si se pierde.
+  - **11 tests en verde (130 en total):** semilla estable y distinta por batalla y serie; falla sin `SEMILLA_SERIE`; un episodio = 3 batallas y episodio +1; se detiene al terminar la partida; el registro guarda semilla y todos los dados; repetir con la misma serie da lo mismo; una batalla del historial se reproduce desde su semilla; guardar/cargar idéntico y formato estable; el historial solo se añade; continuar donde se dejó; y el criterio «Hecho cuando»: **5 batallas en 5 procesos distintos (subprocesos reales sobre el estado de Galicia) = 5 batallas en un solo proceso**, con el contador de victorias de cada dueño igual a las batallas que ganó él mismo.
+  - No se ha creado todavía `data/partida/estado_actual.json`: la serie real empezará con el comando de la fase 6/8 y la semilla elegida por el usuario.
+- **Problemas encontrados:** ninguno de fondo (un test comparaba tuplas con listas tras pasar por JSON; se ajustó el test).
+- **Pendiente:** (1) el usuario debe elegir y guardar la semilla de serie antes de empezar la serie real (en GitHub Secrets, paso 8.1, y una copia propia); (2) siguiente paso 3.6 (simulación por consola, `src/cli.py`), que usará una semilla pasada por argumento para las pruebas.
