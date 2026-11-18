@@ -431,3 +431,11 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió:** la botella gusta; el mango de madera debe ser uniforme junto con los anillos, y los anillos deben ir acabando en punta, no rectos.
 - **Cómo se resolvió:** mango de grosor uniforme (el mismo que el extremo ancho de la virola, sin escalón) y virola cónica que se estrecha hacia la hoja, con anillos cuya altura sigue el cono. Muestra actualizada: `output/muestras/diseno_navaja_botella.png`.
 - **Pendiente:** aprobación del diseño; después, la animación del cruce.
+
+---
+
+## 2026-11-18 — Paso 4.4 (en curso): hoja de cuchillo con un solo filo
+
+- **Qué se pidió:** que la hoja tenga filo solo por el lado que se cierra y el otro lado recto (lomo), para que parezca un cuchillo y no una daga.
+- **Cómo se resolvió:** hoja de un solo filo: lomo recto con la muesca de la uña, y filo curvo por el lado que mira al mango al girar (el que se cerraría hacia él), con un brillo en el filo. Muestra actualizada: `output/muestras/diseno_navaja_botella.png`.
+- **Pendiente:** aprobación del diseño; después, la animación del cruce.

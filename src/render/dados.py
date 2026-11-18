@@ -100,9 +100,12 @@ def navaja_sprite(largo: int = 300, apertura: float = 55) -> Image.Image:
 
     # --- Hoja (dibujada horizontal, punta a la izquierda; después se gira sobre el pasador) ---
     hoja, d = lienzo()
-    poli(d, [(6, 60), (40, 46), (92, 38), (160, 38), (160, 82), (100, 80), (48, 73)], "#E9EDF3")
-    d.line([((ox + 34) * k, (oy + 58) * k), ((ox + 150) * k, (oy + 58) * k)], fill="#A9B4C8", width=4 * k)  # canal
-    d.ellipse(((ox + 94) * k, (oy + 33) * k, (ox + 114) * k, (oy + 47) * k), fill="#A9B4C8", outline=E.FONDO, width=3 * k)
+    # Hoja de cuchillo (no de daga): lomo recto y sin filo (abajo en este dibujo) y filo curvo solo por el
+    # lado que se cierra hacia el mango (arriba en este dibujo, que tras girar queda mirando al mango).
+    poli(d, [(160, 82), (62, 82), (30, 78), (8, 70), (22, 56), (50, 44), (90, 37), (128, 35), (160, 38)], "#E9EDF3")
+    d.line([((ox + 60) * k, (oy + 70) * k), ((ox + 150) * k, (oy + 70) * k)], fill="#A9B4C8", width=4 * k)  # canal
+    d.line([((ox + 40) * k, (oy + 52) * k), ((ox + 150) * k, (oy + 43) * k)], fill="#FFFFFF", width=3 * k)  # brillo del filo
+    d.ellipse(((ox + 96) * k, (oy + 74) * k, (ox + 118) * k, (oy + 90) * k), fill="#A9B4C8", outline=E.FONDO, width=3 * k)  # muesca de la uña
     pivote = ((ox + 160) * k, (oy + 60) * k)
     hoja = hoja.rotate(-apertura, resample=Image.BICUBIC, center=pivote)  # gira hacia arriba (sentido horario)
 
