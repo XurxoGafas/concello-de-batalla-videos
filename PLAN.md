@@ -134,7 +134,7 @@ Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fas
 - **Hecho cuando:** `output/muestras/conquista.mp4` muestra el cambio de color de forma clara. ✅ Completado el 2026-11-18 y aprobado por el usuario (con su ilustración de la gaita, `assets/img/gaita.svg`). 194 tests en verde.
 
 ### [~] 4.6 Escenas de intro, encadenado de 3 batallas y cierre con ranking
-- **Qué:** Micro intro de 1–2 s con transición al mapa (fase 1); encadenar 3 repeticiones de fases 2–6 (fase 7) dentro del mismo vídeo; cierre (fase 8) con el mapa general, el nombre de la serie + número de episodio, y los dos rankings top 5 («Máis vitorias» y «Máis territorio», medido en nº de concellos); y, cuando quede un único dueño con todo el territorio, una escena especial declarando el ganador de toda la serie en vez del cierre normal.
+- **Qué:** Micro intro de 1–2 s con transición al mapa (fase 1); encadenar 3 repeticiones de fases 2–6 (fase 7) dentro del mismo vídeo, con la selección de atacante (sorteo de ≈2 s entre dueños) y de defensor en **un único plano continuo** sin cortes hasta la pantalla de enfrentamiento y con zoom suave (decisión del usuario, 2026-11-18); cierre (fase 8) con el mapa general, el nombre de la serie + número de episodio, y los dos rankings top 5 («Máis vitorias» y «Máis vacas», decisión del usuario; antes era «Máis territorio»); y, cuando quede un único dueño con todo el territorio, una escena especial declarando el ganador de toda la serie en vez del cierre normal.
 - **Archivos:** `src/render/escenas.py`, `src/render/ranking.py`.
 - **Hecho cuando:** el vídeo de prueba incluye intro, 3 batallas encadenadas y el cierre con ranking, dura entre 80 y 90 segundos, y todo el texto está en gallego.
 

@@ -62,7 +62,13 @@ Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y es
    - **Selección** (≈4,5 s): el mapa hace zoom hasta el atacante (contorno rojo y nombre); sale su silueta, «ATACA» y sus vacas; un sorteo recorre los concellos vecinos enemigos (cada vez más despacio, contorno dorado) hasta pararse en el defensor, que queda con contorno rojo y su nombre.
    - **Enfrentamiento, duelo (navaja y botella), dados, multiplicador y, si hace falta, morte súbita** (≈11 s sin desempate).
    - **Conquista** (4,2 s): CAMPIÓN / MALOGRADO, color que se extiende, gaita y confeti.
-3. **Cierre** (`src/render/ranking.py`): mapa general con el estado actual y dos top 5: **«MÁIS VITORIAS»** (batallas gañadas, solo dueños con alguna) y **«MÁIS TERRITORIO»** (nº de concellos). Las filas salen de la 5ª a la 1ª con un «pop»; la 1ª va resaltada en dorado, y 2ª y 3ª en plata y bronce. Empates: por la otra magnitud y luego por nombre.
+3. **Cierre** (`src/render/ranking.py`): mapa general con el estado actual y dos top 5: **«MÁIS VITORIAS»** (batallas gañadas, solo dueños con alguna) y **«MÁIS VACAS»** (nº de concellos). Las filas salen de la 5ª a la 1ª con un «pop»; la 1ª va resaltada en dorado, y 2ª y 3ª en plata y bronce. Empates: por la otra magnitud y luego por nombre.
 4. **Final de serie:** si en el episodio queda un único dueño, en vez del cierre sale «CAMPIÓN DE GALICIA» con su nombre, concellos, vacas y vitorias, la gaita y confeti.
 
 **Duración:** la del cierre se ajusta (10–26 s) para que el vídeo dure ≈85 s (el requisito es 80–90 s); con muertes súbitas el cierre se acorta. Render de un episodio: ≈2 min 15 s (2.550 fotogramas), 9,7 MB sin audio.
+
+### Selección como plano continuo (cambio 2026-11-18)
+- Intro → sorteo de atacante → zoom → sorteo de defensor → enfrentamiento son **un único plano**: mismo fondo, sin cortes ni fundidos (primer y último fotograma de cada escena coinciden exactamente).
+- Sorteo de atacante: ≈2 s recorriendo distintos dueños (territorio resaltado + panel con nombre, silueta y vacas) antes de fijar el atacante.
+- Zoom: interpolación *smootherstep* con tamaño de ventana exponencial y centro proporcional al zoom, redibujando el mapa en cada fotograma a 30 fps.
+- Cierre: rankings «MÁIS VITORIAS» y «MÁIS VACAS» (vacas del territorio acumulado).

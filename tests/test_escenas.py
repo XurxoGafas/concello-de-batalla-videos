@@ -49,37 +49,57 @@ def test_los_fotogramas_son_validos_y_deterministas(montaje):
 
 
 def test_fundido_cruzado_entre_escenas(montaje):
-    t = montaje.inicios[1] + 0.1  # la intro y la selección se solapan
+    # batalla → conquista conserva un fundido corto; la intro y la selección son un corte exacto
+    j = next(i for i, e in enumerate(montaje.escenas) if isinstance(e, S.EscenaConquista))
+    t = montaje.inicios[j] + 0.1
     mezcla = S.fotograma_de_video(montaje, t)
-    a = montaje.escenas[0].fotograma(t - montaje.inicios[0])
-    b = montaje.escenas[1].fotograma(t - montaje.inicios[1])
+    a = montaje.escenas[j - 1].fotograma(t - montaje.inicios[j - 1])
+    b = montaje.escenas[j].fotograma(t - montaje.inicios[j])
     assert mezcla.tobytes() not in (a.tobytes(), b.tobytes())
 
 
-def test_el_sorteo_acaba_en_el_defensor(montaje):
+def test_plano_continuo_sin_cortes(montaje):
+    intro, sel, bat = montaje.escenas[0], montaje.escenas[1], montaje.escenas[2]
+    assert intro.fundido == 0.0 and sel.fundido == 0.0 and bat.fundido == 0.0
+    assert intro.fotograma(intro.duracion).tobytes() == sel.fotograma(0.0).tobytes()
+    assert sel.fotograma(sel.duracion).tobytes() == bat.fotograma(0.0).tobytes()
+
+
+def test_sorteos_terminan_en_atacante_y_defensor(montaje):
     sel = montaje.escenas[1]
-    assert sel.secuencia[-1] == sel.f.concello_defensor
-    assert len(sel.secuencia) == len(sel.pasos)
-    assert sel.duracion == pytest.approx(sel.t_bloqueo + S.D_BLOQUEO)
-    # el atacante aparece en el panel solo a partir de T_PANEL
-    antes, despues = sel.fotograma(S.T_PANEL - 0.05), sel.fotograma(S.T_PANEL + 0.4)
-    assert antes.tobytes() != despues.tobytes()
+    assert sel.sec_a[-1] == sel.f.atacante
+    assert sel.sec_d[-1] == sel.f.concello_defensor
+    assert len(sel.sec_a) == len(sel.pasos_a) and len(sel.sec_d) == len(sel.pasos_d)
+    assert 1.8 <= sum(sel.pasos_a) <= 2.6  # ≈2 s de incertidumbre
+    assert sel.t_a < sel.t_a_bloqueo < sel.t_z < sel.t_d < sel.t_d_bloqueo < sel.t_m < sel.duracion
+
+
+def test_zoom_suave_y_monotono():
+    assert S._facil(0.0) == 0.0 and S._facil(1.0) == 1.0
+    xs = [S._facil(i / 100) for i in range(101)]
+    assert all(b >= a for a, b in zip(xs, xs[1:]))
+    # arranque y frenado suaves: la velocidad en los extremos es casi nula
+    assert xs[1] < 0.001 and 1 - xs[-2] < 0.001
 
 
 def test_clasificaciones_ordenan_y_desempatan():
     estado = S.estado_de_muestra()
-    vit, ter = R.clasificaciones(estado)
-    assert len(vit) <= 5 and len(ter) == 5
+    vit, vac = R.clasificaciones(estado)
+    assert len(vit) <= 5 and len(vac) == 5
     assert [v for _, v in vit] == sorted((v for _, v in vit), reverse=True)
-    assert [n for _, n in ter] == sorted((n for _, n in ter), reverse=True)
+    assert [n for _, n in vac] == sorted((n for _, n in vac), reverse=True)
     assert all(estado["donos"][i]["victorias"] == v > 0 for i, v in vit)
-    assert all(len(estado["donos"][i]["territorio"]) == n for i, n in ter)
-    assert R.clasificaciones(estado) == (vit, ter)  # determinista
+    assert all(estado["donos"][i]["vacas"] == n for i, n in vac)
+    # el que más vacas tiene es el primero de la lista (y ninguno fuera de ella tiene más)
+    assert vac[0][1] == max(d["vacas"] for d in estado["donos"].values())
+    assert R.clasificaciones(estado) == (vit, vac)  # determinista
 
 
 def test_clasificaciones_al_empezar_la_serie():
-    vit, ter = R.clasificaciones(nueva_partida())
-    assert vit == [] and len(ter) == 5 and all(n == 1 for _, n in ter)
+    estado = nueva_partida()
+    vit, vac = R.clasificaciones(estado)
+    assert vit == [] and len(vac) == 5
+    assert [n for _, n in vac] == sorted((d["vacas"] for d in estado["donos"].values()), reverse=True)[:5]
 
 
 def test_las_filas_del_ranking_aparecen_de_la_quinta_a_la_primera(montaje):

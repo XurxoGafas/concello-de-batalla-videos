@@ -33,8 +33,8 @@ Las fases 2 a 6 se repiten 3 veces dentro del mismo vídeo (3 batallas por episo
 Tras la última batalla del vídeo, una pantalla de cierre con:
 - El mapa general de Galicia con el estado actual.
 - El nombre de la serie + número de episodio (p. ej. «Ep. 27»).
-- Dos rankings top 5: **«Máis vitorias»** (concellos con más batallas ganadas a lo largo de toda la serie, acumulado) y **«Máis territorio»** (concellos con más concellos bajo su dominio en ese momento).
-- *(Decisión de diseño, no confirmada por el usuario, a revisar si no convence): «territorio» se mide en número de concellos controlados, no en km², porque es más simple de entender en un vídeo corto y más coherente con la unidad del juego (concellos, no superficie).*
+- Dos rankings top 5: **«Máis vitorias»** (concellos con más batallas ganadas a lo largo de toda la serie, acumulado) y **«Máis vacas»** (dueños con más vacas sumando todo su territorio en ese momento). *(Cambio del usuario, 2026-11-18: antes era «Máis territorio», medido en nº de concellos.)*
+- *(Historial: la primera versión medía «territorio» en nº de concellos; el usuario pidió cambiarla a vacas.)*
 
 ## Mecánica de dados y puntuación — resumen técnico
 
@@ -163,3 +163,7 @@ No quedan dudas abiertas de las planteadas inicialmente en `PLAN.md`. La definic
 - No hace falta guardar el estado del generador aleatorio entre ejecuciones: 5 batallas en 5 procesos dan exactamente lo mismo que en 1.
 - **Consecuencia importante:** la semilla de serie debe mantenerse igual durante toda la serie y **no se puede recuperar si se pierde** (las batallas ya jugadas están en el historial, pero las siguientes cambiarían). Hay que guardarla en un sitio seguro además de en GitHub Secrets.
 - Archivos: `data/partida/estado_actual.json` (estado + `episodio` + `batallas_jugadas`) y `data/partida/historial.jsonl` (una línea por batalla). El estado se guarda de forma atómica y con formato estable (diffs pequeños en cada commit diario). Estado e historial se suben en el mismo commit al final de cada ejecución.
+
+## Selección de atacante y defensor como un plano continuo (paso 4.6)
+
+**Decidido por el usuario (2026-11-18):** el atacante no aparece directamente: se hace un **sorteo de ≈2 s** que recorre distintos dueños (se resalta su territorio y el panel muestra su nombre, silueta y vacas) y queda el atacante; después el sorteo del defensor recorre los concellos vecinos. Desde el mapa general hasta la pantalla de enfrentamiento **no hay cortes de escena**: es un único plano con el mismo fondo, y el zoom debe ser suave (movimiento continuo a 30 fps con aceleración y frenado suaves, sin pasos).

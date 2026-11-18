@@ -66,17 +66,17 @@ def _mezclar(a: Image.Image, b: Image.Image, p: float) -> Image.Image:
 # ---------- Fase 1: intro ----------
 
 class EscenaIntro:
-    """Título, número de episodio y el mapa de Galicia, que entra con un fundido."""
+    """Título, número de episodio y mapa general de Galicia (entra con un fundido). Su último fotograma
+    es el primero de la selección: el mapa y el panel son los mismos, así que no se nota el corte."""
 
     duracion = D_INTRO
+    fundido = 0.0
 
     def __init__(self, estado: dict, episodio: int, mapa: MapaGalicia) -> None:
-        y0 = 420
-        self.vacio, _ = M.cabecera(episodio)
+        self.vacio, _ = M.marco_vacio(episodio)
         self.lleno = self.vacio.copy()
-        ventana = mapa.ventana_general(E.ANCHO / MAPA_INTRO_ALTO)
-        self.lleno.paste(mapa.dibujar(estado, ventana, E.ANCHO, MAPA_INTRO_ALTO), (0, y0))
-        _marco(self.lleno, y0, MAPA_INTRO_ALTO)
+        ventana = mapa.ventana_general(E.ANCHO / M.MAPA_ALTO)
+        self.lleno.paste(mapa.dibujar(estado, ventana, E.ANCHO, M.MAPA_ALTO), (0, M.MAPA_Y0))
 
     def fotograma(self, t: float) -> Image.Image:
         return _mezclar(self.vacio, self.lleno, _suave((t - 0.15) / 0.7))
@@ -84,104 +84,171 @@ class EscenaIntro:
 
 # ---------- Fases 2 y 3: selección de atacante y defensor ----------
 
-PASOS_SORTEO = (0.08, 0.08, 0.09, 0.10, 0.11, 0.13, 0.16, 0.20, 0.26)  # el último paso (el elegido) se queda más
-D_ZOOM, T_PANEL, T_SORTEO = 1.1, 0.8, 2.1
-D_BLOQUEO = 1.2
+PASOS_ATACANTE = (0.07, 0.07, 0.07, 0.07, 0.07, 0.07, 0.09, 0.10, 0.12, 0.15, 0.19, 0.24, 0.30, 0.40)  # ≈2,0 s de incertidumbre
+PASOS_DEFENSOR = (0.08, 0.08, 0.09, 0.10, 0.11, 0.13, 0.16, 0.20, 0.26)
+D_ULTIMO, D_BLOQUEO = 0.35, 0.65  # el elegido se ve en dorado y luego se «bloquea» en rojo
+D_ZOOM_SALIDA, D_ZOOM_ENTRADA, D_MORPH = 1.0, 1.3, 1.1
+ROTULO_SORTEO = ("SORTEO", E.ORO, E.FONDO)
+
+
+def _facil(u: float) -> float:
+    """Entrada y salida muy suaves (smootherstep): sin tirones al empezar y al parar el zoom."""
+    u = D.limitar(u)
+    return u * u * u * (u * (6 * u - 15) + 10)
 
 
 def _interpolar(v0, v1, u: float):
-    """Interpola dos ventanas del mismo formato (x0, y0, x1, y1): centro lineal, tamaño exponencial."""
+    """Interpola dos ventanas del mismo formato (x0, y0, x1, y1). El tamaño cambia de forma exponencial
+    (velocidad de zoom constante a la vista) y el centro se desplaza en proporción al zoom, de modo que
+    el destino parece acercarse en línea recta."""
     cx0, cy0, w0, h0 = (v0[0] + v0[2]) / 2, (v0[1] + v0[3]) / 2, v0[2] - v0[0], v0[3] - v0[1]
     cx1, cy1, w1, h1 = (v1[0] + v1[2]) / 2, (v1[1] + v1[3]) / 2, v1[2] - v1[0], v1[3] - v1[1]
-    cx, cy = cx0 + (cx1 - cx0) * u, cy0 + (cy1 - cy0) * u
     w, h = w0 * (w1 / w0) ** u, h0 * (h1 / h0) ** u
+    if abs(w1 - w0) < 1e-6 * w0:
+        s = u
+    else:
+        s = (1 / w - 1 / w0) / (1 / w1 - 1 / w0)
+    cx, cy = cx0 + (cx1 - cx0) * s, cy0 + (cy1 - cy0) * s
     return (cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2)
 
 
-class EscenaSeleccion:
-    """El mapa hace zoom hasta el atacante (con su silueta, nombre y vacas) y un sorteo recorre los
-    concellos vecinos hasta pararse en el defensor."""
+def _secuencia(elegido, otros: list, pasos: tuple, rng: random.Random) -> list:
+    """Lista de candidatos del sorteo (uno por paso) que termina en `elegido`; nunca repite seguidos."""
+    otros = list(otros)
+    rng.shuffle(otros)
+    if not otros:
+        return [elegido]
+    sec = [otros[i % len(otros)] for i in range(len(pasos))]
+    return sec + [elegido]
 
-    def __init__(self, estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio: int, semilla: str = "") -> None:
+
+class EscenaSeleccion:
+    """Un solo plano continuo desde el mapa general hasta la pantalla de enfrentamiento.
+
+    1. (si hay batalla anterior) el mapa se aleja hasta la vista general;
+    2. sorteo del atacante: ≈2 s recorriendo dueños (se resalta su territorio y el panel muestra su
+       nombre, silueta y vacas) hasta quedar el atacante;
+    3. zoom suave hasta el atacante y sus vecinos;
+    4. sorteo del defensor entre los concellos vecinos enemigos;
+    5. zoom suave hasta los dos bandos mientras entra el defensor en el panel. El último fotograma es
+       exactamente el primero de `EscenaBatalla`.
+    """
+
+    def __init__(self, estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio: int, semilla: str = "",
+                 ventana_previa=None, ganador_previo: str | None = None) -> None:
         self.estado, self.f, self.mapa = estado, f, mapa
+        self.fundido = FUNDIDO if ventana_previa else 0.0
         prop = E.ANCHO / M.MAPA_ALTO
         self.v0 = mapa.ventana_general(prop)
         self.v1 = mapa.ventana_atacante(estado, f.atacante, prop)
-        base, d = M.cabecera(episodio)
-        d.rectangle((0, M.MAPA_Y0 - 6, E.ANCHO, M.MAPA_Y0 - 1), fill=E.ORO)
-        d.rectangle((0, M.LINEA_Y, E.ANCHO, M.LINEA_Y + 6), fill=E.ORO)
-        E.pegar_panel(base, M.LINEA_Y + 6, M.PANEL_FIN)
-        d.rectangle((0, M.PANEL_FIN, E.ANCHO, M.PANEL_FIN + 4), fill=E.FONDO)
-        self.vacio = base
-        self.con_ataque = base.copy()
-        self._bloque_atacante(self.con_ataque)
-        candidatos = vecinos_enemigos(estado, f.atacante)
+        self.v2 = mapa.ventana_enfrentamiento(estado, f.atacante, f.defensor, prop)
+        self.vprev, self.ganador_previo = ventana_previa, ganador_previo
+        self.vacio, _ = M.marco_vacio(episodio)
+        self.completo, _ = M.fotograma_base(estado, f, mapa, episodio)
+        self.final_banda = M.banda_enfrentamiento(estado, f, mapa)
         rng = random.Random(f"{semilla}{f.atacante}{f.concello_defensor}")
-        otros = [c for c in candidatos if c != f.concello_defensor]
-        rng.shuffle(otros)
-        secuencia: list[str] = []
-        if otros:
-            n = len(PASOS_SORTEO)
-            secuencia = [otros[i % len(otros)] for i in range(n)]
-        secuencia.append(f.concello_defensor)
-        self.secuencia = secuencia
-        self.pasos = (list(PASOS_SORTEO) if otros else []) + [0.5]
-        self.t_bloqueo = T_SORTEO + sum(self.pasos[:-1])
-        self.duracion = self.t_bloqueo + D_BLOQUEO
+        # --- sorteo del atacante
+        duenos = sorted(d for d in estado["donos"] if d != f.atacante and vecinos_enemigos(estado, d))
+        self.sec_a = _secuencia(f.atacante, duenos, PASOS_ATACANTE, rng)
+        self.pasos_a = list(PASOS_ATACANTE) + [D_ULTIMO]
+        # --- sorteo del defensor
+        candidatos = [c for c in vecinos_enemigos(estado, f.atacante) if c != f.concello_defensor]
+        self.sec_d = _secuencia(f.concello_defensor, candidatos, PASOS_DEFENSOR, rng)
+        self.pasos_d = (list(PASOS_DEFENSOR) if candidatos else []) + [D_ULTIMO]
+        if candidatos:
+            self.sec_d = self.sec_d[:len(self.pasos_d)]
+        # --- línea de tiempo
+        self.t_a = (D_ZOOM_SALIDA + 0.3) if ventana_previa else 0.4
+        self.t_a_bloqueo = self.t_a + sum(self.pasos_a)
+        self.t_z = self.t_a_bloqueo + D_BLOQUEO
+        self.t_d = self.t_z + D_ZOOM_ENTRADA + 0.25
+        self.t_d_bloqueo = self.t_d + sum(self.pasos_d)
+        self.t_m = self.t_d_bloqueo + D_BLOQUEO
+        self.duracion = self.t_m + D_MORPH
         self._cache: dict = {}
 
-    def _bloque_atacante(self, img: Image.Image) -> None:
-        f, estado, mapa = self.f, self.estado, self.mapa
-        d = ImageDraw.Draw(img)
-        E.texto_centrado(d, M.CX_C, M.Y_ROTULO, "ATACA", E.T_MIN, E.CONFLICTO, borde=6, color_borde=E.BLANCO)
-        geom = mapa.geometria(estado["donos"][f.atacante]["territorio"])
-        k = M.SUPERMUESTREO
-        sil = Image.new("RGBA", (300 * k, M.ALTO_SILUETA * k), (255, 255, 255, 0))
-        from src.render.mapa import pintar
-        pintar(ImageDraw.Draw(sil), geom, M.caja_silueta(geom.bounds, 300, M.ALTO_SILUETA, k),
-               estado["donos"][f.atacante]["cor"]["colores"][0], E.FONDO, 3 * k)
-        sil = sil.resize((300, M.ALTO_SILUETA), Image.LANCZOS)
-        img.paste(sil.convert("RGB"), (int(M.CX_C - 150), M.Y_SILUETA), sil.getchannel("A"))
-        lineas, t = E.dividir_nombre(estado["donos"][f.atacante]["nome"], 56, 760)
-        for n, linea in enumerate(lineas):
-            E.texto_centrado(d, M.CX_C, M.Y_NOMBRE + n * (t + 2), linea, t, E.FONDO, borde=6, color_borde=E.BLANCO)
-        E.pastilla_vaca(img, M.CX_C, M.Y_VACAS, f"{M.num(estado['donos'][f.atacante]['vacas'])} vacas", E.T_MIN, 20)
-
-    def _banda(self, ventana, candidato: str | None, bloqueado: bool, nombres_def: bool) -> Image.Image:
-        clave = (tuple(round(v, 1) for v in ventana), candidato, bloqueado, nombres_def)
+    # --- piezas con caché
+    def _panel_candidato(self, dono: str, bloqueado: bool) -> Image.Image:
+        clave = ("panel", dono, bloqueado)
         if clave not in self._cache:
-            f, mapa, estado = self.f, self.mapa, self.estado
-            cont = [(mapa.geometria(estado["donos"][f.atacante]["territorio"]), E.CONFLICTO, 6)]
-            if candidato:
-                cont.append((mapa.geometria([candidato]), E.CONFLICTO if bloqueado else E.ORO, 7 if not bloqueado else 6))
-            nombres = [f.atacante] + ([f.defensor] if nombres_def else [])
-            self._cache[clave] = mapa.dibujar(estado, ventana, E.ANCHO, M.MAPA_ALTO, contornos=cont,
-                                              nombres=nombres if ventana == self.v1 else [])
+            img = self.vacio.copy()
+            rot = M.ROTULOS_BATALLA[0] if bloqueado else ROTULO_SORTEO
+            M.dibujar_bando(img, ImageDraw.Draw(img), self.estado, self.mapa, dono, M.CX_A, rot,
+                            M.x_pastilla_vacas(self.estado, self.f, dono, -1))
+            self._cache[clave] = img
         return self._cache[clave]
 
+    def _banda(self, ventana, contornos: tuple, nombres: tuple, cachear: bool = True) -> Image.Image:
+        """`contornos`: tuplas (clave, tipo, color, grosor); tipo «dono» (territorio) o «concello»."""
+        clave = ("banda", tuple(round(v, 1) for v in ventana), contornos, nombres)
+        if clave in self._cache:
+            return self._cache[clave]
+        cont = []
+        for ident, tipo, color, grosor in contornos:
+            ids = self.estado["donos"][ident]["territorio"] if tipo == "dono" else [ident]
+            cont.append((self.mapa.geometria(ids), color, grosor))
+        img = self.mapa.dibujar(self.estado, ventana, E.ANCHO, M.MAPA_ALTO, contornos=cont, nombres=list(nombres))
+        if cachear:
+            self._cache[clave] = img
+        return img
+
+    def _paso(self, t: float, t0: float, pasos: list[float]) -> int:
+        """Índice del paso del sorteo activo en `t` (el último, si ya terminó)."""
+        acum = t0
+        for i, dur in enumerate(pasos):
+            if t < acum + dur:
+                return i
+            acum += dur
+        return len(pasos) - 1
+
     def fotograma(self, t: float) -> Image.Image:
-        u = _suave(t / D_ZOOM)
-        if t < D_ZOOM:
-            u = round(u * 12) / 12  # el zoom se redibuja a ~13 posiciones por segundo
-            ventana = self.v0 if u <= 0 else _interpolar(self.v0, self.v1, u)
-            banda = self._banda(ventana, None, False, False)
-        else:
-            candidato, bloqueado = None, False
-            if t >= T_SORTEO:
-                acum = T_SORTEO
-                for cand, dur in zip(self.secuencia, self.pasos):
-                    if t < acum + dur:
-                        candidato = cand
-                        break
-                    acum += dur
-                else:
-                    candidato = self.secuencia[-1]
-                bloqueado = t >= self.t_bloqueo
-            banda = self._banda(self.v1, candidato, bloqueado, bloqueado)
-        base = self.con_ataque if t >= T_PANEL else self.vacio
-        img = base.copy()
-        if T_PANEL <= t < T_PANEL + 0.25:
-            img = _mezclar(self.vacio, self.con_ataque, (t - T_PANEL) / 0.25)
+        f, ORO, ROJO = self.f, E.ORO, E.CONFLICTO
+        if t >= self.duracion:
+            return self.completo.copy()
+        # 1) alejarse desde la batalla anterior
+        if self.vprev is not None and t < self.t_a:
+            u = _facil(t / D_ZOOM_SALIDA)
+            ventana = _interpolar(self.vprev, self.v0, u)
+            banda = self._banda(ventana, ((self.ganador_previo, "dono", ORO, 6),) if u < 1 else (), (), cachear=False)
+            return self._compuesto(self.vacio, banda)
+        # 2) sorteo del atacante (mapa general)
+        if t < self.t_z:
+            i = self._paso(t, self.t_a, self.pasos_a) if t >= self.t_a else None
+            if i is None:
+                return self._compuesto(self.vacio, self._banda(self.v0, (), ()))
+            bloqueado = t >= self.t_a_bloqueo
+            cand = self.sec_a[i]
+            color = ROJO if bloqueado else ORO
+            clave = ("frame_a", cand, bloqueado)
+            if clave not in self._cache:
+                banda = self._banda(self.v0, ((cand, "dono", color, 8),), ())
+                self._cache[clave] = self._compuesto(self._panel_candidato(cand, bloqueado), banda)
+            return self._cache[clave].copy()
+        panel = self._panel_candidato(f.atacante, True)
+        # 3) zoom hasta el atacante
+        if t < self.t_z + D_ZOOM_ENTRADA:
+            u = _facil((t - self.t_z) / D_ZOOM_ENTRADA)
+            banda = self._banda(_interpolar(self.v0, self.v1, u), ((f.atacante, "dono", ROJO, 6),), (), cachear=False)
+            return self._compuesto(panel, banda)
+        base_atq = ((f.atacante, "dono", ROJO, 6),)
+        # 4) sorteo del defensor (vista del atacante y sus vecinos)
+        if t < self.t_m:
+            if t < self.t_d:
+                return self._compuesto(panel, self._banda(self.v1, base_atq, (f.atacante,)))
+            i = self._paso(t, self.t_d, self.pasos_d)
+            bloqueado = t >= self.t_d_bloqueo
+            cand = self.sec_d[min(i, len(self.sec_d) - 1)]
+            cont = base_atq + ((cand, "concello", ROJO if bloqueado else ORO, 7 if not bloqueado else 6),)
+            return self._compuesto(panel, self._banda(self.v1, cont, (f.atacante, f.defensor) if bloqueado else (f.atacante,)))
+        # 5) zoom hasta los dos bandos; entra el defensor en el panel
+        u = _facil((t - self.t_m) / D_MORPH)
+        cont = ((f.concello_atacante, "concello", ROJO, 6), (f.concello_defensor, "concello", ROJO, 6))
+        banda = self._banda(_interpolar(self.v1, self.v2, u), cont, (f.atacante, f.defensor), cachear=False)
+        entra = _facil((t - self.t_m - 0.45) / (D_MORPH - 0.45))
+        return self._compuesto(_mezclar(panel, self.completo, entra), banda)
+
+    def _compuesto(self, panel: Image.Image, banda: Image.Image) -> Image.Image:
+        img = panel.copy()
         img.paste(banda, (0, M.MAPA_Y0))
         return img
 
@@ -189,6 +256,8 @@ class EscenaSeleccion:
 # ---------- Fases 4–5: duelo, dados y marcador; fase 6: conquista ----------
 
 class EscenaBatalla:
+    fundido = 0.0  # empieza exactamente en el último fotograma de la selección
+
     def __init__(self, estado: dict, ep: Episodio, mapa: MapaGalicia, episodio: int) -> None:
         self.base, _ = M.fotograma_base(estado, ep.enfrentamiento, mapa, episodio)
         self.r = ep.resultado
@@ -201,6 +270,7 @@ class EscenaBatalla:
 
 class EscenaConquista:
     duracion = CQ.DURACION
+    fundido = FUNDIDO
 
     def __init__(self, estado_antes: dict, ep: Episodio, estado_despues: dict, mapa: MapaGalicia, episodio: int) -> None:
         self.ctx = CQ.preparar(estado_antes, ep, estado_despues, mapa, episodio)
@@ -213,6 +283,8 @@ class EscenaConquista:
 
 class EscenaCierre:
     """Mapa general con el estado actual y los dos top 5."""
+
+    fundido = FUNDIDO
 
     def __init__(self, estado: dict, episodio: int, mapa: MapaGalicia, duracion: float) -> None:
         self.estado, self.duracion = estado, duracion
@@ -238,6 +310,7 @@ class EscenaFinalSerie:
     """Cuando queda un único dueño: «CAMPIÓN DE GALICIA», con gaita y confeti."""
 
     duracion = D_FINAL_SERIE
+    fundido = FUNDIDO
 
     def __init__(self, estado: dict, episodio: int, mapa: MapaGalicia) -> None:
         self.estado = estado
@@ -288,11 +361,13 @@ class Montaje:
 
 
 def montar(escenas: list, estado_final: dict) -> Montaje:
-    inicios, t = [], 0.0
+    """Coloca las escenas una tras otra; cada una solapa con la anterior su `fundido` (0 = corte exacto)."""
+    inicios, fin = [], 0.0
     for e in escenas:
-        inicios.append(t)
-        t += e.duracion - FUNDIDO
-    return Montaje(escenas, inicios, t + FUNDIDO, estado_final)
+        ini = max(0.0, fin - getattr(e, "fundido", 0.0))
+        inicios.append(ini)
+        fin = ini + e.duracion
+    return Montaje(escenas, inicios, fin, estado_final)
 
 
 def fotograma_de_video(m: Montaje, t: float) -> Image.Image:
@@ -304,7 +379,8 @@ def fotograma_de_video(m: Montaje, t: float) -> Image.Image:
     img = m.escenas[i].fotograma(t - m.inicios[i])
     if len(activas) > 1:
         j = activas[1]
-        img = _mezclar(img, m.escenas[j].fotograma(t - m.inicios[j]), (t - m.inicios[j]) / FUNDIDO)
+        fundido = m.escenas[j].fundido
+        img = _mezclar(img, m.escenas[j].fotograma(t - m.inicios[j]), (t - m.inicios[j]) / fundido)
     return img
 
 
@@ -313,16 +389,23 @@ def construir_episodio(estado: dict, semilla_serie: str, mapa: MapaGalicia, obje
     final, _, pasos = jugar_episodio_detallado(estado, semilla_serie)
     episodio = final["episodio"]
     escenas: list = [EscenaIntro(pasos[0][0], episodio, mapa)]
+    prop = E.ANCHO / M.MAPA_ALTO
+    previa = None  # (ventana del enfrentamiento anterior, ganador)
     for n, (previo, ep) in enumerate(pasos):
         despues = pasos[n + 1][0] if n + 1 < len(pasos) else final
-        escenas += [EscenaSeleccion(previo, ep.enfrentamiento, mapa, episodio, semilla_serie),
+        escenas += [EscenaSeleccion(previo, ep.enfrentamiento, mapa, episodio, semilla_serie,
+                                    ventana_previa=previa[0] if previa else None,
+                                    ganador_previo=previa[1] if previa else None),
                     EscenaBatalla(previo, ep, mapa, episodio),
                     EscenaConquista(previo, ep, despues, mapa, episodio)]
+        f = ep.enfrentamiento
+        previa = (mapa.ventana_enfrentamiento(previo, f.atacante, f.defensor, prop), ep.ganador)
     if partida_terminada(final):
         escenas.append(EscenaFinalSerie(final, episodio, mapa))
     else:
         resto = montar(escenas, final).duracion
-        escenas.append(EscenaCierre(final, episodio, mapa, min(D_CIERRE_MAX, max(D_CIERRE_MIN, objetivo - resto + FUNDIDO))))
+        escenas.append(EscenaCierre(final, episodio, mapa,
+                                    min(D_CIERRE_MAX, max(D_CIERRE_MIN, objetivo - resto + FUNDIDO))))
     return montar(escenas, final)
 
 

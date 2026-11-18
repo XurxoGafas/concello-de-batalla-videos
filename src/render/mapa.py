@@ -104,7 +104,11 @@ class MapaGalicia:
         img = Image.new("RGB", (ancho * k, alto * k), E.MAR)
         d = ImageDraw.Draw(img)
         f = transformar(ventana, ancho, k)
+        vx0, vy0, vx1, vy1 = ventana
         for i, geom in self.gdf.geometry.items():
+            gx0, gy0, gx1, gy1 = geom.bounds
+            if gx1 < vx0 or gx0 > vx1 or gy1 < vy0 or gy0 > vy1:
+                continue  # fuera de la vista (acelera los zooms)
             dono = estado["concellos"][i]["dono"]
             pintar(d, geom, f, estado["donos"][dono]["cor"]["colores"][0], E.CONTORNO_MAPA, k)
         for geom, color, grosor in contornos:

@@ -62,6 +62,54 @@ def cabecera(episodio: int) -> tuple[Image.Image, ImageDraw.ImageDraw]:
     return img, d
 
 
+def marco_vacio(episodio: int) -> tuple[Image.Image, ImageDraw.ImageDraw]:
+    """Cabecera, líneas doradas y panel blanco con manchas de vaca; sin mapa ni bandos."""
+    img, d = cabecera(episodio)
+    W = E.ANCHO
+    d.rectangle((0, MAPA_Y0 - 6, W, MAPA_Y0 - 1), fill=E.ORO)
+    d.rectangle((0, LINEA_Y, W, LINEA_Y + 6), fill=E.ORO)
+    E.pegar_panel(img, LINEA_Y + 6, PANEL_FIN)
+    d.rectangle((0, PANEL_FIN, W, PANEL_FIN + 4), fill=E.FONDO)
+    return img, d
+
+
+def texto_diferencia(estado: dict, f: Enfrentamiento) -> list[str]:
+    va, vd = estado["donos"][f.atacante]["vacas"], estado["donos"][f.defensor]["vacas"]
+    dif = diferencia_porcentual(va, vd)
+    return ["dif. vacas", f"+{num(dif)}%" if dif else "0%"]
+
+
+def x_pastilla_vacas(estado: dict, f: Enfrentamiento, dono: str, lado: int) -> float:
+    """Centro de la pastilla de vacas de un bando (lado -1 = izquierda, +1 = derecha): en su columna, pero
+    sin invadir el hueco central de la pastilla de la diferencia."""
+    wd, _ = E.tamano_pastilla(texto_diferencia(estado, f), E.T_MIN, 20)
+    w, _ = E.tamano_pastilla(f"{num(estado['donos'][dono]['vacas'])} vacas", E.T_MIN, 20)
+    if lado < 0:
+        return min(CX_A, CX_C - wd / 2 - 12 - w / 2)
+    return max(CX_D, CX_C + wd / 2 + 12 + w / 2)
+
+
+def dibujar_bando(img: Image.Image, d: ImageDraw.ImageDraw, estado: dict, mapa: MapaGalicia, dono: str,
+                  cx: float, rotulo: tuple[str, str, str], cx_pastilla: float) -> None:
+    """Rótulo, silueta del territorio completo, nombre del dueño y pastilla de vacas de un bando."""
+    k = SUPERMUESTREO
+    texto, color, borde_r = rotulo
+    E.texto_centrado(d, cx, Y_ROTULO, texto, E.T_MIN, color, borde=6, color_borde=borde_r)
+    geom = mapa.geometria(estado["donos"][dono]["territorio"])
+    sil = Image.new("RGBA", (300 * k, ALTO_SILUETA * k), (255, 255, 255, 0))
+    pintar(ImageDraw.Draw(sil), geom, caja_silueta(geom.bounds, 300, ALTO_SILUETA, k),
+           estado["donos"][dono]["cor"]["colores"][0], E.FONDO, 3 * k)
+    sil = sil.resize((300, ALTO_SILUETA), Image.LANCZOS)
+    img.paste(sil.convert("RGB"), (int(cx - 150), Y_SILUETA), sil.getchannel("A"))
+    lineas, t = E.dividir_nombre(estado["donos"][dono]["nome"], 52, 410)
+    for n, linea in enumerate(lineas):
+        E.texto_centrado(d, cx, Y_NOMBRE + n * (t + 2), linea, t, E.FONDO, borde=6, color_borde=E.BLANCO)
+    E.pastilla_vaca(img, cx_pastilla, Y_VACAS, f"{num(estado['donos'][dono]['vacas'])} vacas", E.T_MIN, 20)
+
+
+ROTULOS_BATALLA = (("ATACA", E.CONFLICTO, E.BLANCO), ("DEFENDE", E.AZUL_DEFENSA, E.BLANCO))
+
+
 def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio: int,
                    rotulos: tuple[tuple[str, str, str], tuple[str, str, str]] | None = None
                    ) -> tuple[Image.Image, ImageDraw.ImageDraw]:
@@ -69,50 +117,21 @@ def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio:
 
     `rotulos`: (texto, color, color del borde) del atacante y del defensor; por defecto «ATACA» y
     «DEFENDE» (la pantalla de conquista usa «CAMPIÓN» y «MALOGRADO»)."""
-    if rotulos is None:
-        rotulos = (("ATACA", E.CONFLICTO, E.BLANCO), ("DEFENDE", E.AZUL_DEFENSA, E.BLANCO))
-    k, W = SUPERMUESTREO, E.ANCHO
-    img, d = cabecera(episodio)
-
-    # Mapa con zoom: encuadra los territorios completos de los dos bandos
-    ventana = mapa.ventana_enfrentamiento(estado, f.atacante, f.defensor, W / MAPA_ALTO)
-    conflicto = [(mapa.geometria([c]), E.CONFLICTO, 6) for c in (f.concello_atacante, f.concello_defensor)]
-    img.paste(mapa.dibujar(estado, ventana, W, MAPA_ALTO, contornos=conflicto,
-                           nombres=[f.atacante, f.defensor]), (0, MAPA_Y0))
-
-    # Líneas doradas y panel blanco con manchas de vaca
-    d.rectangle((0, MAPA_Y0 - 6, W, MAPA_Y0 - 1), fill=E.ORO)
-    d.rectangle((0, LINEA_Y, W, LINEA_Y + 6), fill=E.ORO)
-    E.pegar_panel(img, LINEA_Y + 6, PANEL_FIN)
-    d.rectangle((0, PANEL_FIN, W, PANEL_FIN + 4), fill=E.FONDO)
-
-    # Rótulo, silueta del territorio completo y nombre del dueño
-    for dono, cx, (rotulo, color, borde_r) in ((f.atacante, CX_A, rotulos[0]), (f.defensor, CX_D, rotulos[1])):
-        E.texto_centrado(d, cx, Y_ROTULO, rotulo, E.T_MIN, color, borde=6, color_borde=borde_r)
-        geom = mapa.geometria(estado["donos"][dono]["territorio"])
-        sil = Image.new("RGBA", (300 * k, ALTO_SILUETA * k), (255, 255, 255, 0))
-        pintar(ImageDraw.Draw(sil), geom, caja_silueta(geom.bounds, 300, ALTO_SILUETA, k),
-               estado["donos"][dono]["cor"]["colores"][0], E.FONDO, 3 * k)
-        sil = sil.resize((300, ALTO_SILUETA), Image.LANCZOS)
-        img.paste(sil.convert("RGB"), (int(cx - 150), Y_SILUETA), sil.getchannel("A"))
-        lineas, t = E.dividir_nombre(estado["donos"][dono]["nome"], 52, 410)
-        for n, linea in enumerate(lineas):
-            E.texto_centrado(d, cx, Y_NOMBRE + n * (t + 2), linea, t, E.FONDO, borde=6, color_borde=E.BLANCO)
+    rotulos = rotulos or ROTULOS_BATALLA
+    img, d = marco_vacio(episodio)
+    img.paste(banda_enfrentamiento(estado, f, mapa), (0, MAPA_Y0))
+    dibujar_bando(img, d, estado, mapa, f.atacante, CX_A, rotulos[0], x_pastilla_vacas(estado, f, f.atacante, -1))
+    dibujar_bando(img, d, estado, mapa, f.defensor, CX_D, rotulos[1], x_pastilla_vacas(estado, f, f.defensor, 1))
     E.texto_centrado(d, CX_C, Y_SILUETA + ALTO_SILUETA / 2, "VS", 64, E.ORO, borde=7, color_borde=E.FONDO)
-
-    # Fila de vacas: cada bando y, entre ambos, la diferencia en % (todo «pintado de vaca»)
-    va, vd = estado["donos"][f.atacante]["vacas"], estado["donos"][f.defensor]["vacas"]
-    dif = diferencia_porcentual(va, vd)
-    lineas_dif = ["dif. vacas", f"+{num(dif)}%" if dif else "0%"]
-    wd, _ = E.tamano_pastilla(lineas_dif, E.T_MIN, 20)
-    for vacas, cx_col, lado in ((va, CX_A, -1), (vd, CX_D, 1)):
-        txt = f"{num(vacas)} vacas"
-        w, _ = E.tamano_pastilla(txt, E.T_MIN, 20)
-        # que no invada el hueco central de la pastilla de la diferencia
-        cx = min(cx_col, CX_C - wd / 2 - 12 - w / 2) if lado < 0 else max(cx_col, CX_C + wd / 2 + 12 + w / 2)
-        E.pastilla_vaca(img, cx, Y_VACAS, txt, E.T_MIN, 20)
-    E.pastilla_vaca(img, CX_C, Y_VACAS, lineas_dif, E.T_MIN, 20)
+    E.pastilla_vaca(img, CX_C, Y_VACAS, texto_diferencia(estado, f), E.T_MIN, 20)
     return img, d
+
+
+def banda_enfrentamiento(estado: dict, f: Enfrentamiento, mapa: MapaGalicia) -> Image.Image:
+    """Banda del mapa con zoom a los dos bandos y contorno rojo en los concellos en conflicto."""
+    ventana = mapa.ventana_enfrentamiento(estado, f.atacante, f.defensor, E.ANCHO / MAPA_ALTO)
+    conflicto = [(mapa.geometria([c]), E.CONFLICTO, 6) for c in (f.concello_atacante, f.concello_defensor)]
+    return mapa.dibujar(estado, ventana, E.ANCHO, MAPA_ALTO, contornos=conflicto, nombres=[f.atacante, f.defensor])
 
 
 def pantalla_enfrentamiento(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio: int) -> Image.Image:
