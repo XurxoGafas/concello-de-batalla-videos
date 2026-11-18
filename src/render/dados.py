@@ -107,21 +107,28 @@ def navaja_sprite(largo: int = 300, apertura: float = 55) -> Image.Image:
     hoja = hoja.rotate(-apertura, resample=Image.BICUBIC, center=pivote)  # gira hacia arriba (sentido horario)
 
     # --- Mango y virola (por delante de la hoja: la hoja «sale» de la virola) ---
+    # El mango es de grosor uniforme (el mismo que el extremo ancho de la virola, sin escalón) y la
+    # virola se estrecha hacia la hoja, con anillos cada vez más pequeños que acaban en punta.
     mango, d = lienzo()
-    poli(d, [(176, 42), (388, 36), (388, 86), (176, 80)], "#D9A24F")  # mango de madera clara
+    CAJA = [(256, 34), (388, 34), (388, 86), (256, 86)]
+    poli(d, CAJA, "#D9A24F")  # mango de madera clara, grosor uniforme
     rng = random.Random("navaja")
     for _ in range(26):
-        x, y = rng.uniform(210, 378), rng.uniform(46, 78)
+        x, y = rng.uniform(266, 378), rng.uniform(40, 80)
         rx, ry = rng.uniform(3, 9), rng.uniform(2, 5)
         d.ellipse(((ox + x - rx) * k, (oy + y - ry) * k, (ox + x + rx) * k, (oy + y + ry) * k),
                   fill=rng.choice(("#B8792B", "#C98F3F", "#A8702A")))
-    d.polygon([((ox + x) * k, (oy + y) * k) for x, y in [(176, 42), (388, 36), (388, 86), (176, 80)]],
-              outline=E.FONDO, width=6 * k)
-    d.rounded_rectangle(((ox + 150) * k, (oy + 34) * k, (ox + 258) * k, (oy + 88) * k), radius=7 * k,
-                        fill="#C7CDD8", outline=E.FONDO, width=6 * k)  # virola de acero
-    d.rectangle(((ox + 160) * k, (oy + 43) * k, (ox + 250) * k, (oy + 52) * k), fill="#E6EAF0")  # brillo
-    for x in (186, 214, 226, 238):  # anillos
-        d.line([((ox + x) * k, (oy + 36) * k), ((ox + x) * k, (oy + 86) * k)], fill=E.FONDO, width=3 * k)
+    d.polygon([((ox + x) * k, (oy + y) * k) for x, y in CAJA], outline=E.FONDO, width=6 * k)
+    X0, X1, SEMI0, SEMI1 = 150, 258, 17, 26  # virola: de 150 a 258; semialtura 17 → 26 (cónica)
+    def semi(x: float) -> float:
+        return SEMI0 + (SEMI1 - SEMI0) * (x - X0) / (X1 - X0)
+    poli(d, [(X0, 60 - SEMI0), (X1, 60 - SEMI1), (X1, 60 + SEMI1), (X0, 60 + SEMI0)], "#C7CDD8")  # virola cónica
+    d.polygon([((ox + x) * k, (oy + y) * k) for x, y in [(X0 + 6, 60 - semi(X0 + 6) + 6), (X1 - 4, 60 - SEMI1 + 6),
+                                                        (X1 - 4, 60 - SEMI1 + 13), (X0 + 6, 60 - semi(X0 + 6) + 13)]],
+              fill="#E6EAF0")  # brillo siguiendo el cono
+    for x in (172, 194, 214, 232, 246):  # anillos: tan altos como la virola en cada punto (acaban en punta)
+        d.line([((ox + x) * k, (oy + 60 - semi(x) + 1) * k), ((ox + x) * k, (oy + 60 + semi(x) - 1) * k)],
+               fill=E.FONDO, width=3 * k)
     cx, cy = (ox + 160) * k, (oy + 60) * k  # pasador en el eje de giro
     d.ellipse((cx - 9 * k, cy - 9 * k, cx + 9 * k, cy + 9 * k), fill=E.ORO, outline=E.FONDO, width=4 * k)
 
