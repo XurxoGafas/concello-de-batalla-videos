@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw
 from src.render import dados as D
 from src.render import estilo as E
 
-X_A, X_D = E.ANCHO / 2 - 70, E.ANCHO / 2 + 70  # columnas de los totales
+X_A, X_D = E.ANCHO / 2 - 105, E.ANCHO / 2 + 105  # columnas de los totales
 Y_TOTAL = D.Y_MEDIO - 25
 Y_MULT = D.Y_MEDIO + 60
 
@@ -25,7 +25,8 @@ def dibujar_totales(img: Image.Image, a: str, b: str, pop_a: float = 1.0, pop_b:
     """Marcador «a - b»; `pop_*` (≥1) agranda momentáneamente el total que acaba de cambiar."""
     d = ImageDraw.Draw(img)
     for cx, txt, pop in ((X_A, a, pop_a), (X_D, b, pop_b)):
-        E.texto_centrado_exacto(d, cx, Y_TOTAL, txt, int(100 * pop), E.FONDO, borde=8, color_borde=E.BLANCO)
+        base = 84 if len(txt) > 2 else 100  # los decimales («9,1») son más anchos
+        E.texto_centrado_exacto(d, cx, Y_TOTAL, txt, int(base * pop), E.FONDO, borde=8, color_borde=E.BLANCO)
     E.texto_centrado_exacto(d, E.ANCHO / 2, Y_TOTAL, "-", 80, E.FONDO, borde=8, color_borde=E.BLANCO)
 
 
@@ -50,7 +51,7 @@ def _rgb(hexa: str) -> tuple[int, int, int]:
 def marcar_ganador(img: Image.Image, lado: str, u: float) -> None:
     """Recuadro dorado alrededor del total del ganador (aparece con rebote)."""
     cx = X_A if lado == "a" else X_D
-    w, h = 130, 120
+    w, h = 150, 120
     s = D.salida_rebote(u)
     caja = Image.new("RGBA", (w + 12, h + 12), (0, 0, 0, 0))
     ImageDraw.Draw(caja).rounded_rectangle((6, 6, 6 + w, 6 + h), radius=30, outline=E.ORO, width=9)

@@ -395,3 +395,14 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Comprobaciones:** el mapa sigue conexo (313 de 313 alcanzables) y ningún concello queda sin vecinos (A Illa de Arousa sigue unida a mano a Vilanova de Arousa). Tests: se cambió el de esquinas (ahora «no son vecinos»), se añadió uno de frontera parcial corta y otro de conexión; 175 tests en verde.
 - **Efecto en el juego:** la selección de defensor (3.3) usa estas adyacencias, así que ahora solo se atacan concellos que comparten línea; las simulaciones con una semilla dada dan resultados distintos a los anteriores a este cambio (la serie real aún no ha empezado).
 - **Pendiente:** retomar el paso 4.4 (animación de dados; ya hay un primer render en `output/muestras/`).
+
+---
+
+## 2026-11-18 — Paso 4.4 EN CURSO (animación de dados y marcador; falta la aprobación de los vídeos de muestra)
+
+- **Qué se hizo:** `src/render/dados.py` (sprites del dado, hueco, insignia «+N» y espadas cruzadas dibujadas por código; suavizados; geometría de las columnas), `src/render/marcador.py` (totales con decimales, multiplicador con halo, tarjeta de muerte súbita, recuadro del ganador) y `src/render/animacion_batalla.py` (línea de tiempo, `fotograma(base, r, t)` sin estado, codificación a MP4 con ffmpeg/libx264). Se extrajo `crear_pastilla` (RGBA) de `pastilla_vaca` para poder escalarla en la animación. Muestras: `output/muestras/batalla_sin_audio.mp4` (10,4 s, con multiplicador) y `batalla_muerte_subita.mp4` (12,9 s, con una ronda de desempate).
+- **Cómo se hizo:** el fotograma base (4.3) se dibuja una vez por batalla y cada fotograma solo copia la base y pinta los dados, insignias y marcador (muy barato). Los dados cambian de cara de forma determinista (semilla = clave + instante), así que el vídeo es reproducible.
+- **Rendimiento (para la decisión Python vs Node):** 312–387 fotogramas de 1080×1920 se generan y codifican en ≈12 s por vídeo, y el fotograma base cuesta ≈1 s. Un episodio de 3 batallas con conquista y cierre (≈90 s) saldrá en torno a 1–2 minutos de cómputo: Python **es suficiente** por ahora.
+- **Problemas encontrados:** los totales con decimales («3,0 - 3,0») chocaban con el guion central: se separaron las columnas del marcador (±105 px) y se redujo la letra de los decimales; un test mío de muerte súbita tenía mal los dados (no empataba) y otro miraba un borde dorado del dado vecino. Se corrigieron los tests.
+- **Tests:** `tests/test_animacion_batalla.py` (9) → 184 en total, todos en verde. `docs/ESTILO.md` actualizado.
+- **Pendiente:** que el usuario revise los dos vídeos y apruebe (criterio «Hecho cuando»: «se ve fluida, sin saltos»; yo solo he comprobado fotogramas sueltos y que no hay saltos bruscos entre ellos, no he podido verlos reproducirse). Sin audio todavía (fase 5). Después, 4.5 (conquista).

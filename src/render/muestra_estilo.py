@@ -25,6 +25,7 @@ from src.motor.persistencia import nueva_partida, semilla_de_batalla
 from src.motor.seleccion import elegir_enfrentamiento
 from src.render import estilo as E
 from src.render.enfrentamiento import CARPETA, fotograma_base
+from src.render import marcador as M
 from src.render.mapa import MapaGalicia
 
 def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
@@ -55,7 +56,7 @@ def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
                 E.texto_centrado_exacto(d, bx, y + lado / 2, txt, 50, E.BLANCO)
     # --- Marcador total en el centro y multiplicador bajo el bando con más vacas ---
     ym = y0 + (3 * lado + 2 * sep) / 2
-    for cx, pts, mult in ((E.ANCHO / 2 - 70, r.puntos_a, r.mult_a), (E.ANCHO / 2 + 70, r.puntos_b, r.mult_b)):
+    for cx, pts, mult in ((M.X_A, r.puntos_a, r.mult_a), (M.X_D, r.puntos_b, r.mult_b)):
         E.texto_centrado_exacto(d, cx, ym - 25, f"{pts}", 100, E.FONDO, borde=8, color_borde=E.BLANCO)
         if mult > 1:
             E.pastilla_vaca(img, cx, ym + 60, f"×{str(mult).replace('.', ',')}", 46, 26)
