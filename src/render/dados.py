@@ -112,23 +112,23 @@ def navaja_sprite(largo: int = 300, apertura: float = 55) -> Image.Image:
     # El mango es de grosor uniforme (el mismo que el extremo ancho de la virola, sin escalón) y la
     # virola se estrecha hacia la hoja, con anillos cada vez más pequeños que acaban en punta.
     mango, d = lienzo()
-    CAJA = [(256, 34), (388, 34), (388, 86), (256, 86)]
+    CAJA = [(212, 34), (335, 34), (335, 86), (212, 86)]  # mango+virola = 1,15 × la hoja (152 → 175 desde el pasador)
     poli(d, CAJA, "#D9A24F")  # mango de madera clara, grosor uniforme
     rng = random.Random("navaja")
-    for _ in range(26):
-        x, y = rng.uniform(266, 378), rng.uniform(40, 80)
+    for _ in range(20):
+        x, y = rng.uniform(222, 325), rng.uniform(40, 80)
         rx, ry = rng.uniform(3, 9), rng.uniform(2, 5)
         d.ellipse(((ox + x - rx) * k, (oy + y - ry) * k, (ox + x + rx) * k, (oy + y + ry) * k),
                   fill=rng.choice(("#B8792B", "#C98F3F", "#A8702A")))
     d.polygon([((ox + x) * k, (oy + y) * k) for x, y in CAJA], outline=E.FONDO, width=6 * k)
-    X0, X1, SEMI0, SEMI1 = 150, 258, 17, 26  # virola: de 150 a 258; semialtura 17 → 26 (cónica)
+    X0, X1, SEMI0, SEMI1 = 150, 214, 17, 26  # virola: de 150 a 214; semialtura 17 → 26 (cónica)
     def semi(x: float) -> float:
         return SEMI0 + (SEMI1 - SEMI0) * (x - X0) / (X1 - X0)
     poli(d, [(X0, 60 - SEMI0), (X1, 60 - SEMI1), (X1, 60 + SEMI1), (X0, 60 + SEMI0)], "#C7CDD8")  # virola cónica
     d.polygon([((ox + x) * k, (oy + y) * k) for x, y in [(X0 + 6, 60 - semi(X0 + 6) + 6), (X1 - 4, 60 - SEMI1 + 6),
                                                         (X1 - 4, 60 - SEMI1 + 13), (X0 + 6, 60 - semi(X0 + 6) + 13)]],
               fill="#E6EAF0")  # brillo siguiendo el cono
-    for x in (172, 194, 214, 232, 246):  # anillos: tan altos como la virola en cada punto (acaban en punta)
+    for x in (170, 183, 195, 205, 211):  # anillos: tan altos como la virola en cada punto (acaban en punta)
         d.line([((ox + x) * k, (oy + 60 - semi(x) + 1) * k), ((ox + x) * k, (oy + 60 + semi(x) - 1) * k)],
                fill=E.FONDO, width=3 * k)
     cx, cy = (ox + 160) * k, (oy + 60) * k  # pasador en el eje de giro

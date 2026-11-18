@@ -472,3 +472,11 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió:** las B y R mayúsculas tenían un huequito blanco raro; que quede del color del delineado.
 - **Cómo se resolvió:** con trazos gruesos la fuente dejaba una rendija del fondo en los huecos interiores. `estilo.texto_con_borde` dibuja el trazo, detecta los huecos cerrados (relleno por inundación desde fuera) y los pinta del color del borde antes de dibujar el relleno; lo usan `texto_centrado`, `texto_centrado_exacto` y `dados.texto_sprite`. Test nuevo (B con borde sin píxeles blancos dentro). Muestras y vídeos regenerados.
 - **Pendiente:** igual que antes: aprobación de los vídeos para cerrar 4.4.
+
+---
+
+## 2026-11-18 — Paso 4.4 (en curso): proporción de la navaja abierta
+
+- **Qué se pidió:** el mango debe medir 1,1–1,2 veces la hoja (estaba demasiado largo, ≈1,5).
+- **Cómo se resolvió:** en `navaja_sprite` el mango con la virola mide ahora 175 unidades desde el pasador frente a 152 de la hoja (≈1,15; medido en el sprite abierto: ≈1,18). Virola más corta (150→214) con 5 anillos y mango de madera más corto. Muestra: `output/muestras/diseno_navaja_botella.png`; vídeos regenerados. 187 tests en verde.
+- **Pendiente:** aprobación de los vídeos para cerrar 4.4.
