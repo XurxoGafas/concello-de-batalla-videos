@@ -10,7 +10,7 @@ import math
 import random
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageColor, ImageDraw, ImageFilter, ImageFont
 
 RAIZ = Path(__file__).resolve().parents[2]
 FUENTE_TTF = RAIZ / "assets" / "fonts" / "LilitaOne-Regular.ttf"
@@ -61,13 +61,34 @@ def ancho_texto(texto: str, tam: int) -> float:
     return fuente(tam).getlength(texto)
 
 
+def texto_con_borde(
+    d: ImageDraw.ImageDraw, xy: tuple[float, float], texto: str, f: ImageFont.FreeTypeFont, fill: str,
+    anchor: str, borde: int, color_borde: str,
+) -> None:
+    """Dibuja texto con borde grueso rellenando también los huecos interiores de letras como B, R, A, O,
+    P o D (con trazos gruesos quedaba una rendija del color de fondo); el hueco queda del color del borde."""
+    if borde <= 0:
+        d.text(xy, texto, font=f, fill=fill, anchor=anchor)
+        return
+    x0, y0, x1, y1 = (int(v) for v in d.textbbox(xy, texto, font=f, anchor=anchor, stroke_width=borde))
+    x0, y0, x1, y1 = x0 - 3, y0 - 3, x1 + 3, y1 + 3
+    mascara = Image.new("L", (x1 - x0, y1 - y0), 0)
+    ImageDraw.Draw(mascara).text((xy[0] - x0, xy[1] - y0), texto, font=f, fill=255, anchor=anchor,
+                                 stroke_width=borde, stroke_fill=255)
+    fuera = mascara.point(lambda v: 255 if v > 0 else 0)
+    ImageDraw.floodfill(fuera, (0, 0), 128)  # fondo exterior; lo que siga a 0 es un hueco cerrado
+    huecos = fuera.point(lambda v: 255 if v == 0 else 0).filter(ImageFilter.MaxFilter(5))  # + su antialiasing
+    mascara = ImageChops.lighter(mascara, huecos)
+    d._image.paste(Image.new("RGBA", mascara.size, ImageColor.getrgb(color_borde) + (255,)), (x0, y0), mascara)
+    d.text(xy, texto, font=f, fill=fill, anchor=anchor)
+
+
 def texto_centrado(
     d: ImageDraw.ImageDraw, centro_x: float, y: float, texto: str, tam: int,
     color: str = BLANCO, borde: int = 0, color_borde: str = FONDO,
 ) -> None:
     """Dibuja `texto` centrado en `centro_x`, con `y` como borde superior del texto."""
-    d.text((centro_x, y), texto, font=fuente(tam), fill=color, anchor="mt",
-           stroke_width=borde, stroke_fill=color_borde)
+    texto_con_borde(d, (centro_x, y), texto, fuente(tam), color, "mt", borde, color_borde)
 
 
 def ajustar_tamano(texto: str, tam: int, ancho_max: float, minimo: int = T_MIN) -> int:
@@ -140,8 +161,7 @@ def texto_centrado_exacto(
     """Centra la tinta real del texto (no su caja tipográfica) en (cx, cy), en ambos ejes."""
     f = fuente(tam)
     x0, y0, x1, y1 = d.textbbox((0, 0), texto, font=f, anchor="ls", stroke_width=borde)
-    d.text((cx - (x0 + x1) / 2, cy - (y0 + y1) / 2), texto, font=f, fill=color, anchor="ls",
-           stroke_width=borde, stroke_fill=color_borde)
+    texto_con_borde(d, (cx - (x0 + x1) / 2, cy - (y0 + y1) / 2), texto, f, color, "ls", borde, color_borde)
 
 
 def _mancha(rng: random.Random, cx: float, cy: float, r: float) -> list[tuple[float, float]]:

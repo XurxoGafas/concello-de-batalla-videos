@@ -187,8 +187,7 @@ def texto_sprite(texto: str, tam: int, color: str, color_borde: str = E.FONDO, b
     f = E.fuente(tam)
     x0, y0, x1, y1 = ImageDraw.Draw(Image.new("L", (1, 1))).textbbox((0, 0), texto, font=f, anchor="ls", stroke_width=borde)
     im = Image.new("RGBA", (x1 - x0 + 8, y1 - y0 + 8), (0, 0, 0, 0))
-    ImageDraw.Draw(im).text((4 - x0, 4 - y0), texto, font=f, fill=color, anchor="ls", stroke_width=borde,
-                            stroke_fill=color_borde)
+    E.texto_con_borde(ImageDraw.Draw(im), (4 - x0, 4 - y0), texto, f, color, "ls", borde, color_borde)
     return im
 
 

@@ -464,3 +464,11 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Cómo se resolvió:** `dados.py`: nuevas constantes de pose (navaja a -122°, botella a 14°) y `texto_sprite` (texto con borde grueso). `_duelo` usa `navaja_sprite(250, apertura=0)`, el destello y «LIORTA!» (dorado, rebote) centrado bajo el choque; los tiempos no cambian. `marcador.tarjeta_muerte_subita(img, u, t)` dibuja un degradado rojo→naranja con tres capas de lenguas (roja, naranja, amarilla) que oscilan con `t`, título blanco con borde oscuro. Tests: el de la tarjeta comprueba fuego y título blanco; test nuevo de «LIORTA!»; sprite de la navaja actualizado. 186 tests en verde. Vídeos regenerados en `output/muestras/`.
 - **Problemas:** la punta de la navaja se solapaba con la pastilla «dif. vacas»; se redujeron los sprites y se bajó el conjunto.
 - **Pendiente:** aprobación de los vídeos para marcar 4.4 `[x]`; después 4.5 (decidir si el icono del ganador pasa a ser la navaja).
+
+---
+
+## 2026-11-18 — Paso 4.4 (en curso): huecos de B, R, A, O… con el color del borde
+
+- **Qué se pidió:** las B y R mayúsculas tenían un huequito blanco raro; que quede del color del delineado.
+- **Cómo se resolvió:** con trazos gruesos la fuente dejaba una rendija del fondo en los huecos interiores. `estilo.texto_con_borde` dibuja el trazo, detecta los huecos cerrados (relleno por inundación desde fuera) y los pinta del color del borde antes de dibujar el relleno; lo usan `texto_centrado`, `texto_centrado_exacto` y `dados.texto_sprite`. Test nuevo (B con borde sin píxeles blancos dentro). Muestras y vídeos regenerados.
+- **Pendiente:** igual que antes: aprobación de los vídeos para cerrar 4.4.

@@ -141,3 +141,14 @@ def test_fondo_de_hierba_se_mueve_con_el_viento_y_es_ciclico():
 def test_el_texto_sobre_la_hierba_tiene_borde_oscuro_para_leerse():
     # el título dorado va con trazo del color de fondo oscuro: contraste alto contra el trazo
     assert E.contraste(E.ORO, E.FONDO) >= 7 and E.contraste(E.BLANCO, E.FONDO) >= 7
+
+
+def test_los_huecos_de_las_letras_con_borde_quedan_del_color_del_borde():
+    """Con trazo grueso, B y R dejaban una rendija del color de fondo en su hueco interior."""
+    from PIL import Image, ImageDraw
+    im = Image.new("RGB", (300, 160), "white")
+    E.texto_centrado_exacto(ImageDraw.Draw(im), 150, 80, "B", 110, E.ORO, borde=9, color_borde=E.FONDO)
+    borde = tuple(int(E.FONDO[i:i + 2], 16) for i in (1, 3, 5))
+    cuadro = im.crop((100, 30, 200, 130))
+    assert (255, 255, 255) not in {p for p in cuadro.get_flattened_data()}  # nada blanco dentro del trazo
+    assert borde in set(cuadro.get_flattened_data())
