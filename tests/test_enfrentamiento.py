@@ -84,3 +84,28 @@ def test_el_mar_del_mapa_es_azul_cielo(mapa):
     estado = nueva_partida()
     im = mapa.dibujar(estado, mapa.ventana_general(1.0), 400, 400)
     assert im.getpixel((2, 2)) == tuple(int(E.MAR[i:i + 2], 16) for i in (1, 3, 5))
+
+
+def test_vs_centrado_entre_los_dos_bandos():
+    assert (EN.CX_A + EN.CX_D) / 2 == EN.CX_C == E.ANCHO / 2
+
+
+def test_pastilla_central_diferencia_y_bonus():
+    from src.motor.persistencia import nueva_partida
+    from src.motor.seleccion import Enfrentamiento
+    est = nueva_partida()
+    a, b = list(est["donos"])[:2]
+    est["donos"][a]["vacas"], est["donos"][b]["vacas"] = 1500, 1200
+    f = Enfrentamiento(a, b, a, b)
+    assert EN.texto_diferencia(est, f) == ["diferencia = +25%", "bonus = ×1,2"]
+
+
+def test_icono_de_vaca_en_lugar_de_la_palabra():
+    sin = E.ancho_linea("1.500", 44)
+    con = E.ancho_linea(f"1.500 {E.ICONO_VACA}", 44)
+    assert con > sin + 40
+    pastilla = E.crear_pastilla(f"1.500 {E.ICONO_VACA}", 44, 20)
+    assert pastilla.width == E.tamano_pastilla(f"1.500 {E.ICONO_VACA}", 44, 20)[0]
+    # el icono tiene piel rosada (hocico): aparece color rosado/rojizo en la pastilla
+    px = pastilla.convert("RGB").get_flattened_data()
+    assert any(r > 170 and 80 < g < 130 and b < 120 for r, g, b in px)

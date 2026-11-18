@@ -541,3 +541,9 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió:** hacer el vídeo un 20 % más rápido.
 - **Cómo:** `VELOCIDAD = 1.2` en `src/render/escenas.py`; `renderizar` toma muestras del montaje a ritmo ×1,2 (el montaje no cambia). La muestra pasa de 85,0 s a **70,9 s**.
 - **A tener en cuenta (regla d):** 70,9 s queda **por debajo del requisito de 80–90 s** de `PLAN.md`/`DECISIONES.md`. Pendiente de que el usuario decida: (a) aceptar ~71 s y bajar el requisito, o (b) alargar el contenido (p. ej. cierre más largo) para volver a 80–90 s con el ritmo nuevo. No se ha cambiado el plan hasta que decida. El audio de la Fase 5 deberá ajustarse a esta velocidad.
+
+## 2026-11-18 — Paso 4.6 (revisión): VS centrado, icono de vaca, nombres largos y pastilla «diferencia/bonus»
+- **Qué se pidió:** (1) el «VS» estaba descentrado; (2) usar el icono de vaca aportado (Flaticon, autor surang) cada vez que aparezca la palabra «vacas» como dato; (3) nombres largos (p. ej. Vilamartín de Valdeorras) se veían mal; (4) la pastilla central pasa de «dif. vacas +N%» a «diferencia = +N%» y «bonus = ×N».
+- **Cómo:** (1) las columnas de los bandos eran asimétricas (270/690 → centro 480, pero VS y marcador en 540); ahora `CX_A, CX_D = 290, 790` (simétricas respecto a 540). (2) `estilo.ICONO_VACA` («{vaca}») + `icono_vaca`, `ancho_linea`, `dibujar_linea`; usado en pastillas de vacas, «+N vacas» de la conquista, escena del campeón y filas del ranking (el título pasa a «MÁIS 🐄»/«no seu territorio»). (3) nombres en 2 líneas con ancho máx. 300 px y tamaño mínimo 30. (4) `texto_diferencia` devuelve las dos líneas; la pastilla central usa texto de 38 px.
+- **Licencia (regla j):** icono registrado en `docs/FUENTES.md`: **exige atribución al autor**; hay que añadirla a las descripciones en el paso 6.1.
+- **Tests:** 3 nuevos; 210 en verde. Vídeo regenerado (70,9 s).

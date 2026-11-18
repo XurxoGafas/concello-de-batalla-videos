@@ -6,6 +6,7 @@ Ver `docs/ESTILO.md` para la explicación de cada decisión.
 
 from __future__ import annotations
 
+import functools
 import math
 import random
 from pathlib import Path
@@ -89,6 +90,56 @@ def texto_centrado(
 ) -> None:
     """Dibuja `texto` centrado en `centro_x`, con `y` como borde superior del texto."""
     texto_con_borde(d, (centro_x, y), texto, fuente(tam), color, "mt", borde, color_borde)
+
+
+ICONO_VACA = "{vaca}"  # marcador que se sustituye por el icono de la vaca (assets/img/vaca.png)
+VACA_PNG = RAIZ / "assets" / "img" / "vaca.png"
+
+
+@functools.lru_cache(maxsize=16)
+def icono_vaca(alto: int) -> Image.Image:
+    """Icono de la vaca (autor: surang, Flaticon) recortado a su contenido y escalado a `alto` px."""
+    im = Image.open(VACA_PNG).convert("RGBA")
+    im = im.crop(im.getchannel("A").getbbox())
+    return im.resize((max(1, round(im.width * alto / im.height)), alto), Image.LANCZOS)
+
+
+def _partes(linea: str) -> tuple[str, str]:
+    a, b = linea.split(ICONO_VACA, 1)
+    return a.rstrip(), b.lstrip()
+
+
+def ancho_linea(linea: str, tam: int) -> float:
+    """Ancho de una línea que puede llevar el icono de la vaca (`ICONO_VACA`)."""
+    if ICONO_VACA not in linea:
+        return ancho_texto(linea, tam)
+    a, b = _partes(linea)
+    alto = round(tam * 1.2)
+    hueco = tam * 0.2
+    return (ancho_texto(a, tam) + hueco if a else 0) + icono_vaca(alto).width + (hueco + ancho_texto(b, tam) if b else 0)
+
+
+def dibujar_linea(img: Image.Image, d: ImageDraw.ImageDraw, cx: float, cy: float, linea: str, tam: int,
+                  color: str = BLANCO, borde: int = 0, color_borde: str = FONDO) -> None:
+    """Como `texto_centrado_exacto`, pero la línea puede llevar el icono de la vaca en vez de la palabra «vacas»."""
+    if ICONO_VACA not in linea:
+        texto_centrado_exacto(d, cx, cy, linea, tam, color, borde, color_borde)
+        return
+    a, b = _partes(linea)
+    f = fuente(tam)
+    x0, y0, x1, y1 = d.textbbox((0, 0), (a + b) or "0", font=f, anchor="ls", stroke_width=borde)
+    base = cy - (y0 + y1) / 2
+    alto = round(tam * 1.2)
+    hueco = tam * 0.2
+    ico = icono_vaca(alto)
+    x = cx - ancho_linea(linea, tam) / 2
+    if a:
+        texto_con_borde(d, (x, base), a, f, color, "ls", borde, color_borde)
+        x += ancho_texto(a, tam) + hueco
+    img.paste(ico, (int(round(x)), int(round(cy - alto / 2))), ico)
+    x += ico.width + hueco
+    if b:
+        texto_con_borde(d, (x, base), b, f, color, "ls", borde, color_borde)
 
 
 def ajustar_tamano(texto: str, tam: int, ancho_max: float, minimo: int = T_MIN) -> int:
@@ -178,7 +229,7 @@ def _mancha(rng: random.Random, cx: float, cy: float, r: float) -> list[tuple[fl
 def tamano_pastilla(texto: str | list[str], tam: int, pad_x: int = 30) -> tuple[int, int]:
     """(ancho, alto) en píxeles de `pastilla_vaca` para ese texto (una o varias líneas)."""
     lineas = [texto] if isinstance(texto, str) else texto
-    w = int(max(ancho_texto(x, tam) for x in lineas) + 2 * pad_x)
+    w = int(max(ancho_linea(x, tam) for x in lineas) + 2 * pad_x)
     h = int(tam * 1.4 + (len(lineas) - 1) * tam * 1.15)
     return w, h
 
@@ -213,7 +264,7 @@ def crear_pastilla(texto: str | list[str], tam: int, pad_x: int = 30, semilla: s
     paso = tam * 1.15
     for i, linea in enumerate(lineas):
         y = h / 2 + (i - (len(lineas) - 1) / 2) * paso
-        texto_centrado_exacto(d, w / 2, y, linea, tam, FONDO, borde=5, color_borde=VACA_BLANCO)
+        dibujar_linea(pastilla, d, w / 2, y, linea, tam, FONDO, borde=5, color_borde=VACA_BLANCO)
     return pastilla
 
 

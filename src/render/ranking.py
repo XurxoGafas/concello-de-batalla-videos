@@ -30,7 +30,7 @@ def clasificaciones(estado: dict, top: int = TOP) -> tuple[list[tuple[str, int]]
     return vit[:top], vac[:top]
 
 
-def _fila(nombre: str, valor: int, puesto: int, color: str) -> Image.Image:
+def _fila(nombre: str, valor: int, puesto: int, color: str, vacas: bool = False) -> Image.Image:
     """Tarjeta RGBA de una fila: insignia con el puesto, nombre del dueño y valor."""
     k = 2
     w, h = ANCHO_FILA, ALTO_FILA
@@ -44,12 +44,12 @@ def _fila(nombre: str, valor: int, puesto: int, color: str) -> Image.Image:
     im = im.resize((w, h), Image.LANCZOS)
     d = ImageDraw.Draw(im)
     E.texto_centrado_exacto(d, 40, h / 2, str(puesto), 38, E.BLANCO, borde=4, color_borde=E.FONDO)
-    txt_valor = M.num(valor)
+    txt_valor = M.num(valor) + (f" {E.ICONO_VACA}" if vacas else "")
     tv = 40
-    ancho_v = E.ancho_texto(txt_valor, tv)
+    ancho_v = E.ancho_linea(txt_valor, tv)
     tam = E.ajustar_tamano(nombre, 38, w - 70 - ancho_v - 50, minimo=24)
     E.texto_con_borde(d, (78, h / 2 + 1), nombre, E.fuente(tam), E.FONDO, "lm", 0, E.FONDO)
-    E.texto_con_borde(d, (w - 24, h / 2 + 1), txt_valor, E.fuente(tv), E.FONDO, "rm", 0, E.FONDO)
+    E.dibujar_linea(im, d, w - 24 - ancho_v / 2, h / 2 + 1, txt_valor, tv, E.FONDO)
     return im
 
 
@@ -59,11 +59,11 @@ def dibujar_cierre(img: Image.Image, estado: dict, t: float, t0: float = 0.6, pa
     Las filas aparecen de la 5ª a la 1ª, cada una con un pequeño «pop»."""
     d = ImageDraw.Draw(img)
     vit, ter = clasificaciones(estado)
-    for cx, titulo, sub in ((CX_IZQ, "MÁIS VITORIAS", "batallas gañadas"), (CX_DER, "MÁIS VACAS", "vacas do territorio")):
-        E.texto_centrado(d, cx, Y_TITULOS - 34, titulo, 46, E.FONDO, borde=6, color_borde=E.BLANCO)
-        E.texto_centrado(d, cx, Y_TITULOS + 22, sub, 30, E.FONDO, borde=5, color_borde=E.BLANCO)
+    for cx, titulo, sub in ((CX_IZQ, "MÁIS VITORIAS", "batallas gañadas"), (CX_DER, f"MÁIS {E.ICONO_VACA}", "no seu territorio")):
+        E.dibujar_linea(img, d, cx, Y_TITULOS - 20, titulo, 46, E.FONDO, borde=6, color_borde=E.BLANCO)
+        E.texto_centrado(d, cx, Y_TITULOS + 26, sub, 30, E.FONDO, borde=5, color_borde=E.BLANCO)
     colores = {1: E.ORO, 2: "#8E9BB0", 3: "#B9773B"}
-    for cx, lista in ((CX_IZQ, vit), (CX_DER, ter)):
+    for cx, lista, vacas in ((CX_IZQ, vit, False), (CX_DER, ter, True)):
         n = len(lista)
         for idx, (dono, valor) in enumerate(lista):
             puesto = idx + 1
@@ -71,5 +71,5 @@ def dibujar_cierre(img: Image.Image, estado: dict, t: float, t0: float = 0.6, pa
             u = (t - llegada) / 0.3
             if u <= 0:
                 continue
-            fila = _fila(estado["donos"][dono]["nome"], valor, puesto, colores.get(puesto, E.AZUL_DEFENSA))
+            fila = _fila(estado["donos"][dono]["nome"], valor, puesto, colores.get(puesto, E.AZUL_DEFENSA), vacas)
             D.pegar(img, fila, cx, Y_FILAS + idx * PASO_FILA, escala=D.salida_rebote(u))

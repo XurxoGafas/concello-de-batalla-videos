@@ -339,7 +339,7 @@ class EscenaFinalSerie:
             for n, linea in enumerate(lineas):
                 E.texto_centrado(d, E.ANCHO / 2, 985 + n * (tam + 4), linea, tam, E.FONDO, borde=7, color_borde=E.BLANCO)
         if t > 1.4:
-            for n, txt in enumerate((f"{len(dono['territorio'])} concellos", f"{M.num(dono['vacas'])} vacas",
+            for n, txt in enumerate((f"{len(dono['territorio'])} concellos", f"{M.num(dono['vacas'])} {E.ICONO_VACA}",
                                      f"{dono['victorias']} vitorias")):
                 D.pegar(img, CQ._pastilla(txt), 200 + 340 * n, 1190, escala=D.salida_rebote((t - 1.4 - 0.15 * n) / 0.35))
         if t > 0.6:

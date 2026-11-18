@@ -180,7 +180,7 @@ def fotograma(ctx: Conquista, t: float) -> Image.Image:
         D.pegar(img, sprite, X_GAITA, Y_GAITA, escala=e)
     if t >= T_PASTILLAS:
         cx = ctx.cx_ganador if ctx.lado_ganador < 0 else ctx.cx_ganador + 125
-        for n, (txt, y) in enumerate(((f"+{M.num(ctx.vacas_ganadas)} vacas", Y_GAITA - 50),
+        for n, (txt, y) in enumerate(((f"+{M.num(ctx.vacas_ganadas)} {E.ICONO_VACA}", Y_GAITA - 50),
                                       (_plural(ctx.n_concellos), Y_GAITA + 50))):
             u = (t - T_PASTILLAS - 0.15 * n) / 0.35
             D.pegar(img, _pastilla(txt), cx, y, escala=D.salida_rebote(u))

@@ -78,7 +78,7 @@ def mapa_zoom_atacante(mapa: MapaGalicia, ruta: Path, semilla: str = "muestra", 
     for n, linea in enumerate(lineas):
         E.texto_centrado(d, E.ANCHO / 2, y_linea + 95 + n * (t + 4), linea, t, E.FONDO, borde=7, color_borde=E.BLANCO)
     y_vacas = y_linea + 95 + len(lineas) * (t + 4) + 55
-    E.pastilla_vaca(img, E.ANCHO / 2, y_vacas, f"{_num(estado['donos'][atacante]['vacas'])} vacas", 52, 28)
+    E.pastilla_vaca(img, E.ANCHO / 2, y_vacas, f"{_num(estado['donos'][atacante]['vacas'])} {E.ICONO_VACA}", 52, 28)
     ruta.parent.mkdir(parents=True, exist_ok=True)
     img.save(ruta)
     return ruta

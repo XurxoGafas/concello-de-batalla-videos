@@ -19,7 +19,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 from src.motor.estado import jugar_batalla
-from src.motor.multiplicador import diferencia_porcentual
+from src.motor.multiplicador import diferencia_porcentual, multiplicadores
 from src.motor.persistencia import nueva_partida, semilla_de_batalla
 from src.motor.seleccion import Enfrentamiento, elegir_enfrentamiento
 from src.render import estilo as E
@@ -35,7 +35,8 @@ LINEA_Y = MAPA_Y0 + MAPA_ALTO  # justo bajo el mapa
 PANEL_FIN = E.ALTO - E.MARGEN_INF + 10
 
 # Columnas del panel: atacante, defensor y centro
-CX_A, CX_D, CX_C = 270, 690, E.ANCHO / 2
+CX_A, CX_D, CX_C = 290, 790, E.ANCHO / 2  # simétricas respecto al centro (VS, marcador y dados)
+ANCHO_NOMBRE = 300
 Y_ROTULO, Y_SILUETA, ALTO_SILUETA, Y_NOMBRE, Y_VACAS = 866, 900, 110, 1035, 1172
 
 
@@ -76,14 +77,18 @@ def marco_vacio(episodio: int) -> tuple[Image.Image, ImageDraw.ImageDraw]:
 def texto_diferencia(estado: dict, f: Enfrentamiento) -> list[str]:
     va, vd = estado["donos"][f.atacante]["vacas"], estado["donos"][f.defensor]["vacas"]
     dif = diferencia_porcentual(va, vd)
-    return ["dif. vacas", f"+{num(dif)}%" if dif else "0%"]
+    bonus = max(multiplicadores(va, vd))
+    return [f"diferencia = {'+' + num(dif) if dif else '0'}%", f"bonus = ×{str(bonus).replace('.', ',')}"]
+
+
+T_CENTRO = 38  # tamaño del texto de la pastilla central (diferencia / bonus)
 
 
 def x_pastilla_vacas(estado: dict, f: Enfrentamiento, dono: str, lado: int) -> float:
     """Centro de la pastilla de vacas de un bando (lado -1 = izquierda, +1 = derecha): en su columna, pero
     sin invadir el hueco central de la pastilla de la diferencia."""
-    wd, _ = E.tamano_pastilla(texto_diferencia(estado, f), E.T_MIN, 20)
-    w, _ = E.tamano_pastilla(f"{num(estado['donos'][dono]['vacas'])} vacas", E.T_MIN, 20)
+    wd, _ = E.tamano_pastilla(texto_diferencia(estado, f), T_CENTRO, 18)
+    w, _ = E.tamano_pastilla(f"{num(estado['donos'][dono]['vacas'])} {E.ICONO_VACA}", E.T_MIN, 20)
     if lado < 0:
         return min(CX_A, CX_C - wd / 2 - 12 - w / 2)
     return max(CX_D, CX_C + wd / 2 + 12 + w / 2)
@@ -101,10 +106,10 @@ def dibujar_bando(img: Image.Image, d: ImageDraw.ImageDraw, estado: dict, mapa: 
            estado["donos"][dono]["cor"]["colores"][0], E.FONDO, 3 * k)
     sil = sil.resize((300, ALTO_SILUETA), Image.LANCZOS)
     img.paste(sil.convert("RGB"), (int(cx - 150), Y_SILUETA), sil.getchannel("A"))
-    lineas, t = E.dividir_nombre(estado["donos"][dono]["nome"], 52, 410)
+    lineas, t = E.dividir_nombre(estado["donos"][dono]["nome"], 52, ANCHO_NOMBRE, minimo=30)
     for n, linea in enumerate(lineas):
         E.texto_centrado(d, cx, Y_NOMBRE + n * (t + 2), linea, t, E.FONDO, borde=6, color_borde=E.BLANCO)
-    E.pastilla_vaca(img, cx_pastilla, Y_VACAS, f"{num(estado['donos'][dono]['vacas'])} vacas", E.T_MIN, 20)
+    E.pastilla_vaca(img, cx_pastilla, Y_VACAS, f"{num(estado['donos'][dono]['vacas'])} {E.ICONO_VACA}", E.T_MIN, 20)
 
 
 ROTULOS_BATALLA = (("ATACA", E.CONFLICTO, E.BLANCO), ("DEFENDE", E.AZUL_DEFENSA, E.BLANCO))
@@ -123,7 +128,7 @@ def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio:
     dibujar_bando(img, d, estado, mapa, f.atacante, CX_A, rotulos[0], x_pastilla_vacas(estado, f, f.atacante, -1))
     dibujar_bando(img, d, estado, mapa, f.defensor, CX_D, rotulos[1], x_pastilla_vacas(estado, f, f.defensor, 1))
     E.texto_centrado(d, CX_C, Y_SILUETA + ALTO_SILUETA / 2, "VS", 64, E.ORO, borde=7, color_borde=E.FONDO)
-    E.pastilla_vaca(img, CX_C, Y_VACAS, texto_diferencia(estado, f), E.T_MIN, 20)
+    E.pastilla_vaca(img, CX_C, Y_VACAS, texto_diferencia(estado, f), T_CENTRO, 18)
     return img, d
 
 
