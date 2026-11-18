@@ -118,10 +118,10 @@ Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fas
 - **Archivos:** `src/render/mapa.py`.
 - **Hecho cuando:** se generan `output/muestras/mapa_inicial.png` y `output/muestras/mapa_zoom_atacante.png`, legibles en un móvil.
 
-### [~] 4.3 Pantalla de enfrentamiento (fase 3) — muestra generada, a falta de aprobación
+### [x] 4.3 Pantalla de enfrentamiento (fase 3)
 - **Qué:** Mostrar las siluetas de atacante y defensor, cada una con su nombre y, debajo, su número de vacas.
 - **Archivos:** `src/render/enfrentamiento.py`.
-- **Hecho cuando:** se genera `output/muestras/enfrentamiento.png` con ambas siluetas y datos legibles.
+- **Hecho cuando:** se genera `output/muestras/enfrentamiento.png` con ambas siluetas y datos legibles. ✅ Completado el 2026-11-18 y aprobado por el usuario: rótulos ATACA/DEFENDE, siluetas de territorios completos, vacas y diferencia en pastillas de vaca; fondo con la foto de hierba, mar azul cielo y panel blanco con manchas de vaca; dados en vertical con «+N» junto al dado ganador (ver `docs/ESTILO.md`). 173 tests en verde.
 
 ### [ ] 4.4 Animación de dados y marcador (fases 4–5)
 - **Qué:** Icono de espadas cruzadas antes de la tirada; dados que ruedan y se paran, la diferencia de cada tirada («+1», «+2», «=» en empate) sumándose al marcador en pantalla, el multiplicador resaltado en dorado sobre el bando que lo recibe, y la muerte súbita si hace falta desempatar.

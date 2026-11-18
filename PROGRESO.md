@@ -369,3 +369,12 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Cómo se resolvió:** dos columnas de 3 dados (una por bando), fila a fila; borde dorado en el dado que gana la tirada y, por fuera de él, insignia verde «+N» (gris «=» en empate); marcador total en el centro y multiplicador bajo el total del bando con más vacas. El mapa se redujo de 510 a 440 px de alto para que cupieran los dados sin invadir la zona inferior reservada. Constantes de layout de `enfrentamiento.py` ajustadas (afecta también a la pantalla 4.3). Colores `VERDE_PUNTOS` y `GRIS_EMPATE` en `estilo.py`.
 - **Problemas encontrados:** al principio el total quedaba pegado a la columna del defensor; se separaron las columnas de dados hacia fuera (x = 235 y 845).
 - **Pendiente:** aprobación del usuario para marcar 4.3 `[x]` (y fuente/licencia de la foto de hierba). El dibujo de dados vive aún en `muestra_estilo.py`; en 4.4 pasa a `dados.py`/`marcador.py`.
+
+---
+
+## 2026-11-18 — Paso 4.3 completado (pantalla de enfrentamiento)
+
+- **Qué se hizo:** el usuario aprobó la pantalla de enfrentamiento y la disposición vertical de los dados, y pidió aplicar los cambios (foto de hierba, mar azul cielo, panel blanco con manchas, textos claros) a todas las pantallas. Se comprobó que `mapa_inicial.png`, `mapa_zoom_atacante.png`, `estilo*.png` y `enfrentamiento.png` ya los usan, porque comparten `fondo_foto`, `MAR`, `pegar_panel` y `fotograma_base`. Paso `[x]`.
+- **Cómo se completó:** ver las entradas anteriores del 4.3 y `docs/ESTILO.md`.
+- **Problemas encontrados:** los ya descritos.
+- **Pendiente:** (1) la fuente y licencia de la foto de hierba (`docs/FUENTES.md`) antes de publicar nada; (2) siguiente paso, 4.4 (animación de dados y marcador), que es donde se decide si el rendimiento de Python basta para animar.
