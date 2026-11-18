@@ -378,3 +378,10 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Cómo se completó:** ver las entradas anteriores del 4.3 y `docs/ESTILO.md`.
 - **Problemas encontrados:** los ya descritos.
 - **Pendiente:** (1) la fuente y licencia de la foto de hierba (`docs/FUENTES.md`) antes de publicar nada; (2) siguiente paso, 4.4 (animación de dados y marcador), que es donde se decide si el rendimiento de Python basta para animar.
+
+---
+
+## 2026-11-18 — Registrada la fuente y licencia de la foto de hierba
+
+- **Qué se hizo:** el usuario indicó la página de origen de la foto de fondo (Unsplash). Se comprobó en la página: autor bady abbas, licencia Unsplash (uso comercial permitido, atribución no obligatoria, sin compilar imágenes para un servicio competidor). Registrada en `docs/FUENTES.md` (regla j); queda resuelto el pendiente del paso 4.3.
+- **Pendiente:** decidir si se acredita al autor en las descripciones (opcional). Siguiente: paso 4.4 en curso (animación de dados y marcador); `crear_pastilla` (RGBA) ya extraída de `pastilla_vaca` para poder animar la pastilla.

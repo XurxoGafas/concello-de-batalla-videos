@@ -163,15 +163,13 @@ def tamano_pastilla(texto: str | list[str], tam: int, pad_x: int = 30) -> tuple[
     return w, h
 
 
-def pastilla_vaca(
-    img: Image.Image, cx: float, cy: float, texto: str | list[str], tam: int,
-    pad_x: int = 30, semilla: str | None = None,
-) -> tuple[int, int, int, int]:
+def crear_pastilla(texto: str | list[str], tam: int, pad_x: int = 30, semilla: str | None = None) -> Image.Image:
     """Pastilla blanca con manchas negras (piel de vaca pinta) con `texto` exactamente centrado.
 
+    Devuelve una imagen RGBA con esquinas transparentes (útil para animarla: escalarla, etc.).
     `texto` puede ser una lista de líneas. Las manchas salen por los bordes (arriba y abajo)
     para no quitar legibilidad al texto, que además lleva un halo blanco. Es determinista: las
-    mismas manchas para el mismo texto. Devuelve la caja (x0, y0, x1, y1) ocupada.
+    mismas manchas para el mismo texto.
     """
     lineas = [texto] if isinstance(texto, str) else list(texto)
     k = 3  # supermuestreo para bordes suaves
@@ -190,14 +188,24 @@ def pastilla_vaca(
     ImageDraw.Draw(mascara).rounded_rectangle((0, 0, w * k - 1, h * k - 1), radius=radio, fill=255)
     db.rounded_rectangle((0, 0, w * k - 1, h * k - 1), radius=radio, outline=FONDO, width=3 * k)
     base.putalpha(mascara)
-    pequena = base.resize((w, h), Image.LANCZOS)
-    x0, y0 = int(round(cx - w / 2)), int(round(cy - h / 2))
-    img.paste(pequena.convert("RGB"), (x0, y0), pequena.getchannel("A"))
-    d = ImageDraw.Draw(img)
+    pastilla = base.resize((w, h), Image.LANCZOS)
+    d = ImageDraw.Draw(pastilla)
     paso = tam * 1.15
     for i, linea in enumerate(lineas):
-        y = y0 + h / 2 + (i - (len(lineas) - 1) / 2) * paso
-        texto_centrado_exacto(d, x0 + w / 2, y, linea, tam, FONDO, borde=5, color_borde=VACA_BLANCO)
+        y = h / 2 + (i - (len(lineas) - 1) / 2) * paso
+        texto_centrado_exacto(d, w / 2, y, linea, tam, FONDO, borde=5, color_borde=VACA_BLANCO)
+    return pastilla
+
+
+def pastilla_vaca(
+    img: Image.Image, cx: float, cy: float, texto: str | list[str], tam: int,
+    pad_x: int = 30, semilla: str | None = None,
+) -> tuple[int, int, int, int]:
+    """Pega una pastilla de vaca (`crear_pastilla`) centrada en (cx, cy). Devuelve su caja."""
+    pastilla = crear_pastilla(texto, tam, pad_x, semilla)
+    w, h = pastilla.size
+    x0, y0 = int(round(cx - w / 2)), int(round(cy - h / 2))
+    img.paste(pastilla.convert("RGB"), (x0, y0), pastilla.getchannel("A"))
     return x0, y0, x0 + w, y0 + h
 
 
