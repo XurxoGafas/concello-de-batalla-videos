@@ -1,0 +1,17 @@
+# Secretos
+.env
+
+# Entorno Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Vídeos y datos generados
+output/*
+!output/.gitkeep
+data/raw/*
+!data/raw/.gitkeep
+
+# Sistema
+.DS_Store
