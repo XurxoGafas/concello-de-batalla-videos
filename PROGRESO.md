@@ -312,3 +312,14 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Cómo se completó:** ver las entradas anteriores del 4.1 y `docs/ESTILO.md`. Resumen de lo fijado: 1080×1920 a 30 fps; zonas seguras 60/140/220/420 px; tipografía Lilita One (OFL); fondo de hierba dibujado por código; mapa con zoom que encuadra los territorios completos de los dos bandos; contorno rojo en los concellos en conflicto; pastillas «de vaca» para vacas, diferencia (tope +50 %) y multiplicador; todo en gallego.
 - **Problemas encontrados:** los ya descritos en las entradas del 4.1.
 - **Pendiente / a tener en cuenta:** (1) el usuario valoró cambiar a Node para animar más fácil; la opinión fue mantener Python (el motor y los 154 tests ya están ahí) y decidir de nuevo tras el prototipo de animación del paso 4.4 (medir tiempo de render y aspecto; si no convence, se puede sustituir solo el renderizador porque el motor guarda las batallas como datos); (2) posible paso futuro: foto de cada concello con rayo en el panel de enfrentamiento (necesita fotos con autor y licencia); (3) siguiente paso: 4.2 (renderizar el mapa).
+
+---
+
+## 2026-11-18 — Paso 4.2 (renderizar el mapa): en curso, a falta de aprobación
+
+- **Qué se hizo:** módulo `src/render/mapa.py` (`MapaGalicia`: geometrías por dueño, ventanas general/atacante/enfrentamiento, dibujo con supersampling, contornos y nombres opcionales) y muestras `src/render/muestra_mapa.py` → `output/muestras/mapa_inicial.png` y `mapa_zoom_atacante.png`. `muestra_estilo.py` usa ahora `MapaGalicia`.
+- **Cómo se hizo:** cada concello se pinta con el color de su dueño; la ventana del atacante enseña su territorio completo más los vecinos enemigos. Por decisión del usuario, **el mapa general no lleva nombres**; solo se escriben en zoom y solo los de los concellos en conflicto (nombre del dueño, tamaño 30–52 px, siempre dentro de la imagen).
+- **Cambio en el panel del estilo:** para ser coherente con el mapa, ahora muestra el nombre del **dueño** y la silueta de todo su territorio (antes, el nombre del concello). A confirmar en el paso 4.3.
+- **Problemas encontrados:** el primer etiquetado automático de todos los dueños se descartó tras la indicación del usuario; un test de color fallaba por 1 unidad de antialiasing (tolerancia 6).
+- **Tests:** `tests/test_mapa.py` (11) → 165 en total, todos pasan. `docs/ESTILO.md` actualizado.
+- **Pendiente:** que el usuario confirme que las muestras se leen bien en el móvil (criterio «Hecho cuando») para marcar 4.2 `[x]`; después, 4.3.

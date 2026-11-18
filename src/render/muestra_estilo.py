@@ -18,7 +18,6 @@ import random
 import sys
 from pathlib import Path
 
-import geopandas as gpd
 from PIL import Image, ImageDraw
 
 from src.motor.batalla import simular_batalla
@@ -28,8 +27,8 @@ from src.motor.persistencia import nueva_partida, semilla_de_batalla
 from src.motor.seleccion import elegir_enfrentamiento
 from src.render import estilo as E
 from src.render.fondo import fondo_hierba
+from src.render.mapa import MapaGalicia, pintar as _pintar
 
-GEOJSON = E.RAIZ / "data" / "processed" / "concellos.geojson"
 CARPETA = E.RAIZ / "output" / "muestras"
 SUPERMUESTREO = 2  # el mapa se dibuja al doble y se reduce, para bordes suaves
 
@@ -43,25 +42,9 @@ def _num(n: int) -> str:
     return f"{n:,}".replace(",", ".")
 
 
-def _poligonos(geom):
-    return list(geom.geoms) if geom.geom_type == "MultiPolygon" else [geom]
-
-
-def _pintar(d: ImageDraw.ImageDraw, geom, f, relleno, contorno, ancho=1):
-    for poli in _poligonos(geom):
-        d.polygon([f(*p) for p in poli.exterior.coords], fill=relleno, outline=contorno, width=ancho)
-
-
-def _transformar(ventana, ancho_px: float, k: int):
-    """Pasa coordenadas UTM a píxeles (×k) para que `ventana` ocupe `ancho_px` de ancho."""
-    x0, y0, x1, y1 = ventana
-    esc = ancho_px * k / (x1 - x0)
-    return lambda x, y: ((x - x0) * esc, (y1 - y) * esc)
-
-
-def _caja_silueta(gdf: gpd.GeoDataFrame, ancho: int, alto: int, k: int):
-    """Transformación que encaja un concello en una caja (ancho×alto) dejando 10 px de aire."""
-    minx, miny, maxx, maxy = gdf.total_bounds
+def _caja_silueta(limites: tuple[float, float, float, float], ancho: int, alto: int, k: int):
+    """Transformación que encaja un territorio en una caja (ancho×alto) dejando 10 px de aire."""
+    minx, miny, maxx, maxy = limites
     esc = min((ancho - 20) * k / (maxx - minx), (alto - 20) * k / (maxy - miny))
     ox = (ancho * k - (maxx - minx) * esc) / 2
     oy = (alto * k - (maxy - miny) * esc) / 2
@@ -77,7 +60,7 @@ def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
     va, vd = estado["donos"][f.atacante]["vacas"], estado["donos"][f.defensor]["vacas"]
     r = simular_batalla(va, vd, rng=rng)
 
-    gdf = gpd.read_file(GEOJSON).to_crs(25829).set_index("id")
+    mapa = MapaGalicia()
     k, W, H = SUPERMUESTREO, E.ANCHO, E.ALTO
     img = fondo_hierba(W, H)
     d = ImageDraw.Draw(img)
@@ -87,18 +70,11 @@ def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
     E.texto_centrado(d, W / 2, 318, "Ep. 27", E.T_SUBTITULO, E.BLANCO, borde=7)
 
     # --- Mapa con zoom: encuadra los territorios completos de los dos bandos ---
-    ids_bando = estado["donos"][f.atacante]["territorio"] + estado["donos"][f.defensor]["territorio"]
-    ventana = E.caja_de_zoom(tuple(gdf.loc[ids_bando].total_bounds), W / MAPA_ALTO)
-    mapa = Image.new("RGB", (W * k, MAPA_ALTO * k), E.FONDO)
-    dm = ImageDraw.Draw(mapa)
-    fm = _transformar(ventana, W, k)
-    for i, fila in gdf.iterrows():
-        dono = estado["concellos"][i]["dono"]
-        _pintar(dm, fila.geometry, fm, estado["donos"][dono]["cor"]["colores"][0],
-                E.CONTORNO_MAPA, k)
-    for i in (f.concello_atacante, f.concello_defensor):  # siluetas en conflicto, en rojo
-        _pintar(dm, gdf.loc[i].geometry, fm, None, E.CONFLICTO, 6 * k)
-    img.paste(mapa.resize((W, MAPA_ALTO), Image.LANCZOS), (0, MAPA_Y0))
+    ventana = mapa.ventana_enfrentamiento(estado, f.atacante, f.defensor, W / MAPA_ALTO)
+    en_conflicto = [(mapa.geometria([c]), E.CONFLICTO, 6) for c in (f.concello_atacante, f.concello_defensor)]
+    img.paste(mapa.dibujar(estado, ventana, W, MAPA_ALTO, contornos=en_conflicto,
+                          nombres=[f.atacante, f.defensor]),
+              (0, MAPA_Y0))
 
     # --- Línea dorada y panel inferior ---
     d.rectangle((0, MAPA_Y0 - 6, W, MAPA_Y0 - 1), fill=E.ORO)
@@ -113,13 +89,13 @@ def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
     # --- Siluetas y nombres ---
     for concello, dono, cx in ((f.concello_atacante, f.atacante, cx_a),
                                (f.concello_defensor, f.defensor, cx_d)):
-        g1 = gdf.loc[[concello]]
+        g1 = mapa.geometria(estado["donos"][dono]["territorio"])  # el territorio completo del bando
         sil = Image.new("RGBA", (300 * k, 150 * k), (255, 255, 255, 0))  # fondo transparente
-        _pintar(ImageDraw.Draw(sil), g1.iloc[0].geometry, _caja_silueta(g1, 300, 150, k),
+        _pintar(ImageDraw.Draw(sil), g1, _caja_silueta(g1.bounds, 300, 150, k),
                 estado["donos"][dono]["cor"]["colores"][0], E.BLANCO, 3 * k)
         sil = sil.resize((300, 150), Image.LANCZOS)
         img.paste(sil.convert("RGB"), (int(cx - 150), 930), sil.getchannel("A"))
-        lineas, t = E.dividir_nombre(estado["concellos"][concello]["nome"], 52, 410)
+        lineas, t = E.dividir_nombre(estado["donos"][dono]["nome"], 52, 410)
         for n, linea in enumerate(lineas):
             E.texto_centrado(d, cx, 1088 + n * (t + 2), linea, t, E.BLANCO)
     E.texto_centrado(d, cx_c, 985, "VS", 64, E.ORO, borde=3)

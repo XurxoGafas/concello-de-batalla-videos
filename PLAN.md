@@ -113,7 +113,7 @@ Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fas
 - **Archivos:** `docs/ESTILO.md`, `src/render/estilo.py`, `assets/fonts/`.
 - **Hecho cuando:** el usuario aprueba un fotograma de muestra estático (`output/muestras/estilo.png`) con texto en gallego. ✅ Completado el 2026-11-18: el usuario aprobó las muestras (fondo de hierba, zoom al enfrentamiento, contorno rojo, pastillas de vaca con diferencia topada en +50). 154 tests en verde.
 
-### [ ] 4.2 Renderizar el mapa
+### [~] 4.2 Renderizar el mapa
 - **Qué:** Dibujar el mapa de Galicia coloreado por dueño/bandera, con nombres, y una vista con zoom centrada en un concello que muestre sus fronteras (fase 2).
 - **Archivos:** `src/render/mapa.py`.
 - **Hecho cuando:** se generan `output/muestras/mapa_inicial.png` y `output/muestras/mapa_zoom_atacante.png`, legibles en un móvil.

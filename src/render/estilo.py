@@ -77,12 +77,14 @@ def ajustar_tamano(texto: str, tam: int, ancho_max: float, minimo: int = T_MIN) 
     return tam
 
 
-def dividir_nombre(nombre: str, tam: int, ancho_max: float) -> tuple[list[str], int]:
+def dividir_nombre(
+    nombre: str, tam: int, ancho_max: float, minimo: int = T_MIN
+) -> tuple[list[str], int]:
     """Parte un nombre largo en 1 o 2 líneas que quepan en `ancho_max`.
 
     Si cabe en una línea no se toca; si no, se prueba cada espacio como punto de corte y se
     elige el que deja las dos líneas más equilibradas. Si aun así no cabe, se reduce el tamaño
-    (hasta `T_MIN`). Devuelve las líneas y el tamaño final.
+    (hasta `minimo`, por defecto `T_MIN`). Devuelve las líneas y el tamaño final.
     """
     palabras = nombre.split()
     while True:
@@ -96,7 +98,7 @@ def dividir_nombre(nombre: str, tam: int, ancho_max: float) -> tuple[list[str], 
                 mejor = (peor, [a, b])
         if mejor and mejor[0] <= ancho_max:
             return mejor[1], tam
-        if tam <= T_MIN:
+        if tam <= minimo:
             return (mejor[1] if mejor else [nombre]), tam
         tam -= 2
 

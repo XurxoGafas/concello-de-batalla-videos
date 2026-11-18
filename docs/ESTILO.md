@@ -33,5 +33,7 @@ Los colores de cada concello son los de su bandera (paso 2.5; por ahora provisio
 - **Dados:** cara blanca con puntos oscuros; el borde dorado marca al bando que gana esa tirada. La puntuación va **a un lado** de los dados, separada, y el multiplicador debajo de los dados del bando con más vacas.
 - **Textos:** todos en gallego (título, «Ep. N», «vacas», «dif. vacas», «PERDEDOR», «GAÑADOR», «Máis vitorias»…).
 
+- **Nombres en el mapa (decisión del usuario, 2026-11-18):** el mapa general de Galicia **no lleva nombres** (hay 313 concellos y no se leerían). Solo se escriben nombres en las vistas con zoom y **solo los de los bandos en conflicto**. Los nombres son los del **dueño** (el territorio conquistado lleva el nombre del ganador). El panel usa el mismo criterio: nombre del dueño y silueta de todo su territorio.
+
 ## Pendiente de las siguientes fases
 Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y escenas (4.6).
