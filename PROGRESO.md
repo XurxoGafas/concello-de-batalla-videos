@@ -323,3 +323,12 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Problemas encontrados:** el primer etiquetado automático de todos los dueños se descartó tras la indicación del usuario; un test de color fallaba por 1 unidad de antialiasing (tolerancia 6).
 - **Tests:** `tests/test_mapa.py` (11) → 165 en total, todos pasan. `docs/ESTILO.md` actualizado.
 - **Pendiente:** que el usuario confirme que las muestras se leen bien en el móvil (criterio «Hecho cuando») para marcar 4.2 `[x]`; después, 4.3.
+
+---
+
+## 2026-11-18 — Paso 4.2 completado (mapa de Galicia)
+
+- **Qué se hizo:** el usuario confirmó las muestras (`mapa_inicial.png`, `mapa_zoom_atacante.png`) y el panel con nombre y silueta del dueño. El paso queda `[x]`.
+- **Cómo se completó:** ver la entrada anterior del 4.2 (módulo `src/render/mapa.py`, muestras, 11 tests, 165 en total).
+- **Problemas encontrados:** los ya descritos.
+- **Pendiente:** siguiente paso, 4.3 (pantalla de enfrentamiento con siluetas).
