@@ -53,10 +53,10 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 - **Archivos:** `src/datos/geometria.py`, `data/vecindades_manuales.json`, `data/processed/concellos.geojson`, `data/processed/adyacencias.json`, `tests/test_geometria.py`.
 - **Hecho cuando:** existe un test que comprueba 3 parejas conocidas de vecinos (p. ej. Ordes–Cerceda) y 3 parejas que no lo son, todo concello tiene al menos un vecino y la relación es simétrica. ✅ Completado el 2026-11-18: 313 concellos, 827 parejas de vecinos (826 por contacto + 1 manual), 18 tests en verde.
 
-### [ ] 2.3 Conseguir el censo de vacas por concello
+### [x] 2.3 Conseguir el censo de vacas por concello
 - **Qué:** Localizar datos oficiales de cabezas de ganado bovino por concello (candidatas: Xunta – Consellería do Medio Rural, IGE, INE). Si un concello tiene oficialmente 0 vacas, se usa 1 vaca (para evitar divisiones por cero). Si falta el dato de algún concello en la fuente, listar esos concellos y preguntar al usuario cómo resolverlos (no inventar un valor).
 - **Archivos:** `data/raw/vacas.*`, `data/processed/vacas.json`, `docs/FUENTES.md`.
-- **Hecho cuando:** todos los concellos del GeoJSON tienen un valor de vacas ≥ 1, los concellos sin dato en la fuente original están listados y resueltos con el usuario, y el total cuadra con el total gallego publicado por la fuente.
+- **Hecho cuando:** todos los concellos del GeoJSON tienen un valor de vacas ≥ 1, los concellos sin dato en la fuente original están listados y resueltos con el usuario, y el total cuadra con el total gallego publicado por la fuente. ✅ Completado el 2026-11-18: fuente IGE (tabla 62, variable «Número de vacas», año 2025), 313 concellos con dato, total 511.138 = total oficial, 7 concellos con 0 vacas ajustados a 1, ninguno sin dato. Scripts: `scripts/descargar_vacas.py`, `src/datos/vacas.py`; tests en `tests/test_vacas.py`.
 
 ### [ ] 2.4 Unir los datos en un estado inicial
 - **Qué:** Generar el estado inicial del juego: cada concello con su id, nombre, geometría, vecinos, vacas, color y «dueño» (él mismo). Cada dueño arranca con un contador de **victorias acumuladas en la serie = 0** (lo usará el ranking de la fase 8).

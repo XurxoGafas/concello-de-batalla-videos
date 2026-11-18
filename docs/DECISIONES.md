@@ -57,7 +57,7 @@ El porcentaje se calcula como `(vacas_mayor − vacas_menor) / vacas_menor`, es 
 
 **Confirmado por el usuario (2026-11-18):** dos concellos son vecinos si sus fronteras se tocan, **aunque solo coincidan en una esquina (un único punto)**; no hace falta que compartan una línea. Con los datos del IGN salen 826 parejas por contacto (806 por línea y 20 solo por un punto).
 
-**Isla de A Illa de Arousa:** no toca a ningún concello. Sin una conexión manual no podría atacar ni ser atacada, y la serie no podría terminar con un único dueño. El usuario eligió conectarla a mano; hoy está conectada solo con **Vilanova de Arousa** (el puente de la PO-307 la une con ese concello). *Pendiente de confirmar:* el usuario eligió «Vilanova de Arousa y O Grove» basándose en un dato no verificado que le di (que el puente llegaba a ambos); las fuentes de la Xunta solo mencionan Vilanova. Si quiere añadir O Grove igualmente, basta una línea en `data/vecindades_manuales.json`.
+**Isla de A Illa de Arousa:** no toca a ningún concello. Sin una conexión manual no podría atacar ni ser atacada, y la serie no podría terminar con un único dueño. **Decisión final del usuario (2026-11-18): queda conectada solo con Vilanova de Arousa** (el puente de la PO-307 la une con ese concello). Está en `data/vecindades_manuales.json`. (Antes había elegido añadir también O Grove, pero se basaba en un dato no verificado; las fuentes de la Xunta solo mencionan Vilanova.)
 
 ## Fusión de territorio
 
@@ -67,6 +67,12 @@ El porcentaje se calcula como `(vacas_mayor − vacas_menor) / vacas_menor`, es 
 ## Final de la partida (sin reinicio automático)
 
 **Confirmado:** el proyecto es una **serie diaria estilo TikTok**, pensada para generar expectación y engagement a lo largo de muchos episodios (campaña larga y gradual sobre los 313 concellos). La partida termina cuando un único dueño se queda con todo el territorio de Galicia; en ese momento se declara ganador en el vídeo correspondiente. **No hay reinicio automático** — decidir si empieza una temporada nueva es una decisión manual y posterior, fuera del alcance de este plan por ahora.
+
+## Qué cuenta como «vaca» y de qué año (paso 2.3)
+
+**Decisión de implementación (el usuario indicó el IGE como fuente; la elección de variable y año es mía, revisable):** se usa la variable «Número de vacas» del IGE (vacas de muxidura + non muxidura), **no** el total de bovinos (que incluye terneros y novillas). Año **2025** (último disponible). Con esto el total gallego es de 511.138 vacas.
+
+**Resultado del caso «sin dato»:** no hay ningún concello vigente sin dato en la fuente, así que no hubo que preguntar casos sueltos. Siete concellos tienen 0 vacas oficiales y pasan a 1 (A Arnoia, Barbadás, Larouco, Ribadavia, Rubiá, Toén y A Illa de Arousa).
 
 ## Concellos sin dato de vacas
 
