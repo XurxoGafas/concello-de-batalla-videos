@@ -149,6 +149,6 @@ def test_los_huecos_de_las_letras_con_borde_quedan_del_color_del_borde():
     im = Image.new("RGB", (300, 160), "white")
     E.texto_centrado_exacto(ImageDraw.Draw(im), 150, 80, "B", 110, E.ORO, borde=9, color_borde=E.FONDO)
     borde = tuple(int(E.FONDO[i:i + 2], 16) for i in (1, 3, 5))
-    cuadro = im.crop((100, 30, 200, 130))
+    cuadro = im.crop((125, 45, 175, 115))  # interior de la B (hueco incluido)
     assert (255, 255, 255) not in {p for p in cuadro.get_flattened_data()}  # nada blanco dentro del trazo
     assert borde in set(cuadro.get_flattened_data())
