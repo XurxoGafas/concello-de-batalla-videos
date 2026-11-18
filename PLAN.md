@@ -77,10 +77,10 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 - **Archivos:** `src/motor/multiplicador.py`, `tests/test_multiplicador.py`.
 - **Hecho cuando:** pasan los tests con el ejemplo Arteixo/A Coruña, el resto de ejemplos del enunciado y los bordes (0 %, 5 %, 6 %, 45 %, 46 %, 50 %, 200 %), y un caso con un dueño de 2+ concellos que usa la suma correcta de vacas. ✅ Completado el 2026-11-18: `src/motor/multiplicador.py` (cálculo con fracciones exactas, sin errores de coma flotante) y 27 tests en verde.
 
-### [ ] 3.2 Tirada de dados y puntuación de una batalla
+### [x] 3.2 Tirada de dados y puntuación de una batalla
 - **Qué:** 3 tiradas de dados por bando. En cada tirada, la diferencia (dado propio − dado rival) se suma a favor de quien saque más; se acumulan las 3 diferencias por bando. El bando con **más vacas** multiplica su total acumulado por el bonus (ver 3.1); el otro bando no multiplica. Si tras aplicar el bonus hay empate, se entra en muerte súbita: 1 dado por bando, se repite hasta desempatar. Generador aleatorio con **semilla** para que cualquier batalla se pueda reproducir. Reglas completas en `docs/DECISIONES.md`.
 - **Archivos:** `src/motor/batalla.py`, `tests/test_batalla.py`.
-- **Hecho cuando:** el ejemplo del enunciado (6-1→+5, y los otros 2 dados) da la suma correcta, el multiplicador se aplica solo al bando con más vacas, la muerte súbita desempata correctamente en un caso simulado, y la misma semilla da siempre el mismo resultado.
+- **Hecho cuando:** el ejemplo del enunciado (6-1→+5, y los otros 2 dados) da la suma correcta, el multiplicador se aplica solo al bando con más vacas, la muerte súbita desempata correctamente en un caso simulado, y la misma semilla da siempre el mismo resultado. ✅ Completado el 2026-11-18: `src/motor/batalla.py`, 21 tests en verde. Las puntuaciones se comparan **con decimales** (un decimal, exacto, sin redondear), decisión del usuario.
 
 ### [ ] 3.3 Selección de atacante y defensor
 - **Qué:** Elegir al atacante al azar entre los dueños vivos y, después, un defensor al azar entre los vecinos de todo su territorio que pertenezcan a otro dueño.

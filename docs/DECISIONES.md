@@ -43,6 +43,12 @@ Tras la última batalla del vídeo, una pantalla de cierre con:
 - El multiplicador se aplica **solo** al bando con más vacas, sobre su puntuación total ya sumada (no dado a dado).
 - Empate tras multiplicador → dados de muerte súbita (1 dado por bando, se repite hasta desempatar).
 
+## Puntuación con decimales (paso 3.2)
+
+**Confirmado por el usuario (2026-11-18):** tras aplicar el multiplicador, las puntuaciones se comparan **con decimales, sin redondear**. Como los puntos de los dados son enteros y el multiplicador tiene un solo decimal (×1,1 a ×1,5), la puntuación tiene como mucho **un decimal** (p. ej. 7 × 1,3 = 9,1). Se guarda en décimas (enteros) para que la comparación sea exacta. Casi desaparecen los empates; solo se llega a muerte súbita cuando las puntuaciones son exactamente iguales (p. ej. 4 × 1,5 = 6,0 contra 6).
+
+**Reproducibilidad (regla i):** cada batalla usa una semilla. El orden de los sorteos es parte del contrato: por cada una de las 3 tiradas, dado del atacante y luego dado del defensor; después, por cada ronda de muerte súbita, dado del atacante y luego del defensor. Además cada resultado guarda todos sus dados, así que una batalla se puede repetir o dibujar sin volver a sortear aunque cambie la versión de Python.
+
 ## Cálculo del porcentaje de vacas y el multiplicador
 
 El porcentaje se calcula como `(vacas_mayor − vacas_menor) / vacas_menor`, es decir, el porcentaje **extra** que tiene el bando con más vacas sobre el que tiene menos. Ese porcentaje se redondea a la decena (unidad ≤ 5 → hacia abajo, unidad ≥ 6 → hacia arriba) para obtener el multiplicador, con tope en 50 % (ver tabla completa en `PLAN.md`, paso 3.1).
