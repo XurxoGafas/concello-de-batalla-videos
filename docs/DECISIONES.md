@@ -74,6 +74,12 @@ El porcentaje se calcula como `(vacas_mayor − vacas_menor) / vacas_menor`, es 
 
 **Resultado del caso «sin dato»:** no hay ningún concello vigente sin dato en la fuente, así que no hubo que preguntar casos sueltos. Siete concellos tienen 0 vacas oficiales y pasan a 1 (A Arnoia, Barbadás, Larouco, Ribadavia, Rubiá, Toén y A Illa de Arousa).
 
+## Color de cada concello = su bandera (paso 2.4)
+
+**Confirmado por el usuario (2026-11-18):** el color de cada concello es el de su bandera. Se guarda una **paleta** de hasta 4 colores con su proporción de superficie (el primero es el principal, para rellenar el territorio con un color liso); así se podrá usar también para rayas o un patrón. Los colores se extraen de la imagen de la bandera.
+
+**Pendiente de decidir con el usuario:** qué color usar para los concellos de los que no se consigan los colores de su bandera. De momento reciben un color provisional (`"fonte": "provisional"` en el estado) para que el resto del trabajo no se detenga.
+
 ## Concellos sin dato de vacas
 
 **Confirmado — dos casos distintos:**

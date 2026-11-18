@@ -58,9 +58,9 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 - **Archivos:** `data/raw/vacas.*`, `data/processed/vacas.json`, `docs/FUENTES.md`.
 - **Hecho cuando:** todos los concellos del GeoJSON tienen un valor de vacas ≥ 1, los concellos sin dato en la fuente original están listados y resueltos con el usuario, y el total cuadra con el total gallego publicado por la fuente. ✅ Completado el 2026-11-18: fuente IGE (tabla 62, variable «Número de vacas», año 2025), 313 concellos con dato, total 511.138 = total oficial, 7 concellos con 0 vacas ajustados a 1, ninguno sin dato. Scripts: `scripts/descargar_vacas.py`, `src/datos/vacas.py`; tests en `tests/test_vacas.py`.
 
-### [ ] 2.4 Unir los datos en un estado inicial
-- **Qué:** Generar el estado inicial del juego: cada concello con su id, nombre, geometría, vecinos, vacas, color y «dueño» (él mismo). Cada dueño arranca con un contador de **victorias acumuladas en la serie = 0** (lo usará el ranking de la fase 8).
-- **Archivos:** `src/datos/construir_estado.py`, `data/processed/estado_inicial.json`.
+### [~] 2.4 Unir los datos en un estado inicial
+- **Qué:** Generar el estado inicial del juego: cada concello con su id, nombre, vecinos, vacas, **color (los colores de su bandera)** y «dueño» (él mismo). La geometría no se copia al estado: queda en `data/processed/concellos.geojson` y se referencia por id (el estado se guardará con un commit en cada ejecución diaria y la geometría es estática y pesa 2,5 MB). Los colores se extraen de las imágenes de las banderas (`scripts/descargar_banderas.py`, `src/datos/colores.py`) como una paleta de hasta 4 colores con su peso. Cada dueño arranca con un contador de **victorias acumuladas en la serie = 0** (lo usará el ranking de la fase 8).
+- **Archivos:** `src/datos/construir_estado.py`, `src/datos/colores.py`, `scripts/descargar_banderas.py`, `data/processed/colores_bandera.json`, `data/processed/estado_inicial.json`, `tests/test_estado_inicial.py`, `tests/test_colores.py`.
 - **Hecho cuando:** el script se ejecuta sin errores y un test valida que los ids de las adyacencias, las vacas y las geometrías coinciden, y que cada dueño tiene su contador de victorias inicializado a 0.
 
 ---
