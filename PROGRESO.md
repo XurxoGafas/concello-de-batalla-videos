@@ -385,3 +385,13 @@ Las entradas no se borran. Las nuevas se añaden al final.
 
 - **Qué se hizo:** el usuario indicó la página de origen de la foto de fondo (Unsplash). Se comprobó en la página: autor bady abbas, licencia Unsplash (uso comercial permitido, atribución no obligatoria, sin compilar imágenes para un servicio competidor). Registrada en `docs/FUENTES.md` (regla j); queda resuelto el pendiente del paso 4.3.
 - **Pendiente:** decidir si se acredita al autor en las descripciones (opcional). Siguiente: paso 4.4 en curso (animación de dados y marcador); `crear_pastilla` (RGBA) ya extraída de `pastilla_vaca` para poder animar la pastilla.
+
+---
+
+## 2026-11-18 — Cambio de regla (paso 2.2): vecinos solo por frontera con línea
+
+- **Qué se pidió:** el usuario cambió de criterio: un concello solo se considera colindante si hace frontera **con línea**; tocarse en una esquina ya no cuenta, porque la conquista se vería rara.
+- **Cómo se resolvió:** `calcular_adyacencias` (`src/datos/geometria.py`) exige que la intersección de las fronteras tenga longitud > 0 (`LONGITUD_MINIMA`, 1e-6°). Se regeneraron `data/processed/adyacencias.json` y `estado_inicial.json` (solo cambian los vecinos; colores y vacas idénticos). Pasan de 827 a **807 parejas**; las 20 descartadas (p. ej. Moraña–Pontevedra, Cervo–Viveiro, Rianxo–Rois) están listadas en `docs/DECISIONES.md`. `PLAN.md` (paso 2.2) y `docs/DECISIONES.md` actualizados (regla d); la entrada anterior del 2.2 se conserva como historial.
+- **Comprobaciones:** el mapa sigue conexo (313 de 313 alcanzables) y ningún concello queda sin vecinos (A Illa de Arousa sigue unida a mano a Vilanova de Arousa). Tests: se cambió el de esquinas (ahora «no son vecinos»), se añadió uno de frontera parcial corta y otro de conexión; 175 tests en verde.
+- **Efecto en el juego:** la selección de defensor (3.3) usa estas adyacencias, así que ahora solo se atacan concellos que comparten línea; las simulaciones con una semilla dada dan resultados distintos a los anteriores a este cambio (la serie real aún no ha empezado).
+- **Pendiente:** retomar el paso 4.4 (animación de dados; ya hay un primer render en `output/muestras/`).

@@ -6,9 +6,10 @@ Lee `data/raw/concellos.geojson` (ver `scripts/descargar_concellos.py`) y genera
   (EPSG:4326), con las propiedades `id`, `nome` y `provincia`.
 - `data/processed/adyacencias.json`: para cada id, la lista ordenada de ids vecinos.
 
-Regla de vecindad (decidida por el usuario el 2026-11-18): dos concellos son vecinos
-si sus fronteras se tocan, **aunque solo coincidan en una esquina (un único punto)**.
-Además se admiten vecindades manuales (`data/vecindades_manuales.json`) para casos
+Regla de vecindad (decidida por el usuario el 2026-11-18; **la segunda versión sustituye a la
+primera**, que aceptaba también las esquinas): dos concellos son vecinos solo si comparten
+**un tramo de frontera (una línea)**; tocarse en un único punto NO cuenta, porque la
+conquista se vería rara en el mapa. Además se admiten vecindades manuales (`data/vecindades_manuales.json`) para casos
 sin contacto físico, como las islas.
 
 Uso:
@@ -27,6 +28,7 @@ RAIZ = Path(__file__).resolve().parents[2]
 RAW = RAIZ / "data" / "raw" / "concellos.geojson"
 PROCESADO = RAIZ / "data" / "processed" / "concellos.geojson"
 ADYACENCIAS = RAIZ / "data" / "processed" / "adyacencias.json"
+LONGITUD_MINIMA = 1e-6  # grados (≈ 0,1 m): por debajo es un contacto puntual, no una frontera
 MANUALES = RAIZ / "data" / "vecindades_manuales.json"
 
 CRS_METROS = 25829  # ETRS89 / UTM 29N: metros, adecuado para Galicia
@@ -50,16 +52,17 @@ def calcular_adyacencias(
 ) -> dict[str, list[str]]:
     """Devuelve {id: [ids vecinos]} usando las geometrías ORIGINALES (no simplificadas).
 
-    Vecinos = las fronteras se tocan (`intersects`), sea en una línea o en un solo punto,
-    sin contar el solape de interiores como caso aparte. `manuales` añade parejas de ids
-    sin contacto físico. La relación es simétrica y nadie es vecino de sí mismo.
+    Vecinos = comparten un tramo de frontera de longitud > 0 (`LONGITUD_MINIMA`); un contacto
+    en un solo punto no cuenta. `manuales` añade parejas de ids sin contacto físico. La
+    relación es simétrica y nadie es vecino de sí mismo.
     """
     ids = g["id"].tolist()
     vecinos: dict[str, set[str]] = {i: set() for i in ids}
     # Consulta por índice espacial: devuelve pares (i, j) de posiciones que se intersectan.
     pos_a, pos_b = g.sindex.query(g.geometry, predicate="intersects")
+    geoms = g.geometry.values
     for a, b in zip(pos_a, pos_b):
-        if a != b:
+        if a < b and geoms[a].intersection(geoms[b]).length > LONGITUD_MINIMA:
             vecinos[ids[a]].add(ids[b])
             vecinos[ids[b]].add(ids[a])
     for a, b in manuales or []:

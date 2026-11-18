@@ -37,8 +37,14 @@ def test_comparten_linea_son_vecinos():
     assert calcular_adyacencias(g) == {"a": ["b"], "b": ["a"]}
 
 
-def test_solo_una_esquina_tambien_son_vecinos():
+def test_solo_una_esquina_no_son_vecinos():
+    # regla del usuario (2026-11-18, segunda versión): hace falta un tramo de frontera, no un punto
     g = _cuadrados(a=box(0, 0, 1, 1), b=box(1, 1, 2, 2))
+    assert calcular_adyacencias(g) == {"a": [], "b": []}
+
+
+def test_frontera_parcial_cuenta_aunque_sea_corta():
+    g = _cuadrados(a=box(0, 0, 1, 1), b=box(1, 0.9, 2, 2))
     assert calcular_adyacencias(g) == {"a": ["b"], "b": ["a"]}
 
 
@@ -82,9 +88,20 @@ def test_parejas_no_vecinas_conocidas(datos, a, b):
     assert not son_vecinos(datos, a, b)
 
 
-def test_pareja_que_solo_toca_en_un_punto_es_vecina(datos):
-    # Moraña y Pontevedra solo coinciden en una esquina (regla del usuario: vale)
-    assert son_vecinos(datos, "Moraña", "Pontevedra")
+def test_pareja_que_solo_toca_en_un_punto_no_es_vecina(datos):
+    # Moraña y Pontevedra solo coinciden en una esquina: ya no cuenta (regla del usuario)
+    assert not son_vecinos(datos, "Moraña", "Pontevedra")
+
+
+def test_el_mapa_sigue_siendo_conexo_sin_las_esquinas(datos):
+    _, ady, _ = datos
+    visto, pila = set(), [next(iter(ady))]
+    while pila:
+        x = pila.pop()
+        if x not in visto:
+            visto.add(x)
+            pila += ady[x]
+    assert len(visto) == len(ady) == 313
 
 
 def test_isla_conectada_a_mano(datos):

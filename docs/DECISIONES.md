@@ -65,7 +65,9 @@ El porcentaje se calcula como `(vacas_mayor − vacas_menor) / vacas_menor`, es 
 
 ## Vecindad entre concellos (paso 2.2)
 
-**Confirmado por el usuario (2026-11-18):** dos concellos son vecinos si sus fronteras se tocan, **aunque solo coincidan en una esquina (un único punto)**; no hace falta que compartan una línea. Con los datos del IGN salen 826 parejas por contacto (806 por línea y 20 solo por un punto).
+**Regla vigente (usuario, 2026-11-18, segunda versión):** dos concellos son vecinos **solo si comparten un tramo de frontera (una línea)**; tocarse en un único punto (esquina) **no cuenta**, porque la conquista se vería rara en el mapa. Con los datos del IGN salen 806 parejas por línea + 1 manual = **807**. Las 20 parejas de solo esquina que se descartan son: A Capela–Neda, Curtis–Mesía, Dodro–Lousame, Fene–San Sadurniño, Rianxo–Rois, Vilasantar–Oza Cesuras, Cervo–Viveiro, Folgoso do Courel–O Incio, Xove–O Valadouro, A Pobra do Brollón–Samos, Allariz–A Bola, Avión–Melón, Beariz–Lalín, Carballeda de Avia–Covelo, Xinzo de Limia–Rairiz de Veiga, O Irixo–Forcarei, A Merca–Rairiz de Veiga, Porqueira–Vilar de Santos, Barro–O Campo Lameiro y Moraña–Pontevedra. Comprobado: el mapa sigue siendo conexo y ningún concello queda sin vecinos.
+
+*(Historial: ese mismo día el usuario había aceptado primero las esquinas como vecindad, 827 parejas; lo cambió a los pocos minutos.)*
 
 **Isla de A Illa de Arousa:** no toca a ningún concello. Sin una conexión manual no podría atacar ni ser atacada, y la serie no podría terminar con un único dueño. **Decisión final del usuario (2026-11-18): queda conectada solo con Vilanova de Arousa** (el puente de la PO-307 la une con ese concello). Está en `data/vecindades_manuales.json`. (Antes había elegido añadir también O Grove, pero se basaba en un dato no verificado; las fuentes de la Xunta solo mencionan Vilanova.)
 
