@@ -480,3 +480,11 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió:** el mango debe medir 1,1–1,2 veces la hoja (estaba demasiado largo, ≈1,5).
 - **Cómo se resolvió:** en `navaja_sprite` el mango con la virola mide ahora 175 unidades desde el pasador frente a 152 de la hoja (≈1,15; medido en el sprite abierto: ≈1,18). Virola más corta (150→214) con 5 anillos y mango de madera más corto. Muestra: `output/muestras/diseno_navaja_botella.png`; vídeos regenerados. 187 tests en verde.
 - **Pendiente:** aprobación de los vídeos para cerrar 4.4.
+
+---
+
+## 2026-11-18 — Paso 4.4 (en curso): tamaños de la navaja y la botella en el choque
+
+- **Qué se pidió:** hoja algo más grande, pero la navaja algo más pequeña que la botella.
+- **Cómo se resolvió:** proporción del mango a 1,1 × la hoja (límite bajo del rango pedido; la hoja pesa más en el conjunto). En el duelo la botella pasa a 234 px de alto y la navaja a 244 px de largo, que al ir inclinada ocupa menos alto que la botella (≈325 vs 340 px de bajada). Límite: no se puede agrandar más sin que la botella invada las pastillas de vacas de arriba o «LIORTA!» salga de la zona. Vídeos regenerados; 187 tests en verde.
+- **Pendiente:** aprobación de los vídeos para cerrar 4.4.

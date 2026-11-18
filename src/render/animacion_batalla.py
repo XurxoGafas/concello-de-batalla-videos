@@ -145,8 +145,8 @@ def _muerte_subita(img: Image.Image, r: ResultadoBatalla, T: Tiempos, t: float) 
 
 @functools.lru_cache(maxsize=1)
 def _sprites_duelo() -> tuple[Image.Image, Image.Image, Image.Image, Image.Image]:
-    return (D.navaja_sprite(250, apertura=0), D.botella_sprite(215), D.destello_sprite(260),
-            D.texto_sprite("LIORTA!", 72, E.ORO, E.FONDO, 10))
+    return (D.navaja_sprite(244, apertura=0), D.botella_sprite(234), D.destello_sprite(260),
+            D.texto_sprite("LIORTA!", 70, E.ORO, E.FONDO, 10))
 
 
 def _rotado(sprite: Image.Image, grados: float) -> Image.Image:
@@ -159,7 +159,7 @@ def _duelo(img: Image.Image, t: float, dur: float) -> None:
     aparece «LIORTA!». Todo se desvanece en los últimos 0,2 s."""
     nav, bot, destello, texto = _sprites_duelo()
     e = D.salida_cubica(t / D_ENTRADA)
-    cx, cy = E.ANCHO / 2, D.Y_MEDIO - 5
+    cx, cy = E.ANCHO / 2, D.Y_MEDIO - 4
     temblor = 0.0
     if t > D_ENTRADA:
         u = D.limitar((t - D_ENTRADA) / D_CHOQUE)
@@ -172,7 +172,7 @@ def _duelo(img: Image.Image, t: float, dur: float) -> None:
     if t > D_ENTRADA:
         u = D.limitar((t - D_ENTRADA) / D_CHOQUE)
         D.pegar(img, destello, cx, cy - 10, escala=0.35 + 0.9 * D.salida_cubica(u), opacidad=(1 - u) * fade)
-        D.pegar(img, texto, cx, D.Y_MEDIO + 128, escala=D.salida_rebote((t - D_ENTRADA) / 0.35), opacidad=fade)
+        D.pegar(img, texto, cx, D.Y_MEDIO + 132, escala=D.salida_rebote((t - D_ENTRADA) / 0.35), opacidad=fade)
 
 
 def fotograma(base: Image.Image, r: ResultadoBatalla, t: float, T: Tiempos | None = None) -> Image.Image:

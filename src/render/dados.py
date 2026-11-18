@@ -112,11 +112,11 @@ def navaja_sprite(largo: int = 300, apertura: float = 55) -> Image.Image:
     # El mango es de grosor uniforme (el mismo que el extremo ancho de la virola, sin escalón) y la
     # virola se estrecha hacia la hoja, con anillos cada vez más pequeños que acaban en punta.
     mango, d = lienzo()
-    CAJA = [(212, 34), (335, 34), (335, 86), (212, 86)]  # mango+virola = 1,15 × la hoja (152 → 175 desde el pasador)
+    CAJA = [(212, 34), (327, 34), (327, 86), (212, 86)]  # mango+virola = 1,1 × la hoja (152 → 167 desde el pasador)
     poli(d, CAJA, "#D9A24F")  # mango de madera clara, grosor uniforme
     rng = random.Random("navaja")
     for _ in range(20):
-        x, y = rng.uniform(222, 325), rng.uniform(40, 80)
+        x, y = rng.uniform(222, 317), rng.uniform(40, 80)
         rx, ry = rng.uniform(3, 9), rng.uniform(2, 5)
         d.ellipse(((ox + x - rx) * k, (oy + y - ry) * k, (ox + x + rx) * k, (oy + y + ry) * k),
                   fill=rng.choice(("#B8792B", "#C98F3F", "#A8702A")))
