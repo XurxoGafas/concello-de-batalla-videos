@@ -123,14 +123,14 @@ Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fas
 - **Archivos:** `src/render/enfrentamiento.py`.
 - **Hecho cuando:** se genera `output/muestras/enfrentamiento.png` con ambas siluetas y datos legibles. ✅ Completado el 2026-11-18 y aprobado por el usuario: rótulos ATACA/DEFENDE, siluetas de territorios completos, vacas y diferencia en pastillas de vaca; fondo con la foto de hierba, mar azul cielo y panel blanco con manchas de vaca; dados en vertical con «+N» junto al dado ganador (ver `docs/ESTILO.md`). 173 tests en verde.
 
-### [~] 4.4 Animación de dados y marcador (fases 4–5)
+### [x] 4.4 Animación de dados y marcador (fases 4–5)
 - **Qué:** Icono del duelo (una **navaja de bolsillo gallega con mango de madera** y una **botella de licor café**, en lugar de las espadas del vídeo de referencia, decisión del usuario 2026-11-18) antes de la tirada; dados que ruedan y se paran, la diferencia de cada tirada («+1», «+2», «=» en empate) sumándose al marcador en pantalla, el multiplicador resaltado en dorado sobre el bando que lo recibe, y la muerte súbita si hace falta desempatar.
 - **Archivos:** `src/render/dados.py`, `src/render/marcador.py`.
 - **Hecho cuando:** se genera una secuencia de fotogramas de una batalla completa (incluido un caso con empate/muerte súbita) y su vista previa `output/muestras/batalla_sin_audio.mp4` se ve fluida, sin saltos.
 
-### [ ] 4.5 Animación de conquista (fase 6)
-- **Qué:** Pantalla «PERDEDOR» / «GAÑADOR» (gallego) con icono de espada apuntando hacia el ganador, y el color/bandera del ganador extendiéndose sobre el territorio del perdedor en el mapa.
-- **Archivos:** `src/render/animaciones.py`.
+### [~] 4.5 Animación de conquista (fase 6)
+- **Qué:** Pantalla de conquista con los rótulos **«CAMPIÓN»** (ganador) y **«MALOGRADO»** (perdedor), en gallego (decisión del usuario 2026-11-18, en vez de «GAÑADOR»/«PERDEDOR»), y **una gaita gallega con un poco de confeti** en lugar del icono de espada apuntando al ganador (la música de la gaita se pondrá en la fase 5). El color del ganador se extiende por el mapa sobre el territorio del perdedor, concello a concello desde la frontera, y salen las pastillas «+N vacas» y «+K concellos» junto al ganador.
+- **Archivos:** `src/render/conquista.py` (en vez de `animaciones.py`, que no hace falta: la gaita y el confeti viven en `dados.py` y `conquista.py`), cambios menores en `enfrentamiento.py`.
 - **Hecho cuando:** `output/muestras/conquista.mp4` muestra el cambio de color de forma clara.
 
 ### [ ] 4.6 Escenas de intro, encadenado de 3 batallas y cierre con ranking

@@ -48,3 +48,7 @@ Secuencia (tiempos en `animacion_batalla.py`): pantalla de enfrentamiento 0,8 s 
 
 ## Pendiente de las siguientes fases
 Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y escenas (4.6).
+
+## Conquista (paso 4.5)
+
+`src/render/conquista.py`, 4,2 s. Pantalla de enfrentamiento con los rótulos cambiados a **«CAMPIÓN»** (dorado con borde oscuro, sobre el ganador) y **«MALOGRADO»** (gris, sobre el perdedor) a los 0,5 s, con un destello. El color del ganador se extiende por el mapa sobre el territorio del perdedor, concello a concello desde la frontera (1,8 s, hasta 24 pasos); al acabar, el territorio fusionado queda con contorno dorado y el nombre del ganador. A 1 s sale la **gaita gallega** (`dados.gaita_sprite`: fol rojo con cinta dorada, soprete, punteiro, roncón y ronqueta) con rebote y balanceo, más un chorro de confeti (otro, menor, a 2 s). A 2 s salen las pastillas de vaca «+N vacas» y «+K concellos» junto al ganador. La gaita sustituye al icono de espada del vídeo de referencia; su música se añadirá en la fase 5.

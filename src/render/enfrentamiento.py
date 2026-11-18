@@ -53,9 +53,15 @@ def caja_silueta(limites: tuple[float, float, float, float], ancho: int, alto: i
     return lambda x, y: (ox + (x - minx) * esc, oy + (maxy - y) * esc)
 
 
-def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio: int
+def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio: int,
+                   rotulos: tuple[tuple[str, str, str], tuple[str, str, str]] | None = None
                    ) -> tuple[Image.Image, ImageDraw.ImageDraw]:
-    """Título, mapa con zoom, líneas doradas, panel, siluetas, nombres, vacas y diferencia."""
+    """Título, mapa con zoom, líneas doradas, panel, siluetas, nombres, vacas y diferencia.
+
+    `rotulos`: (texto, color, color del borde) del atacante y del defensor; por defecto «ATACA» y
+    «DEFENDE» (la pantalla de conquista usa «CAMPIÓN» y «MALOGRADO»)."""
+    if rotulos is None:
+        rotulos = (("ATACA", E.CONFLICTO, E.BLANCO), ("DEFENDE", E.AZUL_DEFENSA, E.BLANCO))
     k, W, H = SUPERMUESTREO, E.ANCHO, E.ALTO
     img = fondo_foto(W, H)
     d = ImageDraw.Draw(img)
@@ -76,9 +82,8 @@ def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio:
     d.rectangle((0, PANEL_FIN, W, PANEL_FIN + 4), fill=E.FONDO)
 
     # Rótulo, silueta del territorio completo y nombre del dueño
-    for dono, cx, rotulo, color in ((f.atacante, CX_A, "ATACA", E.CONFLICTO),
-                                    (f.defensor, CX_D, "DEFENDE", E.AZUL_DEFENSA)):
-        E.texto_centrado(d, cx, Y_ROTULO, rotulo, E.T_MIN, color, borde=6, color_borde=E.BLANCO)
+    for dono, cx, (rotulo, color, borde_r) in ((f.atacante, CX_A, rotulos[0]), (f.defensor, CX_D, rotulos[1])):
+        E.texto_centrado(d, cx, Y_ROTULO, rotulo, E.T_MIN, color, borde=6, color_borde=borde_r)
         geom = mapa.geometria(estado["donos"][dono]["territorio"])
         sil = Image.new("RGBA", (300 * k, ALTO_SILUETA * k), (255, 255, 255, 0))
         pintar(ImageDraw.Draw(sil), geom, caja_silueta(geom.bounds, 300, ALTO_SILUETA, k),

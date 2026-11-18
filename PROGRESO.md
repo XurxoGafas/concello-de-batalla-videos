@@ -488,3 +488,19 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió:** hoja algo más grande, pero la navaja algo más pequeña que la botella.
 - **Cómo se resolvió:** proporción del mango a 1,1 × la hoja (límite bajo del rango pedido; la hoja pesa más en el conjunto). En el duelo la botella pasa a 234 px de alto y la navaja a 244 px de largo, que al ir inclinada ocupa menos alto que la botella (≈325 vs 340 px de bajada). Límite: no se puede agrandar más sin que la botella invada las pastillas de vacas de arriba o «LIORTA!» salga de la zona. Vídeos regenerados; 187 tests en verde.
 - **Pendiente:** aprobación de los vídeos para cerrar 4.4.
+
+---
+
+## 2026-11-18 — Paso 4.4 completado (dados, marcador, duelo y muerte súbita) · Paso 4.5 en curso
+
+- **Qué se hizo:** el usuario dio por bueno el 4.4 («pasamos 4.5») tras los últimos ajustes (navaja abierta, «LIORTA!», tarjeta de morte súbita en llamas, huecos de letras, proporciones). Paso 4.4 `[x]`.
+- **Cambio de plan (regla d) en el 4.5:** los rótulos de la pantalla de conquista son **«CAMPIÓN»** y **«MALOGRADO»** (no «GAÑADOR»/«PERDEDOR») y, en lugar del icono de espada apuntando al ganador, sale **una gaita gallega con confeti**, a la que el usuario pondrá música (se registrará en la fase 5 con su licencia, regla j). El archivo previsto pasa a ser `src/render/conquista.py`. `PLAN.md` actualizado.
+
+---
+
+## 2026-11-18 — Paso 4.5 (en curso): animación de conquista con «CAMPIÓN», «MALOGRADO» y gaita
+
+- **Qué se hizo:** `src/render/conquista.py` (`preparar`, `fotograma(ctx, t)` sin estado, `renderizar`, `conquista_de_muestra`), `dados.gaita_sprite` y un parámetro `rotulos` en `enfrentamiento.fotograma_base`. Detalle de la secuencia en `docs/ESTILO.md`.
+- **Cómo se hizo:** dos fotogramas base por conquista (con ATACA/DEFENDE y con CAMPIÓN/MALOGRADO); la banda del mapa se redibuja hasta 24 veces con un estado parcial (los concellos del perdedor ordenados por distancia al concello de contacto del ganador); gaita y pastillas por sprites; confeti por partículas deterministas (semilla fija). Render de la muestra ≈7 s. Muestras: `output/muestras/conquista.mp4` (4,2 s) y `conquista.png`. Tests nuevos en `tests/test_conquista.py` (rótulos, extensión del color, orden desde la frontera, gaita/confeti/pastillas a su hora, determinismo).
+- **Problemas:** las pastillas del lado derecho rozaban los tubos de la gaita; se desplazaron 125 px.
+- **Pendiente:** aprobación del usuario para marcar 4.5 `[x]`. La gaita se dibuja sin música (fase 5; registrar la pieza y su licencia en `docs/FUENTES.md`, regla j). Siguiente: 4.6 (intro, encadenado de 3 batallas y cierre con ranking).

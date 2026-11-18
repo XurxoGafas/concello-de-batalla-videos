@@ -182,6 +182,61 @@ def destello_sprite(tam: int = 260) -> Image.Image:
     return im.resize((tam, tam), Image.LANCZOS)
 
 
+def gaita_sprite(alto: int = 260) -> Image.Image:
+    """Gaita gallega dibujada por código: fol (bolsa) rojo con cinta dorada, soprete a la izquierda,
+    punteiro (con agujeros y campana) hacia abajo, y roncón y ronqueta hacia arriba a la derecha."""
+    k, W, H = 3, 520, 520
+    im = Image.new("RGBA", (W * k, H * k), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+
+    def pt(x, y):
+        return (x * k, y * k)
+
+    def tubo(p0, p1, w0, w1, color, anillos=(), cola=None):
+        """Tubo cónico de p0 a p1 con grosor w0→w1, anillos dorados en las fracciones dadas."""
+        w0, w1 = w0 * 1.5, w1 * 1.5
+        dx, dy = p1[0] - p0[0], p1[1] - p0[1]
+        n = math.hypot(dx, dy)
+        nx, ny = -dy / n, dx / n
+        pts = [(p0[0] + nx * w0 / 2, p0[1] + ny * w0 / 2), (p1[0] + nx * w1 / 2, p1[1] + ny * w1 / 2),
+               (p1[0] - nx * w1 / 2, p1[1] - ny * w1 / 2), (p0[0] - nx * w0 / 2, p0[1] - ny * w0 / 2)]
+        d.polygon([pt(*q) for q in pts], fill=color, outline=E.FONDO, width=6 * k)
+        for f in anillos:
+            c = (p0[0] + dx * f, p0[1] + dy * f)
+            w = w0 + (w1 - w0) * f
+            d.line([pt(c[0] + nx * (w / 2 + 2), c[1] + ny * (w / 2 + 2)), pt(c[0] - nx * (w / 2 + 2), c[1] - ny * (w / 2 + 2))],
+                   fill=E.ORO, width=7 * k)
+            d.line([pt(c[0] + nx * (w / 2 + 2), c[1] + ny * (w / 2 + 2)), pt(c[0] - nx * (w / 2 + 2), c[1] - ny * (w / 2 + 2))],
+                   fill=E.FONDO, width=1 * k)
+        if cola:  # remate dorado en el extremo p1
+            r = w1 / 2 + 4
+            d.ellipse((*pt(p1[0] - r, p1[1] - r), *pt(p1[0] + r, p1[1] + r)), fill=E.ORO, outline=E.FONDO, width=5 * k)
+        return nx, ny
+
+    MADERA, CLARA = "#7A4A22", "#D9A24F"
+    # Roncón (largo) y ronqueta (corto): hacia arriba y a la derecha, por detrás del fol
+    tubo((270, 250), (440, 30), 26, 17, MADERA, anillos=(0.3, 0.62), cola=True)
+    tubo((320, 270), (490, 120), 22, 15, MADERA, anillos=(0.35, 0.7), cola=True)
+    # Soprete (por donde se sopla): hacia arriba y a la izquierda
+    tubo((140, 250), (50, 130), 22, 14, MADERA, anillos=(0.5,), cola=True)
+    # Punteiro: hacia abajo y a la izquierda, con agujeros y campana
+    p0, p1 = (200, 360), (110, 490)
+    nx, ny = tubo(p0, p1, 24, 40, CLARA, anillos=(0.12, 0.9))
+    for f in (0.28, 0.42, 0.56, 0.70):
+        c = (p0[0] + (p1[0] - p0[0]) * f, p0[1] + (p1[1] - p0[1]) * f)
+        d.ellipse((*pt(c[0] - 5, c[1] - 5), *pt(c[0] + 5, c[1] + 5)), fill=E.FONDO)
+    # Fol: bolsa roja con cinta dorada
+    d.ellipse((*pt(100, 215), *pt(360, 385)), fill="#C62F3A", outline=E.FONDO, width=7 * k)
+    d.ellipse((*pt(125, 232), *pt(335, 368)), outline=E.ORO, width=6 * k)
+    d.arc((*pt(115, 225), *pt(345, 375)), 200, 250, fill="#FF8C94", width=7 * k)  # brillo
+    for x in (170, 215, 260, 300):  # franjas de la cinta
+        d.line([pt(x, 262), pt(x - 8, 340)], fill="#F5B82E", width=4 * k)
+    # Collarines dorados en las uniones
+    for cx, cy in ((255, 245), (305, 262), (148, 248), (190, 355)):
+        d.ellipse((*pt(cx - 14, cy - 10), *pt(cx + 14, cy + 10)), fill=E.ORO, outline=E.FONDO, width=5 * k)
+    return _recortar(im, alto=alto)
+
+
 def texto_sprite(texto: str, tam: int, color: str, color_borde: str = E.FONDO, borde: int = 9) -> Image.Image:
     """Texto con trazo grueso como imagen RGBA (para animarlo: escalarlo, hacerlo aparecer…)."""
     f = E.fuente(tam)
