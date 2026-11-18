@@ -332,3 +332,12 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Cómo se completó:** ver la entrada anterior del 4.2 (módulo `src/render/mapa.py`, muestras, 11 tests, 165 en total).
 - **Problemas encontrados:** los ya descritos.
 - **Pendiente:** siguiente paso, 4.3 (pantalla de enfrentamiento con siluetas).
+
+---
+
+## 2026-11-18 — Paso 4.3 EN CURSO (pantalla de enfrentamiento; falta la aprobación de la muestra)
+
+- **Qué se hizo:** `src/render/enfrentamiento.py` con `fotograma_base` (título, mapa con zoom y contornos rojos, panel, siluetas de los territorios completos, nombre del dueño, rótulos ATACA/DEFENDE, «VS», pastillas de vaca con vacas y diferencia) y `pantalla_enfrentamiento`. `muestra_estilo.py` se simplificó: ahora reutiliza `fotograma_base` y solo añade los dados. Muestra: `output/muestras/enfrentamiento.png`.
+- **Tests:** `tests/test_enfrentamiento.py` (5) → 170 en total, todos en verde.
+- **Problemas encontrados:** ninguno. La pantalla deja libre la zona de dados a propósito (continuidad con 4.4); las siluetas de territorios estrechos salen pequeñas.
+- **Pendiente:** que el usuario apruebe la muestra para marcar 4.3 `[x]`; después, 4.4 (dados y marcador).

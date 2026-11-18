@@ -118,7 +118,7 @@ Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fas
 - **Archivos:** `src/render/mapa.py`.
 - **Hecho cuando:** se generan `output/muestras/mapa_inicial.png` y `output/muestras/mapa_zoom_atacante.png`, legibles en un móvil.
 
-### [ ] 4.3 Pantalla de enfrentamiento (fase 3)
+### [~] 4.3 Pantalla de enfrentamiento (fase 3) — muestra generada, a falta de aprobación
 - **Qué:** Mostrar las siluetas de atacante y defensor, cada una con su nombre y, debajo, su número de vacas.
 - **Archivos:** `src/render/enfrentamiento.py`.
 - **Hecho cuando:** se genera `output/muestras/enfrentamiento.png` con ambas siluetas y datos legibles.

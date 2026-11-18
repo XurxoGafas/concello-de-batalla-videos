@@ -18,38 +18,14 @@ import random
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw
 
 from src.motor.batalla import simular_batalla
 from src.motor.estado import jugar_batalla
-from src.motor.multiplicador import diferencia_porcentual
 from src.motor.persistencia import nueva_partida, semilla_de_batalla
 from src.motor.seleccion import elegir_enfrentamiento
 from src.render import estilo as E
-from src.render.fondo import fondo_hierba
-from src.render.mapa import MapaGalicia, pintar as _pintar
-
-CARPETA = E.RAIZ / "output" / "muestras"
-SUPERMUESTREO = 2  # el mapa se dibuja al doble y se reduce, para bordes suaves
-
-# Zonas del fotograma (y en píxeles)
-MAPA_Y0, MAPA_ALTO = 395, 510
-LINEA_Y = MAPA_Y0 + MAPA_ALTO  # justo bajo el mapa
-PANEL_FIN = E.ALTO - E.MARGEN_INF + 10
-
-
-def _num(n: int) -> str:
-    return f"{n:,}".replace(",", ".")
-
-
-def _caja_silueta(limites: tuple[float, float, float, float], ancho: int, alto: int, k: int):
-    """Transformación que encaja un territorio en una caja (ancho×alto) dejando 10 px de aire."""
-    minx, miny, maxx, maxy = limites
-    esc = min((ancho - 20) * k / (maxx - minx), (alto - 20) * k / (maxy - miny))
-    ox = (ancho * k - (maxx - minx) * esc) / 2
-    oy = (alto * k - (maxy - miny) * esc) / 2
-    return lambda x, y: (ox + (x - minx) * esc, oy + (maxy - y) * esc)
-
+from src.render.enfrentamiento import CARPETA, CX_A, CX_D, fotograma_base
+from src.render.mapa import MapaGalicia
 
 def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
     estado = nueva_partida()
@@ -60,58 +36,9 @@ def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
     va, vd = estado["donos"][f.atacante]["vacas"], estado["donos"][f.defensor]["vacas"]
     r = simular_batalla(va, vd, rng=rng)
 
-    mapa = MapaGalicia()
-    k, W, H = SUPERMUESTREO, E.ANCHO, E.ALTO
-    img = fondo_hierba(W, H)
-    d = ImageDraw.Draw(img)
-
-    # --- Título (dentro de la zona segura) ---
-    E.texto_centrado(d, W / 2, 232, "CONCELLO DE BATALLA", E.T_TITULO, E.ORO, borde=9)
-    E.texto_centrado(d, W / 2, 318, "Ep. 27", E.T_SUBTITULO, E.BLANCO, borde=7)
-
-    # --- Mapa con zoom: encuadra los territorios completos de los dos bandos ---
-    ventana = mapa.ventana_enfrentamiento(estado, f.atacante, f.defensor, W / MAPA_ALTO)
-    en_conflicto = [(mapa.geometria([c]), E.CONFLICTO, 6) for c in (f.concello_atacante, f.concello_defensor)]
-    img.paste(mapa.dibujar(estado, ventana, W, MAPA_ALTO, contornos=en_conflicto,
-                          nombres=[f.atacante, f.defensor]),
-              (0, MAPA_Y0))
-
-    # --- Línea dorada y panel inferior ---
-    d.rectangle((0, MAPA_Y0 - 6, W, MAPA_Y0 - 1), fill=E.ORO)
-    d.rectangle((0, LINEA_Y, W, LINEA_Y + 6), fill=E.ORO)
-    panel = Image.new("RGB", (W, PANEL_FIN - LINEA_Y - 6), E.PANEL)  # tarjeta algo translúcida
-    mezcla = Image.blend(img.crop((0, LINEA_Y + 6, W, PANEL_FIN)), panel, 0.93)
-    img.paste(mezcla, (0, LINEA_Y + 6))
-    d.rectangle((0, PANEL_FIN, W, PANEL_FIN + 4), fill=E.FONDO)
-
-    cx_a, cx_d, cx_c = 270, 690, W / 2
-
-    # --- Siluetas y nombres ---
-    for concello, dono, cx in ((f.concello_atacante, f.atacante, cx_a),
-                               (f.concello_defensor, f.defensor, cx_d)):
-        g1 = mapa.geometria(estado["donos"][dono]["territorio"])  # el territorio completo del bando
-        sil = Image.new("RGBA", (300 * k, 150 * k), (255, 255, 255, 0))  # fondo transparente
-        _pintar(ImageDraw.Draw(sil), g1, _caja_silueta(g1.bounds, 300, 150, k),
-                estado["donos"][dono]["cor"]["colores"][0], E.BLANCO, 3 * k)
-        sil = sil.resize((300, 150), Image.LANCZOS)
-        img.paste(sil.convert("RGB"), (int(cx - 150), 930), sil.getchannel("A"))
-        lineas, t = E.dividir_nombre(estado["donos"][dono]["nome"], 52, 410)
-        for n, linea in enumerate(lineas):
-            E.texto_centrado(d, cx, 1088 + n * (t + 2), linea, t, E.BLANCO)
-    E.texto_centrado(d, cx_c, 985, "VS", 64, E.ORO, borde=3)
-
-    # --- Fila de vacas: cada bando, y entre ambos la diferencia en % (todo «pintado de vaca») ---
-    cy_vacas = 1250
-    dif = diferencia_porcentual(va, vd)
-    lineas_dif = ["dif. vacas", f"+{_num(dif)}%" if dif else "0%"]
-    wd, _ = E.tamano_pastilla(lineas_dif, E.T_MIN, 20)
-    for vacas, cx_col, lado in ((va, cx_a, -1), (vd, cx_d, 1)):
-        txt = f"{_num(vacas)} vacas"
-        w, _ = E.tamano_pastilla(txt, E.T_MIN, 20)
-        # que no invada el hueco central de la pastilla de la diferencia
-        cx = min(cx_col, cx_c - wd / 2 - 12 - w / 2) if lado < 0 else max(cx_col, cx_c + wd / 2 + 12 + w / 2)
-        E.pastilla_vaca(img, cx, cy_vacas, txt, E.T_MIN, 20)
-    E.pastilla_vaca(img, cx_c, cy_vacas, lineas_dif, E.T_MIN, 20)
+    # Todo lo común con la pantalla de enfrentamiento (4.3) viene de `fotograma_base`
+    img, d = fotograma_base(estado, f, MapaGalicia(), 27)
+    cx_a, cx_d = CX_A, CX_D
 
     # --- Dados (el borde dorado marca quién gana la tirada) y la puntuación, separada a un lado ---
     lado, sep = 88, 10

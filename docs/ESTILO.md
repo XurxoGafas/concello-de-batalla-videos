@@ -35,5 +35,7 @@ Los colores de cada concello son los de su bandera (paso 2.5; por ahora provisio
 
 - **Nombres en el mapa (decisión del usuario, 2026-11-18):** el mapa general de Galicia **no lleva nombres** (hay 313 concellos y no se leerían). Solo se escriben nombres en las vistas con zoom y **solo los de los bandos en conflicto**. Los nombres son los del **dueño** (el territorio conquistado lleva el nombre del ganador). El panel usa el mismo criterio: nombre del dueño y silueta de todo su territorio.
 
+- **Pantalla de enfrentamiento (4.3, `src/render/enfrentamiento.py`):** mapa con zoom y contornos rojos + panel con rótulo ATACA (rojo) / DEFENDE (blanco), silueta del territorio completo, nombre del dueño, «VS», y fila de pastillas de vaca (vacas de cada bando y dif. %). Los dados (4.4) aparecen debajo, en el hueco libre, reutilizando `fotograma_base`.
+
 ## Pendiente de las siguientes fases
 Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y escenas (4.6).
