@@ -415,3 +415,11 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Cómo se resolvió:** `navaja_botella_sprite` (en `dados.py`, sustituye a `espadas_sprite`) dibuja por código una navaja abierta (hoja plateada, virola de latón, mango de madera con vetas y remaches) y una botella marrón con tapón dorado y etiqueta «CAFÉ», inclinadas una hacia la otra. Se actualizaron la animación, los tests, `PLAN.md` (4.4) y `docs/ESTILO.md`. Vídeos de muestra regenerados; imagen de comprobación en `output/muestras/inicio_duelo.png`.
 - **A tener en cuenta:** el paso 4.5 del plan habla de un «icono de espada apuntando hacia el ganador»; probablemente convenga cambiarlo también (p. ej. una navaja), a decidir con el usuario al empezar el 4.5.
 - **Pendiente:** aprobación de los vídeos y del icono para marcar 4.4 `[x]`.
+
+---
+
+## 2026-11-18 — Paso 4.4 (en curso): rediseño de la navaja y la botella (solo diseño, sin animación todavía)
+
+- **Qué se pidió:** que la navaja se parezca a la foto de referencia que envió el usuario (navaja gallega de mango de madera clara y virola de acero con anillos), que se vea que es plegable (**entreabierta**), que la botella ponga «LIC. CAFÉ» y, más adelante, que las dos «se crucen como espadas» antes de pasar a los dados. Pidió ver el diseño **antes** de hacer la animación.
+- **Cómo se hizo:** `navaja_sprite(largo, apertura)` y `botella_sprite(alto)` en `src/render/dados.py`; la navaja tiene la hoja girada 55° respecto al mango y un pasador dorado en el eje. También quedaron preparados `destello_sprite` (estrella de impacto) y los ángulos/desplazamientos de cruce (`ANGULO_NAVAJA`, `ANGULO_BOTELLA`, `DESPL_*`), aún sin usar en la animación. Muestra del diseño: `output/muestras/diseno_navaja_botella.png`.
+- **Pendiente:** que el usuario apruebe (o corrija) el diseño; entonces se anima el cruce (entran por los lados, chocan con un destello y se cruzan como espadas) y se rehacen los vídeos de muestra. Hasta entonces los vídeos de muestra del repositorio llevan todavía el icono anterior.
