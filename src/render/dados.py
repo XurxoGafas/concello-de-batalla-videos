@@ -159,10 +159,10 @@ def botella_sprite(alto: int = 280) -> Image.Image:
     return _recortar(im, alto=alto)
 
 
-ANGULO_NAVAJA, ANGULO_BOTELLA = 42, 24  # grados con los que se cruzan la navaja y la botella (como dos espadas)
+ANGULO_NAVAJA, ANGULO_BOTELLA = 32, 28  # grados (antihorario) finales con los que se cruzan la navaja y la botella (como dos espadas)
 # Desplazamientos (px) de cada objeto respecto al centro al cruzarse: la navaja cruza por el cuello de
 # la botella y deja a la vista la etiqueta.
-DESPL_NAVAJA, DESPL_BOTELLA = (-10, -34), (22, 20)
+DESPL_NAVAJA, DESPL_BOTELLA = (-6, -52), (6, 18)
 
 
 def destello_sprite(tam: int = 260) -> Image.Image:

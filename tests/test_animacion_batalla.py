@@ -108,3 +108,14 @@ def test_se_codifica_un_mp4_valido(tmp_path):
     out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "stream=width,height,nb_frames,codec_name",
                           "-of", "default=nw=1", str(ruta)], capture_output=True, text=True, check=True).stdout
     assert "width=1080" in out and "height=1920" in out and "nb_frames=15" in out and "codec_name=h264" in out
+
+
+def test_el_duelo_entra_por_los_lados_choca_en_el_centro_y_se_desvanece():
+    r = r_normal()
+    T = A.calcular_tiempos(r)
+    centro = (E.ANCHO // 2 - 150, D.Y_MEDIO - 150, E.ANCHO // 2 + 150, D.Y_MEDIO + 150)
+    def tinta(t, caja):
+        return ImageChops.difference(A.fotograma(BASE, r, t, T).crop(caja), BASE.crop(caja)).getbbox()
+    assert tinta(T.espadas + 0.05, centro) is None  # al empezar, aún fuera de la zona central
+    assert tinta(T.espadas + A.D_ENTRADA + 0.1, centro) is not None  # tras el choque, cruzadas en el centro
+    assert A.D_ENTRADA + A.D_CHOQUE < A.D_ESPADAS - 0.2  # hay pausa con el cruce visible antes del fundido

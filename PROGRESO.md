@@ -447,3 +447,11 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió:** quitar el círculo gris de la parte exterior de la hoja y acortar la línea blanca del reflejo para que acabe antes del perfil.
 - **Cómo se resolvió:** eliminada la muesca de la uña (el círculo gris) y el brillo empieza y termina dentro de la hoja, sin tocar el contorno. Muestra: `output/muestras/diseno_navaja_botella.png`.
 - **Pendiente:** aprobación del diseño; después, la animación del cruce.
+
+---
+
+## 2026-11-18 — Paso 4.4 (en curso): animación del cruce de la navaja y la botella
+
+- **Qué se pidió:** hacer el vídeo de prueba con la navaja y la botella cruzándose como espadas antes de pasar a los dados (diseño aprobado por el usuario).
+- **Cómo se resolvió:** `_duelo` en `animacion_batalla.py`: la navaja entra desde la izquierda y la botella desde la derecha, girando (0,55 s); al chocar sale un destello dorado (`destello_sprite`) y un breve temblor; quedan cruzadas (navaja a 32°, botella a 28°, con la navaja cruzando por el cuello de la botella para que se lea la etiqueta) y se desvanecen antes de los dados. La fase del duelo dura ahora 1,7 s (antes 1,1 s). Vídeos regenerados: `batalla_sin_audio.mp4` (11,0 s) y `batalla_muerte_subita.mp4` (13,5 s); imagen fija del cruce: `output/muestras/duelo_cruzado.png`. Test nuevo del duelo: 185 tests en verde.
+- **Pendiente:** aprobación de los vídeos para marcar 4.4 `[x]`; después, 4.5 (conquista; ahí hay que decidir si el «icono de espada apuntando al ganador» pasa a ser la navaja).
