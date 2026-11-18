@@ -40,7 +40,7 @@ T_PASTILLAS = 2.0
 T_CONFETI2 = 2.0
 DURACION = 4.2
 PASOS_MAX = 24       # el mapa se redibuja como mucho 24 veces (grupos de concellos)
-X_GAITA, Y_GAITA, ALTO_GAITA = E.ANCHO / 2, D.Y_MEDIO + 5, 250
+X_GAITA, Y_GAITA, ALTO_GAITA = E.ANCHO / 2, D.Y_MEDIO + 22, 232
 
 
 @dataclass

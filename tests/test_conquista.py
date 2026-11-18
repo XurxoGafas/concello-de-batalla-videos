@@ -23,7 +23,7 @@ def _hex(c):
 def test_gaita_sprite_con_transparencia():
     g = D.gaita_sprite(200)
     assert g.height == 200 and g.getpixel((0, 0))[3] == 0
-    assert _hex("#C62F3A") in {p[:3] for p in g.get_flattened_data() if p[3] == 255}  # fol rojo
+    assert _hex("#1F1A1A") in {p[:3] for p in g.get_flattened_data() if p[3] == 255}  # fol negro
 
 
 def test_los_rotulos_cambian_a_campion_y_malogrado(ctx):
@@ -61,8 +61,8 @@ def test_gaita_confeti_y_pastillas_aparecen_a_su_hora(ctx):
     sin = C.fotograma(ctx, C.T_GAITA - 0.1).crop(zona)
     con = C.fotograma(ctx, C.T_GAITA + 0.8).crop(zona)
     assert ImageChops.difference(sin, con).getbbox() is not None
-    rojo_fol = _hex("#C62F3A")
-    assert rojo_fol not in set(sin.get_flattened_data()) and rojo_fol in set(con.get_flattened_data())
+    verde_gaita = _hex("#3FB88A")  # flecos verdes de la gaita
+    assert verde_gaita not in set(sin.get_flattened_data()) and verde_gaita in set(con.get_flattened_data())
     pastillas = (int(ctx.cx_ganador) - 120, D.Y_MEDIO - 60, int(ctx.cx_ganador) + 220, D.Y_MEDIO + 110)
     assert ImageChops.difference(C.fotograma(ctx, C.T_PASTILLAS - 0.1).crop(pastillas),
                                  C.fotograma(ctx, C.T_PASTILLAS + 0.7).crop(pastillas)).getbbox() is not None

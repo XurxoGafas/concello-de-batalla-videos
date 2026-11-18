@@ -504,3 +504,11 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Cómo se hizo:** dos fotogramas base por conquista (con ATACA/DEFENDE y con CAMPIÓN/MALOGRADO); la banda del mapa se redibuja hasta 24 veces con un estado parcial (los concellos del perdedor ordenados por distancia al concello de contacto del ganador); gaita y pastillas por sprites; confeti por partículas deterministas (semilla fija). Render de la muestra ≈7 s. Muestras: `output/muestras/conquista.mp4` (4,2 s) y `conquista.png`. Tests nuevos en `tests/test_conquista.py` (rótulos, extensión del color, orden desde la frontera, gaita/confeti/pastillas a su hora, determinismo).
 - **Problemas:** las pastillas del lado derecho rozaban los tubos de la gaita; se desplazaron 125 px.
 - **Pendiente:** aprobación del usuario para marcar 4.5 `[x]`. La gaita se dibuja sin música (fase 5; registrar la pieza y su licencia en `docs/FUENTES.md`, regla j). Siguiente: 4.6 (intro, encadenado de 3 batallas y cierre con ranking).
+
+---
+
+## 2026-11-18 — Paso 4.5 (en curso): la gaita pasa a ser la ilustración del usuario
+
+- **Qué se pidió:** usar el SVG que aportó el usuario para la gaita (fol negro con flecos y borlas verdes, ronco, ronquillo, soprete y punteiro de boj).
+- **Cómo se resolvió:** el SVG se guarda sin el círculo crema de fondo ni los metadatos en `assets/img/gaita.svg`, y se rasteriza una vez a `assets/img/gaita.png` (así no hace falta `rsvg-convert` al generar vídeos). `dados.gaita_sprite` ahora carga ese PNG, lo recorta y lo escala (se eliminó la gaita dibujada por código). Registrada en `docs/FUENTES.md` (regla j): ilustración aportada por el usuario; sus metadatos indican que fue generada con Claude, sin licencia de terceros. Tests ajustados (fol negro, flecos verdes).
+- **Pendiente:** aprobación del 4.5 con la nueva gaita.
