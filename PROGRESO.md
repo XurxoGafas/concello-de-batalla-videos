@@ -406,3 +406,12 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Problemas encontrados:** los totales con decimales («3,0 - 3,0») chocaban con el guion central: se separaron las columnas del marcador (±105 px) y se redujo la letra de los decimales; un test mío de muerte súbita tenía mal los dados (no empataba) y otro miraba un borde dorado del dado vecino. Se corrigieron los tests.
 - **Tests:** `tests/test_animacion_batalla.py` (9) → 184 en total, todos en verde. `docs/ESTILO.md` actualizado.
 - **Pendiente:** que el usuario revise los dos vídeos y apruebe (criterio «Hecho cuando»: «se ve fluida, sin saltos»; yo solo he comprobado fotogramas sueltos y que no hay saltos bruscos entre ellos, no he podido verlos reproducirse). Sin audio todavía (fase 5). Después, 4.5 (conquista).
+
+---
+
+## 2026-11-18 — Paso 4.4 (en curso): navaja gallega y botella de licor café en vez de las espadas
+
+- **Qué se pidió:** cambiar las espadas cruzadas por una navaja de bolsillo típica gallega con mango de madera y una botella de licor café.
+- **Cómo se resolvió:** `navaja_botella_sprite` (en `dados.py`, sustituye a `espadas_sprite`) dibuja por código una navaja abierta (hoja plateada, virola de latón, mango de madera con vetas y remaches) y una botella marrón con tapón dorado y etiqueta «CAFÉ», inclinadas una hacia la otra. Se actualizaron la animación, los tests, `PLAN.md` (4.4) y `docs/ESTILO.md`. Vídeos de muestra regenerados; imagen de comprobación en `output/muestras/inicio_duelo.png`.
+- **A tener en cuenta:** el paso 4.5 del plan habla de un «icono de espada apuntando hacia el ganador»; probablemente convenga cambiarlo también (p. ej. una navaja), a decidir con el usuario al empezar el 4.5.
+- **Pendiente:** aprobación de los vídeos y del icono para marcar 4.4 `[x]`.

@@ -1,6 +1,6 @@
 """Dados y utilidades de animación (paso 4.4).
 
-Sprites RGBA (dado, insignia «+N», espadas cruzadas), funciones de suavizado y la geometría de
+Sprites RGBA (dado, insignia «+N», navaja y botella de licor café), funciones de suavizado y la geometría de
 las dos columnas de dados (una por bando, tres filas), que debe coincidir con la de las
 muestras estáticas (`muestra_estilo.py`).
 """
@@ -74,25 +74,57 @@ def insignia_sprite(texto: str, color: str) -> Image.Image:
     return img
 
 
-def espadas_sprite(tam: int = 260) -> Image.Image:
-    """Icono de dos espadas cruzadas (dibujado por código, sin imágenes externas)."""
-    k, S = 3, 400
-    def espada() -> Image.Image:
+def navaja_botella_sprite(tam: int = 260) -> Image.Image:
+    """Icono del duelo: navaja de bolsillo gallega (mango de madera, hoja abierta) cruzada con una
+    botella de licor café. Dibujado por código, sin imágenes externas."""
+    k, S, P = 3, 400, 520  # supermuestreo, lienzo de cada objeto y lienzo final (con holgura al girar)
+
+    def lienzo() -> tuple[Image.Image, ImageDraw.ImageDraw]:
         im = Image.new("RGBA", (S * k, S * k), (0, 0, 0, 0))
-        d = ImageDraw.Draw(im)
-        def poly(p, fill, w=7):
-            d.polygon([(x * k, y * k) for x, y in p], fill=fill, outline=E.FONDO, width=w * k)
-        poly([(200, 10), (226, 70), (226, 255), (174, 255), (174, 70)], "#DDE3EE")  # hoja
-        d.line([(200 * k, 40 * k), (200 * k, 250 * k)], fill="#A9B4C8", width=6 * k)  # canal
-        poly([(120, 255), (280, 255), (280, 285), (120, 285)], E.ORO)  # guarda
-        poly([(188, 285), (212, 285), (212, 350), (188, 350)], "#7A4A21")  # empuñadura
-        d.ellipse((178 * k, 345 * k, 222 * k, 389 * k), fill=E.ORO, outline=E.FONDO, width=7 * k)
-        return im
-    e = espada()
-    img = Image.new("RGBA", e.size, (0, 0, 0, 0))
-    for ang in (45, -45):
-        img.alpha_composite(e.rotate(ang, resample=Image.BICUBIC))
-    return img.resize((tam, tam), Image.LANCZOS)
+        return im, ImageDraw.Draw(im)
+
+    def poli(d, pts, fill, w=7):
+        d.polygon([(x * k, y * k) for x, y in pts], fill=fill, outline=E.FONDO, width=w * k)
+
+    def rect(d, caja, fill, r=14, w=7):
+        x0, y0, x1, y1 = caja
+        d.rounded_rectangle((x0 * k, y0 * k, x1 * k, y1 * k), radius=r * k, fill=fill, outline=E.FONDO, width=w * k)
+
+    # --- Navaja: hoja plateada con lomo curvo, virola de latón y mango de madera con vetas y remaches ---
+    nav, d = lienzo()
+    poli(d, [(176, 195), (226, 195), (230, 140), (221, 80), (196, 14), (186, 70), (178, 130)], "#DDE3EE")
+    d.line([(196 * k, 40 * k), (200 * k, 190 * k)], fill="#A9B4C8", width=5 * k)  # filo / canal
+    poli(d, [(172, 214), (230, 214), (238, 372), (164, 372)], "#9A5B2B")  # mango de madera
+    for x0, x1 in ((182, 186), (200, 206), (218, 221)):  # vetas
+        d.line([(x0 * k, 226 * k), (x1 * k, 360 * k)], fill="#C58A52", width=4 * k)
+    rect(d, (166, 190, 236, 220), E.ORO, r=8)  # virola de latón
+    for cy in (240, 346):  # remaches
+        d.ellipse((194 * k, (cy - 7) * k, 208 * k, (cy + 7) * k), fill=E.ORO, outline=E.FONDO, width=4 * k)
+
+    # --- Botella de licor café: vidrio marrón oscuro, tapón dorado y etiqueta crema con «CAFÉ» ---
+    bot, d = lienzo()
+    poli(d, [(150, 196), (172, 150), (181, 112), (219, 112), (228, 150), (250, 196)], "#4A2511")  # hombros
+    rect(d, (150, 180, 250, 385), "#4A2511", r=18)  # cuerpo
+    rect(d, (181, 70, 219, 120), "#4A2511", r=6)  # cuello
+    rect(d, (175, 38, 225, 76), E.ORO, r=8)  # tapón
+    d.rounded_rectangle((161 * k, 205 * k, 171 * k, 365 * k), radius=5 * k, fill="#8A5230")  # reflejo
+    rect(d, (160, 235, 240, 330), "#F4E9D0", r=10, w=5)  # etiqueta
+    f = E.fuente(34 * k)
+    d.text((200 * k, 283 * k), "CAFÉ", font=f, fill=E.FONDO, anchor="mm")
+
+    def girar(im: Image.Image, grados: float, dx: float) -> Image.Image:
+        lienzo_p = Image.new("RGBA", (P * k, P * k), (0, 0, 0, 0))
+        lienzo_p.alpha_composite(im, (((P - S) // 2 + int(dx)) * k, ((P - S) // 2) * k))
+        return lienzo_p.rotate(grados, resample=Image.BICUBIC, center=((P // 2 + dx) * k, P // 2 * k))
+
+    icono = girar(nav, -22, -78)  # la navaja se inclina hacia la derecha…
+    icono.alpha_composite(girar(bot, 16, 78))  # …y la botella hacia la izquierda: se cruzan arriba
+    caja = icono.getbbox()
+    icono = icono.crop(caja)
+    lado = max(icono.size)
+    cuadro = Image.new("RGBA", (lado, lado), (0, 0, 0, 0))
+    cuadro.alpha_composite(icono, ((lado - icono.width) // 2, (lado - icono.height) // 2))
+    return cuadro.resize((tam, tam), Image.LANCZOS)
 
 
 # ---------- Pegado con escala y opacidad ----------

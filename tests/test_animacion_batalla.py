@@ -95,7 +95,7 @@ def test_la_muerte_subita_cubre_la_zona_de_dados_y_el_ganador_queda_marcado():
 
 
 def test_espadas_y_sprites_tienen_transparencia_y_tamano():
-    assert A.D.espadas_sprite(200).size == (200, 200)
+    assert A.D.navaja_botella_sprite(200).size == (200, 200)
     assert A.D.dado_sprite(80, 6).getpixel((0, 0))[3] == 0
     assert D.salida_rebote(0) == pytest.approx(0) and D.salida_rebote(1) == pytest.approx(1)
     assert max(D.salida_rebote(t / 100) for t in range(101)) > 1  # rebasa un poco (efecto «pop»)

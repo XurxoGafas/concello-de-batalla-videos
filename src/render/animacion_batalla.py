@@ -5,7 +5,7 @@
 fotograma), de modo que cualquier instante se puede repetir o saltar. `base` es la pantalla de
 enfrentamiento (`fotograma_base`, 4.3), que se dibuja una sola vez por batalla.
 
-Secuencia: pantalla de enfrentamiento → espadas cruzadas → 3 tiradas (los dados ruedan, se
+Secuencia: pantalla de enfrentamiento → navaja y botella → 3 tiradas (los dados ruedan, se
 paran, el ganador de la tirada se resalta y sale su «+N», el marcador sube) → multiplicador
 (si lo hay) → muerte súbita (si hay empate) → recuadro dorado en el ganador.
 
@@ -147,9 +147,9 @@ def fotograma(base: Image.Image, r: ResultadoBatalla, t: float, T: Tiempos | Non
     img = base.copy()
     if t < T.espadas:
         return img
-    if t < T.dados:  # espadas cruzadas
+    if t < T.dados:  # navaja y botella
         fade = 1 - D.limitar((t - (T.dados - 0.2)) / 0.2)
-        D.pegar(img, D.espadas_sprite(), E.ANCHO / 2, D.Y_MEDIO, escala=D.salida_rebote((t - T.espadas) / 0.5),
+        D.pegar(img, D.navaja_botella_sprite(), E.ANCHO / 2, D.Y_MEDIO, escala=D.salida_rebote((t - T.espadas) / 0.5),
                 opacidad=fade)
         return img
     _columnas(img, r, T, t)

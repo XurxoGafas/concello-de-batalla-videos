@@ -124,7 +124,7 @@ Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fas
 - **Hecho cuando:** se genera `output/muestras/enfrentamiento.png` con ambas siluetas y datos legibles. ✅ Completado el 2026-11-18 y aprobado por el usuario: rótulos ATACA/DEFENDE, siluetas de territorios completos, vacas y diferencia en pastillas de vaca; fondo con la foto de hierba, mar azul cielo y panel blanco con manchas de vaca; dados en vertical con «+N» junto al dado ganador (ver `docs/ESTILO.md`). 173 tests en verde.
 
 ### [~] 4.4 Animación de dados y marcador (fases 4–5)
-- **Qué:** Icono de espadas cruzadas antes de la tirada; dados que ruedan y se paran, la diferencia de cada tirada («+1», «+2», «=» en empate) sumándose al marcador en pantalla, el multiplicador resaltado en dorado sobre el bando que lo recibe, y la muerte súbita si hace falta desempatar.
+- **Qué:** Icono del duelo (una **navaja de bolsillo gallega con mango de madera** y una **botella de licor café**, en lugar de las espadas del vídeo de referencia, decisión del usuario 2026-11-18) antes de la tirada; dados que ruedan y se paran, la diferencia de cada tirada («+1», «+2», «=» en empate) sumándose al marcador en pantalla, el multiplicador resaltado en dorado sobre el bando que lo recibe, y la muerte súbita si hace falta desempatar.
 - **Archivos:** `src/render/dados.py`, `src/render/marcador.py`.
 - **Hecho cuando:** se genera una secuencia de fotogramas de una batalla completa (incluido un caso con empate/muerte súbita) y su vista previa `output/muestras/batalla_sin_audio.mp4` se ve fluida, sin saltos.
 
