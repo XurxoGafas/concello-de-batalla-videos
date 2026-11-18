@@ -303,3 +303,12 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Tests:** 3 nuevos (fondo verde y determinista, viento cíclico, contraste del texto) y el test del fotograma comprueba que la zona inferior es hierba: 154 en total. `docs/ESTILO.md` actualizado.
 - **Problemas encontrados:** la primera hierba se veía plana (briznas del mismo tono que la base); se añadieron raíz oscura y puntas claras en capas.
 - **Pendiente:** que el usuario apruebe las muestras para marcar 4.1 `[x]`. Posible paso nuevo (a decidir con el usuario): foto de cada concello con rayo en el panel de enfrentamiento, que necesitaría registrar fuente y licencia de cada foto (regla j).
+
+---
+
+## 2026-11-18 — Paso 4.1 completado (guía visual aprobada)
+
+- **Qué se hizo:** el usuario aprobó las muestras (`estilo.png`, `estilo_zoom_minimo.png`, `estilo_zoom_grande.png`). El paso queda `[x]`.
+- **Cómo se completó:** ver las entradas anteriores del 4.1 y `docs/ESTILO.md`. Resumen de lo fijado: 1080×1920 a 30 fps; zonas seguras 60/140/220/420 px; tipografía Lilita One (OFL); fondo de hierba dibujado por código; mapa con zoom que encuadra los territorios completos de los dos bandos; contorno rojo en los concellos en conflicto; pastillas «de vaca» para vacas, diferencia (tope +50 %) y multiplicador; todo en gallego.
+- **Problemas encontrados:** los ya descritos en las entradas del 4.1.
+- **Pendiente / a tener en cuenta:** (1) el usuario valoró cambiar a Node para animar más fácil; la opinión fue mantener Python (el motor y los 154 tests ya están ahí) y decidir de nuevo tras el prototipo de animación del paso 4.4 (medir tiempo de render y aspecto; si no convence, se puede sustituir solo el renderizador porque el motor guarda las batallas como datos); (2) posible paso futuro: foto de cada concello con rayo en el panel de enfrentamiento (necesita fotos con autor y licencia); (3) siguiente paso: 4.2 (renderizar el mapa).
