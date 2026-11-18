@@ -146,3 +146,8 @@ Para poder mostrar el ranking de «máis vitorias» hace falta llevar la cuenta,
 ## Todo resuelto
 
 No quedan dudas abiertas de las planteadas inicialmente en `PLAN.md`. La definición de «territorio» para el ranking (número de concellos, no km²) es una decisión de diseño no confirmada explícitamente por el usuario — revisar si no convence. Cualquier duda nueva que surja durante la implementación se añadirá aquí y se preguntará antes de decidir por cuenta propia (regla f de `CLAUDE.md`).
+
+## Conquista y contador de victorias (paso 3.4)
+
+- El ganador absorbe todo el territorio y todas las vacas del perdedor; el dueño perdedor se elimina. El color efectivo de un concello es el de su dueño actual (el concello conserva su propia bandera en el estado, por si hiciera falta).
+- **Victorias acumuladas (interpretación mía del paso 3.5, revisable):** el ganador suma 1 por la batalla ganada **y hereda las victorias acumuladas del perdedor**. Consecuencia: el dueño final de la serie tendría 312 victorias (una por conquista). Alternativa: que el perdedor pierda sus victorias sin transferirlas (el ranking «máis vitorias» cambiaría). Si el usuario prefiere otra, es una línea en `aplicar_conquista`.

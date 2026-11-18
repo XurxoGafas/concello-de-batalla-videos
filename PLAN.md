@@ -87,10 +87,10 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 - **Archivos:** `src/motor/seleccion.py`, `tests/test_seleccion.py`.
 - **Hecho cuando:** los tests comprueban que el defensor siempre es colindante y de otro dueño, y que nunca se elige un atacante sin vecinos enemigos. ✅ Completado el 2026-11-18: `src/motor/seleccion.py`, 16 tests en verde (104 en total).
 
-### [ ] 3.4 Conquista y actualización del estado
+### [x] 3.4 Conquista y actualización del estado
 - **Qué:** Aplicar el resultado de la batalla: el ganador absorbe el territorio y las vacas del perdedor; esa región pasa a mostrarse con el nombre y la bandera/color del ganador. Eliminar a los dueños sin territorio y detectar el final de la partida (un único dueño).
 - **Archivos:** `src/motor/estado.py`, `tests/test_estado.py`.
-- **Hecho cuando:** el total de vacas se conserva tras cada batalla, el territorio conquistado queda con el color del ganador, y una simulación completa con semilla fija termina siempre con un único ganador.
+- **Hecho cuando:** el total de vacas se conserva tras cada batalla, el territorio conquistado queda con el color del ganador, y una simulación completa con semilla fija termina siempre con un único ganador. ✅ Completado el 2026-11-18: `src/motor/estado.py`, 14 tests en verde (118 en total); la simulación completa de Galicia (313 dueños, semilla 42) termina en 312 conquistas con un único ganador.
 
 ### [ ] 3.5 Persistencia de la partida
 - **Qué:** Guardar y cargar el estado entre ejecuciones (si la partida continúa de vídeo en vídeo), con un histórico de batallas y el número de episodio actual. El estado de cada dueño incluye su contador de **victorias acumuladas** (se incrementa en 1 cada vez que gana una batalla, se transfiere al ganador cuando se funden territorios).
