@@ -8,9 +8,9 @@ Reglas (ver docs/DECISIONES.md, fase 6 del vídeo):
   atacado). El dueño perdedor desaparece.
 - El territorio conquistado se muestra con el nombre y los colores del ganador: el color
   efectivo de un concello es el de su dueño actual (`color_de_concello`).
-- Contador de victorias (para el ranking): el ganador suma 1 por la batalla ganada y además
-  recibe las victorias acumuladas del perdedor, como indica el paso 3.5 de PLAN.md
-  («se transfiere al ganador cuando se funden territorios»).
+- Contador de victorias (para el ranking): el ganador suma 1 por la batalla ganada. Las
+  victorias del perdedor NO se heredan: desaparecen con él (decisión del usuario, 2026-11-18).
+  Así, un dueño solo cuenta las batallas que ha ganado él mismo.
 - La partida termina cuando queda un único dueño.
 
 Todas las funciones devuelven un estado NUEVO; el recibido no se modifica.
@@ -58,7 +58,7 @@ def aplicar_conquista(estado: dict, ganador: str, perdedor: str) -> dict:
         nuevo["concellos"][i]["dono"] = ganador
     g["territorio"] = sorted(g["territorio"] + p["territorio"])
     g["vacas"] += p["vacas"]
-    g["victorias"] += 1 + p["victorias"]
+    g["victorias"] += 1  # las victorias del perdedor no se heredan
     del nuevo["donos"][perdedor]
     return nuevo
 

@@ -93,7 +93,7 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 - **Hecho cuando:** el total de vacas se conserva tras cada batalla, el territorio conquistado queda con el color del ganador, y una simulación completa con semilla fija termina siempre con un único ganador. ✅ Completado el 2026-11-18: `src/motor/estado.py`, 14 tests en verde (118 en total); la simulación completa de Galicia (313 dueños, semilla 42) termina en 312 conquistas con un único ganador.
 
 ### [ ] 3.5 Persistencia de la partida
-- **Qué:** Guardar y cargar el estado entre ejecuciones (si la partida continúa de vídeo en vídeo), con un histórico de batallas y el número de episodio actual. El estado de cada dueño incluye su contador de **victorias acumuladas** (se incrementa en 1 cada vez que gana una batalla, se transfiere al ganador cuando se funden territorios).
+- **Qué:** Guardar y cargar el estado entre ejecuciones (si la partida continúa de vídeo en vídeo), con un histórico de batallas y el número de episodio actual. El estado de cada dueño incluye su contador de **victorias acumuladas** (se incrementa en 1 cada vez que gana una batalla; **no se heredan** las del perdedor, que desaparecen con él, decisión del usuario).
 - **Archivos:** `src/motor/persistencia.py`, `data/partida/estado_actual.json`, `data/partida/historial.jsonl`.
 - **Hecho cuando:** ejecutar 5 batallas seguidas en 5 procesos distintos da el mismo resultado que 5 batallas en un solo proceso con la misma semilla, y el contador de victorias de cada dueño es correcto tras la secuencia.
 

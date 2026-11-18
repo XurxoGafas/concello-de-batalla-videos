@@ -226,3 +226,12 @@ Las entradas no se borran. Las nuevas se añaden al final.
   - **14 tests en verde (118 en total):** absorbe territorio y vacas; gana el atacante o el defensor, igual; absorbe todo el territorio del perdedor y no solo el concello atacado; color del ganador en el territorio conquistado; victorias; estado original intacto; conquistas inválidas; fin de partida; no se puede jugar tras el final; las vacas de combate son las de todo el territorio; 50 series sintéticas siempre terminan con un único dueño tras n−1 batallas; misma semilla → misma serie; y **simulación real completa de Galicia con semilla 42: 312 batallas, un único dueño con 313 concellos y todas las vacas (el total se conserva en cada batalla), reproducible**.
 - **Problemas encontrados:** ninguno.
 - **Pendiente:** siguiente paso 3.5 (persistencia entre ejecuciones): guardar/cargar `estado_actual.json` e `historial.jsonl`, con número de episodio. El guardado debe incluir la semilla/estado del generador aleatorio para que 5 procesos seguidos den lo mismo que 1 proceso (o derivar una semilla por batalla, a decidir en 3.5; hay que elegir con cuidado y probablemente preguntar al usuario si afecta a la reproducibilidad pública). Además, una serie completa tiene 312 batallas, es decir, ~104 vídeos de 3 batallas (≈ 3,5 meses con un vídeo diario).
+
+---
+
+## 2026-11-18 — Cambio de regla en el paso 3.4: las victorias no se heredan
+
+- **Qué se hizo:** el usuario decidió que el contador de victorias cuente solo las batallas ganadas por el propio dueño: el ganador suma 1 y **no hereda** las victorias del perdedor (ejemplo: si O Porriño gana a Ordes, que tenía 10 victorias, O Porriño solo tiene 1).
+- **Cómo se completó:** `aplicar_conquista` en `src/motor/estado.py` pasó de `victorias += 1 + victorias_del_perdedor` a `victorias += 1`. Tests actualizados en `tests/test_estado.py` (el de herencia se sustituyó por uno de no herencia y otro con el ejemplo del usuario; en la simulación real, las victorias del dueño final son las batallas que ganó él mismo). 119 tests en verde. `docs/DECISIONES.md` y el paso 3.5 de `PLAN.md` actualizados (regla d); la entrada anterior de este archivo se conserva como historial.
+- **Problemas encontrados:** ninguno.
+- **Pendiente:** el paso 3.5 hereda este criterio: al persistir, el contador de cada dueño es el de batallas ganadas por él. Consecuencia para el ranking «Máis vitorias»: las victorias de un dueño eliminado desaparecen del ranking. Siguiente paso: 3.5.

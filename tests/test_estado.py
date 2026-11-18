@@ -85,13 +85,21 @@ def test_el_territorio_conquistado_se_pinta_con_el_color_del_ganador():
     assert color_de_concello(n, "a") == e["donos"]["a"]["cor"]  # sin tocar
 
 
-def test_victorias_suma_una_y_hereda_las_del_perdedor():
+def test_victorias_suma_una_y_no_hereda_las_del_perdedor():
     e = sintetico()
     e["donos"]["c"]["victorias"] = 2
-    e["donos"]["b"]["victorias"] = 5
+    e["donos"]["b"]["victorias"] = 10  # el perdedor tenía 10: no pasan al ganador
     n = aplicar_conquista(e, "c", "b")
-    assert n["donos"]["c"]["victorias"] == 2 + 1 + 5
+    assert n["donos"]["c"]["victorias"] == 3
     assert n["donos"]["a"]["victorias"] == 0
+
+
+def test_ganar_a_un_dueno_con_muchas_victorias_solo_cuenta_una():
+    """Ejemplo del usuario: si O Porriño gana a Ordes (10 victorias), O Porriño tiene 1."""
+    e = sintetico()
+    e["donos"]["b"]["victorias"] = 10
+    n = aplicar_conquista(e, "a", "b")
+    assert n["donos"]["a"]["victorias"] == 1
 
 
 def test_no_modifica_el_estado_original():
@@ -195,7 +203,10 @@ def test_simulacion_completa_de_galicia_con_semilla_fija(real):
     unico = ganador_de_la_serie(e)
     assert len(e["donos"][unico]["territorio"]) == 313
     assert e["donos"][unico]["vacas"] == total
-    assert e["donos"][unico]["victorias"] == 312  # cada batalla suma 1 y se heredan
+    # solo cuentan las batallas ganadas por el propio dueño (no se heredan)
+    propias = sum(1 for g, _ in hist if g == unico)
+    assert e["donos"][unico]["victorias"] == propias
+    assert 1 <= propias <= 312
     assert all(c["dono"] == unico for c in e["concellos"].values())
     coherente(e)
     # reproducible
