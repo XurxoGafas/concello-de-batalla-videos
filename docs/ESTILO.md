@@ -26,7 +26,7 @@ Los colores de cada concello son los de su bandera (paso 2.5; por ahora provisio
 - **Concellos en conflicto:** su silueta se marca con **contorno rojo** (`#FF2D55`) en el mapa; la línea dorada de 6 px separa mapa y panel.
 - **Siluetas:** el concello con su forma real, relleno con el color de su dueño y borde blanco; debajo el nombre (hasta 2 líneas).
 - **Todo lo relacionado con las vacas va «pintado de vaca»:** pastillas blancas con manchas negras (`pastilla_vaca`): el número de vacas de cada bando, la **diferencia real en % entero** entre ambos («dif. vacas +50%», en el centro) y el multiplicador «×1,5». Las manchas salen por los bordes y el texto lleva halo blanco para leerse bien; el texto se centra por su tinta real, no por su caja tipográfica.
-- **Diferencia de vacas mostrada:** es la real, `(mayor − menor) / menor` redondeada al entero (`diferencia_porcentual`), **sin el tope del 50 %**: 143 contra 3 vacas es «+4.667 %» aunque el multiplicador sea ×1,5.
+- **Diferencia de vacas mostrada:** `(mayor − menor) / menor` redondeada al entero (`diferencia_porcentual`) y **con tope en 50** (decisión del usuario): si la diferencia real es mayor, se muestra simplemente «+50%».
 - **Dados:** cara blanca con puntos oscuros; el borde dorado marca al bando que gana esa tirada. La puntuación va **a un lado** de los dados, separada, y el multiplicador debajo de los dados del bando con más vacas.
 - **Textos:** todos en gallego (título, «Ep. N», «vacas», «dif. vacas», «PERDEDOR», «GAÑADOR», «Máis vitorias»…).
 

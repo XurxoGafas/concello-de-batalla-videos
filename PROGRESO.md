@@ -285,3 +285,11 @@ Las entradas no se borran. Las nuevas se añaden al final.
   - Se generan 3 muestras (`estilo.png`, `estilo_zoom_minimo.png`, `estilo_zoom_grande.png`) para ver el comportamiento del zoom; `docs/ESTILO.md` actualizado; tests ampliados (zoom, pastillas, centrado): 155 en total.
 - **Problemas encontrados:** las manchas de la primera versión eran demasiado grandes y tapaban letras; la insignia ×1,5 quedaba pegada a los dados. Se redujeron las manchas y se recolocó.
 - **Pendiente:** que el usuario apruebe las muestras para marcar 4.1 `[x]`.
+
+---
+
+## 2026-11-18 — Paso 4.1 (en curso): tope del 50 % en la diferencia de vacas mostrada
+
+- **Qué se pidió:** cuando el porcentaje de diferencia de vacas sea mayor que 50, mostrar simplemente «+50»; en el resto, el valor real.
+- **Cómo se resolvió:** `diferencia_porcentual` (`src/motor/multiplicador.py`) ahora devuelve como máximo 50 (el valor real por debajo del tope), con tests (143 contra 3 → 50; 149 contra 100 → 49; 150 → 50). Esto sustituye la decisión mía anterior de mostrar la cifra real sin tope; `docs/ESTILO.md` actualizado y muestras regeneradas.
+- **Pendiente:** que el usuario apruebe las muestras para marcar 4.1 `[x]`.

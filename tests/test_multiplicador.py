@@ -131,7 +131,9 @@ def test_diferencia_porcentual_para_mostrar():
     assert dp(1200, 1500) == 25  # simétrica: es la ventaja del bando con más vacas
     assert dp(150, 100) == 50
     assert dp(100, 100) == 0
-    assert dp(143, 3) == 4667  # sin tope del 50 % (el tope es solo del multiplicador)
+    assert dp(143, 3) == 50  # por encima del 50 % se muestra simplemente +50
+    assert dp(150, 100) == 50 and dp(151, 100) == 50 and dp(10000, 1) == 50
+    assert dp(149, 100) == 49  # por debajo del tope, el valor real
     assert dp(1000, 995) == 1  # 0,50251 % → 1
     assert dp(201, 200) == 1  # 0,5 % → la mitad sube
     assert dp(1001, 1000) == 0  # 0,1 %
