@@ -127,6 +127,33 @@ def leer_historial(ruta: Path = RUTA_HISTORIAL) -> list[dict]:
 # --- Jugar un episodio ---
 
 
+def jugar_episodio_detallado(
+    estado: dict, semilla_serie: str, n_batallas: int = BATALLAS_POR_EPISODIO
+) -> tuple[dict, list[dict], list[tuple[dict, Episodio]]]:
+    """Como `jugar_episodio`, pero devuelve además, por cada batalla, el estado **previo** y el `Episodio`.
+
+    Lo usa el render del vídeo: para dibujar cada batalla hacen falta el mapa antes de ella y el
+    resultado. El estado posterior de una batalla es el previo de la siguiente (o el final)."""
+    if partida_terminada(estado):
+        raise NoHayEnfrentamiento("La partida ya ha terminado: queda un único dueño")
+    nuevo = copy.deepcopy(estado)
+    nuevo.setdefault("batallas_jugadas", 0)
+    nuevo["episodio"] += 1
+    registros: list[dict] = []
+    pasos: list[tuple[dict, Episodio]] = []
+    for _ in range(n_batallas):
+        if partida_terminada(nuevo):
+            break
+        numero = nuevo["batallas_jugadas"] + 1
+        semilla = semilla_de_batalla(semilla_serie, numero)
+        previo = nuevo
+        nuevo, ep = jugar_batalla(previo, random.Random(semilla))
+        nuevo["batallas_jugadas"] = numero
+        registros.append(registro_de_batalla(ep, numero, nuevo["episodio"], semilla))
+        pasos.append((previo, ep))
+    return nuevo, registros, pasos
+
+
 def jugar_episodio(
     estado: dict, semilla_serie: str, n_batallas: int = BATALLAS_POR_EPISODIO
 ) -> tuple[dict, list[dict]]:
@@ -136,20 +163,7 @@ def jugar_episodio(
     partida termina antes de completar las batallas, se detiene ahí. Lanza
     `NoHayEnfrentamiento` si la partida ya había terminado al empezar.
     """
-    if partida_terminada(estado):
-        raise NoHayEnfrentamiento("La partida ya ha terminado: queda un único dueño")
-    nuevo = copy.deepcopy(estado)
-    nuevo.setdefault("batallas_jugadas", 0)
-    nuevo["episodio"] += 1
-    registros: list[dict] = []
-    for _ in range(n_batallas):
-        if partida_terminada(nuevo):
-            break
-        numero = nuevo["batallas_jugadas"] + 1
-        semilla = semilla_de_batalla(semilla_serie, numero)
-        nuevo, ep = jugar_batalla(nuevo, random.Random(semilla))
-        nuevo["batallas_jugadas"] = numero
-        registros.append(registro_de_batalla(ep, numero, nuevo["episodio"], semilla))
+    nuevo, registros, _ = jugar_episodio_detallado(estado, semilla_serie, n_batallas)
     return nuevo, registros
 
 

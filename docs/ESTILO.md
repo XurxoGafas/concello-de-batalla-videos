@@ -52,3 +52,17 @@ Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y es
 ## Conquista (paso 4.5)
 
 `src/render/conquista.py`, 4,2 s. Pantalla de enfrentamiento con los rótulos cambiados a **«CAMPIÓN»** (dorado con borde oscuro, sobre el ganador) y **«MALOGRADO»** (gris, sobre el perdedor) a los 0,5 s, con un destello. El color del ganador se extiende por el mapa sobre el territorio del perdedor, concello a concello desde la frontera (1,8 s, hasta 24 pasos); al acabar, el territorio fusionado queda con contorno dorado y el nombre del ganador. A 1 s sale la **gaita gallega** (`dados.gaita_sprite`: la ilustración `assets/img/gaita.svg` aportada por el usuario: fol negro con flecos y borlas verdes, ronco, ronquillo, soprete y punteiro de boj) con rebote y balanceo, más un chorro de confeti (otro, menor, a 2 s). A 2 s salen las pastillas de vaca «+N vacas» y «+K concellos» junto al ganador. La gaita sustituye al icono de espada del vídeo de referencia; su música se añadirá en la fase 5.
+
+## Vídeo completo del episodio (paso 4.6)
+
+`src/render/escenas.py` monta el episodio con fundido cruzado de 0,2 s entre escenas:
+
+1. **Intro** (2,0 s): título, «Ep. N» y el mapa general de Galicia, que entra con un fundido.
+2. **Por cada batalla (×3):**
+   - **Selección** (≈4,5 s): el mapa hace zoom hasta el atacante (contorno rojo y nombre); sale su silueta, «ATACA» y sus vacas; un sorteo recorre los concellos vecinos enemigos (cada vez más despacio, contorno dorado) hasta pararse en el defensor, que queda con contorno rojo y su nombre.
+   - **Enfrentamiento, duelo (navaja y botella), dados, multiplicador y, si hace falta, morte súbita** (≈11 s sin desempate).
+   - **Conquista** (4,2 s): CAMPIÓN / MALOGRADO, color que se extiende, gaita y confeti.
+3. **Cierre** (`src/render/ranking.py`): mapa general con el estado actual y dos top 5: **«MÁIS VITORIAS»** (batallas gañadas, solo dueños con alguna) y **«MÁIS TERRITORIO»** (nº de concellos). Las filas salen de la 5ª a la 1ª con un «pop»; la 1ª va resaltada en dorado, y 2ª y 3ª en plata y bronce. Empates: por la otra magnitud y luego por nombre.
+4. **Final de serie:** si en el episodio queda un único dueño, en vez del cierre sale «CAMPIÓN DE GALICIA» con su nombre, concellos, vacas y vitorias, la gaita y confeti.
+
+**Duración:** la del cierre se ajusta (10–26 s) para que el vídeo dure ≈85 s (el requisito es 80–90 s); con muertes súbitas el cierre se acorta. Render de un episodio: ≈2 min 15 s (2.550 fotogramas), 9,7 MB sin audio.

@@ -512,3 +512,20 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió:** usar el SVG que aportó el usuario para la gaita (fol negro con flecos y borlas verdes, ronco, ronquillo, soprete y punteiro de boj).
 - **Cómo se resolvió:** el SVG se guarda sin el círculo crema de fondo ni los metadatos en `assets/img/gaita.svg`, y se rasteriza una vez a `assets/img/gaita.png` (así no hace falta `rsvg-convert` al generar vídeos). `dados.gaita_sprite` ahora carga ese PNG, lo recorta y lo escala (se eliminó la gaita dibujada por código). Registrada en `docs/FUENTES.md` (regla j): ilustración aportada por el usuario; sus metadatos indican que fue generada con Claude, sin licencia de terceros. Tests ajustados (fol negro, flecos verdes).
 - **Pendiente:** aprobación del 4.5 con la nueva gaita.
+
+---
+
+## 2026-11-18 — Paso 4.5 completado (animación de conquista) · Paso 4.6 en curso
+
+- **Qué se hizo:** el usuario aprobó la conquista con «CAMPIÓN»/«MALOGRADO», la gaita (su SVG) y el confeti («sigue»). Paso 4.5 `[x]`; empieza el 4.6.
+- **Cómo se completó:** ver las entradas anteriores del 4.5 y `docs/ESTILO.md`.
+
+---
+
+## 2026-11-18 — Paso 4.6 (en curso): vídeo completo de un episodio, sin audio
+
+- **Qué se hizo:** `src/render/escenas.py` (intro, selección de atacante y defensor, batalla, conquista, cierre y escena del campeón de Galicia, más el montaje con fundido cruzado y `construir_episodio`), `src/render/ranking.py` (top 5 «MÁIS VITORIAS» y «MÁIS TERRITORIO»), `persistencia.jugar_episodio_detallado` (misma lógica y semillas que `jugar_episodio`, pero devuelve el estado previo y el `Episodio` de cada batalla) y `enfrentamiento.cabecera`. Muestra: `output/muestras/episodio_sin_audio.mp4`, 85,0 s, 1080×1920, 30 fps, H.264, 9,7 MB.
+- **Cómo se hizo:** cada escena es una función pura del instante; el montaje busca la escena activa y mezcla dos en los fundidos. El zoom de la selección se redibuja a ~13 posiciones por segundo (el mapa cuesta ≈0,3 s por dibujo). La duración del cierre se ajusta para llegar a ≈85 s.
+- **Decisiones mías (revisables):** (1) «territorio» en el ranking = nº de concellos (ya apuntado en la fase 8); (2) en «Máis vitorias» solo salen dueños con alguna victoria; (3) la selección del defensor se muestra como un sorteo que recorre los vecinos enemigos; (4) el cierre dura hasta 26 s porque el vídeo sin él queda en ≈59 s y el requisito es 80–90 s; (5) textos en gallego añadidos: «MÁIS VITORIAS», «batallas gañadas», «MÁIS TERRITORIO», «concellos», «CAMPIÓN DE GALICIA», «vitorias».
+- **Problemas:** un episodio sin muertes súbitas salía en 79,9 s (el test de duración lo detectó); se alargó un poco el sorteo y se subió el tope del cierre a 26 s. Tests nuevos en `tests/test_escenas.py` (estructura, duración 80–90 s con varias semillas, determinismo, fundido, sorteo, ranking, escena del campeón y episodio que acaba la serie).
+- **Pendiente:** que el usuario revise el vídeo (criterio «Hecho cuando»: intro, 3 batallas, cierre con ranking, 80–90 s, todo en gallego) para marcar 4.6 `[x]`. Sin audio todavía (fase 5; música de la gaita incluida). Cierra la fase 4; siguiente, la fase 5 (sonido), que exige elegir sonidos con licencia.

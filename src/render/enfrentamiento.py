@@ -53,6 +53,15 @@ def caja_silueta(limites: tuple[float, float, float, float], ancho: int, alto: i
     return lambda x, y: (ox + (x - minx) * esc, oy + (maxy - y) * esc)
 
 
+def cabecera(episodio: int) -> tuple[Image.Image, ImageDraw.ImageDraw]:
+    """Fondo de hierba con el título de la serie y el número de episodio (común a todas las escenas)."""
+    img = fondo_foto(E.ANCHO, E.ALTO)
+    d = ImageDraw.Draw(img)
+    E.texto_centrado(d, E.ANCHO / 2, 232, "CONCELLO DE BATALLA", E.T_TITULO, E.ORO, borde=9)
+    E.texto_centrado(d, E.ANCHO / 2, 318, f"Ep. {episodio}", E.T_SUBTITULO, E.BLANCO, borde=7)
+    return img, d
+
+
 def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio: int,
                    rotulos: tuple[tuple[str, str, str], tuple[str, str, str]] | None = None
                    ) -> tuple[Image.Image, ImageDraw.ImageDraw]:
@@ -62,12 +71,8 @@ def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio:
     «DEFENDE» (la pantalla de conquista usa «CAMPIÓN» y «MALOGRADO»)."""
     if rotulos is None:
         rotulos = (("ATACA", E.CONFLICTO, E.BLANCO), ("DEFENDE", E.AZUL_DEFENSA, E.BLANCO))
-    k, W, H = SUPERMUESTREO, E.ANCHO, E.ALTO
-    img = fondo_foto(W, H)
-    d = ImageDraw.Draw(img)
-
-    E.texto_centrado(d, W / 2, 232, "CONCELLO DE BATALLA", E.T_TITULO, E.ORO, borde=9)
-    E.texto_centrado(d, W / 2, 318, f"Ep. {episodio}", E.T_SUBTITULO, E.BLANCO, borde=7)
+    k, W = SUPERMUESTREO, E.ANCHO
+    img, d = cabecera(episodio)
 
     # Mapa con zoom: encuadra los territorios completos de los dos bandos
     ventana = mapa.ventana_enfrentamiento(estado, f.atacante, f.defensor, W / MAPA_ALTO)

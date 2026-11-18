@@ -128,12 +128,12 @@ Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fas
 - **Archivos:** `src/render/dados.py`, `src/render/marcador.py`.
 - **Hecho cuando:** se genera una secuencia de fotogramas de una batalla completa (incluido un caso con empate/muerte súbita) y su vista previa `output/muestras/batalla_sin_audio.mp4` se ve fluida, sin saltos.
 
-### [~] 4.5 Animación de conquista (fase 6)
+### [x] 4.5 Animación de conquista (fase 6)
 - **Qué:** Pantalla de conquista con los rótulos **«CAMPIÓN»** (ganador) y **«MALOGRADO»** (perdedor), en gallego (decisión del usuario 2026-11-18, en vez de «GAÑADOR»/«PERDEDOR»), y **una gaita gallega con un poco de confeti** en lugar del icono de espada apuntando al ganador (la música de la gaita se pondrá en la fase 5). El color del ganador se extiende por el mapa sobre el territorio del perdedor, concello a concello desde la frontera, y salen las pastillas «+N vacas» y «+K concellos» junto al ganador.
 - **Archivos:** `src/render/conquista.py` (en vez de `animaciones.py`, que no hace falta: la gaita y el confeti viven en `dados.py` y `conquista.py`), cambios menores en `enfrentamiento.py`.
-- **Hecho cuando:** `output/muestras/conquista.mp4` muestra el cambio de color de forma clara.
+- **Hecho cuando:** `output/muestras/conquista.mp4` muestra el cambio de color de forma clara. ✅ Completado el 2026-11-18 y aprobado por el usuario (con su ilustración de la gaita, `assets/img/gaita.svg`). 194 tests en verde.
 
-### [ ] 4.6 Escenas de intro, encadenado de 3 batallas y cierre con ranking
+### [~] 4.6 Escenas de intro, encadenado de 3 batallas y cierre con ranking
 - **Qué:** Micro intro de 1–2 s con transición al mapa (fase 1); encadenar 3 repeticiones de fases 2–6 (fase 7) dentro del mismo vídeo; cierre (fase 8) con el mapa general, el nombre de la serie + número de episodio, y los dos rankings top 5 («Máis vitorias» y «Máis territorio», medido en nº de concellos); y, cuando quede un único dueño con todo el territorio, una escena especial declarando el ganador de toda la serie en vez del cierre normal.
 - **Archivos:** `src/render/escenas.py`, `src/render/ranking.py`.
 - **Hecho cuando:** el vídeo de prueba incluye intro, 3 batallas encadenadas y el cierre con ranking, dura entre 80 y 90 segundos, y todo el texto está en gallego.
