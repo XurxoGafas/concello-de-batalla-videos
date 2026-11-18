@@ -82,10 +82,10 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 - **Archivos:** `src/motor/batalla.py`, `tests/test_batalla.py`.
 - **Hecho cuando:** el ejemplo del enunciado (6-1→+5, y los otros 2 dados) da la suma correcta, el multiplicador se aplica solo al bando con más vacas, la muerte súbita desempata correctamente en un caso simulado, y la misma semilla da siempre el mismo resultado. ✅ Completado el 2026-11-18: `src/motor/batalla.py`, 21 tests en verde. Las puntuaciones se comparan **con decimales** (un decimal, exacto, sin redondear), decisión del usuario.
 
-### [ ] 3.3 Selección de atacante y defensor
+### [x] 3.3 Selección de atacante y defensor
 - **Qué:** Elegir al atacante al azar entre los dueños vivos y, después, un defensor al azar entre los vecinos de todo su territorio que pertenezcan a otro dueño.
 - **Archivos:** `src/motor/seleccion.py`, `tests/test_seleccion.py`.
-- **Hecho cuando:** los tests comprueban que el defensor siempre es colindante y de otro dueño, y que nunca se elige un atacante sin vecinos enemigos.
+- **Hecho cuando:** los tests comprueban que el defensor siempre es colindante y de otro dueño, y que nunca se elige un atacante sin vecinos enemigos. ✅ Completado el 2026-11-18: `src/motor/seleccion.py`, 16 tests en verde (104 en total).
 
 ### [ ] 3.4 Conquista y actualización del estado
 - **Qué:** Aplicar el resultado de la batalla: el ganador absorbe el territorio y las vacas del perdedor; esa región pasa a mostrarse con el nombre y la bandera/color del ganador. Eliminar a los dueños sin territorio y detectar el final de la partida (un único dueño).
