@@ -49,6 +49,10 @@ El porcentaje se calcula como `(vacas_mayor − vacas_menor) / vacas_menor`, es 
 
 **Ejemplo confirmado por el usuario:** Arteixo (1500 vacas) ataca a A Coruña (1200 vacas). Diferencia: `(1500 − 1200) / 1200 = 25 %`. Redondeo: unidad 5 → hacia abajo → se queda en 20 % → **multiplicador ×1,2** para Arteixo. A Coruña no multiplica su puntuación.
 
+**Decimales en el redondeo (decisión de implementación, paso 3.1; revisable):** los ejemplos del usuario solo usan porcentajes enteros. Para un porcentaje con decimales se mira cuánto sobra de la decena: **si sobra más de 5 se sube, si sobra 5 o menos se baja** (35 % → ×1,3; 35,5 % → ×1,4). Con porcentajes enteros coincide exactamente con la regla del usuario.
+
+**Efecto real del multiplicador (calculado enumerando todas las tiradas, con la muerte súbita al 50 %):** el bando favorecido gana el 50 % sin bonus, 54–55 % con ×1,1 o ×1,2, 56 % con ×1,3, 58 % con ×1,4 y **59 % con ×1,5**. Con los datos reales de vacas, el **80 % de las parejas de vecinos** parte ya del tope ×1,5.
+
 ## Vacas y multiplicador cuando un dueño tiene varios concellos (territorio combinado)
 
 **Confirmado:** las vacas que cuentan para el multiplicador son las del **territorio completo** del dueño, no solo las del concello implicado directamente en la batalla. Las vacas se suman al conquistar: si A Coruña (1200 vacas) le gana a Arteixo (1500 vacas), A Coruña pasa a tener `1200 + 1500 = 2700` vacas en total, y esa cifra es la que se usará en cualquier batalla futura de ese territorio (ataque o defensa), sea con el concello que fue originalmente A Coruña o con cualquier otro concello limítrofe de su territorio combinado.

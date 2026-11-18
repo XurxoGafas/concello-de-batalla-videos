@@ -175,3 +175,16 @@ Las entradas no se borran. Las nuevas se añaden al final.
   - Lo ya hecho para las banderas se aprovecha en el 2.5: `src/datos/colores.py` (paleta por imagen, 8 tests) y `scripts/descargar_banderas.py` (bloqueado por el límite de Wikimedia desde la red de la sesión; la lista de 142 banderas de Wikidata está guardada en `data/raw/banderas_wikidata.json`, ignorada por git).
 - **Problemas encontrados:** los que ya constan en la entrada anterior (cobertura de Wikidata del 45 % y límite de peticiones de Wikimedia).
 - **Pendiente:** (1) el usuario enviará las banderas (paso 2.5); acordar el formato/nombre de los archivos cuando las envíe; (2) siguiente paso: **3.1** (función del multiplicador), con los datos reales de vacas, que son muy desiguales (ver aviso en la entrada del 2.3).
+
+---
+
+## 2026-11-18 — Paso 3.1 completado (función del multiplicador)
+
+- **Qué se hizo:** se implementó el multiplicador por vacas en `src/motor/multiplicador.py` con sus tests en `tests/test_multiplicador.py`.
+- **Cómo se completó:**
+  - Funciones: `bonus_porcentaje` (0–50 %), `multiplicador` (×1,0–×1,5), `multiplicadores` (solo el bando con más vacas multiplica; el otro ×1) y `vacas_de_dono` (suma de vacas de todo el territorio de un dueño). El cálculo usa fracciones exactas, para que los límites (5 %, 15 %, 35 %...) no fallen por coma flotante.
+  - **27 tests en verde (67 en total):** ejemplo confirmado Arteixo 1500 / A Coruña 1200 → ×1,2; ejemplos del enunciado (30→1,3, 40→1,4, 35→1,3, 36→1,4, 70→1,5); bordes 0, 5, 6, 15, 16, 45, 46, 50, 56 y 200 %; decimales; empate a vacas; simetría; 1 vaca contra 15.204; vacas < 1 rechazadas; y un dueño con 2 concellos que usa la suma (2.700 vacas frente a 2.000 → ×1,3, frente a ×1,5 que saldría usando solo el concello).
+  - **Decisión mía (revisable):** para porcentajes con decimales (que los ejemplos no cubren) se sube si sobra más de 5 de la decena y se baja si sobra 5 o menos. Con enteros coincide con la regla del usuario. Constatada en `docs/DECISIONES.md`.
+- **Hallazgos con datos reales:** con el estado inicial, el **80 % de las 827 parejas de vecinos** (664) parte del tope ×1,5, y solo el 3 % sin bonus. Pero el efecto en el resultado es moderado: calculado enumerando todas las tiradas, el favorecido gana el 50 % sin bonus, ~54–58 % con ×1,1 a ×1,4 y **59 % con ×1,5** (los puntos son enteros pequeños y por eso ×1,1 y ×1,2 se parecen). Es decir, el multiplicador ayuda pero no decide, y habrá bastantes «sorpresas» a favor del concello con menos vacas.
+- **Problemas encontrados:** ninguno.
+- **Pendiente:** siguiente paso 3.2 (tirada de dados y puntuación): el multiplicador se aplica al total acumulado del bando con más vacas y, si hay empate, muerte súbita con semilla reproducible. En 3.2 hay que decidir cómo se comparan las puntuaciones cuando el multiplicador da decimales (p. ej. 7 × 1,3 = 9,1): se propone comparar con fracciones exactas, sin redondear, salvo que el usuario prefiera redondear la puntuación (hay que preguntarlo antes).

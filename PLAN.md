@@ -72,10 +72,10 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 
 ## FASE 3 — Motor del juego (sin gráficos)
 
-### [ ] 3.1 Función del multiplicador
+### [x] 3.1 Función del multiplicador
 - **Qué:** Implementar el cálculo del multiplicador según la diferencia porcentual de vacas: `(vacas_mayor − vacas_menor) / vacas_menor`, redondear a la decena (unidad ≤5 → hacia abajo, ≥6 → hacia arriba) con un tope del 50 %. Ejemplos: 25 % → 1,2 · 30 % → 1,3 · 35 % → 1,3 · 36 % → 1,4 · 70 % → 1,5. Las «vacas» de cada bando son las de **todo su territorio** (suma de todos los concellos que posee), no solo las del concello que combate directamente.
 - **Archivos:** `src/motor/multiplicador.py`, `tests/test_multiplicador.py`.
-- **Hecho cuando:** pasan los tests con el ejemplo Arteixo/A Coruña, el resto de ejemplos del enunciado y los bordes (0 %, 5 %, 6 %, 45 %, 46 %, 50 %, 200 %), y un caso con un dueño de 2+ concellos que usa la suma correcta de vacas.
+- **Hecho cuando:** pasan los tests con el ejemplo Arteixo/A Coruña, el resto de ejemplos del enunciado y los bordes (0 %, 5 %, 6 %, 45 %, 46 %, 50 %, 200 %), y un caso con un dueño de 2+ concellos que usa la suma correcta de vacas. ✅ Completado el 2026-11-18: `src/motor/multiplicador.py` (cálculo con fracciones exactas, sin errores de coma flotante) y 27 tests en verde.
 
 ### [ ] 3.2 Tirada de dados y puntuación de una batalla
 - **Qué:** 3 tiradas de dados por bando. En cada tirada, la diferencia (dado propio − dado rival) se suma a favor de quien saque más; se acumulan las 3 diferencias por bando. El bando con **más vacas** multiplica su total acumulado por el bonus (ver 3.1); el otro bando no multiplica. Si tras aplicar el bonus hay empate, se entra en muerte súbita: 1 dado por bando, se repite hasta desempatar. Generador aleatorio con **semilla** para que cualquier batalla se pueda reproducir. Reglas completas en `docs/DECISIONES.md`.
