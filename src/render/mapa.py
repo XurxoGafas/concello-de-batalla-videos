@@ -101,7 +101,7 @@ class MapaGalicia:
         en conflicto). Por defecto, ninguno.
         """
         k = SUPERMUESTREO
-        img = Image.new("RGB", (ancho * k, alto * k), E.FONDO)
+        img = Image.new("RGB", (ancho * k, alto * k), E.MAR)
         d = ImageDraw.Draw(img)
         f = transformar(ventana, ancho, k)
         for i, geom in self.gdf.geometry.items():

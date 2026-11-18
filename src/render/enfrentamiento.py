@@ -69,27 +69,26 @@ def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio:
     img.paste(mapa.dibujar(estado, ventana, W, MAPA_ALTO, contornos=conflicto,
                            nombres=[f.atacante, f.defensor]), (0, MAPA_Y0))
 
-    # Líneas doradas y panel (tarjeta navy algo translúcida)
+    # Líneas doradas y panel blanco con manchas de vaca
     d.rectangle((0, MAPA_Y0 - 6, W, MAPA_Y0 - 1), fill=E.ORO)
     d.rectangle((0, LINEA_Y, W, LINEA_Y + 6), fill=E.ORO)
-    panel = Image.new("RGB", (W, PANEL_FIN - LINEA_Y - 6), E.PANEL)
-    img.paste(Image.blend(img.crop((0, LINEA_Y + 6, W, PANEL_FIN)), panel, 0.93), (0, LINEA_Y + 6))
+    E.pegar_panel(img, LINEA_Y + 6, PANEL_FIN)
     d.rectangle((0, PANEL_FIN, W, PANEL_FIN + 4), fill=E.FONDO)
 
     # Rótulo, silueta del territorio completo y nombre del dueño
     for dono, cx, rotulo, color in ((f.atacante, CX_A, "ATACA", E.CONFLICTO),
-                                    (f.defensor, CX_D, "DEFENDE", E.BLANCO)):
-        E.texto_centrado(d, cx, Y_ROTULO, rotulo, E.T_MIN, color, borde=4)
+                                    (f.defensor, CX_D, "DEFENDE", E.AZUL_DEFENSA)):
+        E.texto_centrado(d, cx, Y_ROTULO, rotulo, E.T_MIN, color, borde=6, color_borde=E.BLANCO)
         geom = mapa.geometria(estado["donos"][dono]["territorio"])
         sil = Image.new("RGBA", (300 * k, ALTO_SILUETA * k), (255, 255, 255, 0))
         pintar(ImageDraw.Draw(sil), geom, caja_silueta(geom.bounds, 300, ALTO_SILUETA, k),
-               estado["donos"][dono]["cor"]["colores"][0], E.BLANCO, 3 * k)
+               estado["donos"][dono]["cor"]["colores"][0], E.FONDO, 3 * k)
         sil = sil.resize((300, ALTO_SILUETA), Image.LANCZOS)
         img.paste(sil.convert("RGB"), (int(cx - 150), Y_SILUETA), sil.getchannel("A"))
         lineas, t = E.dividir_nombre(estado["donos"][dono]["nome"], 52, 410)
         for n, linea in enumerate(lineas):
-            E.texto_centrado(d, cx, Y_NOMBRE + n * (t + 2), linea, t, E.BLANCO)
-    E.texto_centrado(d, CX_C, Y_SILUETA + ALTO_SILUETA / 2, "VS", 64, E.ORO, borde=3)
+            E.texto_centrado(d, cx, Y_NOMBRE + n * (t + 2), linea, t, E.FONDO, borde=6, color_borde=E.BLANCO)
+    E.texto_centrado(d, CX_C, Y_SILUETA + ALTO_SILUETA / 2, "VS", 64, E.ORO, borde=7, color_borde=E.FONDO)
 
     # Fila de vacas: cada bando y, entre ambos, la diferencia en % (todo «pintado de vaca»)
     va, vd = estado["donos"][f.atacante]["vacas"], estado["donos"][f.defensor]["vacas"]

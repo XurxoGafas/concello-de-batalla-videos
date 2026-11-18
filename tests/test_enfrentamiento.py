@@ -68,3 +68,19 @@ def test_fondo_foto_cubre_el_fotograma_y_es_verde():
     assert f.size == (E.ANCHO, E.ALTO)
     r, g, b = (sum(c) / (E.ANCHO * E.ALTO) for c in zip(*f.resize((54, 96)).get_flattened_data()))
     assert g > r and g > b
+
+
+def test_panel_de_vaca_es_blanco_con_manchas_y_determinista():
+    a = E.panel_vaca(540, 600)
+    assert a.tobytes() == E.panel_vaca(540, 600).tobytes()
+    px = list(a.get_flattened_data())
+    blancos = sum(p == (255, 255, 255) for p in px) / len(px)
+    negros = sum(max(p) < 60 for p in px) / len(px)
+    assert 0.6 < blancos < 0.95 and 0.05 < negros < 0.35
+    assert a.getpixel((270, 300)) == (255, 255, 255)  # el centro, donde va el texto, queda blanco
+
+
+def test_el_mar_del_mapa_es_azul_cielo(mapa):
+    estado = nueva_partida()
+    im = mapa.dibujar(estado, mapa.ventana_general(1.0), 400, 400)
+    assert im.getpixel((2, 2)) == tuple(int(E.MAR[i:i + 2], 16) for i in (1, 3, 5))

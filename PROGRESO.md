@@ -351,3 +351,12 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Licencia (regla j):** registrada en `docs/FUENTES.md` con lo que se sabe, pero **falta el nombre/URL de la página, el autor y el texto de la licencia**. Hasta tenerlos, no se publica ningún vídeo con este fondo.
 - **Problemas encontrados:** la foto es pequeña y se amplía ×2,5: queda algo suave, aceptable para un fondo. Para animar el viento (4.4+) la foto no ofrece fase de viento; se podría hacer un desplazamiento suave.
 - **Pendiente:** que el usuario facilite la fuente/licencia de la foto y apruebe la pantalla para marcar 4.3 `[x]`.
+
+---
+
+## 2026-11-18 — Paso 4.3 (en curso): mar azul cielo y panel blanco con manchas de vaca
+
+- **Qué se pidió:** cambiar el azul marino del mapa por azul cielo y el panel de dados/peleas por un fondo blanco con manchas de vaca, con textos y delineados que se vean claros.
+- **Cómo se resolvió:** `MAR` pasa a `#7CC6F0` y el mapa lo usa de fondo; `panel_vaca`/`pegar_panel` (en `estilo.py`) dibujan el panel blanco con manchas suaves en los bordes (determinista). Textos del panel en azul marino con halo blanco; ATACA rojo, DEFENDE azul; bordes marino en siluetas y dados (más gruesos). Se aplicó a `enfrentamiento.py`, `muestra_estilo.py` y `muestra_mapa.py`. 173 tests en verde.
+- **Problemas encontrados:** las primeras manchas eran enormes y angulosas y una tapaba el multiplicador; se hicieron más pequeñas, redondeadas y pegadas a los bordes.
+- **Pendiente:** que el usuario apruebe la pantalla (y aporte la fuente/licencia de la foto de hierba) para marcar 4.3 `[x]`.

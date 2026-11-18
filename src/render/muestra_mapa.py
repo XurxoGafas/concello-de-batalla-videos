@@ -69,15 +69,14 @@ def mapa_zoom_atacante(mapa: MapaGalicia, ruta: Path, semilla: str = "muestra", 
     d.rectangle((0, MAPA_Y0 - 6, E.ANCHO, MAPA_Y0 - 1), fill=E.ORO)
     d.rectangle((0, y_linea, E.ANCHO, y_linea + 5), fill=E.ORO)
     fin = E.ALTO - E.MARGEN_INF + 10
-    panel = Image.new("RGB", (E.ANCHO, fin - y_linea - 5), E.PANEL)
-    img.paste(Image.blend(img.crop((0, y_linea + 5, E.ANCHO, fin)), panel, 0.93), (0, y_linea + 5))
+    E.pegar_panel(img, y_linea + 5, fin)
     d.rectangle((0, fin, E.ANCHO, fin + 4), fill=E.FONDO)
 
-    E.texto_centrado(d, E.ANCHO / 2, y_linea + 28, "ATACA", E.T_SUBTITULO, E.ORO)
+    E.texto_centrado(d, E.ANCHO / 2, y_linea + 28, "ATACA", E.T_SUBTITULO, E.CONFLICTO, borde=7, color_borde=E.BLANCO)
     nombre = estado["donos"][atacante]["nome"]
     lineas, t = E.dividir_nombre(nombre, 84, E.ANCHO - E.MARGEN_IZQ - E.MARGEN_DER)
     for n, linea in enumerate(lineas):
-        E.texto_centrado(d, E.ANCHO / 2, y_linea + 95 + n * (t + 4), linea, t, E.BLANCO)
+        E.texto_centrado(d, E.ANCHO / 2, y_linea + 95 + n * (t + 4), linea, t, E.FONDO, borde=7, color_borde=E.BLANCO)
     y_vacas = y_linea + 95 + len(lineas) * (t + 4) + 55
     E.pastilla_vaca(img, E.ANCHO / 2, y_vacas, f"{_num(estado['donos'][atacante]['vacas'])} vacas", 52, 28)
     ruta.parent.mkdir(parents=True, exist_ok=True)

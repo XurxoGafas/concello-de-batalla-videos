@@ -39,5 +39,7 @@ Los colores de cada concello son los de su bandera (paso 2.5; por ahora provisio
 
 - **Fondo (2026-11-18):** foto real de hierba aportada por el usuario (`assets/img/hierba.avif`, ver `docs/FUENTES.md`), escalada para cubrir el fotograma y recortada centrada (`fondo_foto`). Sustituye a la hierba dibujada por código (`fondo_hierba`, que se conserva como alternativa y por su soporte de viento animado).
 
+- **Colores claros (2026-11-18):** el mar del mapa es **azul cielo** (`#7CC6F0`) y el panel de datos es **blanco con grandes manchas negras de vaca** (`panel_vaca`, manchas en los bordes y centro libre). Los textos del panel van en **azul marino con halo blanco** (nombres, puntuaciones), «ATACA» en rojo, «DEFENDE» en azul (`#1B5FD6`) y «VS» en dorado con borde marino; las siluetas y los dados llevan borde marino. Las pastillas de vaca conservan su contorno marino para destacar sobre el panel.
+
 ## Pendiente de las siguientes fases
 Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y escenas (4.6).

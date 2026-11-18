@@ -51,7 +51,7 @@ def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
         x0 = cx - ancho_dados / 2 - 20
         for i, (dado, ganado) in enumerate(dados_pts):
             E.dibujar_dado(d, x0 + i * (lado + sep), y_dados, lado, dado, resaltado=ganado > 0)
-        E.texto_centrado_exacto(d, x0 + ancho_dados + 52, y_dados + lado / 2, f"{pts}", 76, E.BLANCO)
+        E.texto_centrado_exacto(d, x0 + ancho_dados + 52, y_dados + lado / 2, f"{pts}", 76, E.FONDO, borde=7, color_borde=E.BLANCO)
         if mult > 1:  # multiplicador: pastilla de vaca bajo los dados del bando con más vacas
             E.pastilla_vaca(img, x0 + ancho_dados / 2, 1460, f"×{str(mult).replace('.', ',')}", 46, 26)
 

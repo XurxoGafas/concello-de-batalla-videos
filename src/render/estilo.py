@@ -36,7 +36,7 @@ BLANCO = "#FFFFFF"
 GRIS_AZUL = "#A9BAE0"  # texto secundario
 VERDE = "#3DDC84"  # ganador
 ROJO = "#FF5470"  # perdedor
-MAR = "#0F2347"  # fondo del mapa (el territorio que no es Galicia)
+MAR = "#7CC6F0"  # azul cielo: fondo del mapa (el mar y lo que no es Galicia)
 CONTORNO_MAPA = "#0B1730"  # borde fino entre concellos
 DADO_CARA = "#FFFFFF"
 DADO_PUNTO = "#0B1730"
@@ -122,7 +122,7 @@ def dibujar_dado(d: ImageDraw.ImageDraw, x: float, y: float, lado: int, valor: i
                  resaltado: bool = False) -> None:
     """Dado de cara blanca con puntos oscuros; `resaltado` le pone borde dorado."""
     d.rounded_rectangle((x, y, x + lado, y + lado), radius=lado // 5, fill=DADO_CARA,
-                        outline=ORO if resaltado else PANEL_BORDE, width=6 if resaltado else 3)
+                        outline=ORO if resaltado else FONDO, width=7 if resaltado else 4)
     c1, c2, c3 = lado * 0.27, lado * 0.5, lado * 0.73
     pos = {1: [(c2, c2)], 2: [(c1, c1), (c3, c3)], 3: [(c1, c1), (c2, c2), (c3, c3)],
            4: [(c1, c1), (c3, c1), (c1, c3), (c3, c3)],
@@ -222,3 +222,38 @@ def caja_de_zoom(
     else:
         h = w / proporcion
     return cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2
+
+
+AZUL_DEFENSA = "#1B5FD6"  # rótulo DEFENDE sobre el panel blanco
+
+
+def panel_vaca(ancho: int, alto: int, semilla: str = "panel") -> Image.Image:
+    """Panel blanco con grandes manchas de vaca (negras), determinista.
+
+    Las manchas son grandes y salen sobre todo por los bordes; el texto que se escribe encima
+    lleva siempre halo blanco, así que se lee también sobre una mancha.
+    """
+    k = 2
+    img = Image.new("RGB", (ancho * k, alto * k), VACA_BLANCO)
+    d = ImageDraw.Draw(img)
+    rng = random.Random(semilla)
+    n = max(6, round(ancho * alto / 100_000))
+    for i in range(n):
+        lado = -1 if i % 2 == 0 else 1  # alternan izquierda y derecha, como las manchas de una vaca
+        x = ancho / 2 + lado * rng.uniform(0.40, 0.50) * ancho  # cerca del borde
+        y = (i + rng.uniform(0.2, 0.8)) * alto / n
+        r = rng.uniform(65, 100)
+        fases = [rng.uniform(0, 2 * math.pi) for _ in range(3)]
+        pts = []
+        for j in range(48):  # contorno suave: círculo con 3 ondulaciones de baja frecuencia
+            a_ = 2 * math.pi * j / 48
+            rr = r * (1 + 0.16 * math.sin(2 * a_ + fases[0]) + 0.12 * math.sin(3 * a_ + fases[1])
+                      + 0.08 * math.sin(5 * a_ + fases[2]))
+            pts.append(((x + math.cos(a_) * rr * 1.25) * k, (y + math.sin(a_) * rr) * k))
+        d.polygon(pts, fill=VACA_MANCHA)
+    return img.resize((ancho, alto), Image.LANCZOS)
+
+
+def pegar_panel(img: Image.Image, y0: int, y1: int, semilla: str = "panel") -> None:
+    """Pega el panel blanco con manchas entre las líneas y0 e y1 (a todo el ancho)."""
+    img.paste(panel_vaca(img.width, y1 - y0, semilla), (0, y0))
