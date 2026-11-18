@@ -293,3 +293,13 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió:** cuando el porcentaje de diferencia de vacas sea mayor que 50, mostrar simplemente «+50»; en el resto, el valor real.
 - **Cómo se resolvió:** `diferencia_porcentual` (`src/motor/multiplicador.py`) ahora devuelve como máximo 50 (el valor real por debajo del tope), con tests (143 contra 3 → 50; 149 contra 100 → 49; 150 → 50). Esto sustituye la decisión mía anterior de mostrar la cifra real sin tope; `docs/ESTILO.md` actualizado y muestras regeneradas.
 - **Pendiente:** que el usuario apruebe las muestras para marcar 4.1 `[x]`.
+
+---
+
+## 2026-11-18 — Paso 4.1 (en curso): fondo de hierba viva
+
+- **Qué se pidió:** sustituir el fondo azul marino por un fondo de hierba verde «viva y guay» (opción 1 de dos que valoró el usuario; la opción 2, un rayo que parte la pantalla con una foto de cada concello, queda como mejora futura pendiente de que el usuario envíe las fotos con su autor y licencia).
+- **Cómo se resolvió:** `src/render/fondo.py` dibuja el césped por código (sin imágenes ni licencias externas, determinista con semilla): gradiente de verde, briznas en capas con raíz oscura y punta clara, manchas de sol y viñeta; admite una fase de viento (0–1, cíclica) para animarlo más adelante. Tarda ~0,8 s por fotograma, así que se dibujará una vez y se reutilizará. Para mantener la legibilidad: título con trazo oscuro grueso, mapa con líneas doradas arriba y abajo (el mar sigue azul marino), panel de datos como tarjeta azul marino casi opaca; los 420 px inferiores quedan solo con hierba. Silueta de concello con fondo transparente (antes se veía un recuadro más oscuro sobre el panel) y sin hueco entre el mapa y la línea dorada.
+- **Tests:** 3 nuevos (fondo verde y determinista, viento cíclico, contraste del texto) y el test del fotograma comprueba que la zona inferior es hierba: 154 en total. `docs/ESTILO.md` actualizado.
+- **Problemas encontrados:** la primera hierba se veía plana (briznas del mismo tono que la base); se añadieron raíz oscura y puntas claras en capas.
+- **Pendiente:** que el usuario apruebe las muestras para marcar 4.1 `[x]`. Posible paso nuevo (a decidir con el usuario): foto de cada concello con rayo en el panel de enfrentamiento, que necesitaría registrar fuente y licencia de cada foto (regla j).

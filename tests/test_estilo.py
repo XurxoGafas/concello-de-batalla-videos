@@ -48,9 +48,10 @@ def test_fotograma_de_muestra_se_genera_con_el_tamano_correcto(tmp_path):
     ruta = generar(tmp_path / "estilo.png", previas=10)
     im = Image.open(ruta)
     assert im.size == (E.ANCHO, E.ALTO)
-    # la zona inferior (bajo la zona segura) queda sin elementos: solo color de fondo
-    bajo = im.crop((0, E.ALTO - E.MARGEN_INF + 20, E.ANCHO, E.ALTO))
-    assert bajo.getcolors() is not None and len(bajo.getcolors()) == 1
+    # la zona inferior (bajo la zona segura) queda solo con hierba: predomina el verde
+    bajo = im.crop((0, E.ALTO - E.MARGEN_INF + 20, E.ANCHO, E.ALTO)).resize((1, 1), Image.BOX)
+    r, g, b = bajo.getpixel((0, 0))
+    assert g > r + 40 and g > b + 40
 
 
 # --- Zoom del mapa ---
@@ -109,3 +110,34 @@ def test_texto_centrado_exacto_centra_la_tinta():
     E.texto_centrado_exacto(d, 200, 100, "×1,5", 60, color=255)
     x0, y0, x1, y1 = img.getbbox()
     assert abs((x0 + x1) / 2 - 200) <= 1.5 and abs((y0 + y1) / 2 - 100) <= 1.5
+
+
+# --- Fondo de hierba ---
+
+
+def test_fondo_de_hierba_es_verde_determinista_y_del_tamano_pedido():
+    from src.render.fondo import fondo_hierba
+
+    a = fondo_hierba(270, 480)
+    assert a.size == (270, 480)
+    assert a.tobytes() == fondo_hierba(270, 480).tobytes()  # misma semilla, mismo fondo
+    assert a.tobytes() != fondo_hierba(270, 480, semilla=8).tobytes()
+    r, g, b = a.resize((1, 1), Image.BOX).getpixel((0, 0))
+    assert g > r + 40 and g > b + 40
+
+
+def test_fondo_de_hierba_se_mueve_con_el_viento_y_es_ciclico():
+    from src.render.fondo import fondo_hierba
+
+    f0, f1 = fondo_hierba(200, 300, fase=0.0), fondo_hierba(200, 300, fase=0.25)
+    assert f0.tobytes() != f1.tobytes()
+    # cíclico: la fase 1 es la fase 0 (salvo redondeos de coma flotante, imperceptibles)
+    from PIL import ImageChops, ImageStat
+
+    dif = ImageChops.difference(fondo_hierba(200, 300, fase=1.0), f0)
+    assert max(ImageStat.Stat(dif).mean) < 0.5
+
+
+def test_el_texto_sobre_la_hierba_tiene_borde_oscuro_para_leerse():
+    # el título dorado va con trazo del color de fondo oscuro: contraste alto contra el trazo
+    assert E.contraste(E.ORO, E.FONDO) >= 7 and E.contraste(E.BLANCO, E.FONDO) >= 7

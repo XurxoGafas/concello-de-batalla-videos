@@ -8,6 +8,9 @@ Todas las constantes están en `src/render/estilo.py`. Fotogramas de muestra: `p
 ## Zonas seguras
 La interfaz de TikTok, Reels y Shorts tapa los bordes. Todo el texto importante queda dentro de: **60 px a la izquierda, 140 a la derecha (botones), 220 arriba y 420 abajo (descripción, cuenta, música).** Son valores prudentes que sirven para las tres redes; se comprobarán con un vídeo real subido como borrador en el paso 6.3.
 
+## Fondo: hierba viva (decisión del usuario, 2026-11-18)
+Césped dibujado **por código** (`src/render/fondo.py`, sin imágenes ni texturas externas: no hay licencias que registrar y sale idéntico en cualquier máquina). Gradiente de verde oscuro arriba a verde luminoso abajo, briznas en capas con raíz oscura y punta clara, manchas de sol y viñeta suave. Admite una fase de viento (0–1, cíclica) para animar el balanceo en los vídeos (4.4 en adelante); tarda unos 0,8 s en dibujar un fotograma, así que se dibuja una vez y se reutiliza. Para la legibilidad: el título lleva trazo oscuro grueso, el mapa va con líneas doradas arriba y abajo (el «mar» fuera de Galicia sigue siendo azul marino) y el panel de datos es una tarjeta azul marino casi opaca. Los 420 px inferiores (zona de la interfaz de las redes) quedan solo con hierba.
+
 ## Paleta
 | Uso | Color |
 |---|---|

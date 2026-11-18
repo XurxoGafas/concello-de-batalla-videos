@@ -3,6 +3,8 @@
 Genera en `output/muestras/` tres fotogramas con datos reales (se simulan N batallas con una
 semilla y se dibuja la siguiente, a mitad de tirada) para ver cómo se comporta el zoom:
 
+Sobre un fondo de hierba (`fondo_hierba`).
+
 - `estilo.png`: dos territorios medianos (4 concellos contra 4).
 - `estilo_zoom_minimo.png`: dos concellos sueltos (el zoom no pasa de un mínimo).
 - `estilo_zoom_grande.png`: territorios enormes (menos zoom, para que se vea todo).
@@ -25,6 +27,7 @@ from src.motor.multiplicador import diferencia_porcentual
 from src.motor.persistencia import nueva_partida, semilla_de_batalla
 from src.motor.seleccion import elegir_enfrentamiento
 from src.render import estilo as E
+from src.render.fondo import fondo_hierba
 
 GEOJSON = E.RAIZ / "data" / "processed" / "concellos.geojson"
 CARPETA = E.RAIZ / "output" / "muestras"
@@ -32,7 +35,7 @@ SUPERMUESTREO = 2  # el mapa se dibuja al doble y se reduce, para bordes suaves
 
 # Zonas del fotograma (y en píxeles)
 MAPA_Y0, MAPA_ALTO = 395, 510
-LINEA_Y = 915
+LINEA_Y = MAPA_Y0 + MAPA_ALTO  # justo bajo el mapa
 PANEL_FIN = E.ALTO - E.MARGEN_INF + 10
 
 
@@ -76,12 +79,12 @@ def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
 
     gdf = gpd.read_file(GEOJSON).to_crs(25829).set_index("id")
     k, W, H = SUPERMUESTREO, E.ANCHO, E.ALTO
-    img = Image.new("RGB", (W, H), E.FONDO)
+    img = fondo_hierba(W, H)
     d = ImageDraw.Draw(img)
 
     # --- Título (dentro de la zona segura) ---
-    E.texto_centrado(d, W / 2, 232, "CONCELLO DE BATALLA", E.T_TITULO, E.ORO)
-    E.texto_centrado(d, W / 2, 318, "Ep. 27", E.T_SUBTITULO, E.GRIS_AZUL)
+    E.texto_centrado(d, W / 2, 232, "CONCELLO DE BATALLA", E.T_TITULO, E.ORO, borde=9)
+    E.texto_centrado(d, W / 2, 318, "Ep. 27", E.T_SUBTITULO, E.BLANCO, borde=7)
 
     # --- Mapa con zoom: encuadra los territorios completos de los dos bandos ---
     ids_bando = estado["donos"][f.atacante]["territorio"] + estado["donos"][f.defensor]["territorio"]
@@ -98,8 +101,12 @@ def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
     img.paste(mapa.resize((W, MAPA_ALTO), Image.LANCZOS), (0, MAPA_Y0))
 
     # --- Línea dorada y panel inferior ---
+    d.rectangle((0, MAPA_Y0 - 6, W, MAPA_Y0 - 1), fill=E.ORO)
     d.rectangle((0, LINEA_Y, W, LINEA_Y + 6), fill=E.ORO)
-    d.rectangle((0, LINEA_Y + 6, W, PANEL_FIN), fill=E.PANEL)
+    panel = Image.new("RGB", (W, PANEL_FIN - LINEA_Y - 6), E.PANEL)  # tarjeta algo translúcida
+    mezcla = Image.blend(img.crop((0, LINEA_Y + 6, W, PANEL_FIN)), panel, 0.93)
+    img.paste(mezcla, (0, LINEA_Y + 6))
+    d.rectangle((0, PANEL_FIN, W, PANEL_FIN + 4), fill=E.FONDO)
 
     cx_a, cx_d, cx_c = 270, 690, W / 2
 
@@ -107,10 +114,11 @@ def generar(ruta: Path, semilla: str = "muestra", previas: int = 106) -> Path:
     for concello, dono, cx in ((f.concello_atacante, f.atacante, cx_a),
                                (f.concello_defensor, f.defensor, cx_d)):
         g1 = gdf.loc[[concello]]
-        sil = Image.new("RGB", (300 * k, 150 * k), E.PANEL)
+        sil = Image.new("RGBA", (300 * k, 150 * k), (255, 255, 255, 0))  # fondo transparente
         _pintar(ImageDraw.Draw(sil), g1.iloc[0].geometry, _caja_silueta(g1, 300, 150, k),
                 estado["donos"][dono]["cor"]["colores"][0], E.BLANCO, 3 * k)
-        img.paste(sil.resize((300, 150), Image.LANCZOS), (int(cx - 150), 930))
+        sil = sil.resize((300, 150), Image.LANCZOS)
+        img.paste(sil.convert("RGB"), (int(cx - 150), 930), sil.getchannel("A"))
         lineas, t = E.dividir_nombre(estado["concellos"][concello]["nome"], 52, 410)
         for n, linea in enumerate(lineas):
             E.texto_centrado(d, cx, 1088 + n * (t + 2), linea, t, E.BLANCO)
