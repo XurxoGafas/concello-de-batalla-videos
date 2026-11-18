@@ -43,10 +43,10 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 
 ## FASE 2 — Datos
 
-### [ ] 2.1 Conseguir los límites geográficos de los concellos
+### [x] 2.1 Conseguir los límites geográficos de los concellos
 - **Qué:** Descargar los polígonos oficiales de los concellos de Galicia (fuentes candidatas: IGN / Centro de Descargas del CNIG, Xunta / IET). Registrar la fuente, la fecha y la licencia.
 - **Archivos:** `data/raw/concellos.*` (shapefile/GeoJSON), `docs/FUENTES.md`.
-- **Hecho cuando:** el archivo carga con geopandas, el número de concellos coincide con el número oficial actual y `docs/FUENTES.md` recoge la fuente y la licencia.
+- **Hecho cuando:** el archivo carga con geopandas, el número de concellos coincide con el número oficial actual y `docs/FUENTES.md` recoge la fuente y la licencia. ✅ Completado el 2026-11-18: fuente IGN (CC BY 4.0), 313 concellos, descarga reproducible con `scripts/descargar_concellos.py`.
 
 ### [ ] 2.2 Simplificar la geometría y calcular las adyacencias
 - **Qué:** Simplificar los polígonos para dibujar rápido y calcular qué concellos son colindantes (comparten frontera, no solo un punto).

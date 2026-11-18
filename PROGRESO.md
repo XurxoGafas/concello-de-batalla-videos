@@ -109,3 +109,15 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Cómo se completó:** `python -m venv .venv` + `pip install -r requirements.txt` (pycairo se compiló sin problemas). Resultado de `check_env.py`: Python 3.13.18, ffmpeg 6.1.1, geopandas 1.2.0, shapely 2.2.0, pyproj 3.8.0, Pillow 13.0.0, pycairo 1.29.2, numpy 2.5.5, pandas 3.1.1, PyYAML 6.0.3, pytest 9.2.0 → «Entorno correcto». Paso 1.2 marcado `[x]` en `PLAN.md`.
 - **Problemas encontrados:** ninguno (el bloqueo de red de las sesiones anteriores ya no existe).
 - **Pendiente:** siguiente paso, 2.1 (conseguir los límites geográficos de los concellos). Hay que registrar fuente, fecha y licencia en `docs/FUENTES.md` (regla j). Recordar que el entorno de cada sesión es nuevo: habrá que repetir la instalación de dependencias.
+
+---
+
+## 2026-11-18 — Paso 2.1 completado (límites geográficos de los concellos)
+
+- **Qué se hizo:** se descargaron los polígonos de los 313 concellos de Galicia y se registró la fuente y la licencia en `docs/FUENTES.md`.
+- **Cómo se completó:**
+  - Se compararon dos fuentes oficiales. El servicio de la Xunta (IET) está actualizado a 02/2026, pero su licencia es ambigua (una ficha indica CC BY-SA 4.0 y las condiciones del IET hablan de «compatible con CC-BY 4.0»); la cláusula «compartir igual» podría afectar a los datos derivados en un repositorio público. Se eligió el **IGN (API-Features, CC BY 4.0)**, con licencia inequívoca, tal como se había planteado al usuario (que respondió «sigue»).
+  - `scripts/descargar_concellos.py` descarga por páginas (con reintentos, porque el túnel de red corta a veces la conexión) y guarda `data/raw/concellos.geojson` (9 MB, ignorado por git; se regenera con el script).
+  - Comprobado con geopandas: 313 concellos (A Coruña 93, Lugo 67, Ourense 92, Pontevedra 61), ids y nombres únicos, todas las geometrías válidas, EPSG:4326. Las cifras cuadran con el total oficial actual (313 tras la fusión de Cerdedo y Cotobade, que consta como «Cerdedo Cotobade»).
+- **Problemas encontrados:** cortes puntuales de conexión con el servidor del IGN (resueltos con reintentos). Un fallo mío de proceso: empecé a comparar fuentes sin haber marcado el paso como en curso ni confirmado con el usuario (regla f y c); se corrigió antes de descargar nada.
+- **Pendiente:** (1) confirmar antes de publicar el primer vídeo la fórmula exacta de cita que exige el IGN para productos derivados y ponerla en las descripciones (anotado en `docs/FUENTES.md`); (2) decidir cómo mostrar el nombre «Cerdedo Cotobade»; (3) siguiente paso: 2.2 (simplificar la geometría y calcular adyacencias), que exige tests con 3 parejas de vecinos y 3 que no lo son (p. ej. Ordes–Cerceda).
