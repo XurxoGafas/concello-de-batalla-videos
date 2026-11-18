@@ -2,7 +2,7 @@
 
 import pytest
 from fontTools.ttLib import TTFont
-from PIL import Image
+from PIL import Image, ImageDraw
 
 from src.render import estilo as E
 
@@ -51,3 +51,61 @@ def test_fotograma_de_muestra_se_genera_con_el_tamano_correcto(tmp_path):
     # la zona inferior (bajo la zona segura) queda sin elementos: solo color de fondo
     bajo = im.crop((0, E.ALTO - E.MARGEN_INF + 20, E.ANCHO, E.ALTO))
     assert bajo.getcolors() is not None and len(bajo.getcolors()) == 1
+
+
+# --- Zoom del mapa ---
+
+
+def test_el_zoom_encuadra_los_territorios_con_la_proporcion_pedida():
+    lim = (500_000.0, 4_700_000.0, 540_000.0, 4_730_000.0)  # 40 × 30 km
+    x0, y0, x1, y1 = E.caja_de_zoom(lim, 1080 / 510)
+    assert (x1 - x0) / (y1 - y0) == pytest.approx(1080 / 510)
+    assert x0 <= lim[0] and y0 <= lim[1] and x1 >= lim[2] and y1 >= lim[3]  # nunca recorta
+    assert (x0 + x1) / 2 == pytest.approx((lim[0] + lim[2]) / 2)  # centrado
+
+
+def test_dos_concellos_pequenos_no_se_amplian_mas_del_minimo():
+    lim = (500_000.0, 4_700_000.0, 505_000.0, 4_704_000.0)  # 5 × 4 km
+    x0, y0, x1, y1 = E.caja_de_zoom(lim, 1080 / 510)
+    assert min(x1 - x0, y1 - y0) >= 40_000
+
+
+def test_un_territorio_enorme_hace_menos_zoom_y_se_ve_entero():
+    chico = E.caja_de_zoom((0, 0, 10_000, 8_000), 2.0)
+    grande = E.caja_de_zoom((0, 0, 200_000, 180_000), 2.0)
+    assert (grande[2] - grande[0]) > 4 * (chico[2] - chico[0])  # mucha más superficie visible
+    assert grande[0] < 0 and grande[2] > 200_000 and grande[1] < 0 and grande[3] > 180_000
+
+
+# --- Pastillas «de vaca» ---
+
+
+def test_pastilla_vaca_es_blanca_con_manchas_negras_y_esta_centrada():
+    img = Image.new("RGB", (600, 300), E.PANEL)
+    x0, y0, x1, y1 = E.pastilla_vaca(img, 300, 150, "143 vacas", 46)
+    w, h = E.tamano_pastilla("143 vacas", 46)
+    assert (x1 - x0, y1 - y0) == (w, h)
+    assert abs((x0 + x1) / 2 - 300) <= 1 and abs((y0 + y1) / 2 - 150) <= 1
+    colores = {c for _, c in img.crop((x0, y0, x1, y1)).getcolors(100000)}
+    assert (255, 255, 255) in colores  # blanco
+    assert any(sum(c) < 100 for c in colores)  # y manchas oscuras
+
+
+def test_pastilla_vaca_es_determinista_y_admite_varias_lineas():
+    def pinta(texto):
+        im = Image.new("RGB", (600, 300), E.PANEL)
+        E.pastilla_vaca(im, 300, 150, texto, 44, 20)
+        return im.tobytes()
+    assert pinta("×1,5") == pinta("×1,5")
+    assert pinta(["dif. vacas", "+50%"]) == pinta(["dif. vacas", "+50%"])
+    w1, h1 = E.tamano_pastilla("+50%", 44)
+    w2, h2 = E.tamano_pastilla(["dif. vacas", "+50%"], 44)
+    assert h2 > h1 and w2 >= w1
+
+
+def test_texto_centrado_exacto_centra_la_tinta():
+    img = Image.new("L", (400, 200), 0)
+    d = ImageDraw.Draw(img)
+    E.texto_centrado_exacto(d, 200, 100, "×1,5", 60, color=255)
+    x0, y0, x1, y1 = img.getbbox()
+    assert abs((x0 + x1) / 2 - 200) <= 1.5 and abs((y0 + y1) / 2 - 100) <= 1.5

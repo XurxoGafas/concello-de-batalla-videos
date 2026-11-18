@@ -60,3 +60,17 @@ def multiplicador(vacas_propias: int, vacas_rivales: int) -> float:
 def multiplicadores(vacas_a: int, vacas_b: int) -> tuple[float, float]:
     """(multiplicador de A, multiplicador de B). Solo uno puede ser mayor que 1."""
     return multiplicador(vacas_a, vacas_b), multiplicador(vacas_b, vacas_a)
+
+
+def diferencia_porcentual(vacas_a: int, vacas_b: int) -> int:
+    """Diferencia real de vacas, en % entero, para MOSTRARLA en pantalla (no es el bonus).
+
+    Es `(mayor − menor) / menor × 100` redondeado al entero más cercano (la mitad sube); no
+    tiene el tope del 50 %: 143 vacas contra 3 es +4.667 %, aunque el multiplicador sea ×1,5.
+    """
+    for v in (vacas_a, vacas_b):
+        if v < 1:
+            raise ValueError(f"Las vacas deben ser al menos 1 (recibido {v})")
+    mayor, menor = max(vacas_a, vacas_b), min(vacas_a, vacas_b)
+    pct = Fraction((mayor - menor) * 100, menor)
+    return int(pct + Fraction(1, 2))  # pct >= 0, así que int() equivale a floor

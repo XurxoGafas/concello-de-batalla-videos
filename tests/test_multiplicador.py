@@ -119,3 +119,26 @@ def test_el_multiplicador_usa_las_vacas_de_todo_el_territorio():
     # Con el territorio completo de «a» (2700 vs 2000): 35 % → baja a 30 % → ×1,3 para a.
     assert multiplicadores(vacas_de_dono(e, "a"), vacas_de_dono(e, "c")) == (1.3, 1.0)
     assert multiplicadores(e["a"]["vacas"], vacas_de_dono(e, "c")) == (1.0, 1.5)
+
+
+# --- Diferencia porcentual para mostrar en pantalla ---
+
+
+def test_diferencia_porcentual_para_mostrar():
+    from src.motor.multiplicador import diferencia_porcentual as dp
+
+    assert dp(1500, 1200) == 25  # ejemplo confirmado por el usuario
+    assert dp(1200, 1500) == 25  # simétrica: es la ventaja del bando con más vacas
+    assert dp(150, 100) == 50
+    assert dp(100, 100) == 0
+    assert dp(143, 3) == 4667  # sin tope del 50 % (el tope es solo del multiplicador)
+    assert dp(1000, 995) == 1  # 0,50251 % → 1
+    assert dp(201, 200) == 1  # 0,5 % → la mitad sube
+    assert dp(1001, 1000) == 0  # 0,1 %
+
+
+def test_diferencia_porcentual_rechaza_vacas_invalidas():
+    from src.motor.multiplicador import diferencia_porcentual as dp
+
+    with pytest.raises(ValueError):
+        dp(0, 5)

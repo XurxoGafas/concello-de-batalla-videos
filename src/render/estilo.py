@@ -6,9 +6,11 @@ Ver `docs/ESTILO.md` para la explicación de cada decisión.
 
 from __future__ import annotations
 
+import math
+import random
 from pathlib import Path
 
-from PIL import ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont
 
 RAIZ = Path(__file__).resolve().parents[2]
 FUENTE_TTF = RAIZ / "assets" / "fonts" / "LilitaOne-Regular.ttf"
@@ -38,6 +40,9 @@ MAR = "#0F2347"  # fondo del mapa (el territorio que no es Galicia)
 CONTORNO_MAPA = "#0B1730"  # borde fino entre concellos
 DADO_CARA = "#FFFFFF"
 DADO_PUNTO = "#0B1730"
+VACA_BLANCO = "#FFFFFF"  # todo lo relacionado con las vacas va «pintado como una vaca»:
+VACA_MANCHA = "#141414"  # blanco con manchas negras
+CONFLICTO = "#FF2D55"  # contorno rojo de los concellos que se pelean
 
 # --- Tamaños de texto (px sobre 1080 de ancho; mínimo 44 para leerse en el móvil) ---
 T_TITULO = 78
@@ -124,3 +129,94 @@ def dibujar_dado(d: ImageDraw.ImageDraw, x: float, y: float, lado: int, valor: i
     pr = lado * 0.085
     for px, py in pos:
         d.ellipse((x + px - pr, y + py - pr, x + px + pr, y + py + pr), fill=DADO_PUNTO)
+
+
+def texto_centrado_exacto(
+    d: ImageDraw.ImageDraw, cx: float, cy: float, texto: str, tam: int, color: str = BLANCO,
+    borde: int = 0, color_borde: str = FONDO,
+) -> None:
+    """Centra la tinta real del texto (no su caja tipográfica) en (cx, cy), en ambos ejes."""
+    f = fuente(tam)
+    x0, y0, x1, y1 = d.textbbox((0, 0), texto, font=f, anchor="ls", stroke_width=borde)
+    d.text((cx - (x0 + x1) / 2, cy - (y0 + y1) / 2), texto, font=f, fill=color, anchor="ls",
+           stroke_width=borde, stroke_fill=color_borde)
+
+
+def _mancha(rng: random.Random, cx: float, cy: float, r: float) -> list[tuple[float, float]]:
+    """Polígono irregular, más ancho que alto, como una mancha de vaca."""
+    n = 11
+    pts = []
+    for i in range(n):
+        a = 2 * math.pi * i / n
+        rr = r * rng.uniform(0.7, 1.15)
+        pts.append((cx + math.cos(a) * rr * 1.35, cy + math.sin(a) * rr))
+    return pts
+
+
+def tamano_pastilla(texto: str | list[str], tam: int, pad_x: int = 30) -> tuple[int, int]:
+    """(ancho, alto) en píxeles de `pastilla_vaca` para ese texto (una o varias líneas)."""
+    lineas = [texto] if isinstance(texto, str) else texto
+    w = int(max(ancho_texto(x, tam) for x in lineas) + 2 * pad_x)
+    h = int(tam * 1.4 + (len(lineas) - 1) * tam * 1.15)
+    return w, h
+
+
+def pastilla_vaca(
+    img: Image.Image, cx: float, cy: float, texto: str | list[str], tam: int,
+    pad_x: int = 30, semilla: str | None = None,
+) -> tuple[int, int, int, int]:
+    """Pastilla blanca con manchas negras (piel de vaca pinta) con `texto` exactamente centrado.
+
+    `texto` puede ser una lista de líneas. Las manchas salen por los bordes (arriba y abajo)
+    para no quitar legibilidad al texto, que además lleva un halo blanco. Es determinista: las
+    mismas manchas para el mismo texto. Devuelve la caja (x0, y0, x1, y1) ocupada.
+    """
+    lineas = [texto] if isinstance(texto, str) else list(texto)
+    k = 3  # supermuestreo para bordes suaves
+    w, h = tamano_pastilla(lineas, tam, pad_x)
+    base = Image.new("RGBA", (w * k, h * k), VACA_BLANCO)
+    db = ImageDraw.Draw(base)
+    rng = random.Random(semilla if semilla is not None else "|".join(lineas))
+    n = max(2, round(w / 75))
+    for i in range(n):
+        x = (i + 0.5) * w / n + rng.uniform(-0.2, 0.2) * w / n
+        y = (rng.choice((0.0, 1.0)) + rng.uniform(-0.1, 0.1)) * h
+        r = rng.uniform(0.2, 0.3) * min(h, 64)
+        db.polygon([(a * k, b * k) for a, b in _mancha(rng, x, y, r)], fill=VACA_MANCHA)
+    radio = min(h // 2, 34) * k
+    mascara = Image.new("L", (w * k, h * k), 0)
+    ImageDraw.Draw(mascara).rounded_rectangle((0, 0, w * k - 1, h * k - 1), radius=radio, fill=255)
+    db.rounded_rectangle((0, 0, w * k - 1, h * k - 1), radius=radio, outline=FONDO, width=3 * k)
+    base.putalpha(mascara)
+    pequena = base.resize((w, h), Image.LANCZOS)
+    x0, y0 = int(round(cx - w / 2)), int(round(cy - h / 2))
+    img.paste(pequena.convert("RGB"), (x0, y0), pequena.getchannel("A"))
+    d = ImageDraw.Draw(img)
+    paso = tam * 1.15
+    for i, linea in enumerate(lineas):
+        y = y0 + h / 2 + (i - (len(lineas) - 1) / 2) * paso
+        texto_centrado_exacto(d, x0 + w / 2, y, linea, tam, FONDO, borde=5, color_borde=VACA_BLANCO)
+    return x0, y0, x0 + w, y0 + h
+
+
+def caja_de_zoom(
+    limites: tuple[float, float, float, float], proporcion: float,
+    margen: float = 0.2, minimo: float = 40_000.0,
+) -> tuple[float, float, float, float]:
+    """Ventana del mapa (en metros UTM) que encuadra `limites` con aire alrededor.
+
+    - `margen`: aire a cada lado, como fracción del tamaño (para ver los vecinos).
+    - `minimo`: lado mínimo en metros, para que dos concellos pequeños no se amplíen sin
+      sentido y se vea el entorno.
+    - `proporcion`: ancho/alto de la zona de pantalla; la ventana se amplía (nunca se recorta)
+      hasta tener esa proporción, así un territorio muy grande se ve entero con menos zoom.
+    """
+    minx, miny, maxx, maxy = limites
+    cx, cy = (minx + maxx) / 2, (miny + maxy) / 2
+    w = max((maxx - minx) * (1 + 2 * margen), minimo)
+    h = max((maxy - miny) * (1 + 2 * margen), minimo)
+    if w / h < proporcion:
+        w = h * proporcion
+    else:
+        h = w / proporcion
+    return cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2

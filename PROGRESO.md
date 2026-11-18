@@ -271,3 +271,17 @@ Las entradas no se borran. Las nuevas se añaden al final.
   - 6 tests en `tests/test_estilo.py` (143 en total).
 - **Problemas encontrados:** en la primera versión los nombres largos se solapaban y la insignia del multiplicador tapaba la puntuación; se corrigió partiendo los nombres en dos líneas y recolocando el marcador.
 - **Pendiente:** que el usuario apruebe el fotograma (o pida cambios) para marcar 4.1 como `[x]`. Puntos a mirar por el usuario: el mapa ocupa poco ancho (Galicia es casi cuadrada y la zona segura recorta la altura); las zonas seguras son prudentes y se comprobarán con un vídeo real (6.3).
+
+---
+
+## 2026-11-18 — Paso 4.1 (en curso): ajustes tras la primera revisión del usuario
+
+- **Qué se pidió:** (1) el mapa gusta, pero en el enfrentamiento debe hacer zoom a los concellos que pelean, con menos zoom si el territorio ya es muy grande; (2) el «×1,5» estaba descentrado en su recuadro; (3) separar más del dado el número de resultado; (4) marcar en rojo la silueta de los concellos en conflicto en el mapa; (5) poner entre el número de vacas la diferencia en % entero aproximado («diff vacas +50%»); (6) todo lo relacionado con vacas (cifras, porcentaje y multiplicador) coloreado como una vaca pinta (blanca con manchas negras).
+- **Cómo se resolvió:**
+  - Zoom: `caja_de_zoom` en `src/render/estilo.py` encuadra los territorios completos de los dos bandos con 20 % de aire, mínimo 40 km y la proporción de la zona del mapa; nunca recorta, así que un territorio enorme se ve entero con menos zoom. (El paso 4.2 reutilizará esta función en `src/render/mapa.py`.)
+  - Contorno rojo (`CONFLICTO`) en los dos concellos que se enfrentan; la puntuación pasa a un lado de los dados; el multiplicador va debajo de los dados.
+  - `pastilla_vaca`: pastilla blanca con manchas negras en los bordes y texto con halo, centrado por su tinta real (corrige el desajuste del «×1,5»). Se aplica a las vacas de cada bando, a la diferencia y al multiplicador.
+  - **Decisión mía (revisable):** el % mostrado es la diferencia real `(mayor − menor)/menor` redondeada, **sin el tope del 50 %** (`diferencia_porcentual` en `src/motor/multiplicador.py`, con tests): p. ej. 143 contra 3 vacas muestra «+4.667%», mientras el multiplicador sigue topado en ×1,5. Es más informativo, pero con los datos reales aparecen cifras muy grandes (A Coruña 7 vacas contra Pastoriza 15.204 → «+217.057%»); si no gusta, se puede mostrar un tope tipo «+999%» o el % del bonus.
+  - Se generan 3 muestras (`estilo.png`, `estilo_zoom_minimo.png`, `estilo_zoom_grande.png`) para ver el comportamiento del zoom; `docs/ESTILO.md` actualizado; tests ampliados (zoom, pastillas, centrado): 155 en total.
+- **Problemas encontrados:** las manchas de la primera versión eran demasiado grandes y tapaban letras; la insignia ×1,5 quedaba pegada a los dados. Se redujeron las manchas y se recolocó.
+- **Pendiente:** que el usuario apruebe las muestras para marcar 4.1 `[x]`.

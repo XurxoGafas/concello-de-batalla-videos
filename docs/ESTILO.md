@@ -1,6 +1,6 @@
 # ESTILO — Guía visual de «Concello de Batalla»
 
-Todas las constantes están en `src/render/estilo.py`. Fotograma de muestra: `python -m src.render.muestra_estilo` → `output/muestras/estilo.png` (con datos reales: 120 batallas simuladas y la siguiente a mitad de tirada).
+Todas las constantes están en `src/render/estilo.py`. Fotogramas de muestra: `python -m src.render.muestra_estilo` → `output/muestras/estilo.png`, `estilo_zoom_minimo.png` y `estilo_zoom_grande.png` (con datos reales: se simulan N batallas y se dibuja la siguiente a mitad de tirada).
 
 ## Formato
 - **1080×1920 (9:16) a 30 fps.** 30 fps es lo que usa el vídeo de referencia, rinde bien para redes y renderizar a 60 fps duplicaría el tiempo en GitHub Actions sin ganar nada visible en este tipo de animación.
@@ -22,11 +22,13 @@ Los colores de cada concello son los de su bandera (paso 2.5; por ahora provisio
 **Lilita One** (SIL OFL 1.1, ver `docs/FUENTES.md`): negrita redondeada de estilo juego, como la del vídeo de referencia. Cubre ñ, tildes, ü, ¡, ¿ y ×. Tamaños: título 78 px, subtítulo 52, nombres 52–56, datos 46, marcador 70–96; **mínimo 44 px** para leerse bien en el móvil. Los nombres largos se parten en dos líneas.
 
 ## Elementos
-- **Mapa:** concellos rellenos con el color del dueño, borde fino azul oscuro; los dos concellos en combate se resaltan con contorno dorado. Debajo, línea dorada de 6 px que separa mapa y panel.
-- **Siluetas:** el concello dibujado con su forma real, relleno con el color de su dueño y borde blanco; nombre debajo (hasta 2 líneas) y número de vacas.
-- **Dados:** cara blanca con puntos oscuros y esquinas redondeadas; el borde dorado marca al bando que gana esa tirada.
-- **Multiplicador:** insignia dorada «×1,5» junto a la puntuación del bando con más vacas.
-- **Textos:** todos en gallego (título, «Ep. N», «vacas», «PERDEDOR», «GAÑADOR», «Máis vitorias»…).
+- **Mapa con zoom en el enfrentamiento:** la cámara encuadra los **territorios completos** de los dos bandos (todos los concellos que posee cada uno) con un 20 % de aire alrededor. Así, si un bando es enorme, hace menos zoom y se ve entero; si son dos concellos pequeños, el zoom se detiene en un mínimo de 40 km de lado para ver el entorno. La ventana nunca recorta (`caja_de_zoom`). El mapa ocupa todo el ancho (y = 395–905).
+- **Concellos en conflicto:** su silueta se marca con **contorno rojo** (`#FF2D55`) en el mapa; la línea dorada de 6 px separa mapa y panel.
+- **Siluetas:** el concello con su forma real, relleno con el color de su dueño y borde blanco; debajo el nombre (hasta 2 líneas).
+- **Todo lo relacionado con las vacas va «pintado de vaca»:** pastillas blancas con manchas negras (`pastilla_vaca`): el número de vacas de cada bando, la **diferencia real en % entero** entre ambos («dif. vacas +50%», en el centro) y el multiplicador «×1,5». Las manchas salen por los bordes y el texto lleva halo blanco para leerse bien; el texto se centra por su tinta real, no por su caja tipográfica.
+- **Diferencia de vacas mostrada:** es la real, `(mayor − menor) / menor` redondeada al entero (`diferencia_porcentual`), **sin el tope del 50 %**: 143 contra 3 vacas es «+4.667 %» aunque el multiplicador sea ×1,5.
+- **Dados:** cara blanca con puntos oscuros; el borde dorado marca al bando que gana esa tirada. La puntuación va **a un lado** de los dados, separada, y el multiplicador debajo de los dados del bando con más vacas.
+- **Textos:** todos en gallego (título, «Ep. N», «vacas», «dif. vacas», «PERDEDOR», «GAÑADOR», «Máis vitorias»…).
 
 ## Pendiente de las siguientes fases
 Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y escenas (4.6).
