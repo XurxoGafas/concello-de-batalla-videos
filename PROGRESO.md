@@ -575,3 +575,11 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Problemas:** el `&&` de un comando saltó mis primeros cambios de siluetas (se repitieron); los tests de mapa asumían que no hay blanco puro en el mapa y se adaptaron; flags con fondo blanco o casi cuadradas se clasificaban como escudos (Petín).
 - **Licencia (regla j):** pendiente de verificar (ver `docs/FUENTES.md`).
 - **Pendiente:** aprobación del usuario de la muestra (`output/muestras/mapa_inicial.png`, vídeo y portada); aportar las 8 imágenes que faltan; origen/licencia de las banderas; paso 2.5 sigue `[~]`. Render del episodio ≈330 s.
+
+## 2026-11-19 — Mapa del episodio 1 (Ordes con 1/3 del territorio) y escudo único por territorio
+- **Qué se pidió (usuario):** parar los vídeos y centrarse en el mapa; hacer el mapa del episodio 1 con Ordes ocupando 1/3 del territorio y el resto normal; escudos solo si se aprecian; organizar de quién es cada escudo y cuál es su territorio, porque en el vídeo se veían escudos repetidos (uno por concello conquistado).
+- **Cómo:** `src/render/mapa_episodio1.py` expande Ordes por contigüidad (siempre el vecino más cercano a su centro, forma compacta) hasta acercarse a 1/3 de la superficie (medida en UTM): **98 concellos, 33,3 %, 248.334 vacas**. Usa `aplicar_conquista`, así que el estado es coherente (vacas conservadas, victorias a 0). `MapaGalicia.dibujar(..., unir_territorios=True)`: un dueño con varios concellos se dibuja como un solo territorio, sin fronteras interiores y con su escudo **una sola vez** (grande, en el punto más ancho del territorio, recortado por el contorno); por defecto (vídeo) nada cambia. Ordes tiene bandera, así que su territorio va en verde liso.
+- **Salidas:** `output/muestras/mapa_episodio1.png` (fotograma 1080×1920), `mapa_episodio1_grande.png` (2160 px), `data/processed/estado_episodio1.json` y `data/processed/territorios_episodio1.tsv` (un concello por fila: dueño, tipo de símbolo, archivo y si es propio o anexionado). No toca `data/partida/`.
+- **Decisión mía (revisable):** «1/3 del territorio» = 1/3 de la **superficie**, no de concellos (sería ≈104).
+- **Tests:** `tests/test_mapa_episodio1.py` (5); 251 en verde.
+- **Pendiente:** aprobación del mapa; incorporar `unir_territorios` al vídeo (conquista y fotogramas) cuando el usuario lo pida; paso 2.5 sigue `[~]`.

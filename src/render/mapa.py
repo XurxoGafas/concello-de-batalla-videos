@@ -22,7 +22,7 @@ from collections.abc import Iterable
 import geopandas as gpd
 from PIL import Image, ImageChops, ImageDraw
 from shapely.geometry.base import BaseGeometry
-from shapely.ops import unary_union
+from shapely.ops import polylabel, unary_union
 
 from src.motor.seleccion import territorio, vecinos_enemigos
 from src.render import estilo as E
@@ -35,6 +35,7 @@ HOLGURA = 0.9  # fracción del ancho/alto del territorio que puede ocupar el nom
 MIN_LADO_ESCUDO = 26    # un concello más pequeño que esto (en px) no lleva escudo
 FRAC_ESCUDO = 1.0       # alto del escudo respecto al «lado» del concello (raíz de su área en px)
 MAX_ESCUDO = 230        # alto máximo del escudo (px)
+MAX_ESCUDO_TERRITORIO = 420  # alto máximo del escudo único de un territorio de varios concellos (px)
 
 
 def poligonos(geom: BaseGeometry) -> list:
@@ -98,11 +99,16 @@ class MapaGalicia:
         alto: int,
         contornos: Iterable[tuple[BaseGeometry, str, int]] = (),
         nombres: Iterable[str] = (),
+        unir_territorios: bool = False,
     ) -> Image.Image:
         """Imagen RGB `ancho`×`alto` con la `ventana` del mapa (el «mar» es azul marino).
 
         `nombres`: ids de los dueños cuyo nombre se escribe sobre su territorio (los que están
         en conflicto). Por defecto, ninguno.
+
+        `unir_territorios`: si es True, cada dueño con varios concellos se dibuja como UN territorio:
+        sin fronteras interiores y con su escudo una sola vez (grande, en el punto más «ancho» del
+        territorio). Si es False (vídeo), se mantiene el comportamiento anterior.
         """
         k = SUPERMUESTREO
         img = Image.new("RGB", (ancho * k, alto * k), E.MAR)
@@ -119,9 +125,20 @@ class MapaGalicia:
             visibles.append(geom)
         # el escudo va entre el relleno y las fronteras: puede quedar recortado por el límite del
         # concello, pero las fronteras se ven siempre (decisión del usuario)
-        self._escudos(img, estado, ventana, list(nombres), k)
-        for geom in visibles:
-            pintar(d, geom, f, None, E.CONTORNO_MAPA, k)
+        self._escudos(img, estado, ventana, list(nombres), k, unir_territorios)
+        if unir_territorios:
+            for dono, info in estado["donos"].items():
+                if len(info["territorio"]) == 1:
+                    geom = self.gdf.geometry[info["territorio"][0]]
+                else:
+                    geom = self.geometria(info["territorio"])
+                gx0, gy0, gx1, gy1 = geom.bounds
+                if gx1 < vx0 or gx0 > vx1 or gy1 < vy0 or gy0 > vy1:
+                    continue
+                pintar(d, geom, f, None, E.CONTORNO_MAPA, k)
+        else:
+            for geom in visibles:
+                pintar(d, geom, f, None, E.CONTORNO_MAPA, k)
         for geom, color, grosor in contornos:
             pintar(d, geom, f, None, color, grosor * k)
         img = img.resize((ancho, alto), Image.LANCZOS)
@@ -136,7 +153,31 @@ class MapaGalicia:
             self._centros[i] = (p.x, p.y, g.area)
         return self._centros[i]
 
-    def _escudos(self, img: Image.Image, estado: dict, ventana, nombres: list[str], k: int) -> None:
+    def _escudo_territorio(self, img: Image.Image, estado: dict, dono: str, ventana, k: int) -> None:
+        """Un único escudo para todo el territorio de `dono` (varios concellos), centrado en el punto
+        interior más alejado de las fronteras y recortado por el contorno del territorio."""
+        ruta = estado["donos"][dono]["cor"]["escudo"]
+        geom = self.geometria(estado["donos"][dono]["territorio"])
+        poli = max(poligonos(geom), key=lambda g: g.area)
+        punto = polylabel(poli, tolerance=50)
+        radio = poli.boundary.distance(punto)
+        x0, y0, x1, y1 = ventana
+        esc = img.width / (x1 - x0)
+        alto = round(min(MAX_ESCUDO_TERRITORIO, 2 * radio * esc / k * 1.1) * k)
+        if alto < MIN_LADO_ESCUDO * k:
+            return
+        sprite = E.escudo(ruta, alto)
+        px, py = (punto.x - x0) * esc, (y1 - punto.y) * esc
+        ox, oy = round(px - sprite.width / 2), round(py - sprite.height / 2)
+        mascara = Image.new("L", sprite.size, 0)
+        md = ImageDraw.Draw(mascara)
+        for p in poligonos(geom):
+            md.polygon([((x - x0) * esc - ox, (y1 - y) * esc - oy) for x, y in p.exterior.coords], fill=255)
+        mascara = ImageChops.multiply(mascara, sprite.getchannel("A"))
+        img.paste(sprite, (ox, oy), mascara)
+
+    def _escudos(self, img: Image.Image, estado: dict, ventana, nombres: list[str], k: int,
+                 unir: bool = False) -> None:
         """Dibuja el escudo del dueño sobre cada concello suyo que tenga solo escudo (territorio blanco),
         recortado por el límite del concello. Los concellos demasiado pequeños se quedan sin escudo.
         `img` está a escala ×k."""
@@ -146,6 +187,8 @@ class MapaGalicia:
             ruta = estado["donos"][c["dono"]]["cor"].get("escudo")
             if not ruta:
                 continue
+            if unir and len(estado["donos"][c["dono"]]["territorio"]) > 1:
+                continue  # su escudo se dibuja una sola vez, abajo
             cx, cy, area = self._centro(i)
             if not (x0 <= cx <= x1 and y0 <= cy <= y1):
                 continue
@@ -164,6 +207,10 @@ class MapaGalicia:
                 md.polygon([((x - x0) * esc - ox, (y1 - y) * esc - oy) for x, y in poli.exterior.coords], fill=255)
             mascara = ImageChops.multiply(mascara, sprite.getchannel("A"))
             img.paste(sprite, (ox, oy), mascara)
+        if unir:
+            for dono, info in estado["donos"].items():
+                if len(info["territorio"]) > 1 and info["cor"].get("escudo"):
+                    self._escudo_territorio(img, estado, dono, ventana, k)
 
     def _etiquetar(self, img: Image.Image, estado: dict, f, duenos: list[str]) -> list[str]:
         """Escribe el nombre de cada dueño de `duenos` sobre su territorio; devuelve los nombres."""
