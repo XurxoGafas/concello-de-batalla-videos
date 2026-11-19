@@ -669,3 +669,7 @@ Las entradas no se borran. Las nuevas se añaden al final.
 ## 2026-11-19 · Sonido 25 · Gaita corta y más suave
 - Nueva versión de `gaita_cancion(corta=True)`: 8 notas, 1,8 s (notas 1,5 s + cola), pico −12 dBFS (antes 3,06 s y −5 dBFS), cae a la nota de reposo (Re). La fanfarria 33 usa `gaita_cancion(corta=False)`, por lo que sigue idéndica a la aprobada. Pendiente de OK del usuario.
 - A tener en cuenta al remontar: la gaita sale de pantalla a 1,6 s de montaje (≈1,2 s de vídeo) y la canción dura 1,5 s de vídeo; si hace falta, se acelera la melodía para que acabe con la gaita.
+
+## 2026-11-19 · Episodio 1 montado con sonido
+- `src/render/episodio1.py`: episodio completo (portada, intro, 3 batallas con conquista, cierre) sobre el mapa del episodio 1 (Ordes con ≈1/3) y con el audio del esquema ya montado (gaita corta aceptada, 25 ✅). Semilla `ep1-5` (elegida para que Ordes participe: Esgos→Nogueira de Ramuín, Taboadela→San Cibrao das Viñas, Moeche→Ordes; ganan los defensores). 65,6 s, −14,2 LUFS. Render ≈8 min.
+- Salidas (no van a git): `output/muestras/episodio1_con_audio.mp4`, `episodio1_portada.png`.
