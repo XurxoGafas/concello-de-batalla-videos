@@ -152,15 +152,15 @@ Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fas
 
 ## FASE 5 — Sonido
 
-### [ ] 5.1 Conseguir los efectos de sonido y la música con licencia
-- **Qué:** Reunir los sonidos (dados, golpes, «ding» de puntos, fanfarria de conquista, mugido) y la música de fondo con licencia que permita uso comercial en redes. Registrar la licencia de cada archivo.
-- **Archivos:** `assets/audio/`, `docs/FUENTES.md`.
-- **Hecho cuando:** cada archivo de `assets/audio/` tiene una línea en `docs/FUENTES.md` con su fuente y su licencia.
+### [ ] 5.1 Esquema de sonidos y efectos (generados por código)
+- **Qué:** Fijar el esquema completo de sonidos (`docs/SONIDOS.md`, **sin música de fondo**, decisión del usuario 2026-11-19) y generar los efectos por síntesis (numpy), de modo que no haya licencias de terceros. La «cancioncilla» de gaita de la conquista la compone Claude (melodía original, no una pieza existente) y se renderiza con un timbre sintetizado o, mejor, con muestras de gaita que aporte el usuario (la licencia de esas muestras se registra, regla j). Se envía un pack de escucha al usuario antes de tocar el vídeo, porque Claude no puede oír: la aprobación del sonido es del usuario.
+- **Archivos:** `docs/SONIDOS.md`, `src/audio/sintesis.py`, `assets/audio/` (efectos generados), `docs/FUENTES.md` (solo lo que no sea generado).
+- **Hecho cuando:** el usuario aprueba el pack de efectos y la cancioncilla tras escucharlos, y todo lo que no sea generado por código tiene su línea en `docs/FUENTES.md`.
 
 ### [ ] 5.2 Sincronizar el audio con la animación
-- **Qué:** Generar una línea de tiempo de eventos (dado se para, punto sumado, conquista) y colocar cada sonido en su instante. Mezclar con la música y normalizar el volumen.
+- **Qué:** Generar una línea de tiempo de eventos a partir de los tiempos que ya calcula la animación (dado que se para, punto sumado, choque, conquista, filas del ranking…) y colocar cada sonido en su instante, teniendo en cuenta la velocidad ×1,296. Mezclar y normalizar el volumen.
 - **Archivos:** `src/audio/mezcla.py`, `src/render/linea_tiempo.py`.
-- **Hecho cuando:** en el vídeo de prueba cada sonido coincide con su evento visual (revisado a mano) y el volumen final está normalizado (p. ej. ≈ −14 LUFS).
+- **Hecho cuando:** en el vídeo de prueba cada sonido coincide con su evento visual (revisado a mano por el usuario) y el volumen final está normalizado (p. ej. ≈ −14 LUFS).
 
 ---
 
