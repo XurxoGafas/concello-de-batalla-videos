@@ -597,3 +597,8 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Vídeo:** `escenas.construir_ataque` (intro → sorteo → batalla → conquista → `EscenaAlejamiento`, sin portada ni ranking) y `src/render/ataque_episodio1.py` → `output/muestras/ataque_episodio1.mp4`: 21,2 s; semilla `ataque1-2` (elegida para que Ordes participe): **Muxía ataca a Ordes y gana Ordes** (render 235 s).
 - **Tests:** 254 en verde (se adaptaron 2 de `test_mapa.py` a color liso con `banderas=False`; nuevos: mapa invariante al zoom).
 - **Pendiente:** aprobación; las siluetas de los paneles de batalla siguen con color liso/escudo (no con la bandera recortada); portada y ranking aún con el diseño anterior y sin revisar con el nuevo mapa.
+
+## 2026-11-19 — Se resalta el territorio completo del bando (no solo el concello fronterizo)
+- **Qué se pidió (usuario):** cuando a Ordes le toca defender, resaltar todo su territorio y no solo el concello que hacía frontera con Muxía; en la batalla los colores lisos de las siluetas están bien.
+- **Cómo:** en el sorteo del defensor cada candidato se resalta con el territorio completo de su dueño (`escenas.py`); el contorno rojo del conflicto (zoom a los dos bandos, batalla y conquista) pasa a ser el de los territorios completos de atacante y defensor (`enfrentamiento.banda_enfrentamiento`, `conquista._banda_parcial`). Para dueños de un solo concello no cambia nada.
+- **Resultado:** `ataque_episodio1.mp4` regenerado (21,2 s, mismo ataque: Muxía vs Ordes). 253 tests en verde.

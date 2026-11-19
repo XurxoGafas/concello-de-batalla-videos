@@ -21,7 +21,7 @@ from PIL import Image, ImageChops, ImageDraw, ImageFilter
 from src.motor.estado import jugar_batalla
 from src.motor.multiplicador import diferencia_porcentual, multiplicadores
 from src.motor.persistencia import nueva_partida, semilla_de_batalla
-from src.motor.seleccion import Enfrentamiento, elegir_enfrentamiento
+from src.motor.seleccion import Enfrentamiento, elegir_enfrentamiento, territorio
 from src.render import estilo as E
 from src.render.fondo import fondo_foto
 from src.render.mapa import MapaGalicia, pintar
@@ -146,7 +146,7 @@ def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio:
 def banda_enfrentamiento(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, disposicion: dict | None = None) -> Image.Image:
     """Banda del mapa con zoom a los dos bandos y contorno rojo en los concellos en conflicto."""
     ventana = mapa.ventana_enfrentamiento(estado, f.atacante, f.defensor, E.ANCHO / MAPA_ALTO)
-    conflicto = [(mapa.geometria([c]), E.CONFLICTO, 6) for c in (f.concello_atacante, f.concello_defensor)]
+    conflicto = [(mapa.geometria(territorio(estado, d)), E.CONFLICTO, 6) for d in (f.atacante, f.defensor)]  # territorio completo de cada bando
     return mapa.dibujar(estado, ventana, E.ANCHO, MAPA_ALTO, contornos=conflicto, nombres=[f.atacante, f.defensor],
                         disposicion=disposicion)
 

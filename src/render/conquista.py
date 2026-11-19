@@ -114,7 +114,7 @@ def _banda_parcial(ctx: Conquista, n: int) -> Image.Image:
     cache = ctx.__dict__.setdefault("_cache", {})
     if n not in cache:
         f = ctx.f
-        conflicto = [(ctx.mapa.geometria([c]), E.CONFLICTO, 6) for c in (f.concello_atacante, f.concello_defensor)]
+        conflicto = [(ctx.mapa.geometria(territorio(ctx.estado_antes, d)), E.CONFLICTO, 6) for d in (f.atacante, f.defensor)]
         cache[n] = ctx.mapa.dibujar(_estado_parcial(ctx, n), ctx.ventana, E.ANCHO, M.MAPA_ALTO, contornos=conflicto,
                                     disposicion=_disposicion(ctx))
     return cache[n]

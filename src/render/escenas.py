@@ -298,11 +298,12 @@ class EscenaSeleccion:
             i = self._paso(t, self.t_d, self.pasos_d)
             bloqueado = t >= self.t_d_bloqueo
             cand = self.sec_d[min(i, len(self.sec_d) - 1)]
-            cont = base_atq + ((cand, "concello", ROJO if bloqueado else ORO, 7 if not bloqueado else 6),)
+            dueno_cand = self.estado["concellos"][cand]["dono"]  # se resalta el territorio completo del dueño
+            cont = base_atq + ((dueno_cand, "dono", ROJO if bloqueado else ORO, 7 if not bloqueado else 6),)
             return self._compuesto(panel, self._banda(self.v1, cont, (f.atacante, f.defensor) if bloqueado else (f.atacante,)))
         # 5) zoom hasta los dos bandos; entra el defensor en el panel
         u = _facil((t - self.t_m) / D_MORPH)
-        cont = ((f.concello_atacante, "concello", ROJO, 6), (f.concello_defensor, "concello", ROJO, 6))
+        cont = ((f.atacante, "dono", ROJO, 6), (f.defensor, "dono", ROJO, 6))
         banda = self._banda(_interpolar(self.v1, self.v2, u), cont, (f.atacante, f.defensor), cachear=False)
         entra = _facil((t - self.t_m - 0.45) / (D_MORPH - 0.45))
         return self._compuesto(_mezclar(panel, self.completo, entra), banda)
