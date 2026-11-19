@@ -460,6 +460,75 @@ def multiplicador(n: int) -> np.ndarray:
     return normalizar(fundidos(estereo(x), 0.005, 0.08), -5.0 + 2.0 * (k - 1))
 
 
+def campanilla_ganador() -> np.ndarray:
+    """21 · Recuadro dorado del ganador (aparece con rebote en 0,39 s de vídeo): campanilla de victoria, un
+    arpegio rapidísimo Sol-Do-Mi-Sol (sexta octava) con un destello agudo al final. ≈0,8 s."""
+    t = t_(0.8)
+    x = np.zeros_like(t)
+    for k, f in enumerate((784.0, 1046.5, 1318.5, 1568.0)):  # Sol5, Do6, Mi6, Sol6
+        d = np.clip(t - 0.045 * k, 0, None)
+        x += _parciales(d, f, (1, 2.0, 3.0, 4.2), (1.0, 0.4, 0.2, 0.1), (0.4, 0.25, 0.15, 0.08)) * (t >= 0.045 * k) * (0.8 + 0.1 * k)
+    d = np.clip(t - 0.2, 0, None)
+    x += 0.15 * np.sin(2 * np.pi * 4186 * d) * env_exp(d, 0.2, 0.001) * (t >= 0.2)
+    return normalizar(fundidos(estereo(x), 0.0005, 0.08), -5.0)
+
+
+def crepitar(n: int, semilla: int, densidad: float, fuerza: np.ndarray) -> np.ndarray:
+    """Crepitar de fuego: chasquidos sueltos (muchos y flojos, pocos y fuertes) sobre un rumor grave.
+    `densidad`: chasquidos por segundo; `fuerza`: envolvente del volumen (misma longitud que `n`)."""
+    rng = np.random.default_rng(semilla)
+    x = np.zeros(n)
+    for _ in range(int(densidad * n / SR)):
+        a = int(rng.random() * (n - 400))
+        amp = rng.random() ** 3
+        tau = rng.uniform(0.0008, 0.003)
+        t = t_(0.012)
+        x[a:a + len(t)] += paso_bajo(ruido(len(t), int(rng.integers(1, 10 ** 6))), rng.uniform(2500, 7000)) * env_exp(t, tau, 0.0002) * amp * 2.5
+    rumor = paso_bajo(ruido(n, semilla + 1), 380) * (0.5 + 0.5 * np.sin(2 * np.pi * 3.1 * np.arange(n) / SR + 1))
+    return (x + 0.9 * rumor) * fuerza
+
+
+def morte_subita() -> np.ndarray:
+    """22 · Morte súbita: aparece la tarjeta en llamas (entra en 0,39 s) y se mantiene durante la ronda. Dos
+    bocinazos graves de alarma + un soplido de fuego que prende, y después un crepitar que dura toda la ronda
+    y se apaga al final. Esta versión cubre UNA ronda (≈1,9 s); en el montaje se alarga según las rondas."""
+    dur = (0.5 + 0.9 + 1.1) / VELOCIDAD
+    t = t_(dur)
+    entrada = 0.5 / VELOCIDAD
+    bocina = np.zeros_like(t)
+    for ini, f0 in ((0.0, 150.0), (0.21, 118.0)):  # dos pulsos, el segundo más grave
+        d = np.clip(t - ini, 0, 0.2)
+        onda = sum(np.sin(2 * np.pi * f0 * h * d) / h for h in (1, 3, 5, 7))  # casi cuadrada: sonido de alarma
+        pulso = ((t >= ini) & (t < ini + 0.2)) * np.minimum(1, (t - ini) / 0.01) * np.minimum(1, (ini + 0.2 - t) / 0.03)
+        bocina += onda * pulso
+    u = np.clip(t / entrada, 0, 1)
+    soplido = filtro_banda_variable(ruido(len(t), 22), 200 * (12.0 ** u), q=1.4) * (u ** 1.3) * (t < entrada + 0.1)
+    fuerza = np.minimum(1, t / entrada) * np.clip((dur - t) / 0.35, 0, 1)
+    crepitar_ = crepitar(len(t), 23, 55, fuerza)
+    x = 0.3 * bocina + 0.5 * normalizar(soplido, -8.0) + 0.35 * crepitar_
+    return normalizar(fundidos(estereo(x), 0.005, 0.1), -4.0)
+
+
+def dado_extra() -> np.ndarray:
+    """23 · Morte súbita: se tira el dado extra de cada bando (rueda 0,69 s y se para). Traqueteo más grave y
+    tenso que el de las tiradas normales y, al pararse, un golpe más pesado (madera + graves). ≈1,1 s."""
+    rod = D_RODAR_VIDEO
+    dur = rod + 0.4
+    mezcla = np.zeros((int(dur * SR), 2))
+    for lado, pan in ((0, 0.3), (1, 0.7)):
+        rng = np.random.default_rng(80 + lado)
+        for k, ti in enumerate(np.sort(0.7 * rod * rng.random(14) ** 0.8)):
+            _poner(mezcla, _tok(rng.uniform(1300, 2400), 0.35 + 0.35 * rng.random(), tau=0.009, semilla=k + 30 * lado), ti, pan)
+        for k, (fr, fuerza) in enumerate(((0.78, 0.9), (0.9, 0.7))):
+            _poner(mezcla, _tok(800 - 100 * k, fuerza, tau=0.014, semilla=90 + k + 10 * lado), fr * rod, pan)
+        t = t_(0.4)
+        golpe = (seno_barrido(t, 260, 120, 0.04) * env_exp(t, 0.07, 0.001)
+                 + 0.8 * seno_barrido(t, 90, 45, 0.06) * env_exp(t, 0.18, 0.002)
+                 + 0.5 * paso_bajo(ruido(len(t), 95 + lado), 3500) * env_exp(t, 0.005, 0.0003))
+        _poner(mezcla, golpe * 1.1, rod + 0.035 * lado, pan)
+    return normalizar(fundidos(mezcla, 0.002, 0.06), -3.0)
+
+
 EFECTOS = {
     1: ("01_portada_golpe", golpe_portada),
     2: ("02_portada_frase_pop", pop_frase),
@@ -481,6 +550,9 @@ EFECTOS = {
     174: ("17_ding_mas4", lambda: ding_puntos(4)),
     175: ("17_ding_mas5", lambda: ding_puntos(5)),
     18: ("18_empate_tic", tic_empate),
+    21: ("21_ganador_campanilla", campanilla_ganador),
+    22: ("22_morte_subita_tarjeta", morte_subita),
+    23: ("23_morte_subita_dado_extra", dado_extra),
     19: ("19_marcador_moneda", tic_moneda),
     201: ("20_multiplicador_x1_1", lambda: multiplicador(1)),
     202: ("20_multiplicador_x1_2", lambda: multiplicador(2)),

@@ -633,3 +633,8 @@ Las entradas no se borran. Las nuevas se añaden al final.
 
 ## 2026-11-19 — Sonidos 15–17 aprobados; generados 18–20
 - **Generados (⏳):** 18 tic apagado del «=», 19 tic de moneda del marcador y 20 el multiplicador (5 variantes `20_multiplicador_x1_N.wav`, de ×1,1 a ×1,5: barrido ascendente de 0,39 s y acorde de campanas que cae cuando el marcador pasa a decimales; más destellos y un golpe grave en los multiplicadores altos).
+
+## 2026-11-19 · Paso 5.1 · Sonidos 18–23
+- Aprobados 18, 19 y 20. Sintetizados 21 (campanilla del ganador), 22 (morte súbita: alarma + fuego) y 23 (dado extra) con `python -m src.audio.sintesis 21 22 23`; pendientes de OK.
+- Montaje: 21 al aparecer el recuadro del ganador; 22 en la entrada de la tarjeta, alargado según las rondas; 23 por cada ronda de dado extra, con el golpe al final de la rodada.
+- Siguiente: 24 (rótulos CAMPIÓN/MALOGRADO), 25 (gaita) y 26–34.

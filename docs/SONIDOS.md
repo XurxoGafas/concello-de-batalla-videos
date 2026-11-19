@@ -27,12 +27,12 @@ Prioridad: **A** imprescindible · **B** deseable · **C** opcional.
 | 15 | Dados | los 6 dados ruedan | traqueteo (uno por tirada, mientras ruedan los dos dados de esa fila) | A | ✅ |
 | 16 |  | cada dado se para | golpe seco de madera, escalonado (suena cuando termina el rodar de la fila) | A | ✅ |
 | 17 |  | insignia «+N» | «ding» que sube de nota según N (1–5): 5 archivos `17_ding_masN.wav`; suena 0,1 s después de pararse el dado | A | ✅ |
-| 18 |  | «=» (empate de tirada) | tic apagado (suena con la insignia «=», 0,1 s después de pararse el dado) | B | ⏳ |
-| 19 |  | el marcador suma | tic de moneda (suena cuando el marcador suma, al pararse el dado) | B | ⏳ |
-| 20 |  | multiplicador ×1,N | barrido ascendente + acorde brillante, más fuerte cuanto mayor el multiplicador: 5 archivos `20_multiplicador_x1_N.wav`; el acorde coincide con el cambio del marcador a decimales | A | ⏳ |
-| 21 |  | recuadro del ganador | campanilla de victoria corta | A |  |
-| 22 | Morte súbita | tarjeta en llamas | alarma grave + crepitar de fuego | A |  |
-| 23 |  | dado extra | traqueteo + golpe | A |  |
+| 18 |  | «=» (empate de tirada) | tic apagado (suena con la insignia «=», 0,1 s después de pararse el dado) | B | ✅ |
+| 19 |  | el marcador suma | tic de moneda (suena cuando el marcador suma, al pararse el dado) | B | ✅ |
+| 20 |  | multiplicador ×1,N | barrido ascendente + acorde brillante, más fuerte cuanto mayor el multiplicador: 5 archivos `20_multiplicador_x1_N.wav`; el acorde coincide con el cambio del marcador a decimales | A | ✅ |
+| 21 |  | recuadro del ganador | campanilla de victoria corta | A |  ⏳ |
+| 22 | Morte súbita | tarjeta en llamas | alarma grave + crepitar de fuego | A |  ⏳ (1,9 s = una ronda; en el montaje se alarga con las rondas) |
+| 23 |  | dado extra | traqueteo + golpe | A |  ⏳ (1,1 s; el golpe cae al final de la rodada, una vez por ronda) |
 | 24 | Conquista | cambian los rótulos CAMPIÓN/MALOGRADO | destello (whoosh + chispas) | A |  |
 | 25 |  | entra la gaita | cancioncilla de gaita (≈3 s) | A |  |
 | 26 |  | confeti (2 tandas) | estallidos de papel/«pops» | B |  |
