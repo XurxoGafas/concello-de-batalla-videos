@@ -76,3 +76,11 @@ def test_es_determinista_y_dura_lo_previsto(ctx):
 
 def test_pluralizacion_gallega():
     assert C._plural(1) == "+1 concello" and C._plural(4) == "+4 concellos"
+
+
+def test_la_gaita_se_va_tras_su_tiempo(ctx, monkeypatch):
+    """Pasado `D_GAITA` la gaita ya no está: el fotograma es igual al del final (sin confeti, que es aparte)."""
+    monkeypatch.setattr(C, "_confeti", lambda *a, **k: None)
+    fin = C.fotograma(ctx, C.DURACION - 0.05)
+    assert C.fotograma(ctx, C.T_GAITA + C.D_GAITA + 0.05).tobytes() == fin.tobytes()
+    assert C.fotograma(ctx, C.T_GAITA + C.D_GAITA - 0.5).tobytes() != fin.tobytes()

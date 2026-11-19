@@ -660,3 +660,8 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Salidas (no se suben a git):** `output/muestras/ataque_episodio1_con_audio.mp4` (21,2 s, −14,1 LUFS) y `episodio100_con_audio.mp4` (65,6 s, −14,1 LUFS).
 - **Decisiones mías, a revisar:** el «pop» de la frase (02) a 0,25 s (en el vídeo la frase está desde el primer fotograma); sin sonido en el alejamiento entre batallas (el 29 solo suena al final del ataque suelto); sin confeti sonoro en el final de serie; confeti 26 en las dos tandas.
 - **Pendiente:** el usuario revisa la sincronía; cualquier cambio se pide por número. El paso 5.2 sigue `[~]` hasta su visto bueno.
+
+## 2026-11-19 · Cambio de diseño (pedido del usuario) · Gaita de la conquista, solo animación
+- El usuario pide reducir a la mitad la escena de la gaita y la canción (25), y que la canción suene más suave. Primero solo la animación.
+- **Hecho:** la gaita se queda `D_GAITA = 1,6 s` (antes 3,2 s, hasta el final de la conquista) y sale encogiéndose en 0,3 s (`src/render/conquista.py`). La duración de la conquista (4,2 s), el color y las pastillas no cambian; el confeti sigue su curso. Test nuevo `test_la_gaita_se_va_tras_su_tiempo`.
+- **Pendiente:** versión corta (≈1,5 s) y más suave de la canción 25 (y su efecto en la fanfarria 33); decidir si se acorta también la gaita del final de serie.

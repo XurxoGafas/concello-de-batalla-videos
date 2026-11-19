@@ -36,6 +36,8 @@ T_ROTULOS = 0.5      # ATACA/DEFENDE → CAMPIÓN/MALOGRADO
 T_EXTENSION = 0.5    # empieza a extenderse el color
 D_EXTENSION = 1.8
 T_GAITA = 1.0        # aparece la gaita (y el primer chorro de confeti)
+D_GAITA = 1.6        # tiempo que se queda la gaita en pantalla (mitad que antes: 3,2 s → 1,6 s; sale encogiéndose)
+D_SALIDA_GAITA = 0.3
 T_PASTILLAS = 2.0
 T_CONFETI2 = 2.0
 DURACION = 4.2
@@ -188,8 +190,8 @@ def fotograma(ctx: Conquista, t: float) -> Image.Image:
         gaita, destello = _sprites()
         D.pegar(img, destello, ctx.cx_ganador, M.Y_ROTULO + 22, escala=0.5 + 0.7 * u, opacidad=(1 - u) * 0.9)
     gaita, _ = _sprites()
-    if t >= T_GAITA:
-        e = D.salida_rebote((t - T_GAITA) / 0.5)
+    if T_GAITA <= t < T_GAITA + D_GAITA:
+        e = D.salida_rebote((t - T_GAITA) / 0.5) * (1 - D.limitar((t - T_GAITA - D_GAITA + D_SALIDA_GAITA) / D_SALIDA_GAITA) ** 2)
         balanceo = 7 * math.sin((t - T_GAITA) * 7) * D.limitar((t - T_GAITA) / 0.3) + 12 * ctx.lado_ganador
         sprite = gaita.rotate(-balanceo, resample=Image.BICUBIC, expand=True)
         D.pegar(img, sprite, X_GAITA, Y_GAITA, escala=e)
