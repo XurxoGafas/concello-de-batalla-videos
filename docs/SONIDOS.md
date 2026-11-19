@@ -24,12 +24,12 @@ Prioridad: **A** imprescindible · **B** deseable · **C** opcional.
 | 12 |  | entra la botella | deslizar de cristal (termina en el choque) | A | ✅ |
 | 13 |  | choque y destello | choque metálico + tintineo de cristal (empieza en el choque) | A | ✅ |
 | 14 |  | «LIORTA!» | golpe de graves (empieza en el choque, con el temblor) | A | ✅ |
-| 15 | Dados | los 6 dados ruedan | traqueteo (uno por tirada, mientras ruedan los dos dados de esa fila) | A | ⏳ |
-| 16 |  | cada dado se para | golpe seco de madera, escalonado (suena cuando termina el rodar de la fila) | A | ⏳ |
-| 17 |  | insignia «+N» | «ding» que sube de nota según N (1–5): 5 archivos `17_ding_masN.wav`; suena 0,1 s después de pararse el dado | A | ⏳ |
-| 18 |  | «=» (empate de tirada) | tic apagado | B |  |
-| 19 |  | el marcador suma | tic de moneda | B |  |
-| 20 |  | multiplicador ×1,N | barrido ascendente + acorde brillante (más fuerte con ×1,5) | A |  |
+| 15 | Dados | los 6 dados ruedan | traqueteo (uno por tirada, mientras ruedan los dos dados de esa fila) | A | ✅ |
+| 16 |  | cada dado se para | golpe seco de madera, escalonado (suena cuando termina el rodar de la fila) | A | ✅ |
+| 17 |  | insignia «+N» | «ding» que sube de nota según N (1–5): 5 archivos `17_ding_masN.wav`; suena 0,1 s después de pararse el dado | A | ✅ |
+| 18 |  | «=» (empate de tirada) | tic apagado (suena con la insignia «=», 0,1 s después de pararse el dado) | B | ⏳ |
+| 19 |  | el marcador suma | tic de moneda (suena cuando el marcador suma, al pararse el dado) | B | ⏳ |
+| 20 |  | multiplicador ×1,N | barrido ascendente + acorde brillante, más fuerte cuanto mayor el multiplicador: 5 archivos `20_multiplicador_x1_N.wav`; el acorde coincide con el cambio del marcador a decimales | A | ⏳ |
 | 21 |  | recuadro del ganador | campanilla de victoria corta | A |  |
 | 22 | Morte súbita | tarjeta en llamas | alarma grave + crepitar de fuego | A |  |
 | 23 |  | dado extra | traqueteo + golpe | A |  |

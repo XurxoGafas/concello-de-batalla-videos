@@ -407,6 +407,59 @@ def dings_preview() -> np.ndarray:
     return normalizar(mezcla, -3.0)
 
 
+def tic_empate() -> np.ndarray:
+    """18 · Insignia «=» (tirada empatada): tic apagado y grave, como un golpecito sobre algo blando; casi
+    sin brillo para que se note que «no pasa nada». ≈0,15 s."""
+    t = t_(0.15)
+    x = (np.sin(2 * np.pi * 430 * t) * env_exp(t, 0.03, 0.001)
+         + 0.4 * paso_bajo(ruido(len(t), 18), 1200) * env_exp(t, 0.012, 0.0008))
+    return normalizar(fundidos(estereo(x), 0.0005, 0.02), -12.0)
+
+
+def tic_moneda() -> np.ndarray:
+    """19 · El marcador suma puntos: «tink» de moneda, agudo y brillante, con una cola metálica corta.
+    ≈0,35 s."""
+    t = t_(0.35)
+    x = (_parciales(t, 2349, (1, 2.4, 3.9), (1.0, 0.55, 0.3), (0.11, 0.07, 0.04))
+         + 0.5 * paso_bajo(ruido(len(t), 19), 9000) * env_exp(t, 0.002, 0.0002))
+    return normalizar(fundidos(estereo(x), 0.0003, 0.04), -8.0)
+
+
+T_MULT_ACORDE = 0.5 / VELOCIDAD  # el marcador pasa a decimales a los 0,5 s del multiplicador (montaje)
+
+
+def multiplicador(n: int) -> np.ndarray:
+    """20 · Multiplicador ×1,N (N = 1…5): barrido ascendente (ruido que sube + un tono que trepa) que
+    termina en un acorde de campanas brillante justo cuando el marcador cambia a decimales. Cuanto mayor es
+    el multiplicador, más fuerte el acorde y más destellos y un golpe grave al final (×1,5 es el máximo).
+    ≈1,3 s; el acorde cae a los 0,39 s."""
+    k = (n - 1) / 4  # 0 (×1,1) … 1 (×1,5)
+    dur = T_MULT_ACORDE + 0.95
+    t = t_(dur)
+    a = int(T_MULT_ACORDE * SR)
+    u = np.clip(t / T_MULT_ACORDE, 0, 1)
+    subida = (t < T_MULT_ACORDE)
+    aire = filtro_banda_variable(ruido(len(t), 20), 400 * (10.0 ** u), q=2.0) * (u ** 1.5) * subida
+    fase = 2 * np.pi * np.cumsum(300 * (4.5 ** u)) / SR
+    tono = np.sin(fase) * (u ** 2) * subida * 0.35
+    x = normalizar(aire, -12.0) + tono * 0.5
+    tc = np.clip(t - T_MULT_ACORDE, 0, None)
+    on = (t >= T_MULT_ACORDE)
+    acorde = np.zeros_like(t)
+    for f in (1046.5, 1318.5, 1568.0, 2093.0):  # Do mayor, brillante
+        acorde += _parciales(tc, f, (1, 2.0, 3.0), (1.0, 0.4, 0.2), (0.55, 0.3, 0.18)) * on
+    x += acorde * (0.18 + 0.2 * k)
+    rng = np.random.default_rng(21)
+    for _ in range(int(3 + 9 * k)):  # destellos de campanita aguda
+        t0 = T_MULT_ACORDE + 0.03 + 0.5 * rng.random()
+        f = rng.choice((3136.0, 3951.0, 4186.0, 5274.0))
+        d = np.clip(t - t0, 0, None)
+        x += 0.05 * (0.5 + k) * np.sin(2 * np.pi * f * d) * env_exp(d, 0.09, 0.001) * (t >= t0)
+    if k >= 0.5:  # golpe grave de poder
+        x += (0.25 + 0.5 * (k - 0.5)) * seno_barrido(tc, 110, 50, 0.05) * env_exp(tc, 0.18, 0.002) * on
+    return normalizar(fundidos(estereo(x), 0.005, 0.08), -5.0 + 2.0 * (k - 1))
+
+
 EFECTOS = {
     1: ("01_portada_golpe", golpe_portada),
     2: ("02_portada_frase_pop", pop_frase),
@@ -427,6 +480,13 @@ EFECTOS = {
     173: ("17_ding_mas3", lambda: ding_puntos(3)),
     174: ("17_ding_mas4", lambda: ding_puntos(4)),
     175: ("17_ding_mas5", lambda: ding_puntos(5)),
+    18: ("18_empate_tic", tic_empate),
+    19: ("19_marcador_moneda", tic_moneda),
+    201: ("20_multiplicador_x1_1", lambda: multiplicador(1)),
+    202: ("20_multiplicador_x1_2", lambda: multiplicador(2)),
+    203: ("20_multiplicador_x1_3", lambda: multiplicador(3)),
+    204: ("20_multiplicador_x1_4", lambda: multiplicador(4)),
+    205: ("20_multiplicador_x1_5", lambda: multiplicador(5)),
     111: ("preview_11-14_duelo", duelo_preview),  # vista previa conjunta, no es un efecto del esquema
     117: ("preview_17_dings_1-5", dings_preview),  # los cinco dings seguidos, solo para escuchar
 }
