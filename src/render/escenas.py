@@ -25,7 +25,7 @@ from src.motor.estado import Episodio, jugar_batalla, partida_terminada
 from src.motor.persistencia import jugar_episodio_detallado, nueva_partida, semilla_de_batalla
 from src.datos.poblacion import cargar as cargar_poblacion
 from src.motor.momentos import cargar_frases, elegir_portada
-from src.motor.seleccion import Enfrentamiento, vecinos_enemigos
+from src.motor.seleccion import Enfrentamiento, territorio, vecinos_enemigos
 from src.render import animacion_batalla as AB
 from src.render import conquista as CQ
 from src.render import dados as D
@@ -360,6 +360,59 @@ class EscenaCierre:
         img = self.base.copy()
         R.dibujar_cierre(img, self.estado, t)
         return img
+
+
+# ---------- Cierre corto de un ataque suelto ----------
+
+D_ALEJAR = 3.4  # segundos: alejarse hasta Galicia entera (2,2 s) y quedarse viendo el resultado
+
+
+class EscenaAlejamiento:
+    """Tras la conquista, el mapa se aleja hasta la vista general (con el mapa creciendo a la vez, como
+    entre batallas) y se queda un momento con el resultado. Con desenfoque de movimiento."""
+
+    fundido = FUNDIDO
+    duracion = D_ALEJAR
+
+    def __init__(self, estado: dict, episodio: int, mapa: MapaGalicia, ventana_desde, ganador: str) -> None:
+        self.estado, self.mapa, self.ganador, self.v1 = estado, mapa, ganador, ventana_desde
+        self.v0 = mapa.ventana_general(E.ANCHO / MAPA_GRANDE)
+        self.vacio, _ = M.marco_vacio(episodio)
+        self.t_zoom = D_ZOOM_SALIDA
+
+    def _fotograma(self, t: float) -> Image.Image:
+        u = _facil(t / self.t_zoom)
+        alto = round(M.MAPA_ALTO + (MAPA_GRANDE - M.MAPA_ALTO) * u)
+        ventana = ventana_con_alto(self.v1, self.v0, u, alto)
+        cont = [(self.mapa.geometria(territorio(self.estado, self.ganador)), E.ORO, 6)] if u < 1 else []
+        return componer(self.vacio, self.mapa.dibujar(self.estado, ventana, E.ANCHO, alto, contornos=cont))
+
+    def fotograma(self, t: float) -> Image.Image:
+        if t >= self.t_zoom:
+            return self._fotograma(self.t_zoom)
+        paso = DESENFOQUE * VELOCIDAD / E.FPS
+        a, c = max(0.0, t - paso), min(self.t_zoom - 1e-6, t + paso)
+        img = self._fotograma(t)
+        if c - a < 1e-9:
+            return img
+        return Image.blend(Image.blend(self._fotograma(a), img, 0.5), self._fotograma(c), 1 / 3)
+
+
+def construir_ataque(estado: dict, semilla_serie: str, mapa: MapaGalicia) -> Montaje:
+    """Versión corta: UN solo ataque (intro con el mapa, sorteo, batalla, conquista y alejamiento final).
+    Sin portada ni ranking. El estado resultante es el de después de esa única batalla."""
+    final, _, pasos = jugar_episodio_detallado(estado, semilla_serie, n_batallas=1)
+    episodio = final["episodio"]
+    previo, ep = pasos[0]
+    f = ep.enfrentamiento
+    escenas = [EscenaIntro(previo, episodio, mapa),
+               EscenaSeleccion(previo, f, mapa, episodio, semilla_serie),
+               EscenaBatalla(previo, ep, mapa, episodio),
+               EscenaConquista(previo, ep, final, mapa, episodio),
+               EscenaAlejamiento(final, episodio, mapa,
+                                 mapa.ventana_enfrentamiento(previo, f.atacante, f.defensor, E.ANCHO / M.MAPA_ALTO),
+                                 ep.ganador)]
+    return montar(escenas, final)
 
 
 # ---------- Final de la serie ----------

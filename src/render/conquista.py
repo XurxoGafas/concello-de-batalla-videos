@@ -66,14 +66,23 @@ def _ganador_es_atacante(ep: Episodio) -> bool:
     return ep.ganador == ep.enfrentamiento.atacante
 
 
+def disposicion(estado_antes: dict, estado_despues: dict, ep: Episodio) -> dict:
+    """Dónde se colocan la bandera o el escudo de cada bando durante toda la conquista: el ganador, sobre su
+    territorio final y el perdedor, sobre el que tenía. Así nada se mueve ni cambia de escala mientras el
+    territorio se extiende concello a concello."""
+    return {ep.ganador: territorio(estado_despues, ep.ganador), ep.perdedor: territorio(estado_antes, ep.perdedor)}
+
+
 def preparar(estado_antes: dict, ep: Episodio, estado_despues: dict, mapa: MapaGalicia, episodio: int) -> Conquista:
     f = ep.enfrentamiento
     gana_a = _ganador_es_atacante(ep)
     ventana = mapa.ventana_enfrentamiento(estado_antes, f.atacante, f.defensor, E.ANCHO / M.MAPA_ALTO)
     rot_g = ("CAMPIÓN", E.ORO, E.FONDO)
     rot_p = ("MALOGRADO", E.GRIS_EMPATE, E.BLANCO)
-    base_antes, _ = M.fotograma_base(estado_antes, f, mapa, episodio)
-    base_despues, _ = M.fotograma_base(estado_antes, f, mapa, episodio, rotulos=(rot_g, rot_p) if gana_a else (rot_p, rot_g))
+    disp = disposicion(estado_antes, estado_despues, ep)
+    base_antes, _ = M.fotograma_base(estado_antes, f, mapa, episodio, disposicion=disp)
+    base_despues, _ = M.fotograma_base(estado_antes, f, mapa, episodio, rotulos=(rot_g, rot_p) if gana_a else (rot_p, rot_g),
+                                       disposicion=disp)
     # orden de extensión: del concello del perdedor más cercano a la frontera hacia dentro
     contacto = mapa.gdf.geometry[f.concello_atacante if gana_a else f.concello_defensor].centroid
     orden = sorted(territorio(estado_antes, ep.perdedor), key=lambda i: (mapa.gdf.geometry[i].centroid.distance(contacto), i))
@@ -96,12 +105,18 @@ def _estado_parcial(ctx: Conquista, n: int) -> dict:
     return {**ctx.estado_antes, "concellos": concellos}
 
 
+def _disposicion(ctx: Conquista) -> dict:
+    return {ctx.ganador: territorio(ctx.estado_despues, ctx.ganador),
+            ctx.perdedor: territorio(ctx.estado_antes, ctx.perdedor)}
+
+
 def _banda_parcial(ctx: Conquista, n: int) -> Image.Image:
     cache = ctx.__dict__.setdefault("_cache", {})
     if n not in cache:
         f = ctx.f
         conflicto = [(ctx.mapa.geometria([c]), E.CONFLICTO, 6) for c in (f.concello_atacante, f.concello_defensor)]
-        cache[n] = ctx.mapa.dibujar(_estado_parcial(ctx, n), ctx.ventana, E.ANCHO, M.MAPA_ALTO, contornos=conflicto)
+        cache[n] = ctx.mapa.dibujar(_estado_parcial(ctx, n), ctx.ventana, E.ANCHO, M.MAPA_ALTO, contornos=conflicto,
+                                    disposicion=_disposicion(ctx))
     return cache[n]
 
 

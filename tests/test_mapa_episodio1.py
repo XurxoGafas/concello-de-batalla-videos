@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import copy
 
+from PIL import Image
+
 import pytest
 
 from src.render import estilo as E
@@ -83,8 +85,8 @@ def test_banderas_recortadas_por_el_territorio(mapa, estado):
     """Con `banderas=True` el territorio de Ordes no es un color liso: se ve su bandera (verde, amarillo
     y negro) y nada se sale del contorno del territorio."""
     ventana = mapa.ventana_general(1.0)
-    liso = mapa.dibujar(estado, ventana, 600, 600)
-    con = mapa.dibujar(estado, ventana, 600, 600, unir_territorios=True, banderas=True)
+    liso = mapa.dibujar(estado, ventana, 600, 600, banderas=False)
+    con = mapa.dibujar(estado, ventana, 600, 600)
     o = _ordes(estado)
     bb = mapa.geometria(estado["donos"][o]["territorio"]).bounds
     ancho = ventana[2] - ventana[0]
@@ -97,3 +99,20 @@ def test_banderas_recortadas_por_el_territorio(mapa, estado):
     assert len(colores) > len({p for _, p in liso.crop(zona).getcolors(10000)})
     # el mar (esquina) sigue siendo mar: la bandera no se sale del territorio
     assert con.getpixel((2, 2)) == liso.getpixel((2, 2))
+
+
+def test_el_mapa_no_cambia_al_hacer_zoom(mapa, estado):
+    """Bandera y escudo se colocan y dimensionan según la geometría, no según el zoom: un mismo concello
+    se ve igual (misma colocación relativa) con la vista cerca y lejos."""
+    ids = [i for i, c in estado["concellos"].items() if c["nome"] in ("Muxía", "Cee", "Dumbría")]
+    b = mapa.limites(ids)
+    cx, cy = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2
+    cerca_w, lejos_w = 40000, 160000
+    ventanas = [(cx - w / 2, cy - w / 2, cx + w / 2, cy + w / 2) for w in (cerca_w, lejos_w)]
+    cerca = mapa.dibujar(estado, ventanas[0], 800, 800)
+    lejos = mapa.dibujar(estado, ventanas[1], 200, 200)
+    # la vista lejana es la cercana encogida 4 veces: deben parecerse mucho
+    centro = lejos.crop((75, 75, 125, 125))
+    ref = cerca.resize((50, 50), Image.LANCZOS)
+    dif = sum(abs(a - b) for pa, pb in zip(centro.getdata(), ref.getdata()) for a, b in zip(pa, pb)) / (50 * 50 * 3)
+    assert dif < 40

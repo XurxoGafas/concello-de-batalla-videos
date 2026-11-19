@@ -127,15 +127,15 @@ ROTULOS_BATALLA = (("ATACA", E.CONFLICTO, E.BLANCO), ("DEFENDE", E.AZUL_DEFENSA,
 
 
 def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio: int,
-                   rotulos: tuple[tuple[str, str, str], tuple[str, str, str]] | None = None
-                   ) -> tuple[Image.Image, ImageDraw.ImageDraw]:
+                   rotulos: tuple[tuple[str, str, str], tuple[str, str, str]] | None = None,
+                   disposicion: dict | None = None) -> tuple[Image.Image, ImageDraw.ImageDraw]:
     """Título, mapa con zoom, líneas doradas, panel, siluetas, nombres, vacas y diferencia.
 
     `rotulos`: (texto, color, color del borde) del atacante y del defensor; por defecto «ATACA» y
     «DEFENDE» (la pantalla de conquista usa «CAMPIÓN» y «MALOGRADO»)."""
     rotulos = rotulos or ROTULOS_BATALLA
     img, d = marco_vacio(episodio)
-    img.paste(banda_enfrentamiento(estado, f, mapa), (0, MAPA_Y0))
+    img.paste(banda_enfrentamiento(estado, f, mapa, disposicion), (0, MAPA_Y0))
     dibujar_bando(img, d, estado, mapa, f.atacante, CX_A, rotulos[0], x_pastilla_vacas(estado, f, f.atacante, -1))
     dibujar_bando(img, d, estado, mapa, f.defensor, CX_D, rotulos[1], x_pastilla_vacas(estado, f, f.defensor, 1))
     E.texto_centrado(d, CX_C, Y_SILUETA + ALTO_SILUETA / 2, "VS", 64, E.ORO, borde=7, color_borde=E.FONDO)
@@ -143,11 +143,12 @@ def fotograma_base(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio:
     return img, d
 
 
-def banda_enfrentamiento(estado: dict, f: Enfrentamiento, mapa: MapaGalicia) -> Image.Image:
+def banda_enfrentamiento(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, disposicion: dict | None = None) -> Image.Image:
     """Banda del mapa con zoom a los dos bandos y contorno rojo en los concellos en conflicto."""
     ventana = mapa.ventana_enfrentamiento(estado, f.atacante, f.defensor, E.ANCHO / MAPA_ALTO)
     conflicto = [(mapa.geometria([c]), E.CONFLICTO, 6) for c in (f.concello_atacante, f.concello_defensor)]
-    return mapa.dibujar(estado, ventana, E.ANCHO, MAPA_ALTO, contornos=conflicto, nombres=[f.atacante, f.defensor])
+    return mapa.dibujar(estado, ventana, E.ANCHO, MAPA_ALTO, contornos=conflicto, nombres=[f.atacante, f.defensor],
+                        disposicion=disposicion)
 
 
 def pantalla_enfrentamiento(estado: dict, f: Enfrentamiento, mapa: MapaGalicia, episodio: int) -> Image.Image:

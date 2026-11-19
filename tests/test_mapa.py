@@ -74,7 +74,7 @@ def test_ventana_de_enfrentamiento_cubre_los_dos_territorios(mapa, estado):
 
 def test_cada_concello_se_pinta_con_el_color_de_su_dueno(mapa, estado):
     v = mapa.ventana_general(1.0)
-    im = mapa.dibujar(estado, v, 900, 900)
+    im = mapa.dibujar(estado, v, 900, 900, banderas=False)
     assert im.size == (900, 900)
     comprobados = 0
     for i in list(estado["concellos"])[:60]:
@@ -102,7 +102,7 @@ def test_el_territorio_conquistado_cambia_al_color_del_ganador(mapa, estado):
 
 def test_sin_nombres_no_hay_texto_en_el_mapa(mapa, estado):
     v = mapa.ventana_general(1.0)
-    im = mapa.dibujar(estado, v, 900, 900)
+    im = mapa.dibujar(estado, v, 900, 900, banderas=False)
     assert (255, 255, 255) not in {c for _, c in im.getcolors(1_000_000)}
 
 
