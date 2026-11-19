@@ -138,6 +138,15 @@ Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fas
 - **Archivos:** `src/render/escenas.py`, `src/render/ranking.py`.
 - **Hecho cuando:** el vídeo de prueba incluye intro, 3 batallas encadenadas y el cierre con ranking, dura entre 80 y 90 segundos, y todo el texto está en gallego.
 
+### [x] 4.7 Portada-gancho (escena 0, antes del mapa) y frases
+- **Qué:** una escena de **1,5–2 s con fondo negro** antes de la intro: la silueta del concello del momento más singular del episodio, en grande y con los colores de su bandera (provisionales hasta el paso 2.5), y una frase gancho **ambigua** (que no destripa el resultado) en gallego. Su primer fotograma es la portada del vídeo (y se exporta también como PNG). Transición a la intro: la silueta encoge y vuela a su sitio en el mapa mientras el negro se abre al mapa (plano continuo).
+  - **Momento:** se detectan los momentos singulares de las 3 batallas (muerte súbita, caída de un concello con mucha población, primera victoria, sorpresa por vacas, bonus grande…). En el **70 %** de los episodios se elige el momento del concello **con más habitantes** de las 3 batallas (cuenta la población del propio concello atacante/defensor, no la del territorio absorbido); en el **30 %** restante, el momento más singular de otro concello. Si el concello más poblado no tiene ningún momento singular, se pasa a otro con un evento más singular.
+  - **Población:** Padrón/Censo anual del IGE (tabla 142, 2025), registrada en `docs/FUENTES.md`.
+  - **Frases:** batería de 48 frases del usuario (`data/frases.json`), por tipo de momento (atacante, defensor, dados, multiplicador de vacas, morte súbita), con huecos `{concello}` y contracciones gallegas automáticas («da Coruña», «do Porriño»); no se repite una frase hasta pasados ~10 episodios; la elección usa la semilla (reproducible). El símbolo ✦ de la lista no tiene significado especial.
+  - **Fuera de alcance por ahora:** la automatización de la publicación (el usuario sube los vídeos a mano); el vídeo debe dejarse listo con su portada PNG y un texto de descripción.
+- **Archivos:** `scripts/descargar_poblacion.py`, `src/datos/poblacion.py`, `data/processed/poblacion.json`, `data/frases.json`, `src/motor/momentos.py`, `src/render/portada.py`, cambios en `src/render/escenas.py`, tests.
+- **Hecho cuando:** el vídeo de prueba empieza con la portada negra de 1,5–2 s (silueta + frase), enlaza con el mapa sin cortes, la frase no revela el resultado, y los tests de la selección de momento (reparto 70/30, sin repetir, reproducible) pasan.
+
 ---
 
 ## FASE 5 — Sonido

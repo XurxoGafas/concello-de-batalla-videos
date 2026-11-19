@@ -28,7 +28,7 @@ def _tipos(m):
 
 
 def test_estructura_intro_tres_batallas_y_cierre(montaje):
-    assert _tipos(montaje) == ["EscenaIntro"] + ["EscenaSeleccion", "EscenaBatalla", "EscenaConquista"] * 3 + ["EscenaCierre"]
+    assert _tipos(montaje) == ["EscenaPortada", "EscenaIntro"] + ["EscenaSeleccion", "EscenaBatalla", "EscenaConquista"] * 3 + ["EscenaCierre"]
 
 
 def test_el_video_dura_entre_80_y_90_segundos(montaje):
@@ -60,14 +60,14 @@ def test_fundido_cruzado_entre_escenas(montaje):
 
 
 def test_plano_continuo_sin_cortes(montaje):
-    intro, sel, bat = montaje.escenas[0], montaje.escenas[1], montaje.escenas[2]
+    intro, sel, bat = montaje.escenas[1], montaje.escenas[2], montaje.escenas[3]
     assert intro.fundido == 0.0 and sel.fundido == 0.0 and bat.fundido == 0.0
     assert intro.fotograma(intro.duracion).tobytes() == sel.fotograma(0.0).tobytes()
     assert sel.fotograma(sel.duracion).tobytes() == bat.fotograma(0.0).tobytes()
 
 
 def test_sorteos_terminan_en_atacante_y_defensor(montaje):
-    sel = montaje.escenas[1]
+    sel = montaje.escenas[2]
     assert sel.sec_a[-1] == sel.f.atacante
     assert sel.sec_d[-1] == sel.f.concello_defensor
     assert len(sel.sec_a) == len(sel.pasos_a) and len(sel.sec_d) == len(sel.pasos_d)
@@ -140,7 +140,7 @@ def test_un_episodio_que_acaba_la_serie_termina_con_la_escena_del_campeon(mapa):
 
 
 def test_mapa_grande_en_el_sorteo_y_encoge_sin_saltos(montaje):
-    sel = montaje.escenas[1]
+    sel = montaje.escenas[2]
     # durante el sorteo del atacante, la línea dorada bajo el mapa está más abajo (mapa grande)
     def y_linea(img):
         for y in range(M.LINEA_Y - 5, S.MAPA_GRANDE + M.MAPA_Y0 + 10):
@@ -155,5 +155,5 @@ def test_mapa_grande_en_el_sorteo_y_encoge_sin_saltos(montaje):
 
 
 def test_intro_muestra_el_mapa_desde_el_primer_fotograma(montaje):
-    intro = montaje.escenas[0]
+    intro = montaje.escenas[1]
     assert intro.fotograma(0.0).tobytes() == intro.fotograma(intro.duracion).tobytes()

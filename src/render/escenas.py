@@ -23,12 +23,15 @@ from PIL import Image, ImageDraw
 
 from src.motor.estado import Episodio, jugar_batalla, partida_terminada
 from src.motor.persistencia import jugar_episodio_detallado, nueva_partida, semilla_de_batalla
+from src.datos.poblacion import cargar as cargar_poblacion
+from src.motor.momentos import cargar_frases, elegir_portada
 from src.motor.seleccion import Enfrentamiento, vecinos_enemigos
 from src.render import animacion_batalla as AB
 from src.render import conquista as CQ
 from src.render import dados as D
 from src.render import enfrentamiento as M
 from src.render import estilo as E
+from src.render import portada as PT
 from src.render import ranking as R
 from src.render.animacion_batalla import escribir_video
 from src.render.mapa import MapaGalicia
@@ -37,7 +40,7 @@ CARPETA = E.RAIZ / "output" / "muestras"
 FUNDIDO = 0.2          # fundido cruzado entre escenas
 VELOCIDAD = 1.2        # el vídeo final se reproduce un 20 % más rápido (decisión del usuario, 2026-11-18)
 OBJETIVO = 85.0        # duración buscada del vídeo (el requisito es 80–90 s)
-D_INTRO = 2.0
+D_INTRO = 1.0
 D_CIERRE_MIN, D_CIERRE_MAX = 10.0, 26.0
 D_FINAL_SERIE = 9.0
 
@@ -413,11 +416,17 @@ def fotograma_de_video(m: Montaje, t: float) -> Image.Image:
     return img
 
 
-def construir_episodio(estado: dict, semilla_serie: str, mapa: MapaGalicia, objetivo: float = OBJETIVO) -> Montaje:
-    """Juega el episodio (3 batallas) y prepara todas sus escenas. Devuelve el montaje y el estado final."""
+def construir_episodio(estado: dict, semilla_serie: str, mapa: MapaGalicia, objetivo: float = OBJETIVO,
+                       recientes: list[int] | None = None) -> Montaje:
+    """Juega el episodio (3 batallas) y prepara todas sus escenas. Devuelve el montaje y el estado final.
+    `recientes`: ids de las frases gancho usadas en los últimos episodios (para no repetirlas)."""
     final, _, pasos = jugar_episodio_detallado(estado, semilla_serie)
     episodio = final["episodio"]
-    escenas: list = [EscenaIntro(pasos[0][0], episodio, mapa)]
+    intro = EscenaIntro(pasos[0][0], episodio, mapa)
+    portada = elegir_portada(pasos, cargar_poblacion(), cargar_frases(), recientes or [],
+                             random.Random(f"{semilla_serie}:portada:{episodio}"))
+    escenas: list = [PT.EscenaPortada(pasos[0][0], portada, mapa, intro.img,
+                                      mapa.ventana_general(E.ANCHO / MAPA_GRANDE), MAPA_GRANDE), intro]
     prop = E.ANCHO / M.MAPA_ALTO
     previa = None  # (ventana del enfrentamiento anterior, ganador)
     for n, (previo, ep) in enumerate(pasos):
@@ -465,6 +474,8 @@ def generar(carpeta: Path = CARPETA) -> Path:
     t0 = time.time()
     m = construir_episodio(estado_de_muestra(), "muestra", MapaGalicia())
     print(f"Montaje listo: {len(m.escenas)} escenas, {m.duracion:.1f} s ({time.time() - t0:.0f} s de preparación)", flush=True)
+    carpeta.mkdir(parents=True, exist_ok=True)
+    m.escenas[0].fotograma(0.0).save(carpeta / "portada.png")  # miniatura = primer fotograma
     ruta = renderizar(m, carpeta / "episodio_sin_audio.mp4", progreso=True)
     print(f"Render completo en {time.time() - t0:.0f} s", flush=True)
     return ruta

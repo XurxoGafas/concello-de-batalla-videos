@@ -46,3 +46,8 @@ Cada recurso externo se registra aquí con su fuente, fecha y licencia **antes d
 - **Fuente:** Flaticon — https://www.flaticon.es/icono-gratis/vaca_2395796 — icono «Vaca», estilo Lineal Color, autor **surang**.
 - **Licencia:** gratuita para uso personal o comercial **con atribución obligatoria al autor** (Licencia Flaticon). Fecha de registro: 2026-11-18. Se usa en lugar de la palabra «vacas» en pastillas, rankings y escenas.
 - **Pendiente (regla j):** incluir la atribución («Icono de surang / Flaticon») en la descripción de cada vídeo al hacer el paso 6.1 (metadatos), y cuidar el formato exacto que pide Flaticon.
+
+## Población por concello (`data/processed/poblacion.json`)
+- **Fuente:** Instituto Galego de Estatística (IGE), tabla 142 «Cifras de poboación» (origen: INE, Censo anual de población), población total a 1 de enero de **2025**, vía la API de datos del IGE `https://www.ige.gal/igebdt/igeapi/json/datos/142/` (una sola descarga con `scripts/descargar_poblacion.py`).
+- **Resultado:** dato para los 313 concellos; total 2.714.741 = total publicado por el IGE para Galicia a 01/01/2025. Las 4 filas sin dato son concellos desaparecidos (Cesuras, Oza dos Ríos, Cerdedo, Cotobade).
+- **Uso:** solo para elegir el concello protagonista de la portada del vídeo (no entra en las reglas del juego). Mismas condiciones de la API del IGE que la tabla 62 (mostrar el aviso de que el producto no está certificado ni aprobado por el IGE; no modificar los datos).

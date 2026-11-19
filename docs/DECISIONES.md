@@ -167,3 +167,13 @@ No quedan dudas abiertas de las planteadas inicialmente en `PLAN.md`. La definic
 ## Selección de atacante y defensor como un plano continuo (paso 4.6)
 
 **Decidido por el usuario (2026-11-18):** el atacante no aparece directamente: se hace un **sorteo de ≈2 s** que recorre distintos dueños (se resalta su territorio y el panel muestra su nombre, silueta y vacas) y queda el atacante; después el sorteo del defensor recorre los concellos vecinos. Desde el mapa general hasta la pantalla de enfrentamiento **no hay cortes de escena**: es un único plano con el mismo fondo, y el zoom debe ser suave (movimiento continuo a 30 fps con aceleración y frenado suaves, sin pasos).
+
+## Portada-gancho al inicio del vídeo (paso 4.7)
+
+**Decidido por el usuario (2026-11-19):**
+- Una escena previa a la intro (1,5–2 s, fondo negro) con la silueta grande del concello del momento más singular del episodio, coloreada con su bandera, y una frase gancho. Sirve además de miniatura.
+- **Frases ambiguas:** no revelan el resultado (el anunciado no tiene por qué perder). Batería de 48 frases, por tipo de momento. El símbolo ✦ no significa nada.
+- **Quién protagoniza:** el **70 %** de los episodios, el concello con más población de las 3 batallas; el **30 %**, otro concello con un momento más singular. Cuenta la población **del propio concello** (O Porriño, no lo que haya absorbido). Si el más poblado no tiene ningún momento singular, se usa otro concello con un evento más singular.
+- **Población:** IGE (tabla 142, cifras de población a 1 de enero de 2025, total Galicia 2.714.741).
+- **Ajustes de gallego aprobados:** frase 11 → «Ollo, que cando {concello} entra xa non hai volta atrás!»; frase 13 → «{concello} quedou co leite a medio muxir!»; contracciones automáticas con el artículo del nombre.
+- **Automatización aparcada:** los primeros vídeos los sube el usuario a mano hasta nuevo aviso (la fase 7 del plan queda en pausa; el vídeo debe salir listo con portada PNG y descripción).

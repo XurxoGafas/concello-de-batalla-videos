@@ -1,0 +1,293 @@
+{
+ "descricion": "Batería de frases gancho de la portada (48, del usuario). Marcas: {concello}, {concello:a} (a/á/ao…), {concello:de} (de/da/do…), {n:singular|plural}, {g:ms|fs|mp|fp}. «plural»: false = no vale para nombres plurales (As Neves, Os Blancos…).",
+ "frases": [
+  {
+   "id": 1,
+   "tipo": "atacante",
+   "texto": "{concello} {n:sae|saen} á guerra!",
+   "plural": true
+  },
+  {
+   "id": 2,
+   "tipo": "atacante",
+   "texto": "{concello} {n:afía|afían} a navalla e {n:vai|van} a por todas!",
+   "plural": true
+  },
+  {
+   "id": 3,
+   "tipo": "atacante",
+   "texto": "Ollo, que {concello} {n:vén|véñen} {g:cargado|cargada|cargados|cargadas} de vacas!",
+   "plural": true
+  },
+  {
+   "id": 4,
+   "tipo": "atacante",
+   "texto": "{concello} levantouse co pé trocado!",
+   "plural": false
+  },
+  {
+   "id": 5,
+   "tipo": "atacante",
+   "texto": "Arre demo! {concello} {n:ataca|atacan}!",
+   "plural": true
+  },
+  {
+   "id": 6,
+   "tipo": "atacante",
+   "texto": "{concello} {n:está|están} {g:farruco|farruca|farrucos|farrucas} hoxe!",
+   "plural": true
+  },
+  {
+   "id": 7,
+   "tipo": "atacante",
+   "texto": "{concello} non {n:vén|véñen} pasear as vacas, {n:vén|véñen} conquistar!",
+   "plural": true
+  },
+  {
+   "id": 8,
+   "tipo": "atacante",
+   "texto": "Baixa o gando, que {n:chega|chegan} {concello}!",
+   "plural": true
+  },
+  {
+   "id": 9,
+   "tipo": "atacante",
+   "texto": "{concello} {n:vén|véñen} con ganas de entrar, e non {n:pide|piden} permiso!",
+   "plural": true
+  },
+  {
+   "id": 10,
+   "tipo": "atacante",
+   "texto": "{concello} {n:vén|véñen} por detrás e sen avisar!",
+   "plural": true
+  },
+  {
+   "id": 11,
+   "tipo": "atacante",
+   "texto": "Ollo, que cando {concello} {n:entra|entran} xa non hai volta atrás!",
+   "plural": true
+  },
+  {
+   "id": 12,
+   "tipo": "atacante",
+   "texto": "{concello} quere meter as súas vacas na súa corte!",
+   "plural": false
+  },
+  {
+   "id": 13,
+   "tipo": "defensor",
+   "texto": "{concello} {n:quedou|quedaron} co leite a medio muxir!",
+   "plural": true
+  },
+  {
+   "id": 14,
+   "tipo": "defensor",
+   "texto": "{concello} non {n:vía|vían} vir isto!",
+   "plural": true
+  },
+  {
+   "id": 15,
+   "tipo": "defensor",
+   "texto": "Pobre {concello}, {n:quedou|quedaron} {n:pasmarote|pasmarotes}!",
+   "plural": true
+  },
+  {
+   "id": 16,
+   "tipo": "defensor",
+   "texto": "{concello} {n:defende|defenden} as súas vacas coma {n:unha leoa|unhas leoas}!",
+   "plural": true
+  },
+  {
+   "id": 17,
+   "tipo": "defensor",
+   "texto": "{concello} {n:vai|van} ter que sacar o carácter!",
+   "plural": true
+  },
+  {
+   "id": 18,
+   "tipo": "defensor",
+   "texto": "Mal día para ser {concello}!",
+   "plural": true
+  },
+  {
+   "id": 19,
+   "tipo": "defensor",
+   "texto": "{concello} {n:di|din} que non, pero as vacas din que si!",
+   "plural": true
+  },
+  {
+   "id": 20,
+   "tipo": "defensor",
+   "texto": "{concello} non se {n:deixa|deixan} tocar as vacas… polo menos sen invitación!",
+   "plural": true
+  },
+  {
+   "id": 21,
+   "tipo": "defensor",
+   "texto": "{concello} está a medio vestir e chéganlle visitas!",
+   "plural": false
+  },
+  {
+   "id": 22,
+   "tipo": "defensor",
+   "texto": "{concello} {n:aguanta|aguantan}, pero ata cando?",
+   "plural": true
+  },
+  {
+   "id": 23,
+   "tipo": "dados",
+   "texto": "Rodan os dados e {concello} {n:reza|rezan}!",
+   "plural": true
+  },
+  {
+   "id": 24,
+   "tipo": "dados",
+   "texto": "Que {concello} {n:vaia|vaian} con Deus… e cunha boa tirada!",
+   "plural": true
+  },
+  {
+   "id": 25,
+   "tipo": "dados",
+   "texto": "Meigas fóra! {concello} {n:necesita|necesitan} sorte!",
+   "plural": true
+  },
+  {
+   "id": 26,
+   "tipo": "dados",
+   "texto": "{concello} {n:tira|tiran} os dados con toda a rabia do mundo!",
+   "plural": true
+  },
+  {
+   "id": 27,
+   "tipo": "dados",
+   "texto": "Carallo, que tirada!",
+   "plural": true
+  },
+  {
+   "id": 28,
+   "tipo": "dados",
+   "texto": "{concello} {n:sopra|sopran} os dados antes de tiralos!",
+   "plural": true
+  },
+  {
+   "id": 29,
+   "tipo": "dados",
+   "texto": "O tamaño non é todo, pero nos dados… {concello}!",
+   "plural": true
+  },
+  {
+   "id": 30,
+   "tipo": "dados",
+   "texto": "{concello} {n:tira|tiran} con forza e {n:reza|rezan} por acertar!",
+   "plural": true
+  },
+  {
+   "id": 31,
+   "tipo": "multiplicador",
+   "texto": "{concello} {n:ten|teñen} máis vacas! Bonus!",
+   "plural": true
+  },
+  {
+   "id": 32,
+   "tipo": "multiplicador",
+   "texto": "As vacas {concello:de} pesan moito!",
+   "plural": true
+  },
+  {
+   "id": 33,
+   "tipo": "multiplicador",
+   "texto": "{concello} {n:saca|sacan} o músculo bovino!",
+   "plural": true
+  },
+  {
+   "id": 34,
+   "tipo": "multiplicador",
+   "texto": "Tanta vaca dálle moita forza {concello:a}!",
+   "plural": true
+  },
+  {
+   "id": 35,
+   "tipo": "multiplicador",
+   "texto": "{concello} {n:vén|véñen} con reforzo de gando!",
+   "plural": true
+  },
+  {
+   "id": 36,
+   "tipo": "multiplicador",
+   "texto": "Moito gando, moita guerra: {concello} {n:multiplica|multiplican}!",
+   "plural": true
+  },
+  {
+   "id": 37,
+   "tipo": "multiplicador",
+   "texto": "Aquí o que importa é o tamaño… do gando! {concello}!",
+   "plural": true
+  },
+  {
+   "id": 38,
+   "tipo": "multiplicador",
+   "texto": "{concello} {n:presume|presumen} de ubres… e con razón!",
+   "plural": true
+  },
+  {
+   "id": 39,
+   "tipo": "multiplicador",
+   "texto": "{concello} {n:ten|teñen} moito que ofrecer: leite, forza e moita vaca!",
+   "plural": true
+  },
+  {
+   "id": 40,
+   "tipo": "multiplicador",
+   "texto": "{concello} {n:ten|teñen} tanto gando que non hai quen o aguante!",
+   "plural": true
+  },
+  {
+   "id": 41,
+   "tipo": "morte_subita",
+   "texto": "Empate! {concello} co corazón nun puño!",
+   "plural": false
+  },
+  {
+   "id": 42,
+   "tipo": "morte_subita",
+   "texto": "Morte súbita! {concello} xa non {n:respira|respiran}!",
+   "plural": true
+  },
+  {
+   "id": 43,
+   "tipo": "morte_subita",
+   "texto": "Nin {concello} se {n:agacha|agachan}: desempate!",
+   "plural": true
+  },
+  {
+   "id": 44,
+   "tipo": "morte_subita",
+   "texto": "{concello} xa {n:sua|suan} a gota gorda!",
+   "plural": true
+  },
+  {
+   "id": 45,
+   "tipo": "morte_subita",
+   "texto": "Cando a cousa se pon dura, {concello} non {n:afrouxa|afrouxan}!",
+   "plural": true
+  },
+  {
+   "id": 46,
+   "tipo": "morte_subita",
+   "texto": "{concello} xa non {n:pode|poden} máis, pero tampouco {n:quere|queren} parar!",
+   "plural": true
+  },
+  {
+   "id": 47,
+   "tipo": "morte_subita",
+   "texto": "Empate! {concello} {n:pídelles|pídenlles} un último esforzo ás vacas!",
+   "plural": true
+  },
+  {
+   "id": 48,
+   "tipo": "morte_subita",
+   "texto": "Canto máis {n:aguante|aguanten} {concello}, mellor!",
+   "plural": true
+  }
+ ]
+}
