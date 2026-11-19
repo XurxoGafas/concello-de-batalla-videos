@@ -36,13 +36,13 @@ Prioridad: **A** imprescindible · **B** deseable · **C** opcional.
 | 24 | Conquista | cambian los rótulos CAMPIÓN/MALOGRADO | destello (whoosh + chispas) | A |  ✅ |
 | 25 |  | entra la gaita | cancioncilla de gaita (≈3 s) | A |  ✅ |
 | 26 |  | confeti (2 tandas) | estallidos de papel/«pops» | B |  ✅ |
-| 27 |  | pastillas «+N vacas» y «+K concellos» | campanilla / «cha-ching» | B |  ⏳ (0,55 s; una vez por pastilla, a los 2,0 s del montaje) |
-| 28 |  | el color se extiende (hasta 24 pasos) | «pop» suave por paso, cada vez más agudo | A |  ⏳ (pop de 0,12 s + vista previa de 24 pasos; un pop por cada redibujado del mapa) |
-| 29 | Alejamiento (ataque suelto) | el mapa se aleja | whoosh descendente | B |  ⏳ (1,7 s; dura todo el alejamiento) |
-| 30 | Fundidos entre escenas |  | «swish» muy suave | C |  |
-| 31 | Cierre | aparece el panel de rankings | whoosh corto | B |  |
-| 32 |  | cada fila del ranking (10) | «pop»/tic; la primera de cada lista con campanilla | B |  |
-| 33 | Final de la serie | «CAMPIÓN DE GALICIA» | fanfarria grande + gaita | A |  |
+| 27 |  | pastillas «+N vacas» y «+K concellos» | campanilla / «cha-ching» | B |  ✅ |
+| 28 |  | el color se extiende (hasta 24 pasos) | «pop» suave por paso, cada vez más agudo | A |  ✅ |
+| 29 | Alejamiento (ataque suelto) | el mapa se aleja | whoosh descendente | B |  ✅ |
+| 30 | Fundidos entre escenas |  | «swish» muy suave | C |  ⏳ (0,3 s; en cada fundido entre escenas) |
+| 31 | Cierre | aparece el panel de rankings | whoosh corto | B |  ⏳ (0,5 s) |
+| 32 |  | cada fila del ranking (10) | «pop»/tic; la primera de cada lista con campanilla | B |  ⏳ (pop de 0,1 s por fila + variante con campanilla para la primera de cada lista) |
+| 33 | Final de la serie | «CAMPIÓN DE GALICIA» | fanfarria grande + gaita | A |  ⏳ (4,5 s; golpe inicial con la entrada del título, 0,3 s del montaje; incluye la gaita) |
 | 34 | Opcional | pastillas de vacas | mugido (necesita una muestra real; sintetizado suena a juguete) | C |  |
 
 ## Reglas de mezcla

@@ -647,3 +647,7 @@ Las entradas no se borran. Las nuevas se añaden al final.
 ## 2026-11-19 · Paso 5.1 · Sonidos 27–29
 - Aprobados 24, 25 y 26 (gaita sintetizada aceptada). Sintetizados 27 (cha-ching de pastilla), 28 (pop de extensión + vista previa de 24 pasos) y 29 (whoosh de alejamiento); pendientes de OK.
 - Siguiente: 30–34 (fundidos, cierre, ranking, final de serie, mugido opcional).
+
+## 2026-11-19 · Paso 5.1 · Sonidos 30–33
+- Aprobados 27, 28 y 29. Sintetizados 30 (swish de fundido), 31 (whoosh de cierre), 32 (pop de fila + variante con campanilla) y 33 (fanfarria final con la gaita del 25); pendientes de OK.
+- Siguiente: 34 (mugido, opcional, necesita muestra real) y luego el paso 5.2 (montaje con los números del esquema).

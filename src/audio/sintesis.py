@@ -661,6 +661,68 @@ def whoosh_alejar() -> np.ndarray:
     return normalizar(fundidos(estereo(x + 0.35 * g), 0.02, 0.15), -7.0)
 
 
+def swish_fundido() -> np.ndarray:
+    """30 · Fundido entre escenas (0,35 s de montaje ≈0,27 s de vídeo): «swish» muy suave, un soplo de ruido
+    filtrado que sube y baja, casi subliminal. ≈0,3 s."""
+    dur = 0.3
+    t = t_(dur)
+    u = t / dur
+    x = filtro_banda_variable(ruido(len(t), 30), 900 + 1500 * np.sin(np.pi * u), q=0.9) * np.sin(np.pi * u) ** 2
+    return normalizar(fundidos(estereo(x), 0.03, 0.08), -16.0)
+
+
+def whoosh_cierre() -> np.ndarray:
+    """31 · Cierre: aparece el panel de rankings. Whoosh corto y limpio, ruido que sube de tono y se corta
+    con un pequeño «tup» al asentarse el panel. ≈0,5 s."""
+    dur = 0.5
+    t = t_(dur)
+    u = np.clip(t / 0.35, 0, 1)
+    x = filtro_banda_variable(ruido(len(t), 31), 400 * (7.0 ** u), q=1.5) * np.sin(np.pi * u * 0.9) ** 1.6 * (t < 0.37)
+    tup = seno_barrido(t, 180, 90, 0.03) * env_exp(np.clip(t - 0.35, 0, None), 0.05, 0.002) * (t >= 0.35)
+    return normalizar(fundidos(estereo(normalizar(x, -8.0) + 0.5 * tup), 0.005, 0.04), -7.0)
+
+
+def pop_fila(primera: bool = False) -> np.ndarray:
+    """32 · Fila del ranking (se repite 10 veces en cada lista): «pop» corto y mate. La primera fila de cada
+    lista (`primera=True`) lleva además una campanilla encima. ≈0,1 s (0,5 s con campanilla)."""
+    dur = 0.5 if primera else 0.1
+    t = t_(dur)
+    x = seno_barrido(t, 700, 420, 0.02) * env_exp(t, 0.025, 0.0006) + 0.2 * paso_bajo(ruido(len(t), 32), 3000) * env_exp(t, 0.006, 0.0003)
+    if primera:
+        x = x * 0.7 + 0.8 * _parciales(t, 1568.0, (1, 2.0, 3.0, 4.2), (1.0, 0.4, 0.2, 0.1), (0.3, 0.2, 0.12, 0.07))
+    return normalizar(fundidos(estereo(x), 0.0005, 0.03), -12.0 if not primera else -7.0)
+
+
+def _metal(t: np.ndarray, f: float, ataque: float = 0.02) -> np.ndarray:
+    """Timbre de metal (trompeta): diente de sierra con filtro que se abre al atacar."""
+    x = sum(np.sin(2 * np.pi * f * h * t + 0.5 * h) / h for h in range(1, 14) if f * h < 8000)
+    return x * np.minimum(1, t / ataque)
+
+
+def fanfarria_final() -> np.ndarray:
+    """33 · «CAMPIÓN DE GALICIA»: fanfarria grande. Arpegio ascendente de metales (Re-Fa#-La-Re) con golpe de
+    timbal, acorde de Re mayor sostenido y brillo de platillo; la cancioncilla de gaita (25) entra a mitad.
+    ≈4,5 s. La entrada del título (0,3 s del montaje) coincide con el golpe inicial."""
+    dur = 4.5
+    t = t_(dur)
+    mezcla = np.zeros((len(t), 2))
+    timbal = seno_barrido(t_(0.6), 140, 55, 0.08) * env_exp(t_(0.6), 0.22, 0.002) + 0.5 * paso_bajo(ruido(int(0.6 * SR), 33), 1500) * env_exp(t_(0.6), 0.02, 0.0005)
+    _poner(mezcla, timbal * 1.2, 0.0, 0.5)
+    for k, (f, ti) in enumerate(((293.7, 0.0), (370.0, 0.12), (440.0, 0.24), (587.3, 0.36))):  # Re4 Fa#4 La4 Re5
+        d = t_(0.28)
+        _poner(mezcla, paso_bajo(_metal(d, f), 3500) * env_exp(d, 0.35, 0.01) * 0.6, ti, 0.3 + 0.13 * k)
+    acorde = t_(2.6)
+    for f in (146.8, 293.7, 370.0, 440.0, 587.3, 740.0):  # Re mayor, amplio
+        g = paso_bajo(_metal(acorde, f, 0.04), 4200) * np.minimum(1, (2.6 - acorde) / 0.9) * env_exp(acorde, 1.6, 0.04)
+        _poner(mezcla, g * 0.35, 0.55, 0.5)
+    brillo = paso_bajo(ruido(int(1.8 * SR), 34), 9000) - paso_bajo(ruido(int(1.8 * SR), 34), 5000)
+    _poner(mezcla, brillo * env_exp(t_(1.8), 0.45, 0.003) * 0.7, 0.55, 0.5)
+    gaita = gaita_cancion()
+    _poner(mezcla, gaita[:, 0] * 0.6, 1.2, 0.35)
+    _poner(mezcla, gaita[:, 1] * 0.6, 1.2, 0.65)
+    return normalizar(fundidos(mezcla, 0.0005, 0.25), -4.0)
+
+
 EFECTOS = {
     1: ("01_portada_golpe", golpe_portada),
     2: ("02_portada_frase_pop", pop_frase),
@@ -692,6 +754,11 @@ EFECTOS = {
     28: ("28_extension_pop", pop_extension),
     128: ("28_extension_preview", extension_preview),
     29: ("29_alejamiento_whoosh", whoosh_alejar),
+    30: ("30_fundido_swish", swish_fundido),
+    31: ("31_cierre_whoosh", whoosh_cierre),
+    32: ("32_ranking_fila_pop", pop_fila),
+    321: ("32_ranking_primera_campanilla", lambda: pop_fila(True)),
+    33: ("33_final_serie_fanfarria", fanfarria_final),
     19: ("19_marcador_moneda", tic_moneda),
     201: ("20_multiplicador_x1_1", lambda: multiplicador(1)),
     202: ("20_multiplicador_x1_2", lambda: multiplicador(2)),
