@@ -673,3 +673,6 @@ Las entradas no se borran. Las nuevas se añaden al final.
 ## 2026-11-19 · Episodio 1 montado con sonido
 - `src/render/episodio1.py`: episodio completo (portada, intro, 3 batallas con conquista, cierre) sobre el mapa del episodio 1 (Ordes con ≈1/3) y con el audio del esquema ya montado (gaita corta aceptada, 25 ✅). Semilla `ep1-5` (elegida para que Ordes participe: Esgos→Nogueira de Ramuín, Taboadela→San Cibrao das Viñas, Moeche→Ordes; ganan los defensores). 65,6 s, −14,2 LUFS. Render ≈8 min.
 - Salidas (no van a git): `output/muestras/episodio1_con_audio.mp4`, `episodio1_portada.png`.
+
+## 2026-11-19 · Corrección del episodio 1
+- El usuario aclara que en el episodio 1 deben aparecer todos los concellos y que Ordes no puede ser gigante: el mapa con Ordes en 1/3 era solo una muestra gráfica. `src/render/episodio1.py` parte ahora de la partida nueva (313 dueños, uno por concello) con la semilla `ep1-0`. Batallas: Negueira de Muñiz→A Fonsagrada (gana Negueira de Muñiz), Lobios→Entrimo (gana Entrimo), Vilaboa→Marín (gana Marín); sin muerte súbita. 65,6 s, −14,2 LUFS.
