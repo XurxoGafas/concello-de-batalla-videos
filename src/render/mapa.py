@@ -17,6 +17,7 @@ ventana del mapa sobre un estado de la partida:
 
 from __future__ import annotations
 
+import functools
 from collections.abc import Iterable
 
 import geopandas as gpd
@@ -36,6 +37,13 @@ MIN_LADO_ESCUDO = 26    # un concello más pequeño que esto (en px) no lleva es
 FRAC_ESCUDO = 1.0       # alto del escudo respecto al «lado» del concello (raíz de su área en px)
 MAX_ESCUDO = 230        # alto máximo del escudo (px)
 MAX_ESCUDO_TERRITORIO = 420  # alto máximo del escudo único de un territorio de varios concellos (px)
+
+
+@functools.lru_cache(maxsize=None)
+def _bandera(ine: str) -> Image.Image | None:
+    """Imagen RGBA de la bandera del concello `ine` (None si no hay archivo)."""
+    ruta = E.RAIZ / "assets" / "banderas" / f"{ine}.png"
+    return Image.open(ruta).convert("RGBA") if ruta.exists() else None
 
 
 def poligonos(geom: BaseGeometry) -> list:
@@ -100,6 +108,7 @@ class MapaGalicia:
         contornos: Iterable[tuple[BaseGeometry, str, int]] = (),
         nombres: Iterable[str] = (),
         unir_territorios: bool = False,
+        banderas: bool = False,
     ) -> Image.Image:
         """Imagen RGB `ancho`×`alto` con la `ventana` del mapa (el «mar» es azul marino).
 
@@ -123,6 +132,8 @@ class MapaGalicia:
             dono = estado["concellos"][i]["dono"]
             pintar(d, geom, f, estado["donos"][dono]["cor"]["colores"][0], None, k)
             visibles.append(geom)
+        if banderas:
+            self._banderas(img, estado, ventana, k)
         # el escudo va entre el relleno y las fronteras: puede quedar recortado por el límite del
         # concello, pero las fronteras se ven siempre (decisión del usuario)
         self._escudos(img, estado, ventana, list(nombres), k, unir_territorios)
@@ -152,6 +163,37 @@ class MapaGalicia:
             p = g.representative_point()
             self._centros[i] = (p.x, p.y, g.area)
         return self._centros[i]
+
+    def _banderas(self, img: Image.Image, estado: dict, ventana, k: int) -> None:
+        """Pinta la imagen de la bandera de cada dueño con bandera, cubriendo la caja de su territorio
+        (sin deformarla) y recortada por el contorno del territorio. `img` está a escala ×k."""
+        x0, y0, x1, y1 = ventana
+        esc = img.width / (x1 - x0)
+        for dono, info in estado["donos"].items():
+            if info["cor"].get("fonte") != "bandeira":
+                continue
+            bandera = _bandera(dono[-5:])
+            if bandera is None:
+                continue
+            ids = info["territorio"]
+            geom = self.gdf.geometry[ids[0]] if len(ids) == 1 else self.geometria(ids)
+            gx0, gy0, gx1, gy1 = geom.bounds
+            if gx1 < x0 or gx0 > x1 or gy1 < y0 or gy0 > y1:
+                continue
+            bx0, by0 = round((gx0 - x0) * esc), round((y1 - gy1) * esc)
+            w, h = max(1, round((gx1 - gx0) * esc)), max(1, round((gy1 - gy0) * esc))
+            if w < 3 or h < 3:
+                continue
+            fac = max(w / bandera.width, h / bandera.height)
+            grande = bandera.resize((max(w, round(bandera.width * fac)), max(h, round(bandera.height * fac))), Image.LANCZOS)
+            izq, arr = (grande.width - w) // 2, (grande.height - h) // 2
+            grande = grande.crop((izq, arr, izq + w, arr + h))
+            mascara = Image.new("L", (w, h), 0)
+            md = ImageDraw.Draw(mascara)
+            for p in poligonos(geom):
+                md.polygon([((x - x0) * esc - bx0, (y1 - y) * esc - by0) for x, y in p.exterior.coords], fill=255)
+            mascara = ImageChops.multiply(mascara, grande.getchannel("A"))
+            img.paste(grande, (bx0, by0), mascara)
 
     def _escudo_territorio(self, img: Image.Image, estado: dict, dono: str, ventana, k: int) -> None:
         """Un único escudo para todo el territorio de `dono` (varios concellos), centrado en el punto

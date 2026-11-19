@@ -583,3 +583,9 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Decisión mía (revisable):** «1/3 del territorio» = 1/3 de la **superficie**, no de concellos (sería ≈104).
 - **Tests:** `tests/test_mapa_episodio1.py` (5); 251 en verde.
 - **Pendiente:** aprobación del mapa; incorporar `unir_territorios` al vídeo (conquista y fotogramas) cuando el usuario lo pida; paso 2.5 sigue `[~]`.
+
+## 2026-11-19 — Banderas recortadas por el territorio en el mapa
+- **Qué se pidió (usuario):** no solo el color: que se vea la bandera cortada por lo que cubra el territorio de cada dueño.
+- **Cómo:** `MapaGalicia.dibujar(..., banderas=True)` escala la imagen de la bandera para cubrir la caja del territorio (sin deformarla) y la recorta por su contorno; un dueño con varios concellos (Ordes) lleva una sola bandera sobre todo su territorio. Las banderas de `assets/banderas/` pasan de 240 px a **720 px** de ancho (cuantizadas a 256 colores) para que no se vean borrosas al ampliarlas; la paleta sigue calculándose con la miniatura de 240 px y el resultado es idéntico (`scripts/preparar_banderas.py` actualizado). Activado en `mapa_episodio1`; por defecto el vídeo sigue con color liso.
+- **Tests:** +1 (`tests/test_mapa_episodio1.py`); 252 en verde.
+- **Pendiente:** aprobación del mapa; trasladar banderas y territorios unidos al vídeo cuando el usuario lo pida.

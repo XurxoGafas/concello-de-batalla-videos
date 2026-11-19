@@ -83,7 +83,7 @@ def generar(carpeta: Path = CARPETA) -> list[Path]:
     d = ImageDraw.Draw(img)
     E.texto_centrado(d, E.ANCHO / 2, 232, "CONCELLO DE BATALLA", E.T_TITULO, E.ORO, borde=9)
     E.texto_centrado(d, E.ANCHO / 2, 318, "Ep. 1", E.T_SUBTITULO, E.BLANCO, borde=7)
-    banda = mapa.dibujar(estado, mapa.ventana_general(E.ANCHO / alto), E.ANCHO, alto, unir_territorios=True)
+    banda = mapa.dibujar(estado, mapa.ventana_general(E.ANCHO / alto), E.ANCHO, alto, unir_territorios=True, banderas=True)
     img.paste(banda, (0, MAPA_Y0))
     d.rectangle((0, MAPA_Y0 - 6, E.ANCHO, MAPA_Y0 - 1), fill=E.ORO)
     d.rectangle((0, MAPA_Y0 + alto, E.ANCHO, MAPA_Y0 + alto + 5), fill=E.ORO)
@@ -94,7 +94,7 @@ def generar(carpeta: Path = CARPETA) -> list[Path]:
     ventana = mapa.ventana_general(1.0)
     prop = (ventana[2] - ventana[0]) / (ventana[3] - ventana[1])
     r2 = carpeta / "mapa_episodio1_grande.png"
-    mapa.dibujar(estado, ventana, ancho, round(ancho / prop), unir_territorios=True).save(r2)
+    mapa.dibujar(estado, ventana, ancho, round(ancho / prop), unir_territorios=True, banderas=True).save(r2)
 
     r3 = carpeta / "territorios_episodio1.tsv"
     tabla(estado, r3)

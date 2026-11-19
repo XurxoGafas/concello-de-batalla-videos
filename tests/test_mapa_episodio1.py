@@ -77,3 +77,23 @@ def test_tabla_una_fila_por_concello(estado, tmp_path):
     filas = ruta.read_text(encoding="utf-8").strip().split("\n")
     assert len(filas) == 314
     assert sum(1 for f in filas if "Ordes\t" in f.split("\t")[2:3][0] + "\t") >= 98
+
+
+def test_banderas_recortadas_por_el_territorio(mapa, estado):
+    """Con `banderas=True` el territorio de Ordes no es un color liso: se ve su bandera (verde, amarillo
+    y negro) y nada se sale del contorno del territorio."""
+    ventana = mapa.ventana_general(1.0)
+    liso = mapa.dibujar(estado, ventana, 600, 600)
+    con = mapa.dibujar(estado, ventana, 600, 600, unir_territorios=True, banderas=True)
+    o = _ordes(estado)
+    bb = mapa.geometria(estado["donos"][o]["territorio"]).bounds
+    ancho = ventana[2] - ventana[0]
+    cx = (bb[0] + bb[2]) / 2
+    cy = (bb[1] + bb[3]) / 2
+    px = int((cx - ventana[0]) * 600 / ancho)
+    py = int((ventana[3] - cy) * 600 / (ventana[3] - ventana[1]))
+    zona = (px - 40, py - 40, px + 40, py + 40)
+    colores = {c for _, c in con.crop(zona).getcolors(10000) and [(0, p) for p in [q for _, q in con.crop(zona).getcolors(10000)]]}
+    assert len(colores) > len({p for _, p in liso.crop(zona).getcolors(10000)})
+    # el mar (esquina) sigue siendo mar: la bandera no se sale del territorio
+    assert con.getpixel((2, 2)) == liso.getpixel((2, 2))

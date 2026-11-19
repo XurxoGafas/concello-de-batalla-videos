@@ -30,6 +30,7 @@ ESTADO = RAIZ / "data" / "processed" / "estado_inicial.json"
 SALIDA = RAIZ / "data" / "processed" / "colores_bandera.json"
 DIR_BANDERAS, DIR_ESCUDOS = RAIZ / "assets" / "banderas", RAIZ / "assets" / "escudos"
 ALTO_ESCUDO, ANCHO_BANDERA = 300, 240
+ANCHO_BANDERA_MAPA = 720  # la bandera se dibuja recortada sobre el territorio: necesita más resolución que la paleta
 RELACION_BANDERA = 1.25  # una imagen más ancha que alta (≥ 1,25) con el fondo lleno o blanco es una bandera
 
 # nombres de archivo que no siguen el patrón «nombre-del-concello»
@@ -129,9 +130,12 @@ def main(carpeta: Path) -> None:
             recortar(quitar_fondo_blanco(im)).quantize(256, Image.Quantize.FASTOCTREE).save(DIR_ESCUDOS / f"{ine}.png", optimize=True)
             escudos[i] = {"nome": nombre, "escudo": f"assets/escudos/{ine}.png", "origen": f}
         else:
-            if im.width > ANCHO_BANDERA:
+            grande = im
+            if grande.width > ANCHO_BANDERA_MAPA:
+                grande = grande.resize((ANCHO_BANDERA_MAPA, max(1, round(grande.height * ANCHO_BANDERA_MAPA / grande.width))), Image.LANCZOS)
+            grande.quantize(256, Image.Quantize.FASTOCTREE).convert("RGBA").save(DIR_BANDERAS / f"{ine}.png", optimize=True)
+            if im.width > ANCHO_BANDERA:  # la paleta se calcula como siempre, con la miniatura
                 im = im.resize((ANCHO_BANDERA, max(1, round(im.height * ANCHO_BANDERA / im.width))), Image.LANCZOS)
-            im.save(DIR_BANDERAS / f"{ine}.png", optimize=True)
             pal = paleta(im)
             con_bandera[i] = {"nome": nombre, "colores": [c for c, _ in pal], "pesos": [p for _, p in pal],
                               "origen": f}
