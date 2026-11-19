@@ -602,3 +602,8 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió (usuario):** cuando a Ordes le toca defender, resaltar todo su territorio y no solo el concello que hacía frontera con Muxía; en la batalla los colores lisos de las siluetas están bien.
 - **Cómo:** en el sorteo del defensor cada candidato se resalta con el territorio completo de su dueño (`escenas.py`); el contorno rojo del conflicto (zoom a los dos bandos, batalla y conquista) pasa a ser el de los territorios completos de atacante y defensor (`enfrentamiento.banda_enfrentamiento`, `conquista._banda_parcial`). Para dueños de un solo concello no cambia nada.
 - **Resultado:** `ataque_episodio1.mp4` regenerado (21,2 s, mismo ataque: Muxía vs Ordes). 253 tests en verde.
+
+## 2026-11-19 — Muestra del episodio 100
+- **Qué se pidió (usuario):** hacer cómo sería un episodio 100 (y, si queda bien, pasar a lo siguiente).
+- **Cómo:** `src/render/episodio100.py`: estado tras 99 episodios (297 batallas con la semilla de muestra → quedan 16 dueños) y episodio completo (portada, 3 batallas, cierre con ranking) con el mapa nuevo (banderas recortadas, un escudo por territorio, territorio completo resaltado). Salidas: `output/muestras/episodio100_sin_audio.mp4` (65,6 s; render 364 s), `episodio100_portada.png`, `episodio100_mapa_previo.png`.
+- **Observaciones:** con pocos dueños, los territorios grandes de solo escudo quedan blancos con un único escudo pequeño respecto al territorio (el círculo inscrito es pequeño en formas irregulares); la portada recorta el escudo por la silueta (aceptado por el usuario). Pendiente su aprobación.
