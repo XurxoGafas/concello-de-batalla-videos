@@ -615,6 +615,52 @@ def confeti() -> np.ndarray:
     return normalizar(fundidos(mezcla, 0.0005, 0.1), -5.0)
 
 
+def cha_ching() -> np.ndarray:
+    """27 · Pastillas «+N vacas» y «+K concellos»: «cha-ching» de caja registradora, dos golpes metálicos
+    rápidos (el segundo más agudo) con un brillo final. Suena una vez por pastilla. ≈0,55 s."""
+    t = t_(0.55)
+    x = np.zeros_like(t)
+    for ini, f, amp in ((0.0, 1568.0, 0.8), (0.09, 2093.0, 1.0)):
+        d = np.clip(t - ini, 0, None)
+        x += amp * _parciales(d, f, (1, 2.76, 5.4, 8.9), (1.0, 0.6, 0.35, 0.2), (0.3, 0.2, 0.1, 0.05)) * (t >= ini)
+        x += 0.5 * amp * paso_bajo(ruido(len(t), 27 + int(f)), 8000) * env_exp(d, 0.006, 0.0004) * (t >= ini)
+    return normalizar(fundidos(estereo(x), 0.0005, 0.08), -6.0)
+
+
+def pop_extension(i: int = 0, n: int = 24) -> np.ndarray:
+    """28 · Un «pop» suave de la extensión del color (paso i de n): burbuja corta que sube de tono con i
+    (de Do5 a Do7 en semitonos continuos) y algo de volumen. ≈0,12 s."""
+    t = t_(0.12)
+    f = 523.0 * 2 ** (2.0 * i / max(1, n - 1))
+    x = seno_barrido(t, f * 0.8, f, 0.02) * env_exp(t, 0.03, 0.001)
+    x += 0.25 * np.sin(2 * np.pi * 2 * f * t) * env_exp(t, 0.012, 0.001)
+    return normalizar(fundidos(estereo(x), 0.0005, 0.02), -14.0 + 4.0 * i / max(1, n - 1))
+
+
+def extension_preview() -> np.ndarray:
+    """28 (vista previa) · 24 pops repartidos en los 1,8 s de montaje de la extensión (≈1,4 s de vídeo), para oír
+    cómo sube la escala. En el montaje se usan tantos pops como pasos tenga la conquista (hasta 24)."""
+    dur = 1.8 / VELOCIDAD
+    mezcla = np.zeros((int((dur + 0.2) * SR), 2))
+    for i in range(24):
+        u = i / 23
+        _poner(mezcla, pop_extension(i, 24).mean(axis=1), u * dur, 0.5)
+    return normalizar(mezcla, -6.0)
+
+
+def whoosh_alejar() -> np.ndarray:
+    """29 · Alejamiento del mapa (ataque suelto, 2,2 s de montaje ≈1,7 s de vídeo): whoosh descendente, ruido que
+    pierde brillo poco a poco, con un grave suave al final (el mapa «se asienta»)."""
+    dur = 2.2 / VELOCIDAD
+    t = t_(dur)
+    u = t / dur
+    corte = 2200 * (0.12 ** u)
+    x = filtro_banda_variable(ruido(len(t), 29), corte, q=1.3) * np.sin(np.pi * np.minimum(1, u * 1.15)) ** 1.8
+    x = normalizar(x, -9.0)
+    g = seno_barrido(t, 110, 55, 0.5) * env_exp(np.clip(t - dur * 0.55, 0, None), 0.35, 0.05) * (t > dur * 0.55)
+    return normalizar(fundidos(estereo(x + 0.35 * g), 0.02, 0.15), -7.0)
+
+
 EFECTOS = {
     1: ("01_portada_golpe", golpe_portada),
     2: ("02_portada_frase_pop", pop_frase),
@@ -642,6 +688,10 @@ EFECTOS = {
     24: ("24_rotulos_destello", destello_rotulos),
     25: ("25_gaita_cancion", gaita_cancion),
     26: ("26_confeti", confeti),
+    27: ("27_pastilla_cha_ching", cha_ching),
+    28: ("28_extension_pop", pop_extension),
+    128: ("28_extension_preview", extension_preview),
+    29: ("29_alejamiento_whoosh", whoosh_alejar),
     19: ("19_marcador_moneda", tic_moneda),
     201: ("20_multiplicador_x1_1", lambda: multiplicador(1)),
     202: ("20_multiplicador_x1_2", lambda: multiplicador(2)),

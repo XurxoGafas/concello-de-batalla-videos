@@ -643,3 +643,7 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - Aprobados 21, 22 y 23. Sintetizados 24 (destello de rótulos), 25 (cancioncilla de gaita original, muiñeira en Re mixolidio, timbre de lengüeta sintetizado + bordón) y 26 (confeti); pendientes de OK.
 - Pendiente: decidir si se sustituye la gaita sintetizada por muestras reales (registrar licencia en docs/FUENTES.md).
 - Siguiente: 27–34.
+
+## 2026-11-19 · Paso 5.1 · Sonidos 27–29
+- Aprobados 24, 25 y 26 (gaita sintetizada aceptada). Sintetizados 27 (cha-ching de pastilla), 28 (pop de extensión + vista previa de 24 pasos) y 29 (whoosh de alejamiento); pendientes de OK.
+- Siguiente: 30–34 (fundidos, cierre, ranking, final de serie, mugido opcional).

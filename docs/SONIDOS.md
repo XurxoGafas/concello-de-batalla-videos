@@ -33,12 +33,12 @@ Prioridad: **A** imprescindible · **B** deseable · **C** opcional.
 | 21 |  | recuadro del ganador | campanilla de victoria corta | A | ✅ |
 | 22 | Morte súbita | tarjeta en llamas | alarma grave + crepitar de fuego | A | ✅ (1,9 s = una ronda; en el montaje se alarga con las rondas) |
 | 23 |  | dado extra | traqueteo + golpe | A | ✅ (1,1 s; el golpe cae al final de la rodada, una vez por ronda) |
-| 24 | Conquista | cambian los rótulos CAMPIÓN/MALOGRADO | destello (whoosh + chispas) | A |  ⏳ (0,8 s; empieza en el cambio de rótulos, 0,5 s del montaje) |
-| 25 |  | entra la gaita | cancioncilla de gaita (≈3 s) | A |  ⏳ (3,06 s; empieza al aparecer la gaita, 1,0 s del montaje) |
-| 26 |  | confeti (2 tandas) | estallidos de papel/«pops» | B |  ⏳ (1,1 s; se lanza dos veces: con la gaita y a los 2,0 s del montaje) |
-| 27 |  | pastillas «+N vacas» y «+K concellos» | campanilla / «cha-ching» | B |  |
-| 28 |  | el color se extiende (hasta 24 pasos) | «pop» suave por paso, cada vez más agudo | A |  |
-| 29 | Alejamiento (ataque suelto) | el mapa se aleja | whoosh descendente | B |  |
+| 24 | Conquista | cambian los rótulos CAMPIÓN/MALOGRADO | destello (whoosh + chispas) | A |  ✅ |
+| 25 |  | entra la gaita | cancioncilla de gaita (≈3 s) | A |  ✅ |
+| 26 |  | confeti (2 tandas) | estallidos de papel/«pops» | B |  ✅ |
+| 27 |  | pastillas «+N vacas» y «+K concellos» | campanilla / «cha-ching» | B |  ⏳ (0,55 s; una vez por pastilla, a los 2,0 s del montaje) |
+| 28 |  | el color se extiende (hasta 24 pasos) | «pop» suave por paso, cada vez más agudo | A |  ⏳ (pop de 0,12 s + vista previa de 24 pasos; un pop por cada redibujado del mapa) |
+| 29 | Alejamiento (ataque suelto) | el mapa se aleja | whoosh descendente | B |  ⏳ (1,7 s; dura todo el alejamiento) |
 | 30 | Fundidos entre escenas |  | «swish» muy suave | C |  |
 | 31 | Cierre | aparece el panel de rankings | whoosh corto | B |  |
 | 32 |  | cada fila del ranking (10) | «pop»/tic; la primera de cada lista con campanilla | B |  |
