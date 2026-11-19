@@ -148,7 +148,7 @@ def test_mapa_grande_en_el_sorteo_y_encoge_sin_saltos(montaje):
             if r > 200 and 150 < g < 210 and b < 90:
                 return y
         return None
-    alturas = [y_linea(sel.fotograma(sel.t_z + k * S.D_ZOOM_ENTRADA / 10)) for k in range(11)]
+    alturas = [y_linea(sel._fotograma(sel.t_z + k * S.D_ZOOM_ENTRADA / 10)) for k in range(11)]
     assert alturas[0] == M.MAPA_Y0 + S.MAPA_GRANDE and alturas[-1] == M.LINEA_Y
     assert all(b <= a for a, b in zip(alturas, alturas[1:]))          # siempre sube, nunca rebota
     assert max(a - b for a, b in zip(alturas, alturas[1:])) < 80      # sin saltos bruscos
@@ -157,3 +157,11 @@ def test_mapa_grande_en_el_sorteo_y_encoge_sin_saltos(montaje):
 def test_intro_muestra_el_mapa_desde_el_primer_fotograma(montaje):
     intro = montaje.escenas[1]
     assert intro.fotograma(0.0).tobytes() == intro.fotograma(intro.duracion).tobytes()
+
+
+def test_el_desenfoque_de_movimiento_solo_actua_en_los_zooms(montaje):
+    sel = montaje.escenas[2]
+    quieto = sel.t_a + 0.5       # sorteo del atacante: mapa quieto → sin promediar
+    assert sel.fotograma(quieto).tobytes() == sel._fotograma(quieto).tobytes()
+    t = sel.t_z + S.D_ZOOM_ENTRADA / 2   # mitad del zoom: se promedian instantes vecinos
+    assert sel.fotograma(t).tobytes() != sel._fotograma(t).tobytes()

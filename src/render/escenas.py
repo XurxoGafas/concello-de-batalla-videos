@@ -38,7 +38,8 @@ from src.render.mapa import MapaGalicia
 
 CARPETA = E.RAIZ / "output" / "muestras"
 FUNDIDO = 0.2          # fundido cruzado entre escenas
-VELOCIDAD = 1.2        # el vídeo final se reproduce un 20 % más rápido (decisión del usuario, 2026-11-18)
+VELOCIDAD = 1.2 * 1.08  # el vídeo final va un 20 % más rápido (2026-11-18) y otro 8 % (2026-11-19)
+DESENFOQUE = 0.4        # desenfoque de movimiento en los zooms: ± esta fracción del paso entre fotogramas
 OBJETIVO = 85.0        # duración buscada del vídeo (el requisito es 80–90 s)
 D_INTRO = 1.0
 D_CIERRE_MIN, D_CIERRE_MAX = 10.0, 26.0
@@ -231,7 +232,32 @@ class EscenaSeleccion:
             acum += dur
         return len(pasos) - 1
 
+    def _en_movimiento(self, t: float) -> tuple[float, float] | None:
+        """Intervalo (inicio, fin) del zoom activo en `t`, o None si el mapa está quieto."""
+        if self.vprev is not None and t < self.t_a:
+            return 0.0, D_ZOOM_SALIDA
+        if self.t_z <= t < self.t_z + D_ZOOM_ENTRADA:
+            return self.t_z, self.t_z + D_ZOOM_ENTRADA
+        if self.t_m <= t < self.duracion:
+            return self.t_m, self.duracion
+        return None
+
     def fotograma(self, t: float) -> Image.Image:
+        """Durante los zooms promedia 3 instantes cercanos (desenfoque de movimiento): a 30 fps el mapa
+        se mueve varios píxeles por fotograma y sin él se ve entrecortado. En los extremos de cada zoom
+        las muestras se recortan al intervalo, así el primer y último fotograma siguen siendo exactos."""
+        mov = self._en_movimiento(t)
+        if mov is None:
+            return self._fotograma(t)
+        paso = DESENFOQUE * VELOCIDAD / E.FPS
+        ini, fin = mov
+        a, c = max(ini, t - paso), min(fin - 1e-6, t + paso)
+        img = self._fotograma(t)
+        if c - a < 1e-9:
+            return img
+        return Image.blend(Image.blend(self._fotograma(a), img, 0.5), self._fotograma(c), 1 / 3)
+
+    def _fotograma(self, t: float) -> Image.Image:
         f, ORO, ROJO = self.f, E.ORO, E.CONFLICTO
         if t >= self.duracion:
             return self.completo.copy()

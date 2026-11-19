@@ -82,3 +82,6 @@ Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y es
 - **Escena 0** (`src/render/portada.py`): fondo negro puro; silueta del concello protagonista (relleno con el color de su bandera, provisional hasta el paso 2.5, contorno blanco) en la zona segura, y debajo la frase gancho en Lilita One blanca con el **nombre en dorado** (hasta 4 líneas, 104→58 px). Si la frase no lleva el nombre (p. ej. «Carallo, que tirada!») se añade en dorado debajo.
 - **Duración:** 2,0 s fija (latido suave de la silueta) + 0,8 s de vuelo = 2,8 s de montaje (≈2,3 s en el vídeo final con la velocidad ×1,2).
 - **Transición:** la frase se apaga, el negro se abre al mapa y la silueta encoge y vuela a su sitio en el mapa grande de la intro; al llegar se funde con el concello real. Último fotograma de la portada == primer fotograma de la intro. El primer fotograma se exporta como `portada.png` (miniatura).
+
+### Zooms con desenfoque de movimiento (2026-11-19)
+Durante los tres zooms del mapa (alejarse tras una batalla, acercarse al atacante, acercarse a los dos bandos) cada fotograma promedia 3 instantes (t−δ, t, t+δ, con δ = 0,4 de un paso de fotograma) para que no se vea entrecortado a 30 fps. En los extremos de cada zoom las muestras se recortan al intervalo, así los empalmes entre escenas siguen siendo exactos. Velocidad de reproducción: ×1,296.

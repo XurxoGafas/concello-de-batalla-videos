@@ -133,10 +133,10 @@ Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fas
 - **Archivos:** `src/render/conquista.py` (en vez de `animaciones.py`, que no hace falta: la gaita y el confeti viven en `dados.py` y `conquista.py`), cambios menores en `enfrentamiento.py`.
 - **Hecho cuando:** `output/muestras/conquista.mp4` muestra el cambio de color de forma clara. ✅ Completado el 2026-11-18 y aprobado por el usuario (con su ilustración de la gaita, `assets/img/gaita.svg`). 194 tests en verde.
 
-### [~] 4.6 Escenas de intro, encadenado de 3 batallas y cierre con ranking
+### [x] 4.6 Escenas de intro, encadenado de 3 batallas y cierre con ranking
 - **Qué:** Micro intro de 1–2 s con transición al mapa (fase 1); encadenar 3 repeticiones de fases 2–6 (fase 7) dentro del mismo vídeo, con la selección de atacante (sorteo de ≈2 s entre dueños) y de defensor en **un único plano continuo** sin cortes hasta la pantalla de enfrentamiento y con zoom suave (decisión del usuario, 2026-11-18); cierre (fase 8) con el mapa general, el nombre de la serie + número de episodio, y los dos rankings top 5 («Máis vitorias» y «Máis vacas», decisión del usuario; antes era «Máis territorio»); y, cuando quede un único dueño con todo el territorio, una escena especial declarando el ganador de toda la serie en vez del cierre normal.
 - **Archivos:** `src/render/escenas.py`, `src/render/ranking.py`.
-- **Hecho cuando:** el vídeo de prueba incluye intro, 3 batallas encadenadas y el cierre con ranking, dura entre 80 y 90 segundos, y todo el texto está en gallego.
+- **Hecho cuando:** el vídeo de prueba incluye intro, 3 batallas encadenadas y el cierre con ranking, el montaje dura entre 80 y 90 segundos y, con la velocidad ×1,3 (decisión del usuario, 2026-11-19), el vídeo final dura ≈65 s; todo el texto está en gallego. ✅ Aprobado por el usuario el 2026-11-19.
 
 ### [x] 4.7 Portada-gancho (escena 0, antes del mapa) y frases
 - **Qué:** una escena de **1,5–2 s con fondo negro** antes de la intro: la silueta del concello del momento más singular del episodio, en grande y con los colores de su bandera (provisionales hasta el paso 2.5), y una frase gancho **ambigua** (que no destripa el resultado) en gallego. Su primer fotograma es la portada del vídeo (y se exporta también como PNG). Transición a la intro: la silueta encoge y vuela a su sitio en el mapa mientras el negro se abre al mapa (plano continuo).
@@ -166,12 +166,12 @@ Las 7 fases de un vídeo están fijadas en `docs/DECISIONES.md`. Un vídeo = fas
 ## FASE 6 — Pipeline de un vídeo completo
 
 ### [ ] 6.1 Comando «generar vídeo»
-- **Qué:** Un único comando que carga el estado, simula 3 batallas (fase 7), renderiza las 7 fases completas (textos en gallego), añade el audio, exporta el MP4 (H.264 + AAC) de 80–90 segundos, guarda el estado y escribe los metadatos (título, descripción, hashtags, en gallego). Si al cargar el estado ya hay un único dueño con todo el territorio, el vídeo generado es el especial de cierre de serie en vez de una batalla normal.
+- **Qué:** Un único comando que carga el estado, simula 3 batallas (fase 7), renderiza las 7 fases completas (textos en gallego), añade el audio, exporta el MP4 (H.264 + AAC) de ≈65 segundos (montaje de 80–90 s a velocidad ×1,3), guarda el estado y escribe los metadatos (título, descripción, hashtags, en gallego). Si al cargar el estado ya hay un único dueño con todo el territorio, el vídeo generado es el especial de cierre de serie en vez de una batalla normal.
 - **Archivos:** `src/pipeline.py`, `src/metadatos.py`, `src/cli.py`.
-- **Hecho cuando:** `python -m src.cli generar` produce `output/AAAA-MM-DD_HHMM/video.mp4` y `metadatos.json`, dura entre 80 y 90 segundos, y el vídeo se reproduce bien en un móvil.
+- **Hecho cuando:** `python -m src.cli generar` produce `output/AAAA-MM-DD_HHMM/video.mp4` y `metadatos.json`, dura ≈65 segundos, y el vídeo se reproduce bien en un móvil.
 
 ### [ ] 6.2 Validación técnica del vídeo
-- **Qué:** Comprobar automáticamente la resolución, la duración (80–90 s), el códec, los fps y el tamaño frente a los requisitos vigentes de cada red (comprobar en ese momento el límite real de duración de YouTube Shorts, Reels y TikTok, por si hubiera cambiado).
+- **Qué:** Comprobar automáticamente la resolución, la duración (≈65 s; antes 80–90 s), el códec, los fps y el tamaño frente a los requisitos vigentes de cada red (comprobar en ese momento el límite real de duración de YouTube Shorts, Reels y TikTok, por si hubiera cambiado).
 - **Archivos:** `src/validar.py`, `tests/test_validar.py`.
 - **Hecho cuando:** el pipeline se detiene con un error claro si el vídeo no cumple los requisitos.
 

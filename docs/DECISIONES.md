@@ -177,3 +177,6 @@ No quedan dudas abiertas de las planteadas inicialmente en `PLAN.md`. La definic
 - **Población:** IGE (tabla 142, cifras de población a 1 de enero de 2025, total Galicia 2.714.741).
 - **Ajustes de gallego aprobados:** frase 11 → «Ollo, que cando {concello} entra xa non hai volta atrás!»; frase 13 → «{concello} quedou co leite a medio muxir!»; contracciones automáticas con el artículo del nombre.
 - **Automatización aparcada:** los primeros vídeos los sube el usuario a mano hasta nuevo aviso (la fase 7 del plan queda en pausa; el vídeo debe salir listo con portada PNG y descripción).
+
+## Duración y velocidad final (decisión del usuario, 2026-11-19)
+Sustituye al objetivo de 80–90 s del vídeo final: el usuario acepta un vídeo más corto y pide además un 8 % más de velocidad. El montaje sigue calculándose para ≈85 s y se reproduce a **×1,296** (1,2 × 1,08), de modo que el vídeo final dura **≈65,6 s**. El audio de la fase 5 y la validación del paso 6.2 deben usar esta duración.
