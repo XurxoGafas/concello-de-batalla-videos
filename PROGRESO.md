@@ -613,3 +613,8 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se hizo:** `docs/SONIDOS.md` con el esquema completo de sonidos por escena y evento (prioridad A/B/C) y reglas de mezcla. Cambio de plan (regla d): los pasos 5.1 y 5.2 de `PLAN.md` se reescriben (efectos generados por síntesis en vez de reunir sonidos con licencia; sin música; cancioncilla compuesta por Claude; aprobación del usuario tras escuchar un pack, porque Claude no puede oír).
 - **Entorno:** no hay `fluidsynth` ni `sox`; sí numpy y ffmpeg, suficientes para síntesis y mezcla. Una gaita realista exigiría muestras reales (las aportaría el usuario).
 - **Pendiente:** respuesta del usuario sobre el esquema y las muestras de gaita; después, el pack de efectos.
+
+## 2026-11-19 — Sonidos: esquema numerado y primeras aprobaciones
+- **Qué se pidió (usuario):** numerar el esquema de sonidos y marcar los aprobados, para pedir cambios por número; los sonidos 1–3 (portada) quedan aprobados; después, montar todo en el vídeo.
+- **Cómo:** `docs/SONIDOS.md` pasa a tener 34 filas numeradas (01–34) con columna de estado (✅ aprobado, ⏳ pendiente). Código en `src/audio/sintesis.py` (numpy, WAV 44,1 kHz estéreo, ya a la duración del vídeo final ×1,296), archivos en `assets/audio/NN_nombre.wav`. Generados: 01–03 (✅) y 05 (tics del sorteo del atacante con los pasos reales de la animación), 06 (clac + campanilla de bloqueo), 07 (whoosh del zoom al atacante) (⏳). El 04 (intro) queda en silencio por defecto.
+- **Pendiente:** aprobación de 05–07; seguir con 08–… y, al final, el montaje del audio en el vídeo (paso 5.2).

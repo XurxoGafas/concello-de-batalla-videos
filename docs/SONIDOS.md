@@ -6,41 +6,44 @@ generan por síntesis (sin licencias de terceros). La cancioncilla de gaita la c
 
 Prioridad: **A** imprescindible · **B** deseable · **C** opcional.
 
-| Escena | Evento visual | Sonido | Prior. |
-|---|---|---|---|
-| Portada (2 s) | aparece la silueta | golpe grave con brillo | A |
-| | aparece la frase | «pop» suave | B |
-| | la silueta vuela al mapa (0,8 s) | whoosh ascendente | A |
-| Intro (1 s) | mapa visible | silencio (o un «ding» breve) | C |
-| Sorteo del atacante (≈2 s) | cada cambio de dueño resaltado (14) | tic corto, cada vez más lento y más agudo | A |
-| | queda bloqueado (rojo) | «clac» + campanilla | A |
-| Zoom al atacante | el mapa se acerca | whoosh | A |
-| Sorteo del defensor | cada candidato (≈9) | tic más suave | A |
-| | queda bloqueado | «clac» + campanilla | A |
-| Zoom a los dos bandos | el mapa se acerca; entra el defensor en el panel | whoosh + «pop» | A |
-| Duelo (1,7 s) | entra la navaja / la botella | silbido de metal / deslizar de cristal | A |
-| | choque y destello | choque metálico + tintineo de cristal | A |
-| | «LIORTA!» | golpe de graves | A |
-| Dados | los 6 dados ruedan | traqueteo de dados | A |
-| | cada dado se para | golpe seco de madera, escalonado | A |
-| | insignia «+N» | «ding» que sube de nota según N (1–5) | A |
-| | «=» (empate de tirada) | tic apagado | B |
-| | el marcador suma | tic de moneda | B |
-| | multiplicador ×1,N | barrido ascendente + acorde brillante (más fuerte con ×1,5) | A |
-| | recuadro del ganador | campanilla de victoria corta | A |
-| Morte súbita | tarjeta en llamas | alarma grave + crepitar de fuego | A |
-| | dado extra | traqueteo + golpe | A |
-| Conquista | cambian los rótulos CAMPIÓN/MALOGRADO | destello (whoosh + chispas) | A |
-| | entra la gaita | **cancioncilla de gaita** (≈3 s) | A |
-| | confeti (2 tandas) | estallidos de papel/«pops» | B |
-| | pastillas «+N vacas» y «+K concellos» | campanilla / «cha-ching» | B |
-| | el color se extiende (hasta 24 pasos) | «pop» suave por paso, cada vez más agudo | A |
-| Alejamiento (ataque suelto) | el mapa se aleja | whoosh descendente | B |
-| Fundidos entre escenas | | «swish» muy suave | C |
-| Cierre | aparece el panel de rankings | whoosh corto | B |
-| | cada fila del ranking (10) | «pop»/tic, la primera de cada lista con campanilla | B |
-| Final de la serie | «CAMPIÓN DE GALICIA» | fanfarria grande + gaita | A |
-| Vacas (opcional) | pastillas de vacas | mugido (necesita una muestra real; sintetizado suena a juguete) | C |
+**Estado:** ✅ aprobado por el usuario · ⏳ generado, pendiente de aprobación · (vacío) sin generar. Los cambios se piden por el número («el 05 más lento»). Archivos en `assets/audio/NN_nombre.wav`; código en `src/audio/sintesis.py`.
+
+| Nº | Escena | Evento visual | Sonido | Prior. | Estado |
+|---|---|---|---|---|---|
+| 01 | Portada (2 s) | aparece la silueta | golpe grave con brillo | A | ✅ |
+| 02 |  | aparece la frase | «pop» suave | B | ✅ |
+| 03 |  | la silueta vuela al mapa (0,8 s) | whoosh ascendente | A | ✅ |
+| 04 | Intro (1 s) | mapa visible | silencio (o un «ding» breve) — por defecto, silencio | C |  |
+| 05 | Sorteo del atacante (≈2 s) | cada dueño resaltado (15 tics) | tic de bloque de madera, cada vez más lento, agudo y fuerte | A | ⏳ |
+| 06 |  | queda bloqueado (rojo) — también se usa en el sorteo del defensor (9) | «clac» + campanilla | A | ⏳ |
+| 07 | Zoom al atacante | el mapa se acerca | whoosh suave | A | ⏳ |
+| 08 | Sorteo del defensor | cada candidato (≈9) | tic más suave | A |  |
+| 09 |  | queda bloqueado | usa el 06 (clac + campanilla) | A |  |
+| 10 | Zoom a los dos bandos | el mapa se acerca; entra el defensor en el panel | whoosh + «pop» | A |  |
+| 11 | Duelo (1,7 s) | entra la navaja | silbido de metal | A |  |
+| 12 |  | entra la botella | deslizar de cristal | A |  |
+| 13 |  | choque y destello | choque metálico + tintineo de cristal | A |  |
+| 14 |  | «LIORTA!» | golpe de graves | A |  |
+| 15 | Dados | los 6 dados ruedan | traqueteo | A |  |
+| 16 |  | cada dado se para | golpe seco de madera, escalonado | A |  |
+| 17 |  | insignia «+N» | «ding» que sube de nota según N (1–5) | A |  |
+| 18 |  | «=» (empate de tirada) | tic apagado | B |  |
+| 19 |  | el marcador suma | tic de moneda | B |  |
+| 20 |  | multiplicador ×1,N | barrido ascendente + acorde brillante (más fuerte con ×1,5) | A |  |
+| 21 |  | recuadro del ganador | campanilla de victoria corta | A |  |
+| 22 | Morte súbita | tarjeta en llamas | alarma grave + crepitar de fuego | A |  |
+| 23 |  | dado extra | traqueteo + golpe | A |  |
+| 24 | Conquista | cambian los rótulos CAMPIÓN/MALOGRADO | destello (whoosh + chispas) | A |  |
+| 25 |  | entra la gaita | cancioncilla de gaita (≈3 s) | A |  |
+| 26 |  | confeti (2 tandas) | estallidos de papel/«pops» | B |  |
+| 27 |  | pastillas «+N vacas» y «+K concellos» | campanilla / «cha-ching» | B |  |
+| 28 |  | el color se extiende (hasta 24 pasos) | «pop» suave por paso, cada vez más agudo | A |  |
+| 29 | Alejamiento (ataque suelto) | el mapa se aleja | whoosh descendente | B |  |
+| 30 | Fundidos entre escenas |  | «swish» muy suave | C |  |
+| 31 | Cierre | aparece el panel de rankings | whoosh corto | B |  |
+| 32 |  | cada fila del ranking (10) | «pop»/tic; la primera de cada lista con campanilla | B |  |
+| 33 | Final de la serie | «CAMPIÓN DE GALICIA» | fanfarria grande + gaita | A |  |
+| 34 | Opcional | pastillas de vacas | mugido (necesita una muestra real; sintetizado suena a juguete) | C |  |
 
 ## Reglas de mezcla
 - Mono/estéreo según el efecto; volumen normalizado ≈ −14 LUFS; sin picos (limitador).

@@ -151,10 +151,74 @@ def whoosh_vuelo() -> np.ndarray:
     return normalizar(fundidos(estereo(izq, der), 0.01, 0.015), -4.0)
 
 
+# Pasos del sorteo del atacante (montaje): los de `escenas.PASOS_ATACANTE` + el último (D_ULTIMO)
+PASOS_SORTEO_ATACANTE = (0.07, 0.07, 0.07, 0.07, 0.07, 0.07, 0.09, 0.10, 0.12, 0.15, 0.19, 0.24, 0.30, 0.40, 0.35)
+
+
+def _tic(frecuencia: float, fuerza: float) -> np.ndarray:
+    """Un «tic» de bloque de madera: dos parciales inarmónicos con caída rápida y un clic de aire."""
+    t = t_(0.06)
+    x = (np.sin(2 * np.pi * frecuencia * t) * env_exp(t, 0.011, 0.0005)
+         + 0.45 * np.sin(2 * np.pi * frecuencia * 2.76 * t) * env_exp(t, 0.006, 0.0003)
+         + 0.25 * paso_bajo(ruido(len(t), 5), 6000) * env_exp(t, 0.002, 0.0002))
+    return x * fuerza
+
+
+def tics_sorteo_atacante() -> np.ndarray:
+    """05 · Sorteo del atacante: un tic cada vez que se resalta otro dueño (15 en total, con los pasos
+    reales de la animación: empiezan rápidos y se frenan). Cada tic es más agudo y más fuerte que el
+    anterior (de Mi5 a Mi6 por semitonos); el último, el del elegido, es el más brillante. ≈1,8 s."""
+    pasos = [p / VELOCIDAD for p in PASOS_SORTEO_ATACANTE]
+    n = len(pasos)
+    dur = sum(pasos) + 0.1
+    izq, der = np.zeros(int(dur * SR)), np.zeros(int(dur * SR))
+    inicio = 0.0
+    for i, paso in enumerate(pasos):
+        frecuencia = 1318.5 * 2 ** ((12 * i / (n - 1)) / 12)
+        tic = _tic(frecuencia, 0.55 + 0.45 * i / (n - 1))
+        a = int(inicio * SR)
+        reparto = 0.5 + 0.18 * np.sin(i * 2.1)  # los tics bailan un poco entre izquierda y derecha
+        izq[a:a + len(tic)] += tic * np.sqrt(1 - reparto)
+        der[a:a + len(tic)] += tic * np.sqrt(reparto)
+        inicio += paso
+    return normalizar(estereo(izq, der), -5.0)
+
+
+def clac_campanilla() -> np.ndarray:
+    """06 · Bloqueo (sorteo del atacante y del defensor): «clac» seco de cerradura + campanilla corta.
+    ≈0,9 s."""
+    dur = 0.9
+    t = t_(dur)
+    clac = (seno_barrido(t, 200, 80, 0.03) * env_exp(t, 0.05, 0.001)
+            + 0.9 * paso_bajo(ruido(len(t), 6), 3000) * env_exp(t, 0.012, 0.0005))
+    campana = np.zeros_like(t)
+    t_c = np.clip(t - 0.035, 0, None)
+    for ratio, amp, tau in ((1.0, 1.0, 0.45), (2.0, 0.55, 0.32), (2.76, 0.4, 0.24), (5.4, 0.16, 0.1)):
+        campana += amp * np.sin(2 * np.pi * 1174.7 * ratio * t_c) * env_exp(t_c, tau, 0.001) * (t >= 0.035)
+    x = clac * 0.9 + campana * 0.55
+    return normalizar(fundidos(estereo(x), 0.0005, 0.04), -4.0)
+
+
+def whoosh_zoom() -> np.ndarray:
+    """07 · Zoom del mapa al atacante (1,3 s de montaje = 1,0 s de vídeo). Whoosh suave en campana:
+    ruido filtrado que sube de tono poco a poco; más discreto que el del vuelo de la portada. ≈1,0 s."""
+    dur = 1.3 / VELOCIDAD
+    t = t_(dur)
+    u = t / dur
+    corte = 320 * (5.5 ** u)  # 320 Hz → ≈1,8 kHz
+    x = filtro_banda_variable(ruido(len(t), 7), corte, q=1.6)
+    x *= np.sin(np.pi * u) ** 2.2
+    pan = 0.5 + 0.2 * np.sin(2 * np.pi * u * 0.5)
+    return normalizar(fundidos(estereo(x * np.sqrt(1 - pan), x * np.sqrt(pan)), 0.01, 0.02), -8.0)
+
+
 EFECTOS = {
     1: ("01_portada_golpe", golpe_portada),
     2: ("02_portada_frase_pop", pop_frase),
     3: ("03_portada_vuelo_whoosh", whoosh_vuelo),
+    5: ("05_sorteo_atacante_tics", tics_sorteo_atacante),
+    6: ("06_sorteo_bloqueo_clac", clac_campanilla),
+    7: ("07_zoom_atacante_whoosh", whoosh_zoom),
 }
 
 
