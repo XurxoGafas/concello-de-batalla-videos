@@ -607,3 +607,9 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió (usuario):** hacer cómo sería un episodio 100 (y, si queda bien, pasar a lo siguiente).
 - **Cómo:** `src/render/episodio100.py`: estado tras 99 episodios (297 batallas con la semilla de muestra → quedan 16 dueños) y episodio completo (portada, 3 batallas, cierre con ranking) con el mapa nuevo (banderas recortadas, un escudo por territorio, territorio completo resaltado). Salidas: `output/muestras/episodio100_sin_audio.mp4` (65,6 s; render 364 s), `episodio100_portada.png`, `episodio100_mapa_previo.png`.
 - **Observaciones:** con pocos dueños, los territorios grandes de solo escudo quedan blancos con un único escudo pequeño respecto al territorio (el círculo inscrito es pequeño en formas irregulares); la portada recorta el escudo por la silueta (aceptado por el usuario). Pendiente su aprobación.
+
+## 2026-11-19 — Apartado gráfico cerrado y esquema previo de sonidos
+- **Decisiones del usuario:** el apartado gráfico queda cerrado por ahora; **no habrá música de fondo**, solo efectos; pregunta si Claude puede componer la «cancioncilla» de gaita.
+- **Qué se hizo:** `docs/SONIDOS.md` con el esquema completo de sonidos por escena y evento (prioridad A/B/C) y reglas de mezcla. Cambio de plan (regla d): los pasos 5.1 y 5.2 de `PLAN.md` se reescriben (efectos generados por síntesis en vez de reunir sonidos con licencia; sin música; cancioncilla compuesta por Claude; aprobación del usuario tras escuchar un pack, porque Claude no puede oír).
+- **Entorno:** no hay `fluidsynth` ni `sox`; sí numpy y ffmpeg, suficientes para síntesis y mezcla. Una gaita realista exigiría muestras reales (las aportaría el usuario).
+- **Pendiente:** respuesta del usuario sobre el esquema y las muestras de gaita; después, el pack de efectos.
