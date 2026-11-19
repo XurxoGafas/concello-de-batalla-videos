@@ -556,6 +556,10 @@ GAITA_MELODIA = ((74, 2), (72, 1), (71, 2), (69, 1),
                  (67, 1), (69, 1), (71, 1), (69, 2), (66, 1),
                  (67, 1), (66, 1), (64, 1), (62, 3))
 D_CORCHEA_GAITA = 0.145  # segundos de vídeo
+# Versión corta (≈1,5 s): primer compás de la larga y un segundo que cae directo a la nota de reposo (Re)
+GAITA_MELODIA_CORTA = ((74, 2), (72, 1), (71, 2), (69, 1),
+                       (67, 1), (66, 1), (64, 1), (62, 3))
+D_CORCHEA_GAITA_CORTA = 0.125
 
 
 def _midi(n: float) -> float:
@@ -568,18 +572,20 @@ def _caramillo(t: np.ndarray, f: float) -> np.ndarray:
     return x
 
 
-def gaita_cancion() -> np.ndarray:
+def gaita_cancion(corta: bool = True) -> np.ndarray:
     """25 · Entra la gaita: cancioncilla original de ≈2,6 s (muiñeira en Re mixolidio) sobre un bordón de Re+La.
     Timbre sintetizado de lengüeta; si el usuario aporta muestras de gaita real, se sustituye (docs/FUENTES.md)."""
-    n_total = sum(d for _, d in GAITA_MELODIA)
-    dur = n_total * D_CORCHEA_GAITA + 0.45
+    melodia_notas = GAITA_MELODIA_CORTA if corta else GAITA_MELODIA
+    corchea = D_CORCHEA_GAITA_CORTA if corta else D_CORCHEA_GAITA
+    n_total = sum(d for _, d in melodia_notas)
+    dur = n_total * corchea + (0.3 if corta else 0.45)
     t = t_(dur)
     melodia = np.zeros_like(t)
     ini = 0.0
     previa = None
-    for nota, d in GAITA_MELODIA:
+    for nota, d in melodia_notas:
         a = int(ini * SR)
-        largo = d * D_CORCHEA_GAITA
+        largo = d * corchea
         b = int(min(len(t), (ini + largo) * SR))
         seg = t[: b - a]
         env = np.minimum(1, seg / 0.012) * np.minimum(1, np.maximum(0, (largo - seg) / 0.02 + 0.0))
@@ -597,7 +603,7 @@ def gaita_cancion() -> np.ndarray:
     bordon = paso_bajo(bordon, 900)
     mel = filtro_banda_variable(melodia, np.full(len(t), 1500.0), q=0.7) * 0.6 + 0.5 * melodia * 0.4
     x = 0.7 * normalizar(mel, -6.0) + 0.45 * normalizar(bordon, -6.0)
-    return normalizar(fundidos(estereo(x), 0.004, 0.1), -5.0)
+    return normalizar(fundidos(estereo(x), 0.004, 0.1), -12.0 if corta else -5.0)
 
 
 def confeti() -> np.ndarray:
@@ -719,7 +725,7 @@ def fanfarria_final() -> np.ndarray:
         _poner(mezcla, g * 0.35, 0.55, 0.5)
     brillo = paso_bajo(ruido(int(1.8 * SR), 34), 9000) - paso_bajo(ruido(int(1.8 * SR), 34), 5000)
     _poner(mezcla, brillo * env_exp(t_(1.8), 0.45, 0.003) * 0.7, 0.55, 0.5)
-    gaita = gaita_cancion()
+    gaita = gaita_cancion(corta=False)  # la fanfarria aprobada lleva la versión larga
     _poner(mezcla, gaita[:, 0] * 0.6, 1.2, 0.35)
     _poner(mezcla, gaita[:, 1] * 0.6, 1.2, 0.65)
     return normalizar(fundidos(mezcla, 0.0005, 0.25), -4.0)

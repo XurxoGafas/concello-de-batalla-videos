@@ -665,3 +665,7 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - El usuario pide reducir a la mitad la escena de la gaita y la canción (25), y que la canción suene más suave. Primero solo la animación.
 - **Hecho:** la gaita se queda `D_GAITA = 1,6 s` (antes 3,2 s, hasta el final de la conquista) y sale encogiéndose en 0,3 s (`src/render/conquista.py`). La duración de la conquista (4,2 s), el color y las pastillas no cambian; el confeti sigue su curso. Test nuevo `test_la_gaita_se_va_tras_su_tiempo`.
 - **Pendiente:** versión corta (≈1,5 s) y más suave de la canción 25 (y su efecto en la fanfarria 33); decidir si se acorta también la gaita del final de serie.
+
+## 2026-11-19 · Sonido 25 · Gaita corta y más suave
+- Nueva versión de `gaita_cancion(corta=True)`: 8 notas, 1,8 s (notas 1,5 s + cola), pico −12 dBFS (antes 3,06 s y −5 dBFS), cae a la nota de reposo (Re). La fanfarria 33 usa `gaita_cancion(corta=False)`, por lo que sigue idéndica a la aprobada. Pendiente de OK del usuario.
+- A tener en cuenta al remontar: la gaita sale de pantalla a 1,6 s de montaje (≈1,2 s de vídeo) y la canción dura 1,5 s de vídeo; si hace falta, se acelera la melodía para que acabe con la gaita.

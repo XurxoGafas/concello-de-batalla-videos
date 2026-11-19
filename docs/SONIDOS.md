@@ -34,7 +34,7 @@ Prioridad: **A** imprescindible · **B** deseable · **C** opcional.
 | 22 | Morte súbita | tarjeta en llamas | alarma grave + crepitar de fuego | A | ✅ (1,9 s = una ronda; en el montaje se alarga con las rondas) |
 | 23 |  | dado extra | traqueteo + golpe | A | ✅ (1,1 s; el golpe cae al final de la rodada, una vez por ronda) |
 | 24 | Conquista | cambian los rótulos CAMPIÓN/MALOGRADO | destello (whoosh + chispas) | A |  ✅ |
-| 25 |  | entra la gaita | cancioncilla de gaita (≈3 s) | A |  ✅ |
+| 25 |  | entra la gaita | cancioncilla de gaita (versión corta ≈1,5 s y más suave, pedida 2026-11-19; la fanfarria 33 conserva la larga) | A |  ✅ |
 | 26 |  | confeti (2 tandas) | estallidos de papel/«pops» | B |  ✅ |
 | 27 |  | pastillas «+N vacas» y «+K concellos» | campanilla / «cha-ching» | B |  ✅ |
 | 28 |  | el color se extiende (hasta 24 pasos) | «pop» suave por paso, cada vez más agudo | A |  ✅ |
