@@ -63,9 +63,10 @@ Cada paso indica **Qué** se hace, **Archivos** que se tocan y **Hecho cuando** 
 - **Archivos:** `src/datos/construir_estado.py`, `src/datos/colores.py`, `scripts/descargar_banderas.py`, `data/processed/colores_bandera.json`, `data/processed/estado_inicial.json`, `tests/test_estado_inicial.py`, `tests/test_colores.py`.
 - **Hecho cuando:** el script se ejecuta sin errores y un test valida que los ids de las adyacencias, las vacas y las geometrías coinciden, y que cada dueño tiene su contador de victorias inicializado a 0. ✅ Completado el 2026-11-18 con colores **provisionales** (313 distintos entre sí, marcados `"fonte": "provisional"`): 313 concellos, cada uno dueño de sí mismo, vacas, vecinos, victorias a 0, episodio 0; 40 tests en verde. Los colores reales de las banderas pasan al paso 2.5.
 
-### [ ] 2.5 Colores de las banderas de los concellos
+### [~] 2.5 Colores de las banderas de los concellos
 - **Qué:** El usuario enviará las banderas (imágenes). Para cada concello se extrae una paleta de hasta 4 colores con su peso (`src/datos/colores.py`, ya hecho y probado con imágenes sintéticas) y se sustituyen los colores provisionales del estado inicial. Los concellos de los que no llegue bandera conservan el color provisional. (La descarga automática desde Wikidata/Commons, `scripts/descargar_banderas.py`, está bloqueada por el límite de peticiones de Wikimedia desde la red de la sesión; solo hay lista de 142 banderas en Wikidata.)
 - **Archivos:** `data/raw/banderas/<código INE>.<ext>` (o el nombre que acuerde con el usuario), `data/processed/colores_bandera.json`, `data/processed/estado_inicial.json`, `docs/FUENTES.md`.
+- **Estado (2026-11-19):** el usuario envió `banderas.zip`; 129 concellos con bandera, 176 con solo escudo (territorio blanco con el escudo encima, recortado por el límite del concello y con las fronteras siempre visibles), 8 pendientes (7 sin imagen + Carral). `scripts/preparar_banderas.py`, `assets/banderas/`, `assets/escudos/`. Falta: que el usuario apruebe la muestra, aporte las 8 que faltan y confirme el origen/licencia (`docs/FUENTES.md`).
 - **Hecho cuando:** cada concello con bandera tiene su paleta en el estado, el usuario revisa una imagen de muestra con los 313 concellos coloreados y aprueba los colores, y `docs/FUENTES.md` registra de dónde vienen las imágenes.
 
 ---

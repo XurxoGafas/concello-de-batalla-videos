@@ -55,6 +55,7 @@ def construir(
     vecinos: dict[str, list[str]],
     vacas: dict[str, int],
     colores: dict[str, dict],
+    escudos: dict[str, dict] | None = None,
 ) -> dict:
     """Devuelve el estado inicial. `nombres` = {id: (nome, provincia)}."""
     ids = sorted(nombres)
@@ -64,7 +65,9 @@ def construir(
     concellos: dict[str, dict] = {}
     donos: dict[str, dict] = {}
     for n, i in enumerate(ids):
-        if i in colores:
+        if escudos and i in escudos:  # solo hay escudo: territorio blanco y el escudo encima
+            cor = {"colores": ["#ffffff"], "pesos": [1.0], "fonte": "escudo", "escudo": escudos[i]["escudo"]}
+        elif i in colores:
             cor = {"colores": colores[i]["colores"], "pesos": colores[i]["pesos"], "fonte": "bandeira"}
         else:
             cor = {"colores": [color_provisional(n)], "pesos": [1.0], "fonte": "provisional"}
@@ -93,11 +96,13 @@ def main() -> None:
     vecinos = json.loads((PROC / "adyacencias.json").read_text(encoding="utf-8"))
     vacas = json.loads((PROC / "vacas.json").read_text(encoding="utf-8"))["vacas"]
     ruta_col = PROC / "colores_bandera.json"
-    colores = json.loads(ruta_col.read_text(encoding="utf-8"))["con_bandera"] if ruta_col.exists() else {}
-    estado = construir(nombres, vecinos, vacas, colores)
+    datos_col = json.loads(ruta_col.read_text(encoding="utf-8")) if ruta_col.exists() else {}
+    colores, escudos = datos_col.get("con_bandera", {}), datos_col.get("con_escudo", {})
+    estado = construir(nombres, vecinos, vacas, colores, escudos)
     SALIDA.write_text(json.dumps(estado, ensure_ascii=False, indent=1), encoding="utf-8")
     prov = sum(1 for c in estado["concellos"].values() if c["cor"]["fonte"] == "provisional")
-    print(f"{len(estado['concellos'])} concellos, {prov} con color provisional (sin bandera)")
+    esc = sum(1 for c in estado["concellos"].values() if c["cor"]["fonte"] == "escudo")
+    print(f"{len(estado['concellos'])} concellos, {esc} con escudo sobre blanco, {prov} con color provisional")
     print(f"Escrito {SALIDA.relative_to(RAIZ)}")
 
 

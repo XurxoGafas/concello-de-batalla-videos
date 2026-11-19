@@ -17,12 +17,13 @@
    "vacas": 698,
    "cor": {
     "colores": [
-     "#4ad2d2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15001.png"
    },
    "dono": "34121515001"
   },
@@ -40,12 +41,13 @@
    "vacas": 242,
    "cor": {
     "colores": [
-     "#5fb657"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15002.png"
    },
    "dono": "34121515002"
   },
@@ -63,12 +65,13 @@
    "vacas": 3589,
    "cor": {
     "colores": [
-     "#d9bc2e"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15003.png"
    },
    "dono": "34121515003"
   },
@@ -82,12 +85,13 @@
    "vacas": 1,
    "cor": {
     "colores": [
-     "#bc4160"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15004.png"
    },
    "dono": "34121515004"
   },
@@ -102,12 +106,13 @@
    "vacas": 399,
    "cor": {
     "colores": [
-     "#b76adf"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15005.png"
    },
    "dono": "34121515005"
   },
@@ -126,12 +131,13 @@
    "vacas": 8607,
    "cor": {
     "colores": [
-     "#286ac2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15006.png"
    },
    "dono": "34121515006"
   },
@@ -147,12 +153,13 @@
    "vacas": 2760,
    "cor": {
     "colores": [
-     "#4ee598"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15007.png"
    },
    "dono": "34121515007"
   },
@@ -169,12 +176,13 @@
    "vacas": 64,
    "cor": {
     "colores": [
-     "#9ec95f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15008.png"
    },
    "dono": "34121515008"
   },
@@ -191,12 +199,13 @@
    "vacas": 111,
    "cor": {
     "colores": [
-     "#ec6c30"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15009.png"
    },
    "dono": "34121515009"
   },
@@ -214,12 +223,13 @@
    "vacas": 4161,
    "cor": {
     "colores": [
-     "#cf45af"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15010.png"
    },
    "dono": "34121515010"
   },
@@ -235,12 +245,13 @@
    "vacas": 281,
    "cor": {
     "colores": [
-     "#8471f2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15011.png"
    },
    "dono": "34121515011"
   },
@@ -259,12 +270,13 @@
    "vacas": 2130,
    "cor": {
     "colores": [
-     "#2acad5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15012.png"
    },
    "dono": "34121515012"
   },
@@ -283,12 +295,13 @@
    "vacas": 1834,
    "cor": {
     "colores": [
-     "#3fb93d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15013.png"
    },
    "dono": "34121515013"
   },
@@ -304,12 +317,13 @@
    "vacas": 1767,
    "cor": {
     "colores": [
-     "#dccf65"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15014.png"
    },
    "dono": "34121515014"
   },
@@ -325,12 +339,13 @@
    "vacas": 62,
    "cor": {
     "colores": [
-     "#bf2542"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15015.png"
    },
    "dono": "34121515015"
   },
@@ -344,12 +359,13 @@
    "vacas": 17,
    "cor": {
     "colores": [
-     "#b849e2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15016.png"
    },
    "dono": "34121515016"
   },
@@ -367,12 +383,14 @@
    "vacas": 262,
    "cor": {
     "colores": [
-     "#5a80c5"
+     "#ffffff",
+     "#6f4e37"
     ],
     "pesos": [
-     1.0
+     0.9491,
+     0.0509
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515017"
   },
@@ -389,12 +407,13 @@
    "vacas": 1444,
    "cor": {
     "colores": [
-     "#2be894"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15018.png"
    },
    "dono": "34121515018"
   },
@@ -412,12 +431,16 @@
    "vacas": 1734,
    "cor": {
     "colores": [
-     "#8acc41"
+     "#ffcc00",
+     "#006b3d",
+     "#102913"
     ],
     "pesos": [
-     1.0
+     0.7568,
+     0.197,
+     0.0461
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515019"
   },
@@ -432,12 +455,16 @@
    "vacas": 8,
    "cor": {
     "colores": [
-     "#ef9e6b"
+     "#0f47af",
+     "#ffffff",
+     "#c9c7a8"
     ],
     "pesos": [
-     1.0
+     0.6424,
+     0.2983,
+     0.0592
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515020"
   },
@@ -476,12 +503,14 @@
    "vacas": 1213,
    "cor": {
     "colores": [
-     "#5439b5"
+     "#ffd800",
+     "#006132"
     ],
     "pesos": [
-     1.0
+     0.5956,
+     0.4044
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515022"
   },
@@ -497,12 +526,18 @@
    "vacas": 265,
    "cor": {
     "colores": [
-     "#60c9d8"
+     "#018944",
+     "#f3d31c",
+     "#e11f1d",
+     "#290906"
     ],
     "pesos": [
-     1.0
+     0.4069,
+     0.3146,
+     0.1935,
+     0.085
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515023"
   },
@@ -520,12 +555,14 @@
    "vacas": 2147,
    "cor": {
     "colores": [
-     "#21bc28"
+     "#ff0000",
+     "#ffff00"
     ],
     "pesos": [
-     1.0
+     0.9015,
+     0.0985
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515024"
   },
@@ -542,12 +579,13 @@
    "vacas": 362,
    "cor": {
     "colores": [
-     "#dfd945"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15025.png"
    },
    "dono": "34121515025"
   },
@@ -564,12 +602,13 @@
    "vacas": 63,
    "cor": {
     "colores": [
-     "#c25563"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15027.png"
    },
    "dono": "34121515027"
   },
@@ -582,12 +621,13 @@
    "vacas": 9,
    "cor": {
     "colores": [
-     "#bd27e5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15028.png"
    },
    "dono": "34121515028"
   },
@@ -605,12 +645,16 @@
    "vacas": 2099,
    "cor": {
     "colores": [
-     "#3d66c8"
+     "#0f47af",
+     "#b7b23a",
+     "#f2d80f"
     ],
     "pesos": [
-     1.0
+     0.8999,
+     0.0502,
+     0.0498
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515029"
   },
@@ -625,12 +669,13 @@
    "vacas": 7,
    "cor": {
     "colores": [
-     "#66ebb9"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15030.png"
    },
    "dono": "34121515030"
   },
@@ -649,12 +694,13 @@
    "vacas": 168,
    "cor": {
     "colores": [
-     "#72cf22"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15031.png"
    },
    "dono": "34121515031"
   },
@@ -671,12 +717,14 @@
    "vacas": 5860,
    "cor": {
     "colores": [
-     "#f29448"
+     "#169c16",
+     "#ede136"
     ],
     "pesos": [
-     1.0
+     0.6835,
+     0.3165
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515032"
   },
@@ -692,12 +740,13 @@
    "vacas": 36,
    "cor": {
     "colores": [
-     "#d55ba8"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15033.png"
    },
    "dono": "34121515033"
   },
@@ -714,12 +763,18 @@
    "vacas": 3067,
    "cor": {
     "colores": [
-     "#491eb8"
+     "#0290ce",
+     "#ffd911",
+     "#feffff",
+     "#18658f"
     ],
     "pesos": [
-     1.0
+     0.434,
+     0.2903,
+     0.2166,
+     0.0591
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515034"
   },
@@ -736,12 +791,13 @@
    "vacas": 92,
    "cor": {
     "colores": [
-     "#40bddb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15035.png"
    },
    "dono": "34121515035"
   },
@@ -754,12 +810,13 @@
    "vacas": 340,
    "cor": {
     "colores": [
-     "#51bf5d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15036.png"
    },
    "dono": "34121515036"
   },
@@ -772,12 +829,13 @@
    "vacas": 46,
    "cor": {
     "colores": [
-     "#dde223"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15037.png"
    },
    "dono": "34121515037"
   },
@@ -795,12 +853,13 @@
    "vacas": 9953,
    "cor": {
     "colores": [
-     "#c53941"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15038.png"
    },
    "dono": "34121515038"
   },
@@ -818,12 +877,16 @@
    "vacas": 1470,
    "cor": {
     "colores": [
-     "#d561e8"
+     "#eabe3f",
+     "#51c509",
+     "#fb131a"
     ],
     "pesos": [
-     1.0
+     0.5855,
+     0.288,
+     0.1264
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515039"
   },
@@ -838,12 +901,13 @@
    "vacas": 135,
    "cor": {
     "colores": [
-     "#1f46cb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15040.png"
    },
    "dono": "34121515040"
   },
@@ -859,12 +923,14 @@
    "vacas": 1971,
    "cor": {
     "colores": [
-     "#43eeb9"
+     "#0099cc",
+     "#ffd800"
     ],
     "pesos": [
-     1.0
+     0.9162,
+     0.0838
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515041"
   },
@@ -882,12 +948,13 @@
    "vacas": 1199,
    "cor": {
     "colores": [
-     "#88d257"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15042.png"
    },
    "dono": "34121515042"
   },
@@ -901,12 +968,16 @@
    "vacas": 824,
    "cor": {
     "colores": [
-     "#b58d63"
+     "#0f47af",
+     "#fcdd09",
+     "#cfc22d"
     ],
     "pesos": [
-     1.0
+     0.5081,
+     0.4443,
+     0.0475
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515043"
   },
@@ -923,12 +994,13 @@
    "vacas": 799,
    "cor": {
     "colores": [
-     "#d83c95"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15044.png"
    },
    "dono": "34121515044"
   },
@@ -948,12 +1020,13 @@
    "vacas": 13864,
    "cor": {
     "colores": [
-     "#734cbb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15045.png"
    },
    "dono": "34121515045"
   },
@@ -971,12 +1044,13 @@
    "vacas": 3495,
    "cor": {
     "colores": [
-     "#78c4de"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15046.png"
    },
    "dono": "34121515046"
   },
@@ -995,12 +1069,13 @@
    "vacas": 7564,
    "cor": {
     "colores": [
-     "#35c24d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15047.png"
    },
    "dono": "34121515047"
   },
@@ -1016,12 +1091,13 @@
    "vacas": 359,
    "cor": {
     "colores": [
-     "#d8e55c"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15048.png"
    },
    "dono": "34121515048"
   },
@@ -1037,12 +1113,18 @@
    "vacas": 1030,
    "cor": {
     "colores": [
-     "#c86b6b"
+     "#006132",
+     "#ffcc00",
+     "#d4981c",
+     "#002815"
     ],
     "pesos": [
-     1.0
+     0.5904,
+     0.2027,
+     0.1108,
+     0.0962
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515049"
   },
@@ -1063,12 +1145,14 @@
    "vacas": 3565,
    "cor": {
     "colores": [
-     "#dd3eeb"
+     "#008000",
+     "#f2f2f2"
     ],
     "pesos": [
-     1.0
+     0.6556,
+     0.3444
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515050"
   },
@@ -1082,12 +1166,14 @@
    "vacas": 107,
    "cor": {
     "colores": [
-     "#5266ce"
+     "#f2ca3e",
+     "#558fca"
     ],
     "pesos": [
-     1.0
+     0.5633,
+     0.4367
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515051"
   },
@@ -1103,12 +1189,13 @@
    "vacas": 3695,
    "cor": {
     "colores": [
-     "#80f1d5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15052.png"
    },
    "dono": "34121515052"
   },
@@ -1123,12 +1210,13 @@
    "vacas": 49,
    "cor": {
     "colores": [
-     "#6cd537"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15053.png"
    },
    "dono": "34121515053"
   },
@@ -1144,12 +1232,14 @@
    "vacas": 461,
    "cor": {
     "colores": [
-     "#b88948"
+     "#00205b",
+     "#ffcd00"
     ],
     "pesos": [
-     1.0
+     0.914,
+     0.086
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515054"
   },
@@ -1164,12 +1254,13 @@
    "vacas": 101,
    "cor": {
     "colores": [
-     "#db73a7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15055.png"
    },
    "dono": "34121515055"
   },
@@ -1187,12 +1278,13 @@
    "vacas": 3135,
    "cor": {
     "colores": [
-     "#6b31be"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15056.png"
    },
    "dono": "34121515056"
   },
@@ -1208,12 +1300,13 @@
    "vacas": 22,
    "cor": {
     "colores": [
-     "#57b4e1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15057.png"
    },
    "dono": "34121515057"
   },
@@ -1229,12 +1322,16 @@
    "vacas": 28,
    "cor": {
     "colores": [
-     "#66c57d"
+     "#ffffff",
+     "#0099cc",
+     "#00f173"
     ],
     "pesos": [
-     1.0
+     0.5736,
+     0.2433,
+     0.183
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515058"
   },
@@ -1253,12 +1350,16 @@
    "vacas": 3751,
    "cor": {
     "colores": [
-     "#cce83a"
+     "#049240",
+     "#fbf503",
+     "#000000"
     ],
     "pesos": [
-     1.0
+     0.5931,
+     0.2384,
+     0.1685
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515059"
   },
@@ -1276,12 +1377,14 @@
    "vacas": 1842,
    "cor": {
     "colores": [
-     "#cb564d"
+     "#00a139",
+     "#fffe03"
     ],
     "pesos": [
-     1.0
+     0.6364,
+     0.3636
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515060"
   },
@@ -1299,12 +1402,14 @@
    "vacas": 2249,
    "cor": {
     "colores": [
-     "#ec7aee"
+     "#ffffff",
+     "#127db6"
     ],
     "pesos": [
-     1.0
+     0.5853,
+     0.4147
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515061"
   },
@@ -1321,12 +1426,13 @@
    "vacas": 774,
    "cor": {
     "colores": [
-     "#3343d1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15062.png"
    },
    "dono": "34121515062"
   },
@@ -1343,12 +1449,18 @@
    "vacas": 279,
    "cor": {
     "colores": [
-     "#44b5a0"
+     "#ffffff",
+     "#0071bc",
+     "#f8951f",
+     "#001929"
     ],
     "pesos": [
-     1.0
+     0.5175,
+     0.2357,
+     0.1621,
+     0.0847
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515064"
   },
@@ -1366,12 +1478,13 @@
    "vacas": 222,
    "cor": {
     "colores": [
-     "#8ad86e"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15065.png"
    },
    "dono": "34121515065"
   },
@@ -1389,12 +1502,13 @@
    "vacas": 2963,
    "cor": {
     "colores": [
-     "#bb892d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15066.png"
    },
    "dono": "34121515066"
   },
@@ -1409,12 +1523,13 @@
    "vacas": 158,
    "cor": {
     "colores": [
-     "#de528f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15067.png"
    },
    "dono": "34121515067"
   },
@@ -1430,12 +1545,16 @@
    "vacas": 2023,
    "cor": {
     "colores": [
-     "#8f61c1"
+     "#06448f",
+     "#fbf508",
+     "#1f3a63"
     ],
     "pesos": [
-     1.0
+     0.6591,
+     0.2849,
+     0.056
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515068"
   },
@@ -1451,12 +1570,14 @@
    "vacas": 37,
    "cor": {
     "colores": [
-     "#36a0e4"
+     "#009936",
+     "#ffff00"
     ],
     "pesos": [
-     1.0
+     0.731,
+     0.269
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515069"
   },
@@ -1476,12 +1597,16 @@
    "vacas": 1855,
    "cor": {
     "colores": [
-     "#49c870"
+     "#ff0000",
+     "#00c800",
+     "#e7c72e"
     ],
     "pesos": [
-     1.0
+     0.4875,
+     0.4524,
+     0.0601
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515070"
   },
@@ -1498,12 +1623,13 @@
    "vacas": 170,
    "cor": {
     "colores": [
-     "#d0eb75"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15071.png"
    },
    "dono": "34121515071"
   },
@@ -1538,12 +1664,14 @@
    "vacas": 114,
    "cor": {
     "colores": [
-     "#f157e9"
+     "#b9b9b9",
+     "#155f9e"
     ],
     "pesos": [
-     1.0
+     0.7613,
+     0.2387
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515073"
   },
@@ -1560,12 +1688,13 @@
    "vacas": 2415,
    "cor": {
     "colores": [
-     "#686cd4"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15074.png"
    },
    "dono": "34121515074"
   },
@@ -1580,12 +1709,18 @@
    "vacas": 11,
    "cor": {
     "colores": [
-     "#29b8a7"
+     "#0f47af",
+     "#9b8b17",
+     "#ead220",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.83,
+     0.0668,
+     0.0553,
+     0.0479
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515075"
   },
@@ -1604,12 +1739,14 @@
    "vacas": 1858,
    "cor": {
     "colores": [
-     "#6adb4e"
+     "#ffffff",
+     "#c7a53c"
     ],
     "pesos": [
-     1.0
+     0.9502,
+     0.0498
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515076"
   },
@@ -1628,12 +1765,18 @@
    "vacas": 10729,
    "cor": {
     "colores": [
-     "#bea25c"
+     "#630b57",
+     "#edc800",
+     "#e6e7e8",
+     "#b59b20"
     ],
     "pesos": [
-     1.0
+     0.5963,
+     0.1544,
+     0.153,
+     0.0962
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515077"
   },
@@ -1653,12 +1796,12 @@
    "vacas": 2361,
    "cor": {
     "colores": [
-     "#e13173"
+     "#800000"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515078"
   },
@@ -1675,12 +1818,13 @@
    "vacas": 2593,
    "cor": {
     "colores": [
-     "#8a45c4"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15079.png"
    },
    "dono": "34121515079"
   },
@@ -1699,12 +1843,13 @@
    "vacas": 4188,
    "cor": {
     "colores": [
-     "#6fb0e7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15080.png"
    },
    "dono": "34121515080"
   },
@@ -1721,12 +1866,13 @@
    "vacas": 1198,
    "cor": {
     "colores": [
-     "#2bcb67"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15081.png"
    },
    "dono": "34121515081"
   },
@@ -1745,12 +1891,16 @@
    "vacas": 190,
    "cor": {
     "colores": [
-     "#c1ee52"
+     "#0071bc",
+     "#f9cb1a",
+     "#000000"
     ],
     "pesos": [
-     1.0
+     0.8145,
+     0.1137,
+     0.0717
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515082"
   },
@@ -1766,12 +1916,13 @@
    "vacas": 2734,
    "cor": {
     "colores": [
-     "#d17a64"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15083.png"
    },
    "dono": "34121515083"
   },
@@ -1791,12 +1942,13 @@
    "vacas": 5755,
    "cor": {
     "colores": [
-     "#b426a3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15084.png"
    },
    "dono": "34121515084"
   },
@@ -1812,12 +1964,13 @@
    "vacas": 4261,
    "cor": {
     "colores": [
-     "#4e49d7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15085.png"
    },
    "dono": "34121515085"
   },
@@ -1833,12 +1986,14 @@
    "vacas": 7119,
    "cor": {
     "colores": [
-     "#58bab5"
+     "#039240",
+     "#fdfefe"
     ],
     "pesos": [
-     1.0
+     0.9108,
+     0.0892
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515086"
   },
@@ -1855,12 +2010,13 @@
    "vacas": 637,
    "cor": {
     "colores": [
-     "#45de2d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15087.png"
    },
    "dono": "34121515087"
   },
@@ -1878,12 +2034,16 @@
    "vacas": 2911,
    "cor": {
     "colores": [
-     "#c1a440"
+     "#194586",
+     "#fdfefc",
+     "#192d50"
     ],
     "pesos": [
-     1.0
+     0.7141,
+     0.2022,
+     0.0837
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515088"
   },
@@ -1899,12 +2059,14 @@
    "vacas": 427,
    "cor": {
     "colores": [
-     "#e46a90"
+     "#078930",
+     "#fcdd09"
     ],
     "pesos": [
-     1.0
+     0.6472,
+     0.3528
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515089"
   },
@@ -1920,12 +2082,13 @@
    "vacas": 2356,
    "cor": {
     "colores": [
-     "#8927c7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15090.png"
    },
    "dono": "34121515090"
   },
@@ -1941,12 +2104,16 @@
    "vacas": 252,
    "cor": {
     "colores": [
-     "#4d98ea"
+     "#3f9c3a",
+     "#f9da01",
+     "#af0b21"
     ],
     "pesos": [
-     1.0
+     0.5793,
+     0.3619,
+     0.0589
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515091"
   },
@@ -1964,12 +2131,13 @@
    "vacas": 4021,
    "cor": {
     "colores": [
-     "#5fcd8f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15092.png"
    },
    "dono": "34121515092"
   },
@@ -1987,12 +2155,18 @@
    "vacas": 3386,
    "cor": {
     "colores": [
-     "#acf12e"
+     "#ffffff",
+     "#d41a25",
+     "#feda18",
+     "#551c19"
     ],
     "pesos": [
-     1.0
+     0.5843,
+     0.1863,
+     0.1196,
+     0.1098
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515093"
   },
@@ -2006,12 +2180,16 @@
    "vacas": 232,
    "cor": {
     "colores": [
-     "#d46b45"
+     "#00a6ed",
+     "#ffffff",
+     "#ffd42a"
     ],
     "pesos": [
-     1.0
+     0.51,
+     0.405,
+     0.085
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34121515901"
   },
@@ -2029,12 +2207,13 @@
    "vacas": 2522,
    "cor": {
     "colores": [
-     "#b753a5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15902.png"
    },
    "dono": "34121515902"
   },
@@ -2053,12 +2232,16 @@
    "vacas": 6640,
    "cor": {
     "colores": [
-     "#3a29da"
+     "#1391cc",
+     "#ffd50c",
+     "#816c15"
     ],
     "pesos": [
-     1.0
+     0.7821,
+     0.1718,
+     0.0461
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727001"
   },
@@ -2096,12 +2279,18 @@
    "vacas": 2385,
    "cor": {
     "colores": [
-     "#6ee065"
+     "#0071bc",
+     "#ffcc00",
+     "#ffffff",
+     "#05080a"
     ],
     "pesos": [
-     1.0
+     0.7373,
+     0.1061,
+     0.0896,
+     0.0671
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727003"
   },
@@ -2120,12 +2309,13 @@
    "vacas": 3163,
    "cor": {
     "colores": [
-     "#c4ab24"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27004.png"
    },
    "dono": "34122727004"
   },
@@ -2141,12 +2331,13 @@
    "vacas": 2454,
    "cor": {
     "colores": [
-     "#e7486f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27005.png"
    },
    "dono": "34122727005"
   },
@@ -2165,12 +2356,13 @@
    "vacas": 2559,
    "cor": {
     "colores": [
-     "#a65aca"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27006.png"
    },
    "dono": "34122727006"
   },
@@ -2188,12 +2380,18 @@
    "vacas": 1580,
    "cor": {
     "colores": [
-     "#2a7aed"
+     "#ffffff",
+     "#d90f19",
+     "#fde209",
+     "#9b0a10"
     ],
     "pesos": [
-     1.0
+     0.6496,
+     0.1371,
+     0.111,
+     0.1023
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727007"
   },
@@ -2210,12 +2408,14 @@
    "vacas": 901,
    "cor": {
     "colores": [
-     "#40d089"
+     "#0071bc",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6101,
+     0.3899
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727008"
   },
@@ -2233,12 +2433,13 @@
    "vacas": 3912,
    "cor": {
     "colores": [
-     "#8ab44f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27009.png"
    },
    "dono": "34122727009"
   },
@@ -2256,12 +2457,13 @@
    "vacas": 11333,
    "cor": {
     "colores": [
-     "#d76025"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27010.png"
    },
    "dono": "34122727010"
   },
@@ -2279,12 +2481,13 @@
    "vacas": 6653,
    "cor": {
     "colores": [
-     "#ba389a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27011.png"
    },
    "dono": "34122727011"
   },
@@ -2300,12 +2503,13 @@
    "vacas": 2495,
    "cor": {
     "colores": [
-     "#7560dd"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27012.png"
    },
    "dono": "34122727012"
   },
@@ -2321,12 +2525,18 @@
    "vacas": 516,
    "cor": {
     "colores": [
-     "#20b4c0"
+     "#33b055",
+     "#0291d0",
+     "#fed51b",
+     "#201d1a"
     ],
     "pesos": [
-     1.0
+     0.4216,
+     0.2692,
+     0.1874,
+     0.1218
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727013"
   },
@@ -2344,12 +2554,13 @@
    "vacas": 4514,
    "cor": {
     "colores": [
-     "#45e344"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27014.png"
    },
    "dono": "34122727014"
   },
@@ -2367,12 +2578,18 @@
    "vacas": 7948,
    "cor": {
     "colores": [
-     "#c7bc55"
+     "#006132",
+     "#ffffff",
+     "#012169",
+     "#f6c61e"
     ],
     "pesos": [
-     1.0
+     0.5937,
+     0.1721,
+     0.1474,
+     0.0868
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727015"
   },
@@ -2389,12 +2606,13 @@
    "vacas": 7422,
    "cor": {
     "colores": [
-     "#ea2648"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27016.png"
    },
    "dono": "34122727016"
   },
@@ -2410,12 +2628,14 @@
    "vacas": 438,
    "cor": {
     "colores": [
-     "#a73ccd"
+     "#fcdd09",
+     "#078930"
     ],
     "pesos": [
-     1.0
+     0.6056,
+     0.3944
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727017"
   },
@@ -2432,12 +2652,13 @@
    "vacas": 5528,
    "cor": {
     "colores": [
-     "#6696f0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27018.png"
    },
    "dono": "34122727018"
   },
@@ -2456,12 +2677,16 @@
    "vacas": 963,
    "cor": {
     "colores": [
-     "#21d386"
+     "#ffffff",
+     "#0071bc",
+     "#009900"
     ],
     "pesos": [
-     1.0
+     0.4378,
+     0.2937,
+     0.2685
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727019"
   },
@@ -2481,12 +2706,13 @@
    "vacas": 9581,
    "cor": {
     "colores": [
-     "#78b734"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27020.png"
    },
    "dono": "34122727020"
   },
@@ -2503,12 +2729,13 @@
    "vacas": 4793,
    "cor": {
     "colores": [
-     "#da8e5b"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27021.png"
    },
    "dono": "34122727021"
   },
@@ -2528,12 +2755,12 @@
    "vacas": 8291,
    "cor": {
     "colores": [
-     "#bd1c8b"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727022"
   },
@@ -2552,12 +2779,13 @@
    "vacas": 8235,
    "cor": {
     "colores": [
-     "#643fe0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27023.png"
    },
    "dono": "34122727023"
   },
@@ -2574,12 +2802,14 @@
    "vacas": 2682,
    "cor": {
     "colores": [
-     "#51b3c3"
+     "#ce1818",
+     "#ffcc00"
     ],
     "pesos": [
-     1.0
+     0.5788,
+     0.4212
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727024"
   },
@@ -2593,12 +2823,13 @@
    "vacas": 989,
    "cor": {
     "colores": [
-     "#7ee684"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27025.png"
    },
    "dono": "34122727025"
   },
@@ -2617,12 +2848,13 @@
    "vacas": 7501,
    "cor": {
     "colores": [
-     "#cac638"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27026.png"
    },
    "dono": "34122727026"
   },
@@ -2639,12 +2871,16 @@
    "vacas": 716,
    "cor": {
     "colores": [
-     "#ed6170"
+     "#409a3b",
+     "#fac804",
+     "#fae89a"
     ],
     "pesos": [
-     1.0
+     0.5761,
+     0.3809,
+     0.043
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727027"
   },
@@ -2662,12 +2898,13 @@
    "vacas": 8669,
    "cor": {
     "colores": [
-     "#bd70d0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27028.png"
    },
    "dono": "34122727028"
   },
@@ -2684,12 +2921,13 @@
    "vacas": 1849,
    "cor": {
     "colores": [
-     "#3155b3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27029.png"
    },
    "dono": "34122727029"
   },
@@ -2707,12 +2945,16 @@
    "vacas": 2946,
    "cor": {
     "colores": [
-     "#56d6a8"
+     "#ce1818",
+     "#ffffff",
+     "#ffcc00"
     ],
     "pesos": [
-     1.0
+     0.8238,
+     0.1176,
+     0.0586
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727030"
   },
@@ -2731,12 +2973,13 @@
    "vacas": 2235,
    "cor": {
     "colores": [
-     "#8aba63"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27031.png"
    },
    "dono": "34122727031"
   },
@@ -2753,12 +2996,14 @@
    "vacas": 4645,
    "cor": {
     "colores": [
-     "#dd863b"
+     "#ffffff",
+     "#006699"
     ],
     "pesos": [
-     1.0
+     0.7533,
+     0.2467
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727032"
   },
@@ -2777,12 +3022,13 @@
    "vacas": 3233,
    "cor": {
     "colores": [
-     "#c04c94"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27033.png"
    },
    "dono": "34122727033"
   },
@@ -2798,12 +3044,13 @@
    "vacas": 1279,
    "cor": {
     "colores": [
-     "#9878e3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27034.png"
    },
    "dono": "34122727034"
   },
@@ -2816,12 +3063,13 @@
    "vacas": 98,
    "cor": {
     "colores": [
-     "#34a8c6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27035.png"
    },
    "dono": "34122727035"
   },
@@ -2837,12 +3085,13 @@
    "vacas": 1747,
    "cor": {
     "colores": [
-     "#5ce96d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27037.png"
    },
    "dono": "34122727037"
   },
@@ -2859,12 +3108,14 @@
    "vacas": 1285,
    "cor": {
     "colores": [
-     "#c9cd6b"
+     "#006132",
+     "#fcdd09"
     ],
     "pesos": [
-     1.0
+     0.697,
+     0.303
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727038"
   },
@@ -2882,12 +3133,13 @@
    "vacas": 2422,
    "cor": {
     "colores": [
-     "#f03d45"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27039.png"
    },
    "dono": "34122727039"
   },
@@ -2907,12 +3159,13 @@
    "vacas": 7111,
    "cor": {
     "colores": [
-     "#c252d3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27040.png"
    },
    "dono": "34122727040"
   },
@@ -2931,12 +3184,13 @@
    "vacas": 825,
    "cor": {
     "colores": [
-     "#5f72b6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27041.png"
    },
    "dono": "34122727041"
   },
@@ -2955,12 +3209,16 @@
    "vacas": 6917,
    "cor": {
     "colores": [
-     "#36d9a8"
+     "#0000ff",
+     "#ffff00",
+     "#ff0000"
     ],
     "pesos": [
-     1.0
+     0.5003,
+     0.4155,
+     0.0843
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727042"
   },
@@ -2978,12 +3236,18 @@
    "vacas": 4740,
    "cor": {
     "colores": [
-     "#75bd48"
+     "#ce0000",
+     "#006aa7",
+     "#ffffff",
+     "#c5b02d"
     ],
     "pesos": [
-     1.0
+     0.5882,
+     0.2325,
+     0.0939,
+     0.0855
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727043"
   },
@@ -3002,12 +3266,13 @@
    "vacas": 15204,
    "cor": {
     "colores": [
-     "#e0ad73"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27044.png"
    },
    "dono": "34122727044"
   },
@@ -3024,12 +3289,13 @@
    "vacas": 1584,
    "cor": {
     "colores": [
-     "#c33082"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27045.png"
    },
    "dono": "34122727045"
   },
@@ -3047,12 +3313,13 @@
    "vacas": 7039,
    "cor": {
     "colores": [
-     "#8a57e6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27046.png"
    },
    "dono": "34122727046"
   },
@@ -3070,12 +3337,13 @@
    "vacas": 939,
    "cor": {
     "colores": [
-     "#66aec9"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27047.png"
    },
    "dono": "34122727047"
   },
@@ -3092,12 +3360,12 @@
    "vacas": 816,
    "cor": {
     "colores": [
-     "#39ec5b"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727048"
   },
@@ -3114,12 +3382,16 @@
    "vacas": 4722,
    "cor": {
     "colores": [
-     "#c2d04d"
+     "#ce0000",
+     "#ffd800",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6818,
+     0.223,
+     0.0952
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727049"
   },
@@ -3139,12 +3411,16 @@
    "vacas": 243,
    "cor": {
     "colores": [
-     "#b35c5a"
+     "#0b8837",
+     "#ffffff",
+     "#ffcb00"
     ],
     "pesos": [
-     1.0
+     0.5559,
+     0.3478,
+     0.0963
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727050"
   },
@@ -3158,12 +3434,14 @@
    "vacas": 3334,
    "cor": {
     "colores": [
-     "#cb32d6"
+     "#ffffff",
+     "#3399ff"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727051"
   },
@@ -3181,12 +3459,14 @@
    "vacas": 71,
    "cor": {
     "colores": [
-     "#4456b9"
+     "#194486",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.9199,
+     0.0801
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727052"
   },
@@ -3203,12 +3483,13 @@
    "vacas": 372,
    "cor": {
     "colores": [
-     "#6edcc2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27053.png"
    },
    "dono": "34122727053"
   },
@@ -3226,12 +3507,13 @@
    "vacas": 1678,
    "cor": {
     "colores": [
-     "#5bc02c"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27054.png"
    },
    "dono": "34122727054"
   },
@@ -3249,12 +3531,16 @@
    "vacas": 3745,
    "cor": {
     "colores": [
-     "#e3a852"
+     "#00923f",
+     "#0193dc",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.3844,
+     0.3393,
+     0.2763
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727055"
   },
@@ -3268,12 +3554,14 @@
    "vacas": 61,
    "cor": {
     "colores": [
-     "#c66293"
+     "#ffcc00",
+     "#0072ce"
     ],
     "pesos": [
-     1.0
+     0.7043,
+     0.2957
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727056"
   },
@@ -3290,12 +3578,14 @@
    "vacas": 12277,
    "cor": {
     "colores": [
-     "#8134e9"
+     "#ffffff",
+     "#3399ff"
     ],
     "pesos": [
-     1.0
+     0.775,
+     0.225
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727057"
   },
@@ -3313,12 +3603,12 @@
    "vacas": 5522,
    "cor": {
     "colores": [
-     "#49a0cc"
+     "#002654"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727058"
   },
@@ -3336,12 +3626,13 @@
    "vacas": 725,
    "cor": {
     "colores": [
-     "#75ef94"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27059.png"
    },
    "dono": "34122727059"
   },
@@ -3360,12 +3651,13 @@
    "vacas": 5868,
    "cor": {
     "colores": [
-     "#b7d32e"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27060.png"
    },
    "dono": "34122727060"
   },
@@ -3382,12 +3674,16 @@
    "vacas": 2347,
    "cor": {
     "colores": [
-     "#b64a40"
+     "#0f47af",
+     "#ffffff",
+     "#078930"
     ],
     "pesos": [
-     1.0
+     0.451,
+     0.4288,
+     0.1201
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727061"
   },
@@ -3404,12 +3700,13 @@
    "vacas": 2553,
    "cor": {
     "colores": [
-     "#d969d9"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27062.png"
    },
    "dono": "34122727062"
   },
@@ -3428,12 +3725,13 @@
    "vacas": 2070,
    "cor": {
     "colores": [
-     "#2835bc"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27063.png"
    },
    "dono": "34122727063"
   },
@@ -3448,12 +3746,13 @@
    "vacas": 804,
    "cor": {
     "colores": [
-     "#4ddfc7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27064.png"
    },
    "dono": "34122727064"
   },
@@ -3471,12 +3770,14 @@
    "vacas": 9573,
    "cor": {
     "colores": [
-     "#77c35d"
+     "#ffffff",
+     "#009900"
     ],
     "pesos": [
-     1.0
+     0.8254,
+     0.1746
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727065"
   },
@@ -3492,12 +3793,14 @@
    "vacas": 899,
    "cor": {
     "colores": [
-     "#e6a830"
+     "#ffffff",
+     "#1e7fcb"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727066"
   },
@@ -3514,12 +3817,18 @@
    "vacas": 3756,
    "cor": {
     "colores": [
-     "#c9447d"
+     "#006aa7",
+     "#ffffff",
+     "#050a0c",
+     "#ffcf00"
     ],
     "pesos": [
-     1.0
+     0.7528,
+     0.1024,
+     0.0752,
+     0.0696
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727901"
   },
@@ -3533,12 +3842,14 @@
    "vacas": 46,
    "cor": {
     "colores": [
-     "#ac6fec"
+     "#89c5e3",
+     "#072357"
     ],
     "pesos": [
-     1.0
+     0.7049,
+     0.2951
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34122727902"
   },
@@ -3557,12 +3868,13 @@
    "vacas": 519,
    "cor": {
     "colores": [
-     "#2a8ccf"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32001.png"
    },
    "dono": "34123232001"
   },
@@ -3580,12 +3892,13 @@
    "vacas": 146,
    "cor": {
     "colores": [
-     "#3cb362"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32002.png"
    },
    "dono": "34123232002"
   },
@@ -3602,12 +3915,13 @@
    "vacas": 1,
    "cor": {
     "colores": [
-     "#bbd664"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32003.png"
    },
    "dono": "34123232003"
   },
@@ -3626,12 +3940,13 @@
    "vacas": 262,
    "cor": {
     "colores": [
-     "#b93b25"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32004.png"
    },
    "dono": "34123232004"
   },
@@ -3647,12 +3962,13 @@
    "vacas": 294,
    "cor": {
     "colores": [
-     "#dc48d2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32005.png"
    },
    "dono": "34123232005"
   },
@@ -3669,12 +3985,13 @@
    "vacas": 408,
    "cor": {
     "colores": [
-     "#585abf"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32006.png"
    },
    "dono": "34123232006"
   },
@@ -3690,12 +4007,13 @@
    "vacas": 418,
    "cor": {
     "colores": [
-     "#2ce2cf"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32007.png"
    },
    "dono": "34123232007"
   },
@@ -3712,12 +4030,13 @@
    "vacas": 1,
    "cor": {
     "colores": [
-     "#59c640"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32008.png"
    },
    "dono": "34123232008"
   },
@@ -3734,12 +4053,18 @@
    "vacas": 3,
    "cor": {
     "colores": [
-     "#e9c66a"
+     "#ed2d38",
+     "#ffffff",
+     "#5cbdda",
+     "#aa4754"
     ],
     "pesos": [
-     1.0
+     0.4583,
+     0.2828,
+     0.2189,
+     0.04
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232009"
   },
@@ -3755,12 +4080,13 @@
    "vacas": 2,
    "cor": {
     "colores": [
-     "#cc2662"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32010.png"
    },
    "dono": "34123232010"
   },
@@ -3777,12 +4103,13 @@
    "vacas": 38,
    "cor": {
     "colores": [
-     "#a74cef"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32011.png"
    },
    "dono": "34123232011"
   },
@@ -3798,12 +4125,13 @@
    "vacas": 37,
    "cor": {
     "colores": [
-     "#5f9cd2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32012.png"
    },
    "dono": "34123232012"
   },
@@ -3820,12 +4148,13 @@
    "vacas": 13,
    "cor": {
     "colores": [
-     "#21b65a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32013.png"
    },
    "dono": "34123232013"
   },
@@ -3841,12 +4170,13 @@
    "vacas": 29,
    "cor": {
     "colores": [
-     "#acd944"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32014.png"
    },
    "dono": "34123232014"
   },
@@ -3884,12 +4214,16 @@
    "vacas": 651,
    "cor": {
     "colores": [
-     "#df27c7"
+     "#0b8837",
+     "#ffcc00",
+     "#010000"
     ],
     "pesos": [
-     1.0
+     0.666,
+     0.2694,
+     0.0646
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232016"
   },
@@ -3926,12 +4260,13 @@
    "vacas": 34,
    "cor": {
     "colores": [
-     "#65e5e0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32018.png"
    },
    "dono": "34123232018"
   },
@@ -3950,12 +4285,18 @@
    "vacas": 56,
    "cor": {
     "colores": [
-     "#37c922"
+     "#fcdd09",
+     "#0f47af",
+     "#fefcf1",
+     "#3f6744"
     ],
     "pesos": [
-     1.0
+     0.3411,
+     0.3267,
+     0.1944,
+     0.1377
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232019"
   },
@@ -3975,12 +4316,13 @@
    "vacas": 159,
    "cor": {
     "colores": [
-     "#ecc947"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32020.png"
    },
    "dono": "34123232020"
   },
@@ -3999,12 +4341,18 @@
    "vacas": 68,
    "cor": {
     "colores": [
-     "#cf5a7c"
+     "#0b8837",
+     "#000000",
+     "#ffcc00",
+     "#ffe97a"
     ],
     "pesos": [
-     1.0
+     0.3688,
+     0.3354,
+     0.244,
+     0.0518
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232021"
   },
@@ -4021,12 +4369,13 @@
    "vacas": 1,
    "cor": {
     "colores": [
-     "#a628f2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32022.png"
    },
    "dono": "34123232022"
   },
@@ -4045,12 +4394,13 @@
    "vacas": 1505,
    "cor": {
     "colores": [
-     "#4085d5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32023.png"
    },
    "dono": "34123232023"
   },
@@ -4068,12 +4418,13 @@
    "vacas": 396,
    "cor": {
     "colores": [
-     "#4fb97f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32024.png"
    },
    "dono": "34123232024"
   },
@@ -4092,12 +4443,13 @@
    "vacas": 2,
    "cor": {
     "colores": [
-     "#98dc23"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32025.png"
    },
    "dono": "34123232025"
   },
@@ -4114,12 +4466,13 @@
    "vacas": 183,
    "cor": {
     "colores": [
-     "#bf5e38"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32026.png"
    },
    "dono": "34123232026"
   },
@@ -4136,12 +4489,18 @@
    "vacas": 4,
    "cor": {
     "colores": [
-     "#e260c8"
+     "#ff0000",
+     "#e6e5e5",
+     "#71b72e",
+     "#694019"
     ],
     "pesos": [
-     1.0
+     0.7643,
+     0.0972,
+     0.0773,
+     0.0612
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232027"
   },
@@ -4160,12 +4519,13 @@
    "vacas": 69,
    "cor": {
     "colores": [
-     "#311fc5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32028.png"
    },
    "dono": "34123232028"
   },
@@ -4184,12 +4544,13 @@
    "vacas": 962,
    "cor": {
     "colores": [
-     "#43e4e8"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32029.png"
    },
    "dono": "34123232029"
   },
@@ -4203,12 +4564,13 @@
    "vacas": 322,
    "cor": {
     "colores": [
-     "#5ccc55"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32030.png"
    },
    "dono": "34123232030"
   },
@@ -4225,12 +4587,14 @@
    "vacas": 118,
    "cor": {
     "colores": [
-     "#efd224"
+     "#0090ca",
+     "#fadb00"
     ],
     "pesos": [
-     1.0
+     0.6683,
+     0.3317
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232031"
   },
@@ -4251,12 +4615,18 @@
    "vacas": 395,
    "cor": {
     "colores": [
-     "#d23b5e"
+     "#fece02",
+     "#e6e1db",
+     "#409c39",
+     "#440108"
     ],
     "pesos": [
-     1.0
+     0.3015,
+     0.2836,
+     0.2517,
+     0.1633
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232032"
   },
@@ -4274,12 +4644,13 @@
    "vacas": 35,
    "cor": {
     "colores": [
-     "#944bb5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32033.png"
    },
    "dono": "34123232033"
   },
@@ -4296,12 +4667,13 @@
    "vacas": 456,
    "cor": {
     "colores": [
-     "#769dd8"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32034.png"
    },
    "dono": "34123232034"
   },
@@ -4319,12 +4691,13 @@
    "vacas": 219,
    "cor": {
     "colores": [
-     "#34bc7a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32035.png"
    },
    "dono": "34123232035"
   },
@@ -4343,12 +4716,13 @@
    "vacas": 110,
    "cor": {
     "colores": [
-     "#a6df5b"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32036.png"
    },
    "dono": "34123232036"
   },
@@ -4365,12 +4739,16 @@
    "vacas": 327,
    "cor": {
     "colores": [
-     "#c28869"
+     "#194486",
+     "#ce1818",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6761,
+     0.1668,
+     0.157
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232037"
   },
@@ -4387,12 +4765,13 @@
    "vacas": 1,
    "cor": {
     "colores": [
-     "#e53eb9"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32038.png"
    },
    "dono": "34123232038"
   },
@@ -4412,12 +4791,14 @@
    "vacas": 172,
    "cor": {
     "colores": [
-     "#6651c8"
+     "#da121a",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.5292,
+     0.4708
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232039"
   },
@@ -4436,12 +4817,13 @@
    "vacas": 4,
    "cor": {
     "colores": [
-     "#7ee1eb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32040.png"
    },
    "dono": "34123232040"
   },
@@ -4458,12 +4840,14 @@
    "vacas": 327,
    "cor": {
     "colores": [
-     "#37cf38"
+     "#009442",
+     "#fff700"
     ],
     "pesos": [
-     1.0
+     0.6888,
+     0.3112
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232041"
   },
@@ -4478,12 +4862,13 @@
    "vacas": 240,
    "cor": {
     "colores": [
-     "#f2e660"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32042.png"
    },
    "dono": "34123232042"
   },
@@ -4501,12 +4886,13 @@
    "vacas": 1665,
    "cor": {
     "colores": [
-     "#d57181"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32043.png"
    },
    "dono": "34123232043"
   },
@@ -4525,12 +4911,13 @@
    "vacas": 367,
    "cor": {
     "colores": [
-     "#9630b8"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32044.png"
    },
    "dono": "34123232044"
   },
@@ -4547,12 +4934,18 @@
    "vacas": 33,
    "cor": {
     "colores": [
-     "#5682db"
+     "#04913e",
+     "#ffffff",
+     "#dfdd27",
+     "#30482b"
     ],
     "pesos": [
-     1.0
+     0.6711,
+     0.1678,
+     0.1009,
+     0.0602
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232045"
   },
@@ -4569,12 +4962,18 @@
    "vacas": 260,
    "cor": {
     "colores": [
-     "#64bf99"
+     "#0071bc",
+     "#ffd700",
+     "#e1211f",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6572,
+     0.1518,
+     0.0962,
+     0.0949
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232046"
   },
@@ -4593,12 +4992,13 @@
    "vacas": 81,
    "cor": {
     "colores": [
-     "#8ee23a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32047.png"
    },
    "dono": "34123232047"
   },
@@ -4637,12 +5037,14 @@
    "vacas": 3436,
    "cor": {
     "colores": [
-     "#e878c3"
+     "#fcdd09",
+     "#188f2d"
     ],
     "pesos": [
-     1.0
+     0.9155,
+     0.0845
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232049"
   },
@@ -4659,12 +5061,13 @@
    "vacas": 19,
    "cor": {
     "colores": [
-     "#5833cb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32050.png"
    },
    "dono": "34123232050"
   },
@@ -4681,12 +5084,13 @@
    "vacas": 357,
    "cor": {
     "colores": [
-     "#5bd7ee"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32051.png"
    },
    "dono": "34123232051"
   },
@@ -4705,12 +5109,18 @@
    "vacas": 85,
    "cor": {
     "colores": [
-     "#6cd273"
+     "#078930",
+     "#0f47af",
+     "#feee70",
+     "#97b930"
     ],
     "pesos": [
-     1.0
+     0.4167,
+     0.3469,
+     0.1852,
+     0.0511
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232052"
   },
@@ -4725,12 +5135,13 @@
    "vacas": 32,
    "cor": {
     "colores": [
-     "#b5b32c"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32053.png"
    },
    "dono": "34123232053"
   },
@@ -4749,12 +5160,13 @@
    "vacas": 26,
    "cor": {
     "colores": [
-     "#d8515f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32054.png"
    },
    "dono": "34123232054"
   },
@@ -4774,12 +5186,13 @@
    "vacas": 63,
    "cor": {
     "colores": [
-     "#aa5fbb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32055.png"
    },
    "dono": "34123232055"
   },
@@ -4794,12 +5207,14 @@
    "vacas": 101,
    "cor": {
     "colores": [
-     "#3563de"
+     "#006aa7",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6433,
+     0.3567
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232056"
   },
@@ -4816,12 +5231,13 @@
    "vacas": 512,
    "cor": {
     "colores": [
-     "#48c297"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32057.png"
    },
    "dono": "34123232057"
   },
@@ -4840,12 +5256,13 @@
    "vacas": 179,
    "cor": {
     "colores": [
-     "#a5e573"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32058.png"
    },
    "dono": "34123232058"
   },
@@ -4863,12 +5280,13 @@
    "vacas": 646,
    "cor": {
     "colores": [
-     "#c8782f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32059.png"
    },
    "dono": "34123232059"
   },
@@ -4886,12 +5304,14 @@
    "vacas": 67,
    "cor": {
     "colores": [
-     "#eb56b0"
+     "#ffffff",
+     "#0099cc"
     ],
     "pesos": [
-     1.0
+     0.558,
+     0.442
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232060"
   },
@@ -4908,12 +5328,13 @@
    "vacas": 449,
    "cor": {
     "colores": [
-     "#8767ce"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32061.png"
    },
    "dono": "34123232061"
   },
@@ -4931,12 +5352,13 @@
    "vacas": 127,
    "cor": {
     "colores": [
-     "#37c8f1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32062.png"
    },
    "dono": "34123232062"
   },
@@ -4953,12 +5375,13 @@
    "vacas": 839,
    "cor": {
     "colores": [
-     "#4dd55f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32063.png"
    },
    "dono": "34123232063"
   },
@@ -4975,12 +5398,13 @@
    "vacas": 5,
    "cor": {
     "colores": [
-     "#b3b85b"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32064.png"
    },
    "dono": "34123232064"
   },
@@ -4998,12 +5422,18 @@
    "vacas": 16,
    "cor": {
     "colores": [
-     "#db3137"
+     "#ffc501",
+     "#1490cc",
+     "#01a32f",
+     "#8fa17c"
     ],
     "pesos": [
-     1.0
+     0.7356,
+     0.1243,
+     0.091,
+     0.0491
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232065"
   },
@@ -5021,12 +5451,13 @@
    "vacas": 155,
    "cor": {
     "colores": [
-     "#b044be"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32066.png"
    },
    "dono": "34123232066"
   },
@@ -5044,12 +5475,13 @@
    "vacas": 592,
    "cor": {
     "colores": [
-     "#6e85e1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32067.png"
    },
    "dono": "34123232067"
   },
@@ -5065,12 +5497,16 @@
    "vacas": 87,
    "cor": {
     "colores": [
-     "#2bc498"
+     "#0071bc",
+     "#ffffff",
+     "#ed1c24"
     ],
     "pesos": [
-     1.0
+     0.3834,
+     0.3593,
+     0.2573
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232068"
   },
@@ -5090,12 +5526,13 @@
    "vacas": 1,
    "cor": {
     "colores": [
-     "#89e851"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32069.png"
    },
    "dono": "34123232069"
   },
@@ -5111,12 +5548,18 @@
    "vacas": 579,
    "cor": {
     "colores": [
-     "#cb9b62"
+     "#f43c24",
+     "#ffd401",
+     "#50a94a",
+     "#842915"
     ],
     "pesos": [
-     1.0
+     0.7872,
+     0.0865,
+     0.0733,
+     0.0531
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232070"
   },
@@ -5131,12 +5574,18 @@
    "vacas": 562,
    "cor": {
     "colores": [
-     "#ee3398"
+     "#f6c61d",
+     "#036c4f",
+     "#0071b6",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.4819,
+     0.184,
+     0.1677,
+     0.1664
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232071"
   },
@@ -5152,12 +5601,13 @@
    "vacas": 3,
    "cor": {
     "colores": [
-     "#7b48d1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32072.png"
    },
    "dono": "34123232072"
   },
@@ -5171,12 +5621,13 @@
    "vacas": 1,
    "cor": {
     "colores": [
-     "#5699b4"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32073.png"
    },
    "dono": "34123232073"
   },
@@ -5193,12 +5644,13 @@
    "vacas": 98,
    "cor": {
     "colores": [
-     "#2dd750"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32074.png"
    },
    "dono": "34123232074"
   },
@@ -5216,12 +5668,13 @@
    "vacas": 14,
    "cor": {
     "colores": [
-     "#acbb40"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32075.png"
    },
    "dono": "34123232075"
   },
@@ -5241,12 +5694,13 @@
    "vacas": 500,
    "cor": {
     "colores": [
-     "#de6d69"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32076.png"
    },
    "dono": "34123232076"
   },
@@ -5262,12 +5716,13 @@
    "vacas": 89,
    "cor": {
     "colores": [
-     "#b927c1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32077.png"
    },
    "dono": "34123232077"
   },
@@ -5285,12 +5740,13 @@
    "vacas": 421,
    "cor": {
     "colores": [
-     "#4c61e4"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32078.png"
    },
    "dono": "34123232078"
   },
@@ -5306,12 +5762,13 @@
    "vacas": 198,
    "cor": {
     "colores": [
-     "#5dc7b0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32079.png"
    },
    "dono": "34123232079"
   },
@@ -5327,12 +5784,16 @@
    "vacas": 195,
    "cor": {
     "colores": [
-     "#68ea2e"
+     "#409a3b",
+     "#ffcc00",
+     "#010100"
     ],
     "pesos": [
-     1.0
+     0.4974,
+     0.4095,
+     0.0931
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232080"
   },
@@ -5350,12 +5811,18 @@
    "vacas": 1,
    "cor": {
     "colores": [
-     "#ce9844"
+     "#ffffff",
+     "#078930",
+     "#eac103",
+     "#0a42ad"
     ],
     "pesos": [
-     1.0
+     0.4587,
+     0.3963,
+     0.1035,
+     0.0415
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232081"
   },
@@ -5370,12 +5837,13 @@
    "vacas": 114,
    "cor": {
     "colores": [
-     "#f16fad"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32082.png"
    },
    "dono": "34123232082"
   },
@@ -5392,12 +5860,13 @@
    "vacas": 1404,
    "cor": {
     "colores": [
-     "#7429d4"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32083.png"
    },
    "dono": "34123232083"
   },
@@ -5415,12 +5884,14 @@
    "vacas": 636,
    "cor": {
     "colores": [
-     "#3c8cb7"
+     "#eac102",
+     "#008f4c"
     ],
     "pesos": [
-     1.0
+     0.6772,
+     0.3228
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232084"
   },
@@ -5436,12 +5907,13 @@
    "vacas": 133,
    "cor": {
     "colores": [
-     "#64da84"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32085.png"
    },
    "dono": "34123232085"
   },
@@ -5459,12 +5931,18 @@
    "vacas": 1511,
    "cor": {
     "colores": [
-     "#a1be24"
+     "#da121a",
+     "#fcdd09",
+     "#078930",
+     "#74b577"
     ],
     "pesos": [
-     1.0
+     0.4083,
+     0.2914,
+     0.2449,
+     0.0554
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232086"
   },
@@ -5481,12 +5959,13 @@
    "vacas": 250,
    "cor": {
     "colores": [
-     "#e15748"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32087.png"
    },
    "dono": "34123232087"
   },
@@ -5502,12 +5981,13 @@
    "vacas": 69,
    "cor": {
     "colores": [
-     "#c458c3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32088.png"
    },
    "dono": "34123232088"
   },
@@ -5525,12 +6005,13 @@
    "vacas": 797,
    "cor": {
     "colores": [
-     "#2a38e7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32089.png"
    },
    "dono": "34123232089"
   },
@@ -5546,12 +6027,13 @@
    "vacas": 6,
    "cor": {
     "colores": [
-     "#40cab5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32090.png"
    },
    "dono": "34123232090"
   },
@@ -5566,12 +6048,16 @@
    "vacas": 311,
    "cor": {
     "colores": [
-     "#8aed6a"
+     "#ce0000",
+     "#0181b0",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.5766,
+     0.2435,
+     0.1799
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123232091"
   },
@@ -5589,12 +6075,13 @@
    "vacas": 303,
    "cor": {
     "colores": [
-     "#d19925"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32092.png"
    },
    "dono": "34123232092"
   },
@@ -5609,12 +6096,16 @@
    "vacas": 98,
    "cor": {
     "colores": [
-     "#b4386b"
+     "#0071bc",
+     "#f3d42b",
+     "#12161c"
     ],
     "pesos": [
-     1.0
+     0.6114,
+     0.3052,
+     0.0834
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636001"
   },
@@ -5631,12 +6122,13 @@
    "vacas": 29,
    "cor": {
     "colores": [
-     "#9b5fd7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36002.png"
    },
    "dono": "34123636002"
   },
@@ -5652,12 +6144,14 @@
    "vacas": 9,
    "cor": {
     "colores": [
-     "#207aba"
+     "#0f47af",
+     "#da121a"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636003"
   },
@@ -5672,12 +6166,14 @@
    "vacas": 7,
    "cor": {
     "colores": [
-     "#43dd77"
+     "#006aa7",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6843,
+     0.3157
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636004"
   },
@@ -5696,12 +6192,13 @@
    "vacas": 199,
    "cor": {
     "colores": [
-     "#a6c154"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36005.png"
    },
    "dono": "34123636005"
   },
@@ -5716,12 +6213,16 @@
    "vacas": 6,
    "cor": {
     "colores": [
-     "#e44526"
+     "#1a56da",
+     "#d8d9db",
+     "#fdd704"
     ],
     "pesos": [
-     1.0
+     0.9022,
+     0.0492,
+     0.0486
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636006"
   },
@@ -5738,12 +6239,13 @@
    "vacas": 161,
    "cor": {
     "colores": [
-     "#c73bbc"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36007.png"
    },
    "dono": "34123636007"
   },
@@ -5757,12 +6259,14 @@
    "vacas": 3,
    "cor": {
     "colores": [
-     "#6565ea"
+     "#0071bc",
+     "#eac102"
     ],
     "pesos": [
-     1.0
+     0.9493,
+     0.0507
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636008"
   },
@@ -5781,12 +6285,14 @@
    "vacas": 323,
    "cor": {
     "colores": [
-     "#21cdbe"
+     "#00a13a",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.711,
+     0.289
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636009"
   },
@@ -5801,12 +6307,18 @@
    "vacas": 1,
    "cor": {
     "colores": [
-     "#64f046"
+     "#cc2d27",
+     "#fbfdfb",
+     "#495e76",
+     "#eae7a3"
     ],
     "pesos": [
-     1.0
+     0.55,
+     0.205,
+     0.1652,
+     0.0799
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636010"
   },
@@ -5823,12 +6335,13 @@
    "vacas": 440,
    "cor": {
     "colores": [
-     "#d4b45a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36013.png"
    },
    "dono": "34123636013"
   },
@@ -5869,12 +6382,16 @@
    "vacas": 256,
    "cor": {
     "colores": [
-     "#973fda"
+     "#006ab3",
+     "#fcc917",
+     "#532e26"
     ],
     "pesos": [
-     1.0
+     0.6687,
+     0.2553,
+     0.076
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636015"
   },
@@ -5891,12 +6408,13 @@
    "vacas": 3765,
    "cor": {
     "colores": [
-     "#4f88bd"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36016.png"
    },
    "dono": "34123636016"
   },
@@ -5919,12 +6437,16 @@
    "vacas": 3295,
    "cor": {
     "colores": [
-     "#22e06e"
+     "#ffffff",
+     "#078930",
+     "#da121a"
     ],
     "pesos": [
-     1.0
+     0.3584,
+     0.3216,
+     0.32
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636017"
   },
@@ -5942,12 +6464,16 @@
    "vacas": 2410,
    "cor": {
     "colores": [
-     "#98c437"
+     "#00904a",
+     "#ffffff",
+     "#0089d5"
     ],
     "pesos": [
-     1.0
+     0.4616,
+     0.3808,
+     0.1576
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636018"
   },
@@ -5966,12 +6492,14 @@
    "vacas": 379,
    "cor": {
     "colores": [
-     "#e77f60"
+     "#de2119",
+     "#fffdfd"
     ],
     "pesos": [
-     1.0
+     0.5705,
+     0.4295
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636019"
   },
@@ -5989,12 +6517,13 @@
    "vacas": 2847,
    "cor": {
     "colores": [
-     "#ca6ebd"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36020.png"
    },
    "dono": "34123636020"
   },
@@ -6012,12 +6541,16 @@
    "vacas": 117,
    "cor": {
     "colores": [
-     "#4c42ed"
+     "#0071bc",
+     "#fbbb00",
+     "#da121a"
     ],
     "pesos": [
-     1.0
+     0.4835,
+     0.2831,
+     0.2334
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636021"
   },
@@ -6030,12 +6563,12 @@
    "vacas": 16,
    "cor": {
     "colores": [
-     "#55d0cd"
+     "#08c3f9"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636022"
   },
@@ -6048,12 +6581,14 @@
    "vacas": 91,
    "cor": {
     "colores": [
-     "#6ab461"
+     "#ff001a",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6342,
+     0.3658
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636023"
   },
@@ -6072,12 +6607,14 @@
    "vacas": 14794,
    "cor": {
     "colores": [
-     "#d7b83a"
+     "#ffffff",
+     "#009900"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636024"
   },
@@ -6095,12 +6632,13 @@
    "vacas": 812,
    "cor": {
     "colores": [
-     "#ba4b6a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36025.png"
    },
    "dono": "34123636025"
   },
@@ -6116,12 +6654,14 @@
    "vacas": 6,
    "cor": {
     "colores": [
-     "#b876dd"
+     "#ffffff",
+     "#0d71b9"
     ],
     "pesos": [
-     1.0
+     0.5076,
+     0.4924
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636026"
   },
@@ -6138,12 +6678,16 @@
    "vacas": 14,
    "cor": {
     "colores": [
-     "#3373c0"
+     "#e7e2d7",
+     "#3b9836",
+     "#566829"
     ],
     "pesos": [
-     1.0
+     0.4486,
+     0.3894,
+     0.162
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636027"
   },
@@ -6161,12 +6705,13 @@
    "vacas": 27,
    "cor": {
     "colores": [
-     "#5be39a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36028.png"
    },
    "dono": "34123636028"
   },
@@ -6182,12 +6727,12 @@
    "vacas": 4,
    "cor": {
     "colores": [
-     "#a3c769"
+     "#e5000c"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636029"
   },
@@ -6206,12 +6751,13 @@
    "vacas": 80,
    "cor": {
     "colores": [
-     "#ea703d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36030.png"
    },
    "dono": "34123636030"
   },
@@ -6225,12 +6771,13 @@
    "vacas": 9,
    "cor": {
     "colores": [
-     "#cd51b3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36031.png"
    },
    "dono": "34123636031"
   },
@@ -6247,12 +6794,13 @@
    "vacas": 290,
    "cor": {
     "colores": [
-     "#8c7ef0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36032.png"
    },
    "dono": "34123636032"
   },
@@ -6269,12 +6817,18 @@
    "vacas": 41,
    "cor": {
     "colores": [
-     "#36cdd3"
+     "#fcdd09",
+     "#ee1b24",
+     "#fffcef",
+     "#56090b"
     ],
     "pesos": [
-     1.0
+     0.5852,
+     0.206,
+     0.1255,
+     0.0833
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636033"
   },
@@ -6290,12 +6844,13 @@
    "vacas": 31,
    "cor": {
     "colores": [
-     "#4cb747"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36034.png"
    },
    "dono": "34123636034"
   },
@@ -6310,12 +6865,14 @@
    "vacas": 14,
    "cor": {
     "colores": [
-     "#dacc71"
+     "#0065bd",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.5824,
+     0.4176
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636035"
   },
@@ -6330,12 +6887,13 @@
    "vacas": 249,
    "cor": {
     "colores": [
-     "#bd2f4e"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36036.png"
    },
    "dono": "34123636036"
   },
@@ -6353,12 +6911,14 @@
    "vacas": 66,
    "cor": {
     "colores": [
-     "#b756e0"
+     "#fff700",
+     "#007bc5"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636037"
   },
@@ -6378,12 +6938,14 @@
    "vacas": 124,
    "cor": {
     "colores": [
-     "#6489c3"
+     "#0094de",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.503,
+     0.497
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636038"
   },
@@ -6401,12 +6963,18 @@
    "vacas": 16,
    "cor": {
     "colores": [
-     "#39e695"
+     "#0f47af",
+     "#e4e5e6",
+     "#ecc718",
+     "#b29a23"
     ],
     "pesos": [
-     1.0
+     0.7182,
+     0.1082,
+     0.1057,
+     0.068
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636039"
   },
@@ -6423,12 +6991,13 @@
    "vacas": 41,
    "cor": {
     "colores": [
-     "#92ca4c"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36040.png"
    },
    "dono": "34123636040"
   },
@@ -6445,12 +7014,12 @@
    "vacas": 1,
    "cor": {
     "colores": [
-     "#eda278"
+     "#e5e0c2"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636041"
   },
@@ -6470,12 +7039,16 @@
    "vacas": 99,
    "cor": {
     "colores": [
-     "#d032a5"
+     "#0099cc",
+     "#ffffff",
+     "#020074"
     ],
     "pesos": [
-     1.0
+     0.454,
+     0.4536,
+     0.0924
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636042"
   },
@@ -6512,12 +7085,13 @@
    "vacas": 15,
    "cor": {
     "colores": [
-     "#6ccbd6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36044.png"
    },
    "dono": "34123636044"
   },
@@ -6533,12 +7107,14 @@
    "vacas": 26,
    "cor": {
     "colores": [
-     "#2cba2f"
+     "#6d090d",
+     "#cbb413"
     ],
     "pesos": [
-     1.0
+     0.9447,
+     0.0553
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636045"
   },
@@ -6554,12 +7130,14 @@
    "vacas": 7,
    "cor": {
     "colores": [
-     "#ddd451"
+     "#255e9e",
+     "#fefefe"
     ],
     "pesos": [
-     1.0
+     0.8547,
+     0.1453
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636046"
   },
@@ -6580,12 +7158,13 @@
    "vacas": 8771,
    "cor": {
     "colores": [
-     "#c0606e"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36047.png"
    },
    "dono": "34123636047"
   },
@@ -6600,12 +7179,18 @@
    "vacas": 78,
    "cor": {
     "colores": [
-     "#ba34e3"
+     "#078930",
+     "#0f47af",
+     "#ffffff",
+     "#dc161f"
     ],
     "pesos": [
-     1.0
+     0.3464,
+     0.3379,
+     0.2521,
+     0.0636
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636048"
   },
@@ -6621,12 +7206,13 @@
    "vacas": 9,
    "cor": {
     "colores": [
-     "#4870c6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36049.png"
    },
    "dono": "34123636049"
   },
@@ -6644,12 +7230,13 @@
    "vacas": 58,
    "cor": {
     "colores": [
-     "#73e9ba"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36050.png"
    },
    "dono": "34123636050"
   },
@@ -6664,12 +7251,16 @@
    "vacas": 17,
    "cor": {
     "colores": [
-     "#7ccd2e"
+     "#0065a8",
+     "#eac102",
+     "#a7a433"
     ],
     "pesos": [
-     1.0
+     0.6097,
+     0.3322,
+     0.0582
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636051"
   },
@@ -6686,12 +7277,12 @@
    "vacas": 6333,
    "cor": {
     "colores": [
-     "#f09755"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636052"
   },
@@ -6708,12 +7299,18 @@
    "vacas": 39,
    "cor": {
     "colores": [
-     "#d367ae"
+     "#ffd801",
+     "#e72325",
+     "#02a7eb",
+     "#fbf3df"
     ],
     "pesos": [
-     1.0
+     0.3258,
+     0.323,
+     0.2738,
+     0.0774
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636053"
   },
@@ -6730,12 +7327,13 @@
    "vacas": 237,
    "cor": {
     "colores": [
-     "#4c28b6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36054.png"
    },
    "dono": "34123636054"
   },
@@ -6752,12 +7350,16 @@
    "vacas": 29,
    "cor": {
     "colores": [
-     "#4cc1d9"
+     "#138fd0",
+     "#ffffff",
+     "#275ca1"
     ],
     "pesos": [
-     1.0
+     0.6571,
+     0.2767,
+     0.0662
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636055"
   },
@@ -6777,12 +7379,16 @@
    "vacas": 85,
    "cor": {
     "colores": [
-     "#5bbd63"
+     "#0f47af",
+     "#fcdd09",
+     "#e8e8e7"
     ],
     "pesos": [
-     1.0
+     0.7047,
+     0.2262,
+     0.0692
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636056"
   },
@@ -6799,12 +7405,14 @@
    "vacas": 65,
    "cor": {
     "colores": [
-     "#e0e030"
+     "#da121a",
+     "#fffeff"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636057"
   },
@@ -6819,12 +7427,16 @@
    "vacas": 16,
    "cor": {
     "colores": [
-     "#c3434e"
+     "#0071bc",
+     "#ffffff",
+     "#010000"
     ],
     "pesos": [
-     1.0
+     0.7113,
+     0.2288,
+     0.0599
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636058"
   },
@@ -6843,12 +7455,12 @@
    "vacas": 3088,
    "cor": {
     "colores": [
-     "#d26ee6"
+     "#039240"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636059"
   },
@@ -6863,12 +7475,13 @@
    "vacas": 15,
    "cor": {
     "colores": [
-     "#2a53c9"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36060.png"
    },
    "dono": "34123636060"
   },
@@ -6887,12 +7500,13 @@
    "vacas": 17,
    "cor": {
     "colores": [
-     "#50ecb7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36061.png"
    },
    "dono": "34123636061"
   },
@@ -6905,12 +7519,14 @@
    "vacas": 1,
    "cor": {
     "colores": [
-     "#91d062"
+     "#f3ecc7",
+     "#193687"
     ],
     "pesos": [
-     1.0
+     0.6628,
+     0.3372
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636901"
   },
@@ -6928,12 +7544,18 @@
    "vacas": 1171,
    "cor": {
     "colores": [
-     "#b36a24"
+     "#f94626",
+     "#4073b2",
+     "#67261a",
+     "#f6fbef"
     ],
     "pesos": [
-     1.0
+     0.5636,
+     0.2427,
+     0.1105,
+     0.0832
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    },
    "dono": "34123636902"
   }
@@ -6948,12 +7570,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4ad2d2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15001.png"
    }
   },
   "34121515002": {
@@ -6965,12 +7588,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5fb657"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15002.png"
    }
   },
   "34121515003": {
@@ -6982,12 +7606,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d9bc2e"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15003.png"
    }
   },
   "34121515004": {
@@ -6999,12 +7624,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#bc4160"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15004.png"
    }
   },
   "34121515005": {
@@ -7016,12 +7642,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b76adf"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15005.png"
    }
   },
   "34121515006": {
@@ -7033,12 +7660,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#286ac2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15006.png"
    }
   },
   "34121515007": {
@@ -7050,12 +7678,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4ee598"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15007.png"
    }
   },
   "34121515008": {
@@ -7067,12 +7696,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#9ec95f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15008.png"
    }
   },
   "34121515009": {
@@ -7084,12 +7714,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ec6c30"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15009.png"
    }
   },
   "34121515010": {
@@ -7101,12 +7732,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#cf45af"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15010.png"
    }
   },
   "34121515011": {
@@ -7118,12 +7750,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8471f2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15011.png"
    }
   },
   "34121515012": {
@@ -7135,12 +7768,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2acad5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15012.png"
    }
   },
   "34121515013": {
@@ -7152,12 +7786,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#3fb93d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15013.png"
    }
   },
   "34121515014": {
@@ -7169,12 +7804,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#dccf65"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15014.png"
    }
   },
   "34121515015": {
@@ -7186,12 +7822,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#bf2542"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15015.png"
    }
   },
   "34121515016": {
@@ -7203,12 +7840,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b849e2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15016.png"
    }
   },
   "34121515017": {
@@ -7220,12 +7858,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5a80c5"
+     "#ffffff",
+     "#6f4e37"
     ],
     "pesos": [
-     1.0
+     0.9491,
+     0.0509
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515018": {
@@ -7237,12 +7877,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2be894"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15018.png"
    }
   },
   "34121515019": {
@@ -7254,12 +7895,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8acc41"
+     "#ffcc00",
+     "#006b3d",
+     "#102913"
     ],
     "pesos": [
-     1.0
+     0.7568,
+     0.197,
+     0.0461
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515020": {
@@ -7271,12 +7916,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ef9e6b"
+     "#0f47af",
+     "#ffffff",
+     "#c9c7a8"
     ],
     "pesos": [
-     1.0
+     0.6424,
+     0.2983,
+     0.0592
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515021": {
@@ -7305,12 +7954,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5439b5"
+     "#ffd800",
+     "#006132"
     ],
     "pesos": [
-     1.0
+     0.5956,
+     0.4044
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515023": {
@@ -7322,12 +7973,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#60c9d8"
+     "#018944",
+     "#f3d31c",
+     "#e11f1d",
+     "#290906"
     ],
     "pesos": [
-     1.0
+     0.4069,
+     0.3146,
+     0.1935,
+     0.085
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515024": {
@@ -7339,12 +7996,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#21bc28"
+     "#ff0000",
+     "#ffff00"
     ],
     "pesos": [
-     1.0
+     0.9015,
+     0.0985
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515025": {
@@ -7356,12 +8015,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#dfd945"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15025.png"
    }
   },
   "34121515027": {
@@ -7373,12 +8033,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c25563"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15027.png"
    }
   },
   "34121515028": {
@@ -7390,12 +8051,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#bd27e5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15028.png"
    }
   },
   "34121515029": {
@@ -7407,12 +8069,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#3d66c8"
+     "#0f47af",
+     "#b7b23a",
+     "#f2d80f"
     ],
     "pesos": [
-     1.0
+     0.8999,
+     0.0502,
+     0.0498
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515030": {
@@ -7424,12 +8090,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#66ebb9"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15030.png"
    }
   },
   "34121515031": {
@@ -7441,12 +8108,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#72cf22"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15031.png"
    }
   },
   "34121515032": {
@@ -7458,12 +8126,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#f29448"
+     "#169c16",
+     "#ede136"
     ],
     "pesos": [
-     1.0
+     0.6835,
+     0.3165
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515033": {
@@ -7475,12 +8145,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d55ba8"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15033.png"
    }
   },
   "34121515034": {
@@ -7492,12 +8163,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#491eb8"
+     "#0290ce",
+     "#ffd911",
+     "#feffff",
+     "#18658f"
     ],
     "pesos": [
-     1.0
+     0.434,
+     0.2903,
+     0.2166,
+     0.0591
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515035": {
@@ -7509,12 +8186,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#40bddb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15035.png"
    }
   },
   "34121515036": {
@@ -7526,12 +8204,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#51bf5d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15036.png"
    }
   },
   "34121515037": {
@@ -7543,12 +8222,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#dde223"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15037.png"
    }
   },
   "34121515038": {
@@ -7560,12 +8240,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c53941"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15038.png"
    }
   },
   "34121515039": {
@@ -7577,12 +8258,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d561e8"
+     "#eabe3f",
+     "#51c509",
+     "#fb131a"
     ],
     "pesos": [
-     1.0
+     0.5855,
+     0.288,
+     0.1264
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515040": {
@@ -7594,12 +8279,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#1f46cb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15040.png"
    }
   },
   "34121515041": {
@@ -7611,12 +8297,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#43eeb9"
+     "#0099cc",
+     "#ffd800"
     ],
     "pesos": [
-     1.0
+     0.9162,
+     0.0838
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515042": {
@@ -7628,12 +8316,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#88d257"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15042.png"
    }
   },
   "34121515043": {
@@ -7645,12 +8334,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b58d63"
+     "#0f47af",
+     "#fcdd09",
+     "#cfc22d"
     ],
     "pesos": [
-     1.0
+     0.5081,
+     0.4443,
+     0.0475
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515044": {
@@ -7662,12 +8355,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d83c95"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15044.png"
    }
   },
   "34121515045": {
@@ -7679,12 +8373,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#734cbb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15045.png"
    }
   },
   "34121515046": {
@@ -7696,12 +8391,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#78c4de"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15046.png"
    }
   },
   "34121515047": {
@@ -7713,12 +8409,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#35c24d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15047.png"
    }
   },
   "34121515048": {
@@ -7730,12 +8427,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d8e55c"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15048.png"
    }
   },
   "34121515049": {
@@ -7747,12 +8445,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c86b6b"
+     "#006132",
+     "#ffcc00",
+     "#d4981c",
+     "#002815"
     ],
     "pesos": [
-     1.0
+     0.5904,
+     0.2027,
+     0.1108,
+     0.0962
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515050": {
@@ -7764,12 +8468,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#dd3eeb"
+     "#008000",
+     "#f2f2f2"
     ],
     "pesos": [
-     1.0
+     0.6556,
+     0.3444
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515051": {
@@ -7781,12 +8487,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5266ce"
+     "#f2ca3e",
+     "#558fca"
     ],
     "pesos": [
-     1.0
+     0.5633,
+     0.4367
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515052": {
@@ -7798,12 +8506,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#80f1d5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15052.png"
    }
   },
   "34121515053": {
@@ -7815,12 +8524,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6cd537"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15053.png"
    }
   },
   "34121515054": {
@@ -7832,12 +8542,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b88948"
+     "#00205b",
+     "#ffcd00"
     ],
     "pesos": [
-     1.0
+     0.914,
+     0.086
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515055": {
@@ -7849,12 +8561,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#db73a7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15055.png"
    }
   },
   "34121515056": {
@@ -7866,12 +8579,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6b31be"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15056.png"
    }
   },
   "34121515057": {
@@ -7883,12 +8597,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#57b4e1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15057.png"
    }
   },
   "34121515058": {
@@ -7900,12 +8615,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#66c57d"
+     "#ffffff",
+     "#0099cc",
+     "#00f173"
     ],
     "pesos": [
-     1.0
+     0.5736,
+     0.2433,
+     0.183
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515059": {
@@ -7917,12 +8636,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#cce83a"
+     "#049240",
+     "#fbf503",
+     "#000000"
     ],
     "pesos": [
-     1.0
+     0.5931,
+     0.2384,
+     0.1685
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515060": {
@@ -7934,12 +8657,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#cb564d"
+     "#00a139",
+     "#fffe03"
     ],
     "pesos": [
-     1.0
+     0.6364,
+     0.3636
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515061": {
@@ -7951,12 +8676,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ec7aee"
+     "#ffffff",
+     "#127db6"
     ],
     "pesos": [
-     1.0
+     0.5853,
+     0.4147
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515062": {
@@ -7968,12 +8695,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#3343d1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15062.png"
    }
   },
   "34121515064": {
@@ -7985,12 +8713,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#44b5a0"
+     "#ffffff",
+     "#0071bc",
+     "#f8951f",
+     "#001929"
     ],
     "pesos": [
-     1.0
+     0.5175,
+     0.2357,
+     0.1621,
+     0.0847
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515065": {
@@ -8002,12 +8736,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8ad86e"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15065.png"
    }
   },
   "34121515066": {
@@ -8019,12 +8754,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#bb892d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15066.png"
    }
   },
   "34121515067": {
@@ -8036,12 +8772,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#de528f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15067.png"
    }
   },
   "34121515068": {
@@ -8053,12 +8790,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8f61c1"
+     "#06448f",
+     "#fbf508",
+     "#1f3a63"
     ],
     "pesos": [
-     1.0
+     0.6591,
+     0.2849,
+     0.056
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515069": {
@@ -8070,12 +8811,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#36a0e4"
+     "#009936",
+     "#ffff00"
     ],
     "pesos": [
-     1.0
+     0.731,
+     0.269
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515070": {
@@ -8087,12 +8830,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#49c870"
+     "#ff0000",
+     "#00c800",
+     "#e7c72e"
     ],
     "pesos": [
-     1.0
+     0.4875,
+     0.4524,
+     0.0601
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515071": {
@@ -8104,12 +8851,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d0eb75"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15071.png"
    }
   },
   "34121515072": {
@@ -8138,12 +8886,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#f157e9"
+     "#b9b9b9",
+     "#155f9e"
     ],
     "pesos": [
-     1.0
+     0.7613,
+     0.2387
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515074": {
@@ -8155,12 +8905,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#686cd4"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15074.png"
    }
   },
   "34121515075": {
@@ -8172,12 +8923,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#29b8a7"
+     "#0f47af",
+     "#9b8b17",
+     "#ead220",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.83,
+     0.0668,
+     0.0553,
+     0.0479
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515076": {
@@ -8189,12 +8946,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6adb4e"
+     "#ffffff",
+     "#c7a53c"
     ],
     "pesos": [
-     1.0
+     0.9502,
+     0.0498
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515077": {
@@ -8206,12 +8965,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#bea25c"
+     "#630b57",
+     "#edc800",
+     "#e6e7e8",
+     "#b59b20"
     ],
     "pesos": [
-     1.0
+     0.5963,
+     0.1544,
+     0.153,
+     0.0962
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515078": {
@@ -8223,12 +8988,12 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e13173"
+     "#800000"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515079": {
@@ -8240,12 +9005,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8a45c4"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15079.png"
    }
   },
   "34121515080": {
@@ -8257,12 +9023,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6fb0e7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15080.png"
    }
   },
   "34121515081": {
@@ -8274,12 +9041,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2bcb67"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15081.png"
    }
   },
   "34121515082": {
@@ -8291,12 +9059,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c1ee52"
+     "#0071bc",
+     "#f9cb1a",
+     "#000000"
     ],
     "pesos": [
-     1.0
+     0.8145,
+     0.1137,
+     0.0717
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515083": {
@@ -8308,12 +9080,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d17a64"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15083.png"
    }
   },
   "34121515084": {
@@ -8325,12 +9098,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b426a3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15084.png"
    }
   },
   "34121515085": {
@@ -8342,12 +9116,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4e49d7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15085.png"
    }
   },
   "34121515086": {
@@ -8359,12 +9134,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#58bab5"
+     "#039240",
+     "#fdfefe"
     ],
     "pesos": [
-     1.0
+     0.9108,
+     0.0892
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515087": {
@@ -8376,12 +9153,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#45de2d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15087.png"
    }
   },
   "34121515088": {
@@ -8393,12 +9171,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c1a440"
+     "#194586",
+     "#fdfefc",
+     "#192d50"
     ],
     "pesos": [
-     1.0
+     0.7141,
+     0.2022,
+     0.0837
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515089": {
@@ -8410,12 +9192,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e46a90"
+     "#078930",
+     "#fcdd09"
     ],
     "pesos": [
-     1.0
+     0.6472,
+     0.3528
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515090": {
@@ -8427,12 +9211,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8927c7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15090.png"
    }
   },
   "34121515091": {
@@ -8444,12 +9229,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4d98ea"
+     "#3f9c3a",
+     "#f9da01",
+     "#af0b21"
     ],
     "pesos": [
-     1.0
+     0.5793,
+     0.3619,
+     0.0589
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515092": {
@@ -8461,12 +9250,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5fcd8f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15092.png"
    }
   },
   "34121515093": {
@@ -8478,12 +9268,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#acf12e"
+     "#ffffff",
+     "#d41a25",
+     "#feda18",
+     "#551c19"
     ],
     "pesos": [
-     1.0
+     0.5843,
+     0.1863,
+     0.1196,
+     0.1098
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515901": {
@@ -8495,12 +9291,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d46b45"
+     "#00a6ed",
+     "#ffffff",
+     "#ffd42a"
     ],
     "pesos": [
-     1.0
+     0.51,
+     0.405,
+     0.085
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34121515902": {
@@ -8512,12 +9312,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b753a5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/15902.png"
    }
   },
   "34122727001": {
@@ -8529,12 +9330,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#3a29da"
+     "#1391cc",
+     "#ffd50c",
+     "#816c15"
     ],
     "pesos": [
-     1.0
+     0.7821,
+     0.1718,
+     0.0461
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727002": {
@@ -8563,12 +9368,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6ee065"
+     "#0071bc",
+     "#ffcc00",
+     "#ffffff",
+     "#05080a"
     ],
     "pesos": [
-     1.0
+     0.7373,
+     0.1061,
+     0.0896,
+     0.0671
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727004": {
@@ -8580,12 +9391,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c4ab24"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27004.png"
    }
   },
   "34122727005": {
@@ -8597,12 +9409,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e7486f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27005.png"
    }
   },
   "34122727006": {
@@ -8614,12 +9427,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#a65aca"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27006.png"
    }
   },
   "34122727007": {
@@ -8631,12 +9445,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2a7aed"
+     "#ffffff",
+     "#d90f19",
+     "#fde209",
+     "#9b0a10"
     ],
     "pesos": [
-     1.0
+     0.6496,
+     0.1371,
+     0.111,
+     0.1023
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727008": {
@@ -8648,12 +9468,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#40d089"
+     "#0071bc",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6101,
+     0.3899
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727009": {
@@ -8665,12 +9487,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8ab44f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27009.png"
    }
   },
   "34122727010": {
@@ -8682,12 +9505,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d76025"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27010.png"
    }
   },
   "34122727011": {
@@ -8699,12 +9523,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ba389a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27011.png"
    }
   },
   "34122727012": {
@@ -8716,12 +9541,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#7560dd"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27012.png"
    }
   },
   "34122727013": {
@@ -8733,12 +9559,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#20b4c0"
+     "#33b055",
+     "#0291d0",
+     "#fed51b",
+     "#201d1a"
     ],
     "pesos": [
-     1.0
+     0.4216,
+     0.2692,
+     0.1874,
+     0.1218
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727014": {
@@ -8750,12 +9582,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#45e344"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27014.png"
    }
   },
   "34122727015": {
@@ -8767,12 +9600,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c7bc55"
+     "#006132",
+     "#ffffff",
+     "#012169",
+     "#f6c61e"
     ],
     "pesos": [
-     1.0
+     0.5937,
+     0.1721,
+     0.1474,
+     0.0868
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727016": {
@@ -8784,12 +9623,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ea2648"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27016.png"
    }
   },
   "34122727017": {
@@ -8801,12 +9641,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#a73ccd"
+     "#fcdd09",
+     "#078930"
     ],
     "pesos": [
-     1.0
+     0.6056,
+     0.3944
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727018": {
@@ -8818,12 +9660,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6696f0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27018.png"
    }
   },
   "34122727019": {
@@ -8835,12 +9678,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#21d386"
+     "#ffffff",
+     "#0071bc",
+     "#009900"
     ],
     "pesos": [
-     1.0
+     0.4378,
+     0.2937,
+     0.2685
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727020": {
@@ -8852,12 +9699,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#78b734"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27020.png"
    }
   },
   "34122727021": {
@@ -8869,12 +9717,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#da8e5b"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27021.png"
    }
   },
   "34122727022": {
@@ -8886,12 +9735,12 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#bd1c8b"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727023": {
@@ -8903,12 +9752,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#643fe0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27023.png"
    }
   },
   "34122727024": {
@@ -8920,12 +9770,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#51b3c3"
+     "#ce1818",
+     "#ffcc00"
     ],
     "pesos": [
-     1.0
+     0.5788,
+     0.4212
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727025": {
@@ -8937,12 +9789,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#7ee684"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27025.png"
    }
   },
   "34122727026": {
@@ -8954,12 +9807,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#cac638"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27026.png"
    }
   },
   "34122727027": {
@@ -8971,12 +9825,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ed6170"
+     "#409a3b",
+     "#fac804",
+     "#fae89a"
     ],
     "pesos": [
-     1.0
+     0.5761,
+     0.3809,
+     0.043
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727028": {
@@ -8988,12 +9846,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#bd70d0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27028.png"
    }
   },
   "34122727029": {
@@ -9005,12 +9864,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#3155b3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27029.png"
    }
   },
   "34122727030": {
@@ -9022,12 +9882,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#56d6a8"
+     "#ce1818",
+     "#ffffff",
+     "#ffcc00"
     ],
     "pesos": [
-     1.0
+     0.8238,
+     0.1176,
+     0.0586
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727031": {
@@ -9039,12 +9903,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8aba63"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27031.png"
    }
   },
   "34122727032": {
@@ -9056,12 +9921,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#dd863b"
+     "#ffffff",
+     "#006699"
     ],
     "pesos": [
-     1.0
+     0.7533,
+     0.2467
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727033": {
@@ -9073,12 +9940,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c04c94"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27033.png"
    }
   },
   "34122727034": {
@@ -9090,12 +9958,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#9878e3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27034.png"
    }
   },
   "34122727035": {
@@ -9107,12 +9976,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#34a8c6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27035.png"
    }
   },
   "34122727037": {
@@ -9124,12 +9994,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5ce96d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27037.png"
    }
   },
   "34122727038": {
@@ -9141,12 +10012,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c9cd6b"
+     "#006132",
+     "#fcdd09"
     ],
     "pesos": [
-     1.0
+     0.697,
+     0.303
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727039": {
@@ -9158,12 +10031,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#f03d45"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27039.png"
    }
   },
   "34122727040": {
@@ -9175,12 +10049,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c252d3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27040.png"
    }
   },
   "34122727041": {
@@ -9192,12 +10067,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5f72b6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27041.png"
    }
   },
   "34122727042": {
@@ -9209,12 +10085,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#36d9a8"
+     "#0000ff",
+     "#ffff00",
+     "#ff0000"
     ],
     "pesos": [
-     1.0
+     0.5003,
+     0.4155,
+     0.0843
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727043": {
@@ -9226,12 +10106,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#75bd48"
+     "#ce0000",
+     "#006aa7",
+     "#ffffff",
+     "#c5b02d"
     ],
     "pesos": [
-     1.0
+     0.5882,
+     0.2325,
+     0.0939,
+     0.0855
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727044": {
@@ -9243,12 +10129,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e0ad73"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27044.png"
    }
   },
   "34122727045": {
@@ -9260,12 +10147,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c33082"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27045.png"
    }
   },
   "34122727046": {
@@ -9277,12 +10165,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8a57e6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27046.png"
    }
   },
   "34122727047": {
@@ -9294,12 +10183,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#66aec9"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27047.png"
    }
   },
   "34122727048": {
@@ -9311,12 +10201,12 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#39ec5b"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727049": {
@@ -9328,12 +10218,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c2d04d"
+     "#ce0000",
+     "#ffd800",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6818,
+     0.223,
+     0.0952
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727050": {
@@ -9345,12 +10239,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b35c5a"
+     "#0b8837",
+     "#ffffff",
+     "#ffcb00"
     ],
     "pesos": [
-     1.0
+     0.5559,
+     0.3478,
+     0.0963
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727051": {
@@ -9362,12 +10260,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#cb32d6"
+     "#ffffff",
+     "#3399ff"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727052": {
@@ -9379,12 +10279,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4456b9"
+     "#194486",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.9199,
+     0.0801
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727053": {
@@ -9396,12 +10298,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6edcc2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27053.png"
    }
   },
   "34122727054": {
@@ -9413,12 +10316,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5bc02c"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27054.png"
    }
   },
   "34122727055": {
@@ -9430,12 +10334,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e3a852"
+     "#00923f",
+     "#0193dc",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.3844,
+     0.3393,
+     0.2763
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727056": {
@@ -9447,12 +10355,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c66293"
+     "#ffcc00",
+     "#0072ce"
     ],
     "pesos": [
-     1.0
+     0.7043,
+     0.2957
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727057": {
@@ -9464,12 +10374,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8134e9"
+     "#ffffff",
+     "#3399ff"
     ],
     "pesos": [
-     1.0
+     0.775,
+     0.225
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727058": {
@@ -9481,12 +10393,12 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#49a0cc"
+     "#002654"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727059": {
@@ -9498,12 +10410,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#75ef94"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27059.png"
    }
   },
   "34122727060": {
@@ -9515,12 +10428,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b7d32e"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27060.png"
    }
   },
   "34122727061": {
@@ -9532,12 +10446,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b64a40"
+     "#0f47af",
+     "#ffffff",
+     "#078930"
     ],
     "pesos": [
-     1.0
+     0.451,
+     0.4288,
+     0.1201
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727062": {
@@ -9549,12 +10467,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d969d9"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27062.png"
    }
   },
   "34122727063": {
@@ -9566,12 +10485,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2835bc"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27063.png"
    }
   },
   "34122727064": {
@@ -9583,12 +10503,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4ddfc7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/27064.png"
    }
   },
   "34122727065": {
@@ -9600,12 +10521,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#77c35d"
+     "#ffffff",
+     "#009900"
     ],
     "pesos": [
-     1.0
+     0.8254,
+     0.1746
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727066": {
@@ -9617,12 +10540,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e6a830"
+     "#ffffff",
+     "#1e7fcb"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727901": {
@@ -9634,12 +10559,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c9447d"
+     "#006aa7",
+     "#ffffff",
+     "#050a0c",
+     "#ffcf00"
     ],
     "pesos": [
-     1.0
+     0.7528,
+     0.1024,
+     0.0752,
+     0.0696
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34122727902": {
@@ -9651,12 +10582,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ac6fec"
+     "#89c5e3",
+     "#072357"
     ],
     "pesos": [
-     1.0
+     0.7049,
+     0.2951
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232001": {
@@ -9668,12 +10601,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2a8ccf"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32001.png"
    }
   },
   "34123232002": {
@@ -9685,12 +10619,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#3cb362"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32002.png"
    }
   },
   "34123232003": {
@@ -9702,12 +10637,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#bbd664"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32003.png"
    }
   },
   "34123232004": {
@@ -9719,12 +10655,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b93b25"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32004.png"
    }
   },
   "34123232005": {
@@ -9736,12 +10673,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#dc48d2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32005.png"
    }
   },
   "34123232006": {
@@ -9753,12 +10691,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#585abf"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32006.png"
    }
   },
   "34123232007": {
@@ -9770,12 +10709,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2ce2cf"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32007.png"
    }
   },
   "34123232008": {
@@ -9787,12 +10727,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#59c640"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32008.png"
    }
   },
   "34123232009": {
@@ -9804,12 +10745,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e9c66a"
+     "#ed2d38",
+     "#ffffff",
+     "#5cbdda",
+     "#aa4754"
     ],
     "pesos": [
-     1.0
+     0.4583,
+     0.2828,
+     0.2189,
+     0.04
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232010": {
@@ -9821,12 +10768,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#cc2662"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32010.png"
    }
   },
   "34123232011": {
@@ -9838,12 +10786,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#a74cef"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32011.png"
    }
   },
   "34123232012": {
@@ -9855,12 +10804,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5f9cd2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32012.png"
    }
   },
   "34123232013": {
@@ -9872,12 +10822,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#21b65a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32013.png"
    }
   },
   "34123232014": {
@@ -9889,12 +10840,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#acd944"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32014.png"
    }
   },
   "34123232015": {
@@ -9923,12 +10875,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#df27c7"
+     "#0b8837",
+     "#ffcc00",
+     "#010000"
     ],
     "pesos": [
-     1.0
+     0.666,
+     0.2694,
+     0.0646
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232017": {
@@ -9957,12 +10913,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#65e5e0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32018.png"
    }
   },
   "34123232019": {
@@ -9974,12 +10931,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#37c922"
+     "#fcdd09",
+     "#0f47af",
+     "#fefcf1",
+     "#3f6744"
     ],
     "pesos": [
-     1.0
+     0.3411,
+     0.3267,
+     0.1944,
+     0.1377
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232020": {
@@ -9991,12 +10954,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ecc947"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32020.png"
    }
   },
   "34123232021": {
@@ -10008,12 +10972,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#cf5a7c"
+     "#0b8837",
+     "#000000",
+     "#ffcc00",
+     "#ffe97a"
     ],
     "pesos": [
-     1.0
+     0.3688,
+     0.3354,
+     0.244,
+     0.0518
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232022": {
@@ -10025,12 +10995,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#a628f2"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32022.png"
    }
   },
   "34123232023": {
@@ -10042,12 +11013,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4085d5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32023.png"
    }
   },
   "34123232024": {
@@ -10059,12 +11031,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4fb97f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32024.png"
    }
   },
   "34123232025": {
@@ -10076,12 +11049,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#98dc23"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32025.png"
    }
   },
   "34123232026": {
@@ -10093,12 +11067,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#bf5e38"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32026.png"
    }
   },
   "34123232027": {
@@ -10110,12 +11085,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e260c8"
+     "#ff0000",
+     "#e6e5e5",
+     "#71b72e",
+     "#694019"
     ],
     "pesos": [
-     1.0
+     0.7643,
+     0.0972,
+     0.0773,
+     0.0612
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232028": {
@@ -10127,12 +11108,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#311fc5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32028.png"
    }
   },
   "34123232029": {
@@ -10144,12 +11126,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#43e4e8"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32029.png"
    }
   },
   "34123232030": {
@@ -10161,12 +11144,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5ccc55"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32030.png"
    }
   },
   "34123232031": {
@@ -10178,12 +11162,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#efd224"
+     "#0090ca",
+     "#fadb00"
     ],
     "pesos": [
-     1.0
+     0.6683,
+     0.3317
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232032": {
@@ -10195,12 +11181,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d23b5e"
+     "#fece02",
+     "#e6e1db",
+     "#409c39",
+     "#440108"
     ],
     "pesos": [
-     1.0
+     0.3015,
+     0.2836,
+     0.2517,
+     0.1633
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232033": {
@@ -10212,12 +11204,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#944bb5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32033.png"
    }
   },
   "34123232034": {
@@ -10229,12 +11222,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#769dd8"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32034.png"
    }
   },
   "34123232035": {
@@ -10246,12 +11240,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#34bc7a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32035.png"
    }
   },
   "34123232036": {
@@ -10263,12 +11258,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#a6df5b"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32036.png"
    }
   },
   "34123232037": {
@@ -10280,12 +11276,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c28869"
+     "#194486",
+     "#ce1818",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6761,
+     0.1668,
+     0.157
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232038": {
@@ -10297,12 +11297,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e53eb9"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32038.png"
    }
   },
   "34123232039": {
@@ -10314,12 +11315,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6651c8"
+     "#da121a",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.5292,
+     0.4708
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232040": {
@@ -10331,12 +11334,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#7ee1eb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32040.png"
    }
   },
   "34123232041": {
@@ -10348,12 +11352,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#37cf38"
+     "#009442",
+     "#fff700"
     ],
     "pesos": [
-     1.0
+     0.6888,
+     0.3112
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232042": {
@@ -10365,12 +11371,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#f2e660"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32042.png"
    }
   },
   "34123232043": {
@@ -10382,12 +11389,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d57181"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32043.png"
    }
   },
   "34123232044": {
@@ -10399,12 +11407,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#9630b8"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32044.png"
    }
   },
   "34123232045": {
@@ -10416,12 +11425,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5682db"
+     "#04913e",
+     "#ffffff",
+     "#dfdd27",
+     "#30482b"
     ],
     "pesos": [
-     1.0
+     0.6711,
+     0.1678,
+     0.1009,
+     0.0602
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232046": {
@@ -10433,12 +11448,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#64bf99"
+     "#0071bc",
+     "#ffd700",
+     "#e1211f",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6572,
+     0.1518,
+     0.0962,
+     0.0949
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232047": {
@@ -10450,12 +11471,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8ee23a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32047.png"
    }
   },
   "34123232048": {
@@ -10484,12 +11506,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e878c3"
+     "#fcdd09",
+     "#188f2d"
     ],
     "pesos": [
-     1.0
+     0.9155,
+     0.0845
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232050": {
@@ -10501,12 +11525,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5833cb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32050.png"
    }
   },
   "34123232051": {
@@ -10518,12 +11543,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5bd7ee"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32051.png"
    }
   },
   "34123232052": {
@@ -10535,12 +11561,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6cd273"
+     "#078930",
+     "#0f47af",
+     "#feee70",
+     "#97b930"
     ],
     "pesos": [
-     1.0
+     0.4167,
+     0.3469,
+     0.1852,
+     0.0511
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232053": {
@@ -10552,12 +11584,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b5b32c"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32053.png"
    }
   },
   "34123232054": {
@@ -10569,12 +11602,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d8515f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32054.png"
    }
   },
   "34123232055": {
@@ -10586,12 +11620,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#aa5fbb"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32055.png"
    }
   },
   "34123232056": {
@@ -10603,12 +11638,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#3563de"
+     "#006aa7",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6433,
+     0.3567
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232057": {
@@ -10620,12 +11657,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#48c297"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32057.png"
    }
   },
   "34123232058": {
@@ -10637,12 +11675,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#a5e573"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32058.png"
    }
   },
   "34123232059": {
@@ -10654,12 +11693,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c8782f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32059.png"
    }
   },
   "34123232060": {
@@ -10671,12 +11711,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#eb56b0"
+     "#ffffff",
+     "#0099cc"
     ],
     "pesos": [
-     1.0
+     0.558,
+     0.442
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232061": {
@@ -10688,12 +11730,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8767ce"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32061.png"
    }
   },
   "34123232062": {
@@ -10705,12 +11748,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#37c8f1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32062.png"
    }
   },
   "34123232063": {
@@ -10722,12 +11766,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4dd55f"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32063.png"
    }
   },
   "34123232064": {
@@ -10739,12 +11784,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b3b85b"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32064.png"
    }
   },
   "34123232065": {
@@ -10756,12 +11802,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#db3137"
+     "#ffc501",
+     "#1490cc",
+     "#01a32f",
+     "#8fa17c"
     ],
     "pesos": [
-     1.0
+     0.7356,
+     0.1243,
+     0.091,
+     0.0491
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232066": {
@@ -10773,12 +11825,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b044be"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32066.png"
    }
   },
   "34123232067": {
@@ -10790,12 +11843,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6e85e1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32067.png"
    }
   },
   "34123232068": {
@@ -10807,12 +11861,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2bc498"
+     "#0071bc",
+     "#ffffff",
+     "#ed1c24"
     ],
     "pesos": [
-     1.0
+     0.3834,
+     0.3593,
+     0.2573
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232069": {
@@ -10824,12 +11882,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#89e851"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32069.png"
    }
   },
   "34123232070": {
@@ -10841,12 +11900,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#cb9b62"
+     "#f43c24",
+     "#ffd401",
+     "#50a94a",
+     "#842915"
     ],
     "pesos": [
-     1.0
+     0.7872,
+     0.0865,
+     0.0733,
+     0.0531
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232071": {
@@ -10858,12 +11923,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ee3398"
+     "#f6c61d",
+     "#036c4f",
+     "#0071b6",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.4819,
+     0.184,
+     0.1677,
+     0.1664
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232072": {
@@ -10875,12 +11946,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#7b48d1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32072.png"
    }
   },
   "34123232073": {
@@ -10892,12 +11964,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5699b4"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32073.png"
    }
   },
   "34123232074": {
@@ -10909,12 +11982,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2dd750"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32074.png"
    }
   },
   "34123232075": {
@@ -10926,12 +12000,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#acbb40"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32075.png"
    }
   },
   "34123232076": {
@@ -10943,12 +12018,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#de6d69"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32076.png"
    }
   },
   "34123232077": {
@@ -10960,12 +12036,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b927c1"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32077.png"
    }
   },
   "34123232078": {
@@ -10977,12 +12054,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4c61e4"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32078.png"
    }
   },
   "34123232079": {
@@ -10994,12 +12072,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5dc7b0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32079.png"
    }
   },
   "34123232080": {
@@ -11011,12 +12090,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#68ea2e"
+     "#409a3b",
+     "#ffcc00",
+     "#010100"
     ],
     "pesos": [
-     1.0
+     0.4974,
+     0.4095,
+     0.0931
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232081": {
@@ -11028,12 +12111,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ce9844"
+     "#ffffff",
+     "#078930",
+     "#eac103",
+     "#0a42ad"
     ],
     "pesos": [
-     1.0
+     0.4587,
+     0.3963,
+     0.1035,
+     0.0415
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232082": {
@@ -11045,12 +12134,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#f16fad"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32082.png"
    }
   },
   "34123232083": {
@@ -11062,12 +12152,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#7429d4"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32083.png"
    }
   },
   "34123232084": {
@@ -11079,12 +12170,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#3c8cb7"
+     "#eac102",
+     "#008f4c"
     ],
     "pesos": [
-     1.0
+     0.6772,
+     0.3228
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232085": {
@@ -11096,12 +12189,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#64da84"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32085.png"
    }
   },
   "34123232086": {
@@ -11113,12 +12207,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#a1be24"
+     "#da121a",
+     "#fcdd09",
+     "#078930",
+     "#74b577"
     ],
     "pesos": [
-     1.0
+     0.4083,
+     0.2914,
+     0.2449,
+     0.0554
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232087": {
@@ -11130,12 +12230,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e15748"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32087.png"
    }
   },
   "34123232088": {
@@ -11147,12 +12248,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c458c3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32088.png"
    }
   },
   "34123232089": {
@@ -11164,12 +12266,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2a38e7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32089.png"
    }
   },
   "34123232090": {
@@ -11181,12 +12284,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#40cab5"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32090.png"
    }
   },
   "34123232091": {
@@ -11198,12 +12302,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8aed6a"
+     "#ce0000",
+     "#0181b0",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.5766,
+     0.2435,
+     0.1799
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123232092": {
@@ -11215,12 +12323,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d19925"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/32092.png"
    }
   },
   "34123636001": {
@@ -11232,12 +12341,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b4386b"
+     "#0071bc",
+     "#f3d42b",
+     "#12161c"
     ],
     "pesos": [
-     1.0
+     0.6114,
+     0.3052,
+     0.0834
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636002": {
@@ -11249,12 +12362,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#9b5fd7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36002.png"
    }
   },
   "34123636003": {
@@ -11266,12 +12380,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#207aba"
+     "#0f47af",
+     "#da121a"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636004": {
@@ -11283,12 +12399,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#43dd77"
+     "#006aa7",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6843,
+     0.3157
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636005": {
@@ -11300,12 +12418,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#a6c154"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36005.png"
    }
   },
   "34123636006": {
@@ -11317,12 +12436,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e44526"
+     "#1a56da",
+     "#d8d9db",
+     "#fdd704"
     ],
     "pesos": [
-     1.0
+     0.9022,
+     0.0492,
+     0.0486
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636007": {
@@ -11334,12 +12457,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c73bbc"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36007.png"
    }
   },
   "34123636008": {
@@ -11351,12 +12475,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6565ea"
+     "#0071bc",
+     "#eac102"
     ],
     "pesos": [
-     1.0
+     0.9493,
+     0.0507
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636009": {
@@ -11368,12 +12494,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#21cdbe"
+     "#00a13a",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.711,
+     0.289
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636010": {
@@ -11385,12 +12513,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#64f046"
+     "#cc2d27",
+     "#fbfdfb",
+     "#495e76",
+     "#eae7a3"
     ],
     "pesos": [
-     1.0
+     0.55,
+     0.205,
+     0.1652,
+     0.0799
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636013": {
@@ -11402,12 +12536,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d4b45a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36013.png"
    }
   },
   "34123636014": {
@@ -11436,12 +12571,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#973fda"
+     "#006ab3",
+     "#fcc917",
+     "#532e26"
     ],
     "pesos": [
-     1.0
+     0.6687,
+     0.2553,
+     0.076
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636016": {
@@ -11453,12 +12592,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4f88bd"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36016.png"
    }
   },
   "34123636017": {
@@ -11470,12 +12610,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#22e06e"
+     "#ffffff",
+     "#078930",
+     "#da121a"
     ],
     "pesos": [
-     1.0
+     0.3584,
+     0.3216,
+     0.32
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636018": {
@@ -11487,12 +12631,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#98c437"
+     "#00904a",
+     "#ffffff",
+     "#0089d5"
     ],
     "pesos": [
-     1.0
+     0.4616,
+     0.3808,
+     0.1576
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636019": {
@@ -11504,12 +12652,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e77f60"
+     "#de2119",
+     "#fffdfd"
     ],
     "pesos": [
-     1.0
+     0.5705,
+     0.4295
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636020": {
@@ -11521,12 +12671,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ca6ebd"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36020.png"
    }
   },
   "34123636021": {
@@ -11538,12 +12689,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4c42ed"
+     "#0071bc",
+     "#fbbb00",
+     "#da121a"
     ],
     "pesos": [
-     1.0
+     0.4835,
+     0.2831,
+     0.2334
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636022": {
@@ -11555,12 +12710,12 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#55d0cd"
+     "#08c3f9"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636023": {
@@ -11572,12 +12727,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6ab461"
+     "#ff001a",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.6342,
+     0.3658
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636024": {
@@ -11589,12 +12746,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d7b83a"
+     "#ffffff",
+     "#009900"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636025": {
@@ -11606,12 +12765,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ba4b6a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36025.png"
    }
   },
   "34123636026": {
@@ -11623,12 +12783,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b876dd"
+     "#ffffff",
+     "#0d71b9"
     ],
     "pesos": [
-     1.0
+     0.5076,
+     0.4924
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636027": {
@@ -11640,12 +12802,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#3373c0"
+     "#e7e2d7",
+     "#3b9836",
+     "#566829"
     ],
     "pesos": [
-     1.0
+     0.4486,
+     0.3894,
+     0.162
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636028": {
@@ -11657,12 +12823,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5be39a"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36028.png"
    }
   },
   "34123636029": {
@@ -11674,12 +12841,12 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#a3c769"
+     "#e5000c"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636030": {
@@ -11691,12 +12858,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ea703d"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36030.png"
    }
   },
   "34123636031": {
@@ -11708,12 +12876,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#cd51b3"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36031.png"
    }
   },
   "34123636032": {
@@ -11725,12 +12894,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#8c7ef0"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36032.png"
    }
   },
   "34123636033": {
@@ -11742,12 +12912,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#36cdd3"
+     "#fcdd09",
+     "#ee1b24",
+     "#fffcef",
+     "#56090b"
     ],
     "pesos": [
-     1.0
+     0.5852,
+     0.206,
+     0.1255,
+     0.0833
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636034": {
@@ -11759,12 +12935,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4cb747"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36034.png"
    }
   },
   "34123636035": {
@@ -11776,12 +12953,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#dacc71"
+     "#0065bd",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.5824,
+     0.4176
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636036": {
@@ -11793,12 +12972,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#bd2f4e"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36036.png"
    }
   },
   "34123636037": {
@@ -11810,12 +12990,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b756e0"
+     "#fff700",
+     "#007bc5"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636038": {
@@ -11827,12 +13009,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6489c3"
+     "#0094de",
+     "#ffffff"
     ],
     "pesos": [
-     1.0
+     0.503,
+     0.497
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636039": {
@@ -11844,12 +13028,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#39e695"
+     "#0f47af",
+     "#e4e5e6",
+     "#ecc718",
+     "#b29a23"
     ],
     "pesos": [
-     1.0
+     0.7182,
+     0.1082,
+     0.1057,
+     0.068
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636040": {
@@ -11861,12 +13051,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#92ca4c"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36040.png"
    }
   },
   "34123636041": {
@@ -11878,12 +13069,12 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#eda278"
+     "#e5e0c2"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636042": {
@@ -11895,12 +13086,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d032a5"
+     "#0099cc",
+     "#ffffff",
+     "#020074"
     ],
     "pesos": [
-     1.0
+     0.454,
+     0.4536,
+     0.0924
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636043": {
@@ -11929,12 +13124,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#6ccbd6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36044.png"
    }
   },
   "34123636045": {
@@ -11946,12 +13142,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2cba2f"
+     "#6d090d",
+     "#cbb413"
     ],
     "pesos": [
-     1.0
+     0.9447,
+     0.0553
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636046": {
@@ -11963,12 +13161,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ddd451"
+     "#255e9e",
+     "#fefefe"
     ],
     "pesos": [
-     1.0
+     0.8547,
+     0.1453
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636047": {
@@ -11980,12 +13180,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c0606e"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36047.png"
    }
   },
   "34123636048": {
@@ -11997,12 +13198,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#ba34e3"
+     "#078930",
+     "#0f47af",
+     "#ffffff",
+     "#dc161f"
     ],
     "pesos": [
-     1.0
+     0.3464,
+     0.3379,
+     0.2521,
+     0.0636
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636049": {
@@ -12014,12 +13221,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4870c6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36049.png"
    }
   },
   "34123636050": {
@@ -12031,12 +13239,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#73e9ba"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36050.png"
    }
   },
   "34123636051": {
@@ -12048,12 +13257,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#7ccd2e"
+     "#0065a8",
+     "#eac102",
+     "#a7a433"
     ],
     "pesos": [
-     1.0
+     0.6097,
+     0.3322,
+     0.0582
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636052": {
@@ -12065,12 +13278,12 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#f09755"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636053": {
@@ -12082,12 +13295,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d367ae"
+     "#ffd801",
+     "#e72325",
+     "#02a7eb",
+     "#fbf3df"
     ],
     "pesos": [
-     1.0
+     0.3258,
+     0.323,
+     0.2738,
+     0.0774
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636054": {
@@ -12099,12 +13318,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4c28b6"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36054.png"
    }
   },
   "34123636055": {
@@ -12116,12 +13336,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#4cc1d9"
+     "#138fd0",
+     "#ffffff",
+     "#275ca1"
     ],
     "pesos": [
-     1.0
+     0.6571,
+     0.2767,
+     0.0662
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636056": {
@@ -12133,12 +13357,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#5bbd63"
+     "#0f47af",
+     "#fcdd09",
+     "#e8e8e7"
     ],
     "pesos": [
-     1.0
+     0.7047,
+     0.2262,
+     0.0692
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636057": {
@@ -12150,12 +13378,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#e0e030"
+     "#da121a",
+     "#fffeff"
     ],
     "pesos": [
-     1.0
+     0.5,
+     0.5
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636058": {
@@ -12167,12 +13397,16 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#c3434e"
+     "#0071bc",
+     "#ffffff",
+     "#010000"
     ],
     "pesos": [
-     1.0
+     0.7113,
+     0.2288,
+     0.0599
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636059": {
@@ -12184,12 +13418,12 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#d26ee6"
+     "#039240"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636060": {
@@ -12201,12 +13435,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#2a53c9"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36060.png"
    }
   },
   "34123636061": {
@@ -12218,12 +13453,13 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#50ecb7"
+     "#ffffff"
     ],
     "pesos": [
      1.0
     ],
-    "fonte": "provisional"
+    "fonte": "escudo",
+    "escudo": "assets/escudos/36061.png"
    }
   },
   "34123636901": {
@@ -12235,12 +13471,14 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#91d062"
+     "#f3ecc7",
+     "#193687"
     ],
     "pesos": [
-     1.0
+     0.6628,
+     0.3372
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   },
   "34123636902": {
@@ -12252,12 +13490,18 @@
    "victorias": 0,
    "cor": {
     "colores": [
-     "#b36a24"
+     "#f94626",
+     "#4073b2",
+     "#67261a",
+     "#f6fbef"
     ],
     "pesos": [
-     1.0
+     0.5636,
+     0.2427,
+     0.1105,
+     0.0832
     ],
-    "fonte": "provisional"
+    "fonte": "bandeira"
    }
   }
  }

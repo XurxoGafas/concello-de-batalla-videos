@@ -85,3 +85,8 @@ Icono de espadas cruzadas (4.4), pantallas PERDEDOR/GAÑADOR (4.5), ranking y es
 
 ### Zooms con desenfoque de movimiento (2026-11-19)
 Durante los tres zooms del mapa (alejarse tras una batalla, acercarse al atacante, acercarse a los dos bandos) cada fotograma promedia 3 instantes (t−δ, t, t+δ, con δ = 0,4 de un paso de fotograma) para que no se vea entrecortado a 30 fps. En los extremos de cada zoom las muestras se recortan al intervalo, así los empalmes entre escenas siguen siendo exactos. Velocidad de reproducción: ×1,296.
+
+### Banderas y escudos (paso 2.5, 2026-11-19)
+- Concello con bandera: se pinta con el color principal de la bandera. Concello con solo escudo: **territorio blanco y el escudo encima** (centrado en un punto interior; alto ≈ el «lado» del concello, máx. 230 px; no se dibuja si el concello mide menos de 26 px).
+- **El escudo va por debajo de las fronteras** y se recorta con el límite del concello: puede quedar cortado, pero los límites se identifican siempre (decisión del usuario). Un territorio conquistado muestra el escudo del ganador en cada uno de sus concellos.
+- Siluetas del enfrentamiento y de la portada: relleno blanco, escudo grande recortado por la silueta y contorno dibujado el último.

@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import math
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageChops, ImageDraw
 
 from src.motor.momentos import MARCA_A, MARCA_B, Portada
 from src.render import enfrentamiento as M
@@ -59,13 +59,22 @@ def partir_frase(texto: str, tam_max: int = TAM_MAX, tam_min: int = TAM_MIN, anc
         tam -= 2
 
 
-def _silueta(geom, ancho: int, alto: int, color: str) -> Image.Image:
-    """Silueta RGBA de `ancho`×`alto` que encaja exactamente en la caja de la geometría (sin aire)."""
+def _silueta(geom, ancho: int, alto: int, color: str, escudo: str | None = None) -> Image.Image:
+    """Silueta RGBA de `ancho`×`alto` que encaja exactamente en la caja de la geometría (sin aire).
+    Con escudo: territorio blanco con el escudo grande encima, recortado por el límite del concello;
+    el contorno se dibuja el último para que el límite se vea siempre."""
     minx, miny, maxx, maxy = geom.bounds
     esc = ancho * K / (maxx - minx)
     f = lambda x, y: ((x - minx) * esc, (maxy - y) * esc)  # noqa: E731
     im = Image.new("RGBA", (ancho * K, alto * K), (0, 0, 0, 0))
-    pintar(ImageDraw.Draw(im), geom, f, color, E.BLANCO, 5 * K)
+    pintar(ImageDraw.Draw(im), geom, f, color, None, 0)
+    if escudo:
+        e = E.escudo(escudo, round(min(0.8 * alto, 1.6 * ancho) * K))
+        capa = Image.new("RGBA", im.size, (0, 0, 0, 0))
+        capa.alpha_composite(e, (round((im.width - e.width) / 2), round((im.height - e.height) / 2)))
+        capa.putalpha(ImageChops.multiply(capa.getchannel("A"), im.getchannel("A")))
+        im.alpha_composite(capa)
+    pintar(ImageDraw.Draw(im), geom, f, None, E.BLANCO if not escudo else E.FONDO, 5 * K)
     return im.resize((ancho, alto), Image.LANCZOS)
 
 
@@ -81,8 +90,8 @@ class EscenaPortada:
         # --- tamaño de la silueta en la portada: encaja en la caja SIL_ANCHO × SIL_ALTO
         esc = min(SIL_ANCHO / (maxx - minx), SIL_ALTO / (maxy - miny))
         w0, h0 = max(8, round((maxx - minx) * esc)), max(8, round((maxy - miny) * esc))
-        color = estado["concellos"][portada.concello]["cor"]["colores"][0]
-        self.sil = _silueta(geom, w0, h0, color)
+        cor = estado["concellos"][portada.concello]["cor"]
+        self.sil = _silueta(geom, w0, h0, cor["colores"][0], cor.get("escudo"))
         self.caja0 = (CX - w0 / 2, SIL_Y - h0 / 2, CX + w0 / 2, SIL_Y + h0 / 2)
         # --- dónde está ese concello en el mapa general de la intro
         t = transformar(ventana_general, E.ANCHO)

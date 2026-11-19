@@ -1,5 +1,7 @@
 """Tests del paso 4.2: mapa de Galicia."""
 
+import copy
+
 import pytest
 from PIL import Image, ImageChops
 
@@ -17,7 +19,15 @@ def mapa():
 
 @pytest.fixture(scope="module")
 def estado():
-    return nueva_partida()
+    """Partida inicial con un color liso por concello: los concellos «solo escudo» (territorio blanco con
+    el escudo encima, paso 2.5) se sustituyen por colores provisionales para probar el relleno."""
+    e = copy.deepcopy(nueva_partida())
+    for n, (i, c) in enumerate(e["concellos"].items()):
+        if c["cor"].get("escudo") or c["cor"]["colores"][0].lower() == "#ffffff":
+            cor = {"colores": ["#%02x%02x%02x" % (40 + (n * 37) % 200, 60 + (n * 91) % 180, 90 + (n * 53) % 150)],
+                   "pesos": [1.0], "fonte": "provisional"}
+            c["cor"] = e["donos"][i]["cor"] = cor
+    return e
 
 
 def hex_a_rgb(h: str) -> tuple[int, int, int]:
@@ -133,5 +143,5 @@ def test_las_muestras_se_generan_con_el_tamano_y_sin_nombres_en_el_mapa_general(
     ini = Image.open(mapa_inicial(mapa, tmp_path / "ini.png"))
     zoom = Image.open(mapa_zoom_atacante(mapa, tmp_path / "zoom.png", previas=20))
     assert ini.size == zoom.size == (E.ANCHO, E.ALTO)
-    banda = ini.crop((0, 400, E.ANCHO, 1400))  # el mapa general no lleva texto blanco
-    assert (255, 255, 255) not in {c for _, c in banda.getcolors(2_000_000)}
+    banda = ini.crop((0, 400, E.ANCHO, 1400))  # los territorios blancos (escudo) impiden buscar texto blanco: solo se comprueba que hay mapa
+    assert len(banda.getcolors(2_000_000)) > 20

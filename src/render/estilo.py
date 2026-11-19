@@ -348,3 +348,10 @@ def panel_vaca(ancho: int, alto: int, semilla: str = "panel") -> Image.Image:
 def pegar_panel(img: Image.Image, y0: int, y1: int, semilla: str = "panel") -> None:
     """Pega el panel blanco con manchas entre las líneas y0 e y1 (a todo el ancho)."""
     img.paste(panel_vaca(img.width, y1 - y0, semilla), (0, y0))
+
+
+@functools.lru_cache(maxsize=512)
+def escudo(ruta: str, alto: int) -> Image.Image:
+    """Escudo RGBA (de `assets/escudos/`) escalado a `alto` px de alto; con caché."""
+    im = Image.open(RAIZ / ruta).convert("RGBA")
+    return im.resize((max(1, round(im.width * alto / im.height)), max(1, alto)), Image.LANCZOS)

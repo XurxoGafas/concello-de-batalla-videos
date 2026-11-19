@@ -16,7 +16,7 @@ import random
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 from src.motor.estado import jugar_batalla
 from src.motor.multiplicador import diferencia_porcentual, multiplicadores
@@ -102,8 +102,16 @@ def dibujar_bando(img: Image.Image, d: ImageDraw.ImageDraw, estado: dict, mapa: 
     E.texto_centrado(d, cx, Y_ROTULO, texto, E.T_MIN, color, borde=6, color_borde=borde_r)
     geom = mapa.geometria(estado["donos"][dono]["territorio"])
     sil = Image.new("RGBA", (300 * k, ALTO_SILUETA * k), (255, 255, 255, 0))
-    pintar(ImageDraw.Draw(sil), geom, caja_silueta(geom.bounds, 300, ALTO_SILUETA, k),
-           estado["donos"][dono]["cor"]["colores"][0], E.FONDO, 3 * k)
+    caja = caja_silueta(geom.bounds, 300, ALTO_SILUETA, k)
+    cor = estado["donos"][dono]["cor"]
+    pintar(ImageDraw.Draw(sil), geom, caja, cor["colores"][0], None, 0)
+    if cor.get("escudo"):  # territorio blanco con el escudo encima, recortado por su límite
+        e = E.escudo(cor["escudo"], round(0.9 * ALTO_SILUETA * k))
+        capa = Image.new("RGBA", sil.size, (0, 0, 0, 0))
+        capa.alpha_composite(e, (round(300 * k / 2 - e.width / 2), round(ALTO_SILUETA * k / 2 - e.height / 2)))
+        capa.putalpha(ImageChops.multiply(capa.getchannel("A"), sil.getchannel("A")))
+        sil.alpha_composite(capa)
+    pintar(ImageDraw.Draw(sil), geom, caja, None, E.FONDO, 3 * k)  # el límite siempre encima
     sil = sil.resize((300, ALTO_SILUETA), Image.LANCZOS)
     # halo blanco alrededor de la silueta, para que se vea también sobre una mancha negra del panel
     halo = sil.getchannel("A").filter(ImageFilter.MaxFilter(11)).filter(ImageFilter.GaussianBlur(1))

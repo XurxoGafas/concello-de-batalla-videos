@@ -20,7 +20,7 @@ from __future__ import annotations
 from collections.abc import Iterable
 
 import geopandas as gpd
-from PIL import Image, ImageDraw
+from PIL import Image, ImageChops, ImageDraw
 from shapely.geometry.base import BaseGeometry
 from shapely.ops import unary_union
 
@@ -32,6 +32,9 @@ SUPERMUESTREO = 2
 MIN_ETIQUETA = 30  # por debajo no se lee bien en un móvil: mejor no poner el nombre
 MAX_ETIQUETA = 52
 HOLGURA = 0.9  # fracción del ancho/alto del territorio que puede ocupar el nombre
+MIN_LADO_ESCUDO = 26    # un concello más pequeño que esto (en px) no lleva escudo
+FRAC_ESCUDO = 1.0       # alto del escudo respecto al «lado» del concello (raíz de su área en px)
+MAX_ESCUDO = 230        # alto máximo del escudo (px)
 
 
 def poligonos(geom: BaseGeometry) -> list:
@@ -54,6 +57,7 @@ class MapaGalicia:
     def __init__(self, geojson=GEOJSON) -> None:
         self.gdf = gpd.read_file(geojson).to_crs(25829).set_index("id")
         self._uniones: dict[tuple, BaseGeometry] = {}
+        self._centros: dict[str, tuple[float, float, float]] = {}
 
     # --- Geometría ---
 
@@ -105,17 +109,61 @@ class MapaGalicia:
         d = ImageDraw.Draw(img)
         f = transformar(ventana, ancho, k)
         vx0, vy0, vx1, vy1 = ventana
+        visibles = []
         for i, geom in self.gdf.geometry.items():
             gx0, gy0, gx1, gy1 = geom.bounds
             if gx1 < vx0 or gx0 > vx1 or gy1 < vy0 or gy0 > vy1:
                 continue  # fuera de la vista (acelera los zooms)
             dono = estado["concellos"][i]["dono"]
-            pintar(d, geom, f, estado["donos"][dono]["cor"]["colores"][0], E.CONTORNO_MAPA, k)
+            pintar(d, geom, f, estado["donos"][dono]["cor"]["colores"][0], None, k)
+            visibles.append(geom)
+        # el escudo va entre el relleno y las fronteras: puede quedar recortado por el límite del
+        # concello, pero las fronteras se ven siempre (decisión del usuario)
+        self._escudos(img, estado, ventana, list(nombres), k)
+        for geom in visibles:
+            pintar(d, geom, f, None, E.CONTORNO_MAPA, k)
         for geom, color, grosor in contornos:
             pintar(d, geom, f, None, color, grosor * k)
         img = img.resize((ancho, alto), Image.LANCZOS)
         self._etiquetar(img, estado, transformar(ventana, ancho, 1), list(nombres))
         return img
+
+    def _centro(self, i: str) -> tuple[float, float, float]:
+        """(x, y, área) de un punto interior del concello `i` (cacheado)."""
+        if i not in self._centros:
+            g = self.gdf.geometry[i]
+            p = g.representative_point()
+            self._centros[i] = (p.x, p.y, g.area)
+        return self._centros[i]
+
+    def _escudos(self, img: Image.Image, estado: dict, ventana, nombres: list[str], k: int) -> None:
+        """Dibuja el escudo del dueño sobre cada concello suyo que tenga solo escudo (territorio blanco),
+        recortado por el límite del concello. Los concellos demasiado pequeños se quedan sin escudo.
+        `img` está a escala ×k."""
+        x0, y0, x1, y1 = ventana
+        esc = img.width / (x1 - x0)
+        for i, c in estado["concellos"].items():
+            ruta = estado["donos"][c["dono"]]["cor"].get("escudo")
+            if not ruta:
+                continue
+            cx, cy, area = self._centro(i)
+            if not (x0 <= cx <= x1 and y0 <= cy <= y1):
+                continue
+            lado = (area ** 0.5) * esc / k
+            if lado < MIN_LADO_ESCUDO:
+                continue
+            alto = round(min(MAX_ESCUDO, lado * FRAC_ESCUDO) * k)
+            sprite = E.escudo(ruta, alto)
+            px, py = (cx - x0) * esc, (y1 - cy) * esc
+            if c["dono"] in nombres:
+                py -= alto * 0.15  # deja sitio al nombre
+            ox, oy = round(px - sprite.width / 2), round(py - sprite.height / 2)
+            mascara = Image.new("L", sprite.size, 0)
+            md = ImageDraw.Draw(mascara)
+            for poli in poligonos(self.gdf.geometry[i]):
+                md.polygon([((x - x0) * esc - ox, (y1 - y) * esc - oy) for x, y in poli.exterior.coords], fill=255)
+            mascara = ImageChops.multiply(mascara, sprite.getchannel("A"))
+            img.paste(sprite, (ox, oy), mascara)
 
     def _etiquetar(self, img: Image.Image, estado: dict, f, duenos: list[str]) -> list[str]:
         """Escribe el nombre de cada dueño de `duenos` sobre su territorio; devuelve los nombres."""

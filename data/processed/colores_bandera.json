@@ -1,0 +1,2637 @@
+{
+ "con_bandera": {
+  "34121515017": {
+   "nome": "Cambre",
+   "colores": [
+    "#ffffff",
+    "#6f4e37"
+   ],
+   "pesos": [
+    0.9491,
+    0.0509
+   ],
+   "origen": "cambre.png"
+  },
+  "34121515019": {
+   "nome": "Carballo",
+   "colores": [
+    "#ffcc00",
+    "#006b3d",
+    "#102913"
+   ],
+   "pesos": [
+    0.7568,
+    0.197,
+    0.0461
+   ],
+   "origen": "carballo.png"
+  },
+  "34121515020": {
+   "nome": "Carnota",
+   "colores": [
+    "#0f47af",
+    "#ffffff",
+    "#c9c7a8"
+   ],
+   "pesos": [
+    0.6424,
+    0.2983,
+    0.0592
+   ],
+   "origen": "carnota.png"
+  },
+  "34121515022": {
+   "nome": "Cedeira",
+   "colores": [
+    "#ffd800",
+    "#006132"
+   ],
+   "pesos": [
+    0.5956,
+    0.4044
+   ],
+   "origen": "cedeira.png"
+  },
+  "34121515023": {
+   "nome": "Cee",
+   "colores": [
+    "#018944",
+    "#f3d31c",
+    "#e11f1d",
+    "#290906"
+   ],
+   "pesos": [
+    0.4069,
+    0.3146,
+    0.1935,
+    0.085
+   ],
+   "origen": "cee.png"
+  },
+  "34121515024": {
+   "nome": "Cerceda",
+   "colores": [
+    "#ff0000",
+    "#ffff00"
+   ],
+   "pesos": [
+    0.9015,
+    0.0985
+   ],
+   "origen": "cerceda.gif"
+  },
+  "34121515029": {
+   "nome": "Coristanco",
+   "colores": [
+    "#0f47af",
+    "#b7b23a",
+    "#f2d80f"
+   ],
+   "pesos": [
+    0.8999,
+    0.0502,
+    0.0498
+   ],
+   "origen": "coristanco.png"
+  },
+  "34121515032": {
+   "nome": "Curtis",
+   "colores": [
+    "#169c16",
+    "#ede136"
+   ],
+   "pesos": [
+    0.6835,
+    0.3165
+   ],
+   "origen": "curtis.png"
+  },
+  "34121515034": {
+   "nome": "Dumbría",
+   "colores": [
+    "#0290ce",
+    "#ffd911",
+    "#feffff",
+    "#18658f"
+   ],
+   "pesos": [
+    0.434,
+    0.2903,
+    0.2166,
+    0.0591
+   ],
+   "origen": "dumbria.png"
+  },
+  "34121515039": {
+   "nome": "Irixoa",
+   "colores": [
+    "#eabe3f",
+    "#51c509",
+    "#fb131a"
+   ],
+   "pesos": [
+    0.5855,
+    0.288,
+    0.1264
+   ],
+   "origen": "irixoa.png"
+  },
+  "34121515041": {
+   "nome": "A Laracha",
+   "colores": [
+    "#0099cc",
+    "#ffd800"
+   ],
+   "pesos": [
+    0.9162,
+    0.0838
+   ],
+   "origen": "a-laracha.png"
+  },
+  "34121515043": {
+   "nome": "Malpica de Bergantiños",
+   "colores": [
+    "#0f47af",
+    "#fcdd09",
+    "#cfc22d"
+   ],
+   "pesos": [
+    0.5081,
+    0.4443,
+    0.0475
+   ],
+   "origen": "malpica-de-bergantinos.png"
+  },
+  "34121515049": {
+   "nome": "Moeche",
+   "colores": [
+    "#006132",
+    "#ffcc00",
+    "#d4981c",
+    "#002815"
+   ],
+   "pesos": [
+    0.5904,
+    0.2027,
+    0.1108,
+    0.0962
+   ],
+   "origen": "moeche.png"
+  },
+  "34121515050": {
+   "nome": "Monfero",
+   "colores": [
+    "#008000",
+    "#f2f2f2"
+   ],
+   "pesos": [
+    0.6556,
+    0.3444
+   ],
+   "origen": "monfero.png"
+  },
+  "34121515051": {
+   "nome": "Mugardos",
+   "colores": [
+    "#f2ca3e",
+    "#558fca"
+   ],
+   "pesos": [
+    0.5633,
+    0.4367
+   ],
+   "origen": "mugardos.png"
+  },
+  "34121515054": {
+   "nome": "Narón",
+   "colores": [
+    "#00205b",
+    "#ffcd00"
+   ],
+   "pesos": [
+    0.914,
+    0.086
+   ],
+   "origen": "naron.png"
+  },
+  "34121515058": {
+   "nome": "Oleiros",
+   "colores": [
+    "#ffffff",
+    "#0099cc",
+    "#00f173"
+   ],
+   "pesos": [
+    0.5736,
+    0.2433,
+    0.183
+   ],
+   "origen": "oleiros.png"
+  },
+  "34121515059": {
+   "nome": "Ordes",
+   "colores": [
+    "#049240",
+    "#fbf503",
+    "#000000"
+   ],
+   "pesos": [
+    0.5931,
+    0.2384,
+    0.1685
+   ],
+   "origen": "ordes.jpg"
+  },
+  "34121515060": {
+   "nome": "Oroso",
+   "colores": [
+    "#00a139",
+    "#fffe03"
+   ],
+   "pesos": [
+    0.6364,
+    0.3636
+   ],
+   "origen": "oroso.jpg"
+  },
+  "34121515061": {
+   "nome": "Ortigueira",
+   "colores": [
+    "#ffffff",
+    "#127db6"
+   ],
+   "pesos": [
+    0.5853,
+    0.4147
+   ],
+   "origen": "ortigueira.png"
+  },
+  "34121515064": {
+   "nome": "Paderne",
+   "colores": [
+    "#ffffff",
+    "#0071bc",
+    "#f8951f",
+    "#001929"
+   ],
+   "pesos": [
+    0.5175,
+    0.2357,
+    0.1621,
+    0.0847
+   ],
+   "origen": "paderne.png"
+  },
+  "34121515068": {
+   "nome": "Ponteceso",
+   "colores": [
+    "#06448f",
+    "#fbf508",
+    "#1f3a63"
+   ],
+   "pesos": [
+    0.6591,
+    0.2849,
+    0.056
+   ],
+   "origen": "ponteceso.jpg"
+  },
+  "34121515069": {
+   "nome": "Pontedeume",
+   "colores": [
+    "#009936",
+    "#ffff00"
+   ],
+   "pesos": [
+    0.731,
+    0.269
+   ],
+   "origen": "pontedeume.png"
+  },
+  "34121515070": {
+   "nome": "As Pontes de García Rodríguez",
+   "colores": [
+    "#ff0000",
+    "#00c800",
+    "#e7c72e"
+   ],
+   "pesos": [
+    0.4875,
+    0.4524,
+    0.0601
+   ],
+   "origen": "as-pontes-de-garcia-rodriguez.png"
+  },
+  "34121515073": {
+   "nome": "Ribeira",
+   "colores": [
+    "#b9b9b9",
+    "#155f9e"
+   ],
+   "pesos": [
+    0.7613,
+    0.2387
+   ],
+   "origen": "ribeira.png"
+  },
+  "34121515075": {
+   "nome": "Sada",
+   "colores": [
+    "#0f47af",
+    "#9b8b17",
+    "#ead220",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.83,
+    0.0668,
+    0.0553,
+    0.0479
+   ],
+   "origen": "sada.png"
+  },
+  "34121515076": {
+   "nome": "San Sadurniño",
+   "colores": [
+    "#ffffff",
+    "#c7a53c"
+   ],
+   "pesos": [
+    0.9502,
+    0.0498
+   ],
+   "origen": "san sadurni#U00f1o.jpg"
+  },
+  "34121515077": {
+   "nome": "Santa Comba",
+   "colores": [
+    "#630b57",
+    "#edc800",
+    "#e6e7e8",
+    "#b59b20"
+   ],
+   "pesos": [
+    0.5963,
+    0.1544,
+    0.153,
+    0.0962
+   ],
+   "origen": "santa-comba.png"
+  },
+  "34121515078": {
+   "nome": "Santiago de Compostela",
+   "colores": [
+    "#800000"
+   ],
+   "pesos": [
+    1.0
+   ],
+   "origen": "santiago-de-compostela.png"
+  },
+  "34121515082": {
+   "nome": "Teo",
+   "colores": [
+    "#0071bc",
+    "#f9cb1a",
+    "#000000"
+   ],
+   "pesos": [
+    0.8145,
+    0.1137,
+    0.0717
+   ],
+   "origen": "teo.png"
+  },
+  "34121515086": {
+   "nome": "Trazo",
+   "colores": [
+    "#039240",
+    "#fdfefe"
+   ],
+   "pesos": [
+    0.9108,
+    0.0892
+   ],
+   "origen": "trazo.jpg"
+  },
+  "34121515088": {
+   "nome": "Val do Dubra",
+   "colores": [
+    "#194586",
+    "#fdfefc",
+    "#192d50"
+   ],
+   "pesos": [
+    0.7141,
+    0.2022,
+    0.0837
+   ],
+   "origen": "val-do-dubra.jpg"
+  },
+  "34121515089": {
+   "nome": "Vedra",
+   "colores": [
+    "#078930",
+    "#fcdd09"
+   ],
+   "pesos": [
+    0.6472,
+    0.3528
+   ],
+   "origen": "vedra.png"
+  },
+  "34121515091": {
+   "nome": "Vilarmaior",
+   "colores": [
+    "#3f9c3a",
+    "#f9da01",
+    "#af0b21"
+   ],
+   "pesos": [
+    0.5793,
+    0.3619,
+    0.0589
+   ],
+   "origen": "vilarmaior.png"
+  },
+  "34121515093": {
+   "nome": "Zas",
+   "colores": [
+    "#ffffff",
+    "#d41a25",
+    "#feda18",
+    "#551c19"
+   ],
+   "pesos": [
+    0.5843,
+    0.1863,
+    0.1196,
+    0.1098
+   ],
+   "origen": "zas.png"
+  },
+  "34121515901": {
+   "nome": "Cariño",
+   "colores": [
+    "#00a6ed",
+    "#ffffff",
+    "#ffd42a"
+   ],
+   "pesos": [
+    0.51,
+    0.405,
+    0.085
+   ],
+   "origen": "carino.png"
+  },
+  "34122727001": {
+   "nome": "Abadín",
+   "colores": [
+    "#1391cc",
+    "#ffd50c",
+    "#816c15"
+   ],
+   "pesos": [
+    0.7821,
+    0.1718,
+    0.0461
+   ],
+   "origen": "abadin.png"
+  },
+  "34122727003": {
+   "nome": "Antas de Ulla",
+   "colores": [
+    "#0071bc",
+    "#ffcc00",
+    "#ffffff",
+    "#05080a"
+   ],
+   "pesos": [
+    0.7373,
+    0.1061,
+    0.0896,
+    0.0671
+   ],
+   "origen": "antas-de-ulla.png"
+  },
+  "34122727007": {
+   "nome": "Begonte",
+   "colores": [
+    "#ffffff",
+    "#d90f19",
+    "#fde209",
+    "#9b0a10"
+   ],
+   "pesos": [
+    0.6496,
+    0.1371,
+    0.111,
+    0.1023
+   ],
+   "origen": "begonte.png"
+  },
+  "34122727008": {
+   "nome": "Bóveda",
+   "colores": [
+    "#0071bc",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.6101,
+    0.3899
+   ],
+   "origen": "boveda.png"
+  },
+  "34122727013": {
+   "nome": "Cervo",
+   "colores": [
+    "#33b055",
+    "#0291d0",
+    "#fed51b",
+    "#201d1a"
+   ],
+   "pesos": [
+    0.4216,
+    0.2692,
+    0.1874,
+    0.1218
+   ],
+   "origen": "cervo.png"
+  },
+  "34122727015": {
+   "nome": "Cospeito",
+   "colores": [
+    "#006132",
+    "#ffffff",
+    "#012169",
+    "#f6c61e"
+   ],
+   "pesos": [
+    0.5937,
+    0.1721,
+    0.1474,
+    0.0868
+   ],
+   "origen": "cospeito.png"
+  },
+  "34122727017": {
+   "nome": "Folgoso do Courel",
+   "colores": [
+    "#fcdd09",
+    "#078930"
+   ],
+   "pesos": [
+    0.6056,
+    0.3944
+   ],
+   "origen": "folgoso-do-courel.png"
+  },
+  "34122727019": {
+   "nome": "Foz",
+   "colores": [
+    "#ffffff",
+    "#0071bc",
+    "#009900"
+   ],
+   "pesos": [
+    0.4378,
+    0.2937,
+    0.2685
+   ],
+   "origen": "foz.png"
+  },
+  "34122727022": {
+   "nome": "Guitiriz",
+   "colores": [
+    "#ffffff"
+   ],
+   "pesos": [
+    1.0
+   ],
+   "origen": "guitiriz.png"
+  },
+  "34122727024": {
+   "nome": "O Incio",
+   "colores": [
+    "#ce1818",
+    "#ffcc00"
+   ],
+   "pesos": [
+    0.5788,
+    0.4212
+   ],
+   "origen": "o-incio.png"
+  },
+  "34122727027": {
+   "nome": "Lourenzá",
+   "colores": [
+    "#409a3b",
+    "#fac804",
+    "#fae89a"
+   ],
+   "pesos": [
+    0.5761,
+    0.3809,
+    0.043
+   ],
+   "origen": "lourenza.png"
+  },
+  "34122727030": {
+   "nome": "Mondoñedo",
+   "colores": [
+    "#ce1818",
+    "#ffffff",
+    "#ffcc00"
+   ],
+   "pesos": [
+    0.8238,
+    0.1176,
+    0.0586
+   ],
+   "origen": "mondonedo.png"
+  },
+  "34122727032": {
+   "nome": "Monterroso",
+   "colores": [
+    "#ffffff",
+    "#006699"
+   ],
+   "pesos": [
+    0.7533,
+    0.2467
+   ],
+   "origen": "monterroso.png"
+  },
+  "34122727038": {
+   "nome": "Ourol",
+   "colores": [
+    "#006132",
+    "#fcdd09"
+   ],
+   "pesos": [
+    0.697,
+    0.303
+   ],
+   "origen": "ourol.png"
+  },
+  "34122727042": {
+   "nome": "Paradela",
+   "colores": [
+    "#0000ff",
+    "#ffff00",
+    "#ff0000"
+   ],
+   "pesos": [
+    0.5003,
+    0.4155,
+    0.0843
+   ],
+   "origen": "paradela.png"
+  },
+  "34122727043": {
+   "nome": "O Páramo",
+   "colores": [
+    "#ce0000",
+    "#006aa7",
+    "#ffffff",
+    "#c5b02d"
+   ],
+   "pesos": [
+    0.5882,
+    0.2325,
+    0.0939,
+    0.0855
+   ],
+   "origen": "o-paramo.png"
+  },
+  "34122727048": {
+   "nome": "A Pontenova",
+   "colores": [
+    "#ffffff"
+   ],
+   "pesos": [
+    1.0
+   ],
+   "origen": "a-pontenova.png"
+  },
+  "34122727049": {
+   "nome": "Portomarín",
+   "colores": [
+    "#ce0000",
+    "#ffd800",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.6818,
+    0.223,
+    0.0952
+   ],
+   "origen": "portomarin.png"
+  },
+  "34122727050": {
+   "nome": "Quiroga",
+   "colores": [
+    "#0b8837",
+    "#ffffff",
+    "#ffcb00"
+   ],
+   "pesos": [
+    0.5559,
+    0.3478,
+    0.0963
+   ],
+   "origen": "quiroga.png"
+  },
+  "34122727051": {
+   "nome": "Ribadeo",
+   "colores": [
+    "#ffffff",
+    "#3399ff"
+   ],
+   "pesos": [
+    0.5,
+    0.5
+   ],
+   "origen": "ribadeo.png"
+  },
+  "34122727052": {
+   "nome": "Ribas de Sil",
+   "colores": [
+    "#194486",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.9199,
+    0.0801
+   ],
+   "origen": "ribas-de-sil.png"
+  },
+  "34122727055": {
+   "nome": "Samos",
+   "colores": [
+    "#00923f",
+    "#0193dc",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.3844,
+    0.3393,
+    0.2763
+   ],
+   "origen": "samos.png"
+  },
+  "34122727056": {
+   "nome": "Rábade",
+   "colores": [
+    "#ffcc00",
+    "#0072ce"
+   ],
+   "pesos": [
+    0.7043,
+    0.2957
+   ],
+   "origen": "rabade.png"
+  },
+  "34122727057": {
+   "nome": "Sarria",
+   "colores": [
+    "#ffffff",
+    "#3399ff"
+   ],
+   "pesos": [
+    0.775,
+    0.225
+   ],
+   "origen": "sarria.png"
+  },
+  "34122727058": {
+   "nome": "O Saviñao",
+   "colores": [
+    "#002654"
+   ],
+   "pesos": [
+    1.0
+   ],
+   "origen": "o-savinao.png"
+  },
+  "34122727061": {
+   "nome": "Trabada",
+   "colores": [
+    "#0f47af",
+    "#ffffff",
+    "#078930"
+   ],
+   "pesos": [
+    0.451,
+    0.4288,
+    0.1201
+   ],
+   "origen": "trabada.png"
+  },
+  "34122727065": {
+   "nome": "Vilalba",
+   "colores": [
+    "#ffffff",
+    "#009900"
+   ],
+   "pesos": [
+    0.8254,
+    0.1746
+   ],
+   "origen": "vilalba.png"
+  },
+  "34122727066": {
+   "nome": "Viveiro",
+   "colores": [
+    "#ffffff",
+    "#1e7fcb"
+   ],
+   "pesos": [
+    0.5,
+    0.5
+   ],
+   "origen": "viveiro.png"
+  },
+  "34122727901": {
+   "nome": "Baralla",
+   "colores": [
+    "#006aa7",
+    "#ffffff",
+    "#050a0c",
+    "#ffcf00"
+   ],
+   "pesos": [
+    0.7528,
+    0.1024,
+    0.0752,
+    0.0696
+   ],
+   "origen": "baralla.png"
+  },
+  "34122727902": {
+   "nome": "Burela",
+   "colores": [
+    "#89c5e3",
+    "#072357"
+   ],
+   "pesos": [
+    0.7049,
+    0.2951
+   ],
+   "origen": "burela.png"
+  },
+  "34123232009": {
+   "nome": "O Barco de Valdeorras",
+   "colores": [
+    "#ed2d38",
+    "#ffffff",
+    "#5cbdda",
+    "#aa4754"
+   ],
+   "pesos": [
+    0.4583,
+    0.2828,
+    0.2189,
+    0.04
+   ],
+   "origen": "o-barco-de-valdeorras.jpg"
+  },
+  "34123232016": {
+   "nome": "Calvos de Randín",
+   "colores": [
+    "#0b8837",
+    "#ffcc00",
+    "#010000"
+   ],
+   "pesos": [
+    0.666,
+    0.2694,
+    0.0646
+   ],
+   "origen": "calvos-de-randin.png"
+  },
+  "34123232019": {
+   "nome": "O Carballiño",
+   "colores": [
+    "#fcdd09",
+    "#0f47af",
+    "#fefcf1",
+    "#3f6744"
+   ],
+   "pesos": [
+    0.3411,
+    0.3267,
+    0.1944,
+    0.1377
+   ],
+   "origen": "o-carballino.png"
+  },
+  "34123232021": {
+   "nome": "Castrelo do Val",
+   "colores": [
+    "#0b8837",
+    "#000000",
+    "#ffcc00",
+    "#ffe97a"
+   ],
+   "pesos": [
+    0.3688,
+    0.3354,
+    0.244,
+    0.0518
+   ],
+   "origen": "castrelo-do-val.png"
+  },
+  "34123232027": {
+   "nome": "Cortegada",
+   "colores": [
+    "#ff0000",
+    "#e6e5e5",
+    "#71b72e",
+    "#694019"
+   ],
+   "pesos": [
+    0.7643,
+    0.0972,
+    0.0773,
+    0.0612
+   ],
+   "origen": "cortegada.png"
+  },
+  "34123232031": {
+   "nome": "Esgos",
+   "colores": [
+    "#0090ca",
+    "#fadb00"
+   ],
+   "pesos": [
+    0.6683,
+    0.3317
+   ],
+   "origen": "esgos.png"
+  },
+  "34123232032": {
+   "nome": "Xinzo de Limia",
+   "colores": [
+    "#fece02",
+    "#e6e1db",
+    "#409c39",
+    "#440108"
+   ],
+   "pesos": [
+    0.3015,
+    0.2836,
+    0.2517,
+    0.1633
+   ],
+   "origen": "xinzo-de-limia.png"
+  },
+  "34123232037": {
+   "nome": "Xunqueira de Espadanedo",
+   "colores": [
+    "#194486",
+    "#ce1818",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.6761,
+    0.1668,
+    0.157
+   ],
+   "origen": "xunqueira-de-espadanedo.png"
+  },
+  "34123232039": {
+   "nome": "Laza",
+   "colores": [
+    "#da121a",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.5292,
+    0.4708
+   ],
+   "origen": "laza.png"
+  },
+  "34123232041": {
+   "nome": "Lobeira",
+   "colores": [
+    "#009442",
+    "#fff700"
+   ],
+   "pesos": [
+    0.6888,
+    0.3112
+   ],
+   "origen": "lobeira.png"
+  },
+  "34123232045": {
+   "nome": "Maside",
+   "colores": [
+    "#04913e",
+    "#ffffff",
+    "#dfdd27",
+    "#30482b"
+   ],
+   "pesos": [
+    0.6711,
+    0.1678,
+    0.1009,
+    0.0602
+   ],
+   "origen": "maside.png"
+  },
+  "34123232046": {
+   "nome": "Melón",
+   "colores": [
+    "#0071bc",
+    "#ffd700",
+    "#e1211f",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.6572,
+    0.1518,
+    0.0962,
+    0.0949
+   ],
+   "origen": "melon.png"
+  },
+  "34123232049": {
+   "nome": "Montederramo",
+   "colores": [
+    "#fcdd09",
+    "#188f2d"
+   ],
+   "pesos": [
+    0.9155,
+    0.0845
+   ],
+   "origen": "montederramo.png"
+  },
+  "34123232052": {
+   "nome": "Nogueira de Ramuín",
+   "colores": [
+    "#078930",
+    "#0f47af",
+    "#feee70",
+    "#97b930"
+   ],
+   "pesos": [
+    0.4167,
+    0.3469,
+    0.1852,
+    0.0511
+   ],
+   "origen": "nogueira-de-ramuin.png"
+  },
+  "34123232056": {
+   "nome": "Padrenda",
+   "colores": [
+    "#006aa7",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.6433,
+    0.3567
+   ],
+   "origen": "padrenda.png"
+  },
+  "34123232060": {
+   "nome": "Petín",
+   "colores": [
+    "#ffffff",
+    "#0099cc"
+   ],
+   "pesos": [
+    0.558,
+    0.442
+   ],
+   "origen": "petin.png"
+  },
+  "34123232065": {
+   "nome": "Punxín",
+   "colores": [
+    "#ffc501",
+    "#1490cc",
+    "#01a32f",
+    "#8fa17c"
+   ],
+   "pesos": [
+    0.7356,
+    0.1243,
+    0.091,
+    0.0491
+   ],
+   "origen": "punxin.png"
+  },
+  "34123232068": {
+   "nome": "Ramirás",
+   "colores": [
+    "#0071bc",
+    "#ffffff",
+    "#ed1c24"
+   ],
+   "pesos": [
+    0.3834,
+    0.3593,
+    0.2573
+   ],
+   "origen": "ramiras.png"
+  },
+  "34123232070": {
+   "nome": "San Xoán de Río",
+   "colores": [
+    "#f43c24",
+    "#ffd401",
+    "#50a94a",
+    "#842915"
+   ],
+   "pesos": [
+    0.7872,
+    0.0865,
+    0.0733,
+    0.0531
+   ],
+   "origen": "san-xoan-de-rio.png"
+  },
+  "34123232071": {
+   "nome": "O Riós",
+   "colores": [
+    "#f6c61d",
+    "#036c4f",
+    "#0071b6",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.4819,
+    0.184,
+    0.1677,
+    0.1664
+   ],
+   "origen": "o-rios.png"
+  },
+  "34123232080": {
+   "nome": "A Teixeira",
+   "colores": [
+    "#409a3b",
+    "#ffcc00",
+    "#010100"
+   ],
+   "pesos": [
+    0.4974,
+    0.4095,
+    0.0931
+   ],
+   "origen": "a-teixeira.png"
+  },
+  "34123232081": {
+   "nome": "Toén",
+   "colores": [
+    "#ffffff",
+    "#078930",
+    "#eac103",
+    "#0a42ad"
+   ],
+   "pesos": [
+    0.4587,
+    0.3963,
+    0.1035,
+    0.0415
+   ],
+   "origen": "toen.png"
+  },
+  "34123232084": {
+   "nome": "Verea",
+   "colores": [
+    "#eac102",
+    "#008f4c"
+   ],
+   "pesos": [
+    0.6772,
+    0.3228
+   ],
+   "origen": "verea.png"
+  },
+  "34123232086": {
+   "nome": "Viana do Bolo",
+   "colores": [
+    "#da121a",
+    "#fcdd09",
+    "#078930",
+    "#74b577"
+   ],
+   "pesos": [
+    0.4083,
+    0.2914,
+    0.2449,
+    0.0554
+   ],
+   "origen": "viana-do-bolo.png"
+  },
+  "34123232091": {
+   "nome": "Vilardevós",
+   "colores": [
+    "#ce0000",
+    "#0181b0",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.5766,
+    0.2435,
+    0.1799
+   ],
+   "origen": "vilardevos.png"
+  },
+  "34123636001": {
+   "nome": "Arbo",
+   "colores": [
+    "#0071bc",
+    "#f3d42b",
+    "#12161c"
+   ],
+   "pesos": [
+    0.6114,
+    0.3052,
+    0.0834
+   ],
+   "origen": "arbo.png"
+  },
+  "34123636003": {
+   "nome": "Baiona",
+   "colores": [
+    "#0f47af",
+    "#da121a"
+   ],
+   "pesos": [
+    0.5,
+    0.5
+   ],
+   "origen": "baiona.png"
+  },
+  "34123636004": {
+   "nome": "Bueu",
+   "colores": [
+    "#006aa7",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.6843,
+    0.3157
+   ],
+   "origen": "bueu.png"
+  },
+  "34123636006": {
+   "nome": "Cambados",
+   "colores": [
+    "#1a56da",
+    "#d8d9db",
+    "#fdd704"
+   ],
+   "pesos": [
+    0.9022,
+    0.0492,
+    0.0486
+   ],
+   "origen": "cambados.png"
+  },
+  "34123636008": {
+   "nome": "Cangas de Morrazo",
+   "colores": [
+    "#0071bc",
+    "#eac102"
+   ],
+   "pesos": [
+    0.9493,
+    0.0507
+   ],
+   "origen": "cangas-de-morrazo.png"
+  },
+  "34123636009": {
+   "nome": "A Caniza",
+   "colores": [
+    "#00a13a",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.711,
+    0.289
+   ],
+   "origen": "a-caniza.png"
+  },
+  "34123636010": {
+   "nome": "Catoira",
+   "colores": [
+    "#cc2d27",
+    "#fbfdfb",
+    "#495e76",
+    "#eae7a3"
+   ],
+   "pesos": [
+    0.55,
+    0.205,
+    0.1652,
+    0.0799
+   ],
+   "origen": "catoira.jpg"
+  },
+  "34123636015": {
+   "nome": "Cuntis",
+   "colores": [
+    "#006ab3",
+    "#fcc917",
+    "#532e26"
+   ],
+   "pesos": [
+    0.6687,
+    0.2553,
+    0.076
+   ],
+   "origen": "cuntis.png"
+  },
+  "34123636017": {
+   "nome": "A Estrada",
+   "colores": [
+    "#ffffff",
+    "#078930",
+    "#da121a"
+   ],
+   "pesos": [
+    0.3584,
+    0.3216,
+    0.32
+   ],
+   "origen": "a-estrada.png"
+  },
+  "34123636018": {
+   "nome": "Forcarei",
+   "colores": [
+    "#00904a",
+    "#ffffff",
+    "#0089d5"
+   ],
+   "pesos": [
+    0.4616,
+    0.3808,
+    0.1576
+   ],
+   "origen": "forcarei.jpg"
+  },
+  "34123636019": {
+   "nome": "Fornelos de Montes",
+   "colores": [
+    "#de2119",
+    "#fffdfd"
+   ],
+   "pesos": [
+    0.5705,
+    0.4295
+   ],
+   "origen": "fornelos-de-montes.png"
+  },
+  "34123636021": {
+   "nome": "Gondomar",
+   "colores": [
+    "#0071bc",
+    "#fbbb00",
+    "#da121a"
+   ],
+   "pesos": [
+    0.4835,
+    0.2831,
+    0.2334
+   ],
+   "origen": "gondomar.png"
+  },
+  "34123636022": {
+   "nome": "O Grove",
+   "colores": [
+    "#08c3f9"
+   ],
+   "pesos": [
+    1.0
+   ],
+   "origen": "o-grove.gif"
+  },
+  "34123636023": {
+   "nome": "A Guarda",
+   "colores": [
+    "#ff001a",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.6342,
+    0.3658
+   ],
+   "origen": "a-guarda.png"
+  },
+  "34123636024": {
+   "nome": "Lalín",
+   "colores": [
+    "#ffffff",
+    "#009900"
+   ],
+   "pesos": [
+    0.5,
+    0.5
+   ],
+   "origen": "lalin.png"
+  },
+  "34123636026": {
+   "nome": "Marín",
+   "colores": [
+    "#ffffff",
+    "#0d71b9"
+   ],
+   "pesos": [
+    0.5076,
+    0.4924
+   ],
+   "origen": "marin.png"
+  },
+  "34123636027": {
+   "nome": "Meaño",
+   "colores": [
+    "#e7e2d7",
+    "#3b9836",
+    "#566829"
+   ],
+   "pesos": [
+    0.4486,
+    0.3894,
+    0.162
+   ],
+   "origen": "meano.png"
+  },
+  "34123636029": {
+   "nome": "Moaña",
+   "colores": [
+    "#e5000c"
+   ],
+   "pesos": [
+    1.0
+   ],
+   "origen": "moana.png"
+  },
+  "34123636033": {
+   "nome": "Mos",
+   "colores": [
+    "#fcdd09",
+    "#ee1b24",
+    "#fffcef",
+    "#56090b"
+   ],
+   "pesos": [
+    0.5852,
+    0.206,
+    0.1255,
+    0.0833
+   ],
+   "origen": "mos.png"
+  },
+  "34123636035": {
+   "nome": "Nigrán",
+   "colores": [
+    "#0065bd",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.5824,
+    0.4176
+   ],
+   "origen": "nigran.png"
+  },
+  "34123636037": {
+   "nome": "Pazos de Borbén",
+   "colores": [
+    "#fff700",
+    "#007bc5"
+   ],
+   "pesos": [
+    0.5,
+    0.5
+   ],
+   "origen": "pazos-de-borben.png"
+  },
+  "34123636038": {
+   "nome": "Pontevedra",
+   "colores": [
+    "#0094de",
+    "#ffffff"
+   ],
+   "pesos": [
+    0.503,
+    0.497
+   ],
+   "origen": "pontevedra.png"
+  },
+  "34123636039": {
+   "nome": "O Porriño",
+   "colores": [
+    "#0f47af",
+    "#e4e5e6",
+    "#ecc718",
+    "#b29a23"
+   ],
+   "pesos": [
+    0.7182,
+    0.1082,
+    0.1057,
+    0.068
+   ],
+   "origen": "o-porrino.png"
+  },
+  "34123636041": {
+   "nome": "Poio",
+   "colores": [
+    "#e5e0c2"
+   ],
+   "pesos": [
+    1.0
+   ],
+   "origen": "poio.gif"
+  },
+  "34123636042": {
+   "nome": "Ponteareas",
+   "colores": [
+    "#0099cc",
+    "#ffffff",
+    "#020074"
+   ],
+   "pesos": [
+    0.454,
+    0.4536,
+    0.0924
+   ],
+   "origen": "ponteareas.png"
+  },
+  "34123636045": {
+   "nome": "Redondela",
+   "colores": [
+    "#6d090d",
+    "#cbb413"
+   ],
+   "pesos": [
+    0.9447,
+    0.0553
+   ],
+   "origen": "redondela.png"
+  },
+  "34123636046": {
+   "nome": "Ribadumia",
+   "colores": [
+    "#255e9e",
+    "#fefefe"
+   ],
+   "pesos": [
+    0.8547,
+    0.1453
+   ],
+   "origen": "ribadumia.gif"
+  },
+  "34123636048": {
+   "nome": "O Rosal",
+   "colores": [
+    "#078930",
+    "#0f47af",
+    "#ffffff",
+    "#dc161f"
+   ],
+   "pesos": [
+    0.3464,
+    0.3379,
+    0.2521,
+    0.0636
+   ],
+   "origen": "o-rosal.png"
+  },
+  "34123636051": {
+   "nome": "Sanxenxo",
+   "colores": [
+    "#0065a8",
+    "#eac102",
+    "#a7a433"
+   ],
+   "pesos": [
+    0.6097,
+    0.3322,
+    0.0582
+   ],
+   "origen": "sanxenxo.png"
+  },
+  "34123636052": {
+   "nome": "Silleda",
+   "colores": [
+    "#ffffff"
+   ],
+   "pesos": [
+    1.0
+   ],
+   "origen": "silleda.png"
+  },
+  "34123636053": {
+   "nome": "Soutomaior",
+   "colores": [
+    "#ffd801",
+    "#e72325",
+    "#02a7eb",
+    "#fbf3df"
+   ],
+   "pesos": [
+    0.3258,
+    0.323,
+    0.2738,
+    0.0774
+   ],
+   "origen": "soutomaior.png"
+  },
+  "34123636055": {
+   "nome": "Tui",
+   "colores": [
+    "#138fd0",
+    "#ffffff",
+    "#275ca1"
+   ],
+   "pesos": [
+    0.6571,
+    0.2767,
+    0.0662
+   ],
+   "origen": "tui.png"
+  },
+  "34123636056": {
+   "nome": "Valga",
+   "colores": [
+    "#0f47af",
+    "#fcdd09",
+    "#e8e8e7"
+   ],
+   "pesos": [
+    0.7047,
+    0.2262,
+    0.0692
+   ],
+   "origen": "valga.png"
+  },
+  "34123636057": {
+   "nome": "Vigo",
+   "colores": [
+    "#da121a",
+    "#fffeff"
+   ],
+   "pesos": [
+    0.5,
+    0.5
+   ],
+   "origen": "vigo.png"
+  },
+  "34123636058": {
+   "nome": "Vilaboa",
+   "colores": [
+    "#0071bc",
+    "#ffffff",
+    "#010000"
+   ],
+   "pesos": [
+    0.7113,
+    0.2288,
+    0.0599
+   ],
+   "origen": "vilaboa.png"
+  },
+  "34123636059": {
+   "nome": "Vila de Cruces",
+   "colores": [
+    "#039240"
+   ],
+   "pesos": [
+    1.0
+   ],
+   "origen": "vila-de-cruces.jpg"
+  },
+  "34123636901": {
+   "nome": "A Illa de Arousa",
+   "colores": [
+    "#f3ecc7",
+    "#193687"
+   ],
+   "pesos": [
+    0.6628,
+    0.3372
+   ],
+   "origen": "a-illa-de-arousa.jpg"
+  },
+  "34123636902": {
+   "nome": "Cerdedo Cotobade",
+   "colores": [
+    "#f94626",
+    "#4073b2",
+    "#67261a",
+    "#f6fbef"
+   ],
+   "pesos": [
+    0.5636,
+    0.2427,
+    0.1105,
+    0.0832
+   ],
+   "origen": "cerdedo-cotobade.png"
+  }
+ },
+ "con_escudo": {
+  "34121515001": {
+   "nome": "Abegondo",
+   "escudo": "assets/escudos/15001.png",
+   "origen": "abegondo.png"
+  },
+  "34121515002": {
+   "nome": "Ames",
+   "escudo": "assets/escudos/15002.png",
+   "origen": "ames.jpg"
+  },
+  "34121515003": {
+   "nome": "Aranga",
+   "escudo": "assets/escudos/15003.png",
+   "origen": "aranga.jpg"
+  },
+  "34121515004": {
+   "nome": "Ares",
+   "escudo": "assets/escudos/15004.png",
+   "origen": "ares.png"
+  },
+  "34121515005": {
+   "nome": "Arteixo",
+   "escudo": "assets/escudos/15005.png",
+   "origen": "arteixo.png"
+  },
+  "34121515006": {
+   "nome": "Arzúa",
+   "escudo": "assets/escudos/15006.png",
+   "origen": "arzua.jpg"
+  },
+  "34121515007": {
+   "nome": "A Baña",
+   "escudo": "assets/escudos/15007.png",
+   "origen": "a-bana.png"
+  },
+  "34121515008": {
+   "nome": "Bergondo",
+   "escudo": "assets/escudos/15008.png",
+   "origen": "bergondo.jpg"
+  },
+  "34121515009": {
+   "nome": "Betanzos",
+   "escudo": "assets/escudos/15009.png",
+   "origen": "betanzos.png"
+  },
+  "34121515010": {
+   "nome": "Boimorto",
+   "escudo": "assets/escudos/15010.png",
+   "origen": "boimorto.png"
+  },
+  "34121515011": {
+   "nome": "Boiro",
+   "escudo": "assets/escudos/15011.png",
+   "origen": "boiro.png"
+  },
+  "34121515012": {
+   "nome": "Boqueixón",
+   "escudo": "assets/escudos/15012.png",
+   "origen": "boqueixon.png"
+  },
+  "34121515013": {
+   "nome": "Brión",
+   "escudo": "assets/escudos/15013.png",
+   "origen": "brion.png"
+  },
+  "34121515014": {
+   "nome": "Cabana de Bergantiños",
+   "escudo": "assets/escudos/15014.png",
+   "origen": "cabana-de-bergantinos.png"
+  },
+  "34121515015": {
+   "nome": "Cabanas",
+   "escudo": "assets/escudos/15015.png",
+   "origen": "cabanas.png"
+  },
+  "34121515016": {
+   "nome": "Camariñas",
+   "escudo": "assets/escudos/15016.png",
+   "origen": "camarinas.png"
+  },
+  "34121515018": {
+   "nome": "A Capela",
+   "escudo": "assets/escudos/15018.png",
+   "origen": "a-capela.png"
+  },
+  "34121515025": {
+   "nome": "Cerdido",
+   "escudo": "assets/escudos/15025.png",
+   "origen": "cerdido.png"
+  },
+  "34121515027": {
+   "nome": "Coirós",
+   "escudo": "assets/escudos/15027.png",
+   "origen": "coiros.png"
+  },
+  "34121515028": {
+   "nome": "Corcubión",
+   "escudo": "assets/escudos/15028.png",
+   "origen": "corcubion.png"
+  },
+  "34121515030": {
+   "nome": "A Coruña",
+   "escudo": "assets/escudos/15030.png",
+   "origen": "a-coruna.png"
+  },
+  "34121515031": {
+   "nome": "Culleredo",
+   "escudo": "assets/escudos/15031.png",
+   "origen": "culleredo.png"
+  },
+  "34121515033": {
+   "nome": "Dodro",
+   "escudo": "assets/escudos/15033.png",
+   "origen": "dodro.png"
+  },
+  "34121515035": {
+   "nome": "Fene",
+   "escudo": "assets/escudos/15035.png",
+   "origen": "fene.png"
+  },
+  "34121515036": {
+   "nome": "Ferrol",
+   "escudo": "assets/escudos/15036.png",
+   "origen": "ferrol.png"
+  },
+  "34121515037": {
+   "nome": "Fisterra",
+   "escudo": "assets/escudos/15037.png",
+   "origen": "fisterra.png"
+  },
+  "34121515038": {
+   "nome": "Frades",
+   "escudo": "assets/escudos/15038.png",
+   "origen": "frades.png"
+  },
+  "34121515040": {
+   "nome": "Laxe",
+   "escudo": "assets/escudos/15040.png",
+   "origen": "laxe.png"
+  },
+  "34121515042": {
+   "nome": "Lousame",
+   "escudo": "assets/escudos/15042.png",
+   "origen": "lousame.png"
+  },
+  "34121515044": {
+   "nome": "Mañón",
+   "escudo": "assets/escudos/15044.png",
+   "origen": "manon.png"
+  },
+  "34121515045": {
+   "nome": "Mazaricos",
+   "escudo": "assets/escudos/15045.png",
+   "origen": "mazaricos.png"
+  },
+  "34121515046": {
+   "nome": "Melide",
+   "escudo": "assets/escudos/15046.png",
+   "origen": "melide.png"
+  },
+  "34121515047": {
+   "nome": "Mesía",
+   "escudo": "assets/escudos/15047.png",
+   "origen": "mesia.png"
+  },
+  "34121515048": {
+   "nome": "Miño",
+   "escudo": "assets/escudos/15048.png",
+   "origen": "mino.jpg"
+  },
+  "34121515052": {
+   "nome": "Muxía",
+   "escudo": "assets/escudos/15052.png",
+   "origen": "muxia.png"
+  },
+  "34121515053": {
+   "nome": "Muros",
+   "escudo": "assets/escudos/15053.png",
+   "origen": "muros.png"
+  },
+  "34121515055": {
+   "nome": "Neda",
+   "escudo": "assets/escudos/15055.png",
+   "origen": "neda.png"
+  },
+  "34121515056": {
+   "nome": "Negreira",
+   "escudo": "assets/escudos/15056.png",
+   "origen": "negreira.jpg"
+  },
+  "34121515057": {
+   "nome": "Noia",
+   "escudo": "assets/escudos/15057.png",
+   "origen": "noia.png"
+  },
+  "34121515062": {
+   "nome": "Outes",
+   "escudo": "assets/escudos/15062.png",
+   "origen": "outes.png"
+  },
+  "34121515065": {
+   "nome": "Padrón",
+   "escudo": "assets/escudos/15065.png",
+   "origen": "padron.jpg"
+  },
+  "34121515066": {
+   "nome": "O Pino",
+   "escudo": "assets/escudos/15066.png",
+   "origen": "o-pino.png"
+  },
+  "34121515067": {
+   "nome": "A Pobra do Caramiñal",
+   "escudo": "assets/escudos/15067.png",
+   "origen": "a-pobra-do-caraminal.png"
+  },
+  "34121515071": {
+   "nome": "O Porto do Son",
+   "escudo": "assets/escudos/15071.png",
+   "origen": "o-porto-do-son.png"
+  },
+  "34121515074": {
+   "nome": "Rois",
+   "escudo": "assets/escudos/15074.png",
+   "origen": "rois.png"
+  },
+  "34121515079": {
+   "nome": "Santiso",
+   "escudo": "assets/escudos/15079.png",
+   "origen": "santiso.png"
+  },
+  "34121515080": {
+   "nome": "Sobrado",
+   "escudo": "assets/escudos/15080.png",
+   "origen": "sobrado.png"
+  },
+  "34121515081": {
+   "nome": "As Somozas",
+   "escudo": "assets/escudos/15081.png",
+   "origen": "as-somozas.png"
+  },
+  "34121515083": {
+   "nome": "Toques",
+   "escudo": "assets/escudos/15083.png",
+   "origen": "toques.png"
+  },
+  "34121515084": {
+   "nome": "Tordoia",
+   "escudo": "assets/escudos/15084.png",
+   "origen": "tordoia.png"
+  },
+  "34121515085": {
+   "nome": "Touro",
+   "escudo": "assets/escudos/15085.png",
+   "origen": "touro.png"
+  },
+  "34121515087": {
+   "nome": "Valdoviño",
+   "escudo": "assets/escudos/15087.png",
+   "origen": "valdovino.png"
+  },
+  "34121515090": {
+   "nome": "Vilasantar",
+   "escudo": "assets/escudos/15090.png",
+   "origen": "vilasantar.png"
+  },
+  "34121515092": {
+   "nome": "Vimianzo",
+   "escudo": "assets/escudos/15092.png",
+   "origen": "vimianzo.png"
+  },
+  "34121515902": {
+   "nome": "Oza Cesuras",
+   "escudo": "assets/escudos/15902.png",
+   "origen": "oza-cesuras.png"
+  },
+  "34122727004": {
+   "nome": "Baleira",
+   "escudo": "assets/escudos/27004.png",
+   "origen": "baleira.png"
+  },
+  "34122727005": {
+   "nome": "Barreiros",
+   "escudo": "assets/escudos/27005.png",
+   "origen": "barreiros.png"
+  },
+  "34122727006": {
+   "nome": "Becerreá",
+   "escudo": "assets/escudos/27006.png",
+   "origen": "becerrea.png"
+  },
+  "34122727009": {
+   "nome": "Carballedo",
+   "escudo": "assets/escudos/27009.png",
+   "origen": "carballedo.png"
+  },
+  "34122727010": {
+   "nome": "Castro de Rei",
+   "escudo": "assets/escudos/27010.png",
+   "origen": "castro-de-rei.jpg"
+  },
+  "34122727011": {
+   "nome": "Castroverde",
+   "escudo": "assets/escudos/27011.png",
+   "origen": "castroverde.png"
+  },
+  "34122727012": {
+   "nome": "Cervantes",
+   "escudo": "assets/escudos/27012.png",
+   "origen": "cervantes.jpg"
+  },
+  "34122727014": {
+   "nome": "O Corgo",
+   "escudo": "assets/escudos/27014.png",
+   "origen": "o-corgo.png"
+  },
+  "34122727016": {
+   "nome": "Chantada",
+   "escudo": "assets/escudos/27016.png",
+   "origen": "chantada.png"
+  },
+  "34122727018": {
+   "nome": "A Fonsagrada",
+   "escudo": "assets/escudos/27018.png",
+   "origen": "a-fonsagrada.png"
+  },
+  "34122727020": {
+   "nome": "Friol",
+   "escudo": "assets/escudos/27020.png",
+   "origen": "friol.png"
+  },
+  "34122727021": {
+   "nome": "Xermade",
+   "escudo": "assets/escudos/27021.png",
+   "origen": "xermade.png"
+  },
+  "34122727023": {
+   "nome": "Guntín",
+   "escudo": "assets/escudos/27023.png",
+   "origen": "guntin.png"
+  },
+  "34122727025": {
+   "nome": "Xove",
+   "escudo": "assets/escudos/27025.png",
+   "origen": "xove.jpg"
+  },
+  "34122727026": {
+   "nome": "Láncara",
+   "escudo": "assets/escudos/27026.png",
+   "origen": "lancara.png"
+  },
+  "34122727028": {
+   "nome": "Lugo",
+   "escudo": "assets/escudos/27028.png",
+   "origen": "lugo.png"
+  },
+  "34122727029": {
+   "nome": "Meira",
+   "escudo": "assets/escudos/27029.png",
+   "origen": "meira.jpg"
+  },
+  "34122727031": {
+   "nome": "Monforte de Lemos",
+   "escudo": "assets/escudos/27031.png",
+   "origen": "monforte-de-lemos.jpg"
+  },
+  "34122727033": {
+   "nome": "Muras",
+   "escudo": "assets/escudos/27033.png",
+   "origen": "muras.jpg"
+  },
+  "34122727034": {
+   "nome": "Navia de Suarna",
+   "escudo": "assets/escudos/27034.png",
+   "origen": "navia-de-suarna.png"
+  },
+  "34122727035": {
+   "nome": "Negueira de Muñiz",
+   "escudo": "assets/escudos/27035.png",
+   "origen": "negueira-de-muniz.png"
+  },
+  "34122727037": {
+   "nome": "As Nogais",
+   "escudo": "assets/escudos/27037.png",
+   "origen": "Escudo_As_Nogais.jpg"
+  },
+  "34122727039": {
+   "nome": "Outeiro de Rei",
+   "escudo": "assets/escudos/27039.png",
+   "origen": "outeiro-de-rei.png"
+  },
+  "34122727040": {
+   "nome": "Palas de Rei",
+   "escudo": "assets/escudos/27040.png",
+   "origen": "palas-de-rei.jpg"
+  },
+  "34122727041": {
+   "nome": "Pantón",
+   "escudo": "assets/escudos/27041.png",
+   "origen": "panton.png"
+  },
+  "34122727044": {
+   "nome": "Pastoriza",
+   "escudo": "assets/escudos/27044.png",
+   "origen": "pastoriza.png"
+  },
+  "34122727045": {
+   "nome": "Pedrafita do Cebreiro",
+   "escudo": "assets/escudos/27045.png",
+   "origen": "pedrafita-do-cebreiro.png"
+  },
+  "34122727046": {
+   "nome": "Pol",
+   "escudo": "assets/escudos/27046.png",
+   "origen": "pol.png"
+  },
+  "34122727047": {
+   "nome": "A Pobra do Brollón",
+   "escudo": "assets/escudos/27047.png",
+   "origen": "a-pobra-do-brollon.png"
+  },
+  "34122727053": {
+   "nome": "A Ribeira de Piquín",
+   "escudo": "assets/escudos/27053.png",
+   "origen": "a-ribeira-de-piquin.png"
+  },
+  "34122727054": {
+   "nome": "Riotorto",
+   "escudo": "assets/escudos/27054.png",
+   "origen": "riotorto.png"
+  },
+  "34122727059": {
+   "nome": "Sober",
+   "escudo": "assets/escudos/27059.png",
+   "origen": "sober.png"
+  },
+  "34122727060": {
+   "nome": "Taboada",
+   "escudo": "assets/escudos/27060.png",
+   "origen": "taboada.png"
+  },
+  "34122727062": {
+   "nome": "Triacastela",
+   "escudo": "assets/escudos/27062.png",
+   "origen": "triacastela.png"
+  },
+  "34122727063": {
+   "nome": "O Valadouro",
+   "escudo": "assets/escudos/27063.png",
+   "origen": "o-valadouro.jpg"
+  },
+  "34122727064": {
+   "nome": "O Vicedo",
+   "escudo": "assets/escudos/27064.png",
+   "origen": "o-vicedo.jpg"
+  },
+  "34123232001": {
+   "nome": "Allariz",
+   "escudo": "assets/escudos/32001.png",
+   "origen": "allariz.png"
+  },
+  "34123232002": {
+   "nome": "Amoeiro",
+   "escudo": "assets/escudos/32002.png",
+   "origen": "amoeiro.png"
+  },
+  "34123232003": {
+   "nome": "A Arnoia",
+   "escudo": "assets/escudos/32003.png",
+   "origen": "a-arnoia.png"
+  },
+  "34123232004": {
+   "nome": "Avión",
+   "escudo": "assets/escudos/32004.png",
+   "origen": "avion.png"
+  },
+  "34123232005": {
+   "nome": "Baltar",
+   "escudo": "assets/escudos/32005.png",
+   "origen": "baltar.png"
+  },
+  "34123232006": {
+   "nome": "Bande",
+   "escudo": "assets/escudos/32006.png",
+   "origen": "bande.png"
+  },
+  "34123232007": {
+   "nome": "Baños de Molgas",
+   "escudo": "assets/escudos/32007.png",
+   "origen": "banos-de-molgas.png"
+  },
+  "34123232008": {
+   "nome": "Barbadás",
+   "escudo": "assets/escudos/32008.png",
+   "origen": "barbadas.png"
+  },
+  "34123232010": {
+   "nome": "Beade",
+   "escudo": "assets/escudos/32010.png",
+   "origen": "beade.png"
+  },
+  "34123232011": {
+   "nome": "Beariz",
+   "escudo": "assets/escudos/32011.png",
+   "origen": "beariz.png"
+  },
+  "34123232012": {
+   "nome": "Os Blancos",
+   "escudo": "assets/escudos/32012.png",
+   "origen": "os-blancos.png"
+  },
+  "34123232013": {
+   "nome": "Boborás",
+   "escudo": "assets/escudos/32013.png",
+   "origen": "boboras.png"
+  },
+  "34123232014": {
+   "nome": "A Bola",
+   "escudo": "assets/escudos/32014.png",
+   "origen": "a-bola.png"
+  },
+  "34123232018": {
+   "nome": "Carballeda de Avia",
+   "escudo": "assets/escudos/32018.png",
+   "origen": "carballeda-de-avia.png"
+  },
+  "34123232020": {
+   "nome": "Cartelle",
+   "escudo": "assets/escudos/32020.png",
+   "origen": "cartelle.png"
+  },
+  "34123232022": {
+   "nome": "Castrelo de Miño",
+   "escudo": "assets/escudos/32022.png",
+   "origen": "castrelo-de-mino.png"
+  },
+  "34123232023": {
+   "nome": "O Castro de Caldelas",
+   "escudo": "assets/escudos/32023.png",
+   "origen": "o-castro-de-caldelas.png"
+  },
+  "34123232024": {
+   "nome": "Celanova",
+   "escudo": "assets/escudos/32024.png",
+   "origen": "celanova.png"
+  },
+  "34123232025": {
+   "nome": "Cenlle",
+   "escudo": "assets/escudos/32025.png",
+   "origen": "cenlle.png"
+  },
+  "34123232026": {
+   "nome": "Coles",
+   "escudo": "assets/escudos/32026.png",
+   "origen": "coles.png"
+  },
+  "34123232028": {
+   "nome": "Cualedro",
+   "escudo": "assets/escudos/32028.png",
+   "origen": "cualedro.png"
+  },
+  "34123232029": {
+   "nome": "Chandrexa de Queixa",
+   "escudo": "assets/escudos/32029.png",
+   "origen": "chandrexa-de-queixa.png"
+  },
+  "34123232030": {
+   "nome": "Entrimo",
+   "escudo": "assets/escudos/32030.png",
+   "origen": "entrimo.png"
+  },
+  "34123232033": {
+   "nome": "Gomesende",
+   "escudo": "assets/escudos/32033.png",
+   "origen": "gomesende.png"
+  },
+  "34123232034": {
+   "nome": "A Gudiña",
+   "escudo": "assets/escudos/32034.png",
+   "origen": "a-gudina.png"
+  },
+  "34123232035": {
+   "nome": "O Irixo",
+   "escudo": "assets/escudos/32035.png",
+   "origen": "o-irixo.png"
+  },
+  "34123232036": {
+   "nome": "Xunqueira de Ambía",
+   "escudo": "assets/escudos/32036.png",
+   "origen": "xunqueira-de-ambia.png"
+  },
+  "34123232038": {
+   "nome": "Larouco",
+   "escudo": "assets/escudos/32038.png",
+   "origen": "larouco.png"
+  },
+  "34123232040": {
+   "nome": "Leiro",
+   "escudo": "assets/escudos/32040.png",
+   "origen": "leiro.png"
+  },
+  "34123232042": {
+   "nome": "Lobios",
+   "escudo": "assets/escudos/32042.png",
+   "origen": "lobios.png"
+  },
+  "34123232043": {
+   "nome": "Maceda",
+   "escudo": "assets/escudos/32043.png",
+   "origen": "maceda.png"
+  },
+  "34123232044": {
+   "nome": "Manzaneda",
+   "escudo": "assets/escudos/32044.png",
+   "origen": "manzaneda.png"
+  },
+  "34123232047": {
+   "nome": "A Merca",
+   "escudo": "assets/escudos/32047.png",
+   "origen": "a-merca.png"
+  },
+  "34123232050": {
+   "nome": "Monterrei",
+   "escudo": "assets/escudos/32050.png",
+   "origen": "monterrei.png"
+  },
+  "34123232051": {
+   "nome": "Muíños",
+   "escudo": "assets/escudos/32051.png",
+   "origen": "muinos.png"
+  },
+  "34123232053": {
+   "nome": "Oímbra",
+   "escudo": "assets/escudos/32053.png",
+   "origen": "oimbra.png"
+  },
+  "34123232054": {
+   "nome": "Ourense",
+   "escudo": "assets/escudos/32054.png",
+   "origen": "ourense.png"
+  },
+  "34123232055": {
+   "nome": "Paderne de Allariz",
+   "escudo": "assets/escudos/32055.png",
+   "origen": "paderne-de-allariz.png"
+  },
+  "34123232057": {
+   "nome": "Parada de Sil",
+   "escudo": "assets/escudos/32057.png",
+   "origen": "parada-de-sil.png"
+  },
+  "34123232058": {
+   "nome": "O Pereiro de Aguiar",
+   "escudo": "assets/escudos/32058.png",
+   "origen": "o-pereiro-de-aguiar.png"
+  },
+  "34123232059": {
+   "nome": "A Peroxa",
+   "escudo": "assets/escudos/32059.png",
+   "origen": "a-peroxa.png"
+  },
+  "34123232061": {
+   "nome": "Piñor",
+   "escudo": "assets/escudos/32061.png",
+   "origen": "pinor.png"
+  },
+  "34123232062": {
+   "nome": "Porqueira",
+   "escudo": "assets/escudos/32062.png",
+   "origen": "porqueira.jpg"
+  },
+  "34123232063": {
+   "nome": "A Pobra de Trives",
+   "escudo": "assets/escudos/32063.png",
+   "origen": "a-pobra-de-trives.png"
+  },
+  "34123232064": {
+   "nome": "Pontedeva",
+   "escudo": "assets/escudos/32064.png",
+   "origen": "pontedeva.jpg"
+  },
+  "34123232066": {
+   "nome": "Quintela de Leirado",
+   "escudo": "assets/escudos/32066.png",
+   "origen": "quintela-de-leirado.png"
+  },
+  "34123232067": {
+   "nome": "Rairiz de Veiga",
+   "escudo": "assets/escudos/32067.png",
+   "origen": "rairiz-de-veiga.png"
+  },
+  "34123232069": {
+   "nome": "Ribadavia",
+   "escudo": "assets/escudos/32069.png",
+   "origen": "ribadavia.jpg"
+  },
+  "34123232072": {
+   "nome": "A Rúa",
+   "escudo": "assets/escudos/32072.png",
+   "origen": "a-rua.png"
+  },
+  "34123232073": {
+   "nome": "Rubiá",
+   "escudo": "assets/escudos/32073.png",
+   "origen": "rubia.png"
+  },
+  "34123232074": {
+   "nome": "San Amaro",
+   "escudo": "assets/escudos/32074.png",
+   "origen": "san-amaro.png"
+  },
+  "34123232075": {
+   "nome": "San Cibrao das Viñas",
+   "escudo": "assets/escudos/32075.png",
+   "origen": "san-cibrao-das-vinas.png"
+  },
+  "34123232076": {
+   "nome": "San Cristovo de Cea",
+   "escudo": "assets/escudos/32076.png",
+   "origen": "san-cristovo-de-cea.png"
+  },
+  "34123232077": {
+   "nome": "Sandiás",
+   "escudo": "assets/escudos/32077.png",
+   "origen": "sandias.png"
+  },
+  "34123232078": {
+   "nome": "Sarreaus",
+   "escudo": "assets/escudos/32078.png",
+   "origen": "sarreaus.png"
+  },
+  "34123232079": {
+   "nome": "Taboadela",
+   "escudo": "assets/escudos/32079.png",
+   "origen": "taboadela.png"
+  },
+  "34123232082": {
+   "nome": "Trasmiras",
+   "escudo": "assets/escudos/32082.png",
+   "origen": "trasmiras.png"
+  },
+  "34123232083": {
+   "nome": "A Veiga",
+   "escudo": "assets/escudos/32083.png",
+   "origen": "a-veiga.png"
+  },
+  "34123232085": {
+   "nome": "Verín",
+   "escudo": "assets/escudos/32085.png",
+   "origen": "verin.png"
+  },
+  "34123232087": {
+   "nome": "Vilamarín",
+   "escudo": "assets/escudos/32087.png",
+   "origen": "vilamarin.png"
+  },
+  "34123232088": {
+   "nome": "Vilamartín de Valdeorras",
+   "escudo": "assets/escudos/32088.png",
+   "origen": "vilamartin-de-valdeorras.png"
+  },
+  "34123232089": {
+   "nome": "Vilar de Barrio",
+   "escudo": "assets/escudos/32089.png",
+   "origen": "vilar-de-barrio.png"
+  },
+  "34123232090": {
+   "nome": "Vilar de Santos",
+   "escudo": "assets/escudos/32090.png",
+   "origen": "vilar-de-santos.png"
+  },
+  "34123232092": {
+   "nome": "Vilariño de Conso",
+   "escudo": "assets/escudos/32092.png",
+   "origen": "vilarino-de-conso.png"
+  },
+  "34123636002": {
+   "nome": "Barro",
+   "escudo": "assets/escudos/36002.png",
+   "origen": "barro.png"
+  },
+  "34123636005": {
+   "nome": "Caldas de Reis",
+   "escudo": "assets/escudos/36005.png",
+   "origen": "caldas-de-reis.png"
+  },
+  "34123636007": {
+   "nome": "O Campo Lameiro",
+   "escudo": "assets/escudos/36007.png",
+   "origen": "o-campo-lameiro.png"
+  },
+  "34123636013": {
+   "nome": "Covelo",
+   "escudo": "assets/escudos/36013.png",
+   "origen": "covelo.png"
+  },
+  "34123636016": {
+   "nome": "Dozón",
+   "escudo": "assets/escudos/36016.png",
+   "origen": "dozon.png"
+  },
+  "34123636020": {
+   "nome": "Agolada",
+   "escudo": "assets/escudos/36020.png",
+   "origen": "agolada.png"
+  },
+  "34123636025": {
+   "nome": "A Lama",
+   "escudo": "assets/escudos/36025.png",
+   "origen": "a-lama.png"
+  },
+  "34123636028": {
+   "nome": "Meis",
+   "escudo": "assets/escudos/36028.png",
+   "origen": "meis.png"
+  },
+  "34123636030": {
+   "nome": "Mondariz",
+   "escudo": "assets/escudos/36030.png",
+   "origen": "mondariz.png"
+  },
+  "34123636031": {
+   "nome": "Mondariz Balneario",
+   "escudo": "assets/escudos/36031.png",
+   "origen": "mondariz-balneario.png"
+  },
+  "34123636032": {
+   "nome": "Moraña",
+   "escudo": "assets/escudos/36032.png",
+   "origen": "morana.png"
+  },
+  "34123636034": {
+   "nome": "As Neves",
+   "escudo": "assets/escudos/36034.png",
+   "origen": "as-neves.png"
+  },
+  "34123636036": {
+   "nome": "Oia",
+   "escudo": "assets/escudos/36036.png",
+   "origen": "oia.png"
+  },
+  "34123636040": {
+   "nome": "Portas",
+   "escudo": "assets/escudos/36040.png",
+   "origen": "portas.png"
+  },
+  "34123636044": {
+   "nome": "Pontecesures",
+   "escudo": "assets/escudos/36044.png",
+   "origen": "pontecesures.png"
+  },
+  "34123636047": {
+   "nome": "Rodeiro",
+   "escudo": "assets/escudos/36047.png",
+   "origen": "rodeiro.png"
+  },
+  "34123636049": {
+   "nome": "Salceda de Caselas",
+   "escudo": "assets/escudos/36049.png",
+   "origen": "salceda-de-caselas.png"
+  },
+  "34123636050": {
+   "nome": "Salvaterra de Miño",
+   "escudo": "assets/escudos/36050.png",
+   "origen": "salvaterra-de-mino.png"
+  },
+  "34123636054": {
+   "nome": "Tomiño",
+   "escudo": "assets/escudos/36054.png",
+   "origen": "tomino.png"
+  },
+  "34123636060": {
+   "nome": "Vilagarcía de Arousa",
+   "escudo": "assets/escudos/36060.png",
+   "origen": "vilagarcia-de-arousa.jpg"
+  },
+  "34123636061": {
+   "nome": "Vilanova de Arousa",
+   "escudo": "assets/escudos/36061.png",
+   "origen": "vilanova-de-arousa.png"
+  }
+ },
+ "sin_uso": {
+  "34121515021": {
+   "nome": "Carral",
+   "motivo": "solo hay una foto de un escudo de piedra (no sirve como bandera ni como escudo)"
+  }
+ },
+ "sin_imagen": {
+  "34121515072": "Rianxo",
+  "34122727002": "Alfoz do Castrodouro",
+  "34123232015": "O Bolo",
+  "34123232017": "Carballeda de Valdeorras",
+  "34123232048": "A Mezquita",
+  "34123636014": "Crecente",
+  "34123636043": "Ponte Caldelas"
+ }
+}
