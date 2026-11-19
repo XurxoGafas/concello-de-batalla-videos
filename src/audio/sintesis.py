@@ -331,6 +331,82 @@ def duelo_preview() -> np.ndarray:
     return normalizar(mezcla, -3.0)
 
 
+D_RODAR_VIDEO = 0.9 / VELOCIDAD  # lo que dura el rodar de los dados en el vídeo (0,69 s)
+
+
+def _tok(frecuencia: float, fuerza: float, tau: float = 0.007, semilla: int = 0) -> np.ndarray:
+    """Un golpecito de dado (plástico/hueso): tono corto + clic de aire."""
+    t = t_(0.08)
+    x = (np.sin(2 * np.pi * frecuencia * t) * env_exp(t, tau, 0.0004)
+         + 0.5 * np.sin(2 * np.pi * frecuencia * 1.9 * t) * env_exp(t, tau * 0.6, 0.0003)
+         + 0.5 * paso_bajo(ruido(len(t), 100 + semilla), 7000) * env_exp(t, 0.0025, 0.0002))
+    return x * fuerza
+
+
+def _poner(destino: np.ndarray, x: np.ndarray, inicio: float, pan: float) -> None:
+    a = int(inicio * SR)
+    n = min(len(x), len(destino) - a)
+    if n <= 0:
+        return
+    destino[a:a + n, 0] += x[:n] * np.sqrt(1 - pan)
+    destino[a:a + n, 1] += x[:n] * np.sqrt(pan)
+
+
+def traqueteo_dados() -> np.ndarray:
+    """15 · Dados: rueda cada pareja de dados (0,9 s de montaje = 0,69 s de vídeo; el dado del atacante a la
+    izquierda y el del defensor a la derecha). Traqueteo denso de golpecitos aleatorios que se van espaciando
+    y tres botes más graves y espaciados justo antes de pararse. Termina donde empieza el 16."""
+    dur = D_RODAR_VIDEO
+    mezcla = np.zeros((int(dur * SR) + 1, 2))
+    for lado, pan in ((0, 0.3), (1, 0.7)):
+        rng = np.random.default_rng(40 + lado)
+        n = 15
+        tiempos = np.sort(0.62 * dur * rng.random(n) ** 0.8)  # más densos al principio
+        for k, ti in enumerate(tiempos):
+            f = rng.uniform(1900, 3300)
+            _poner(mezcla, _tok(f, 0.35 + 0.35 * rng.random(), semilla=k + 20 * lado), ti, pan)
+        for k, (fr, fuerza) in enumerate(((0.70, 0.9), (0.84, 0.7), (0.94, 0.5))):  # botes graves que se apagan
+            _poner(mezcla, _tok(1100 - 120 * k, fuerza, tau=0.012, semilla=60 + k + 10 * lado), fr * dur, pan)
+    return normalizar(fundidos(mezcla, 0.002, 0.01), -6.0)
+
+
+def dados_se_paran() -> np.ndarray:
+    """16 · Dados: cada dado se para (el del atacante y, 35 ms después, el del defensor). Golpe seco y
+    grave de madera sobre la mesa con un pequeño eco de resonancia. ≈0,35 s."""
+    dur = 0.35
+    mezcla = np.zeros((int(dur * SR), 2))
+    for lado, (pan, retraso) in enumerate(((0.35, 0.0), (0.65, 0.035))):
+        t = t_(0.3)
+        golpe = (seno_barrido(t, 330, 170, 0.035) * env_exp(t, 0.05, 0.0008)
+                 + 0.4 * np.sin(2 * np.pi * 920 * t) * env_exp(t, 0.025, 0.0005)
+                 + 0.6 * paso_bajo(ruido(len(t), 70 + lado), 4500) * env_exp(t, 0.004, 0.0003))
+        _poner(mezcla, golpe * (1.0 if lado == 0 else 0.85), retraso, pan)
+    return normalizar(fundidos(mezcla, 0.0003, 0.03), -3.0)
+
+
+NOTAS_DING = {1: 1046.5, 2: 1174.7, 3: 1318.5, 4: 1568.0, 5: 1760.0}  # Do6, Re6, Mi6, Sol6, La6
+
+
+def ding_puntos(n: int) -> np.ndarray:
+    """17 · Insignia «+N» (N = 1…5): «ding» de campana que sube de nota con N (Do, Re, Mi, Sol, La de la
+    sexta octava) y es más rico y fuerte cuanto mayor es N. Suena 0,1 s después de pararse el dado. ≈0,6 s."""
+    t = t_(0.6)
+    f = NOTAS_DING[n]
+    x = _parciales(t, f, (1, 2.0, 3.0, 4.2), (1.0, 0.45, 0.25, 0.12), (0.32, 0.22, 0.14, 0.08))
+    if n >= 4:  # los puntos altos llevan un brillo extra una octava arriba
+        x += 0.25 * (n - 3) * np.sin(2 * np.pi * f * 4 * t) * env_exp(t, 0.12, 0.001)
+    x *= 0.7 + 0.075 * n
+    return normalizar(fundidos(estereo(x), 0.0005, 0.05), -6.0 + 0.5 * n)
+
+
+def dings_preview() -> np.ndarray:
+    """Vista previa del 17: los cinco «ding» (+1 a +5) seguidos, uno cada 0,5 s."""
+    mezcla = np.zeros((int(3.2 * SR), 2))
+    for n in range(1, 6):
+        _poner(mezcla, ding_puntos(n).mean(axis=1), 0.5 * (n - 1), 0.5)
+    return normalizar(mezcla, -3.0)
+
+
 EFECTOS = {
     1: ("01_portada_golpe", golpe_portada),
     2: ("02_portada_frase_pop", pop_frase),
@@ -344,7 +420,15 @@ EFECTOS = {
     12: ("12_duelo_botella_deslizar", deslizar_botella),
     13: ("13_duelo_choque", choque_navaja_botella),
     14: ("14_duelo_liorta_graves", golpe_liorta),
+    15: ("15_dados_traqueteo", traqueteo_dados),
+    16: ("16_dados_se_paran", dados_se_paran),
+    171: ("17_ding_mas1", lambda: ding_puntos(1)),
+    172: ("17_ding_mas2", lambda: ding_puntos(2)),
+    173: ("17_ding_mas3", lambda: ding_puntos(3)),
+    174: ("17_ding_mas4", lambda: ding_puntos(4)),
+    175: ("17_ding_mas5", lambda: ding_puntos(5)),
     111: ("preview_11-14_duelo", duelo_preview),  # vista previa conjunta, no es un efecto del esquema
+    117: ("preview_17_dings_1-5", dings_preview),  # los cinco dings seguidos, solo para escuchar
 }
 
 

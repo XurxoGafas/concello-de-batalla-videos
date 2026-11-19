@@ -626,3 +626,7 @@ Las entradas no se borran. Las nuevas se añaden al final.
 ## 2026-11-19 — Sonidos 08 y 10 aprobados; generados 11–14 (duelo)
 - **Usuario:** 08 y 10 aprobados; **para el montaje**, el «pop» del 10 debe coincidir con la entrada del defensor en el panel (instante 0,45 s del morph, ya usado en el sonido).
 - **Generados (⏳):** 11 silbido de la navaja y 12 deslizar de la botella (0,42 s cada uno, terminan en el choque; paneo izquierda/derecha → centro), 13 choque con tintineo y 14 golpe de graves de «LIORTA!» (ambos empiezan en el choque, a los 0,55 s del duelo en el montaje = 0,42 s en el vídeo). Además `preview_11-14_duelo.wav`, con los cuatro colocados como en la animación, solo para escuchar el conjunto.
+
+## 2026-11-19 — Sonidos 11–14 aprobados; generados 15–17 (dados)
+- **Generados (⏳):** 15 traqueteo de la pareja de dados (0,69 s: golpecitos aleatorios que se espacian + 3 botes graves; atacante a la izquierda, defensor a la derecha), 16 golpe de madera al pararse (0,35 s; el dado del defensor 35 ms después) y 17 «ding» de campana según los puntos (+1…+5: Do, Re, Mi, Sol, La; `17_ding_masN.wav`, más `preview_17_dings_1-5.wav` para escucharlos seguidos).
+- **Montaje previsto (de `animacion_batalla`):** 15 al empezar cada tirada; 16 cuando acaba el rodar (0,9 s del montaje); 17 a los 0,1 s de eso.

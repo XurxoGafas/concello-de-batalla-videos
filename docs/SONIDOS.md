@@ -20,13 +20,13 @@ Prioridad: **A** imprescindible · **B** deseable · **C** opcional.
 | 08 | Sorteo del defensor | cada candidato (≈9) | tic más suave y grave que el 05. **Montaje: cada tic cuando se resalta ese concello** | A | ✅ |
 | 09 |  | queda bloqueado | usa el 06 (clac + campanilla) | A | ✅ |
 | 10 | Zoom a los dos bandos | el mapa se acerca; entra el defensor en el panel | whoosh + «pop». **Montaje: el «pop» coincide con la entrada del defensor en el panel** (indicación del usuario) | A | ✅ |
-| 11 | Duelo (1,7 s) | entra la navaja | silbido de metal (termina en el choque) | A | ⏳ |
-| 12 |  | entra la botella | deslizar de cristal (termina en el choque) | A | ⏳ |
-| 13 |  | choque y destello | choque metálico + tintineo de cristal (empieza en el choque) | A | ⏳ |
-| 14 |  | «LIORTA!» | golpe de graves (empieza en el choque, con el temblor) | A | ⏳ |
-| 15 | Dados | los 6 dados ruedan | traqueteo | A |  |
-| 16 |  | cada dado se para | golpe seco de madera, escalonado | A |  |
-| 17 |  | insignia «+N» | «ding» que sube de nota según N (1–5) | A |  |
+| 11 | Duelo (1,7 s) | entra la navaja | silbido de metal (termina en el choque) | A | ✅ |
+| 12 |  | entra la botella | deslizar de cristal (termina en el choque) | A | ✅ |
+| 13 |  | choque y destello | choque metálico + tintineo de cristal (empieza en el choque) | A | ✅ |
+| 14 |  | «LIORTA!» | golpe de graves (empieza en el choque, con el temblor) | A | ✅ |
+| 15 | Dados | los 6 dados ruedan | traqueteo (uno por tirada, mientras ruedan los dos dados de esa fila) | A | ⏳ |
+| 16 |  | cada dado se para | golpe seco de madera, escalonado (suena cuando termina el rodar de la fila) | A | ⏳ |
+| 17 |  | insignia «+N» | «ding» que sube de nota según N (1–5): 5 archivos `17_ding_masN.wav`; suena 0,1 s después de pararse el dado | A | ⏳ |
 | 18 |  | «=» (empate de tirada) | tic apagado | B |  |
 | 19 |  | el marcador suma | tic de moneda | B |  |
 | 20 |  | multiplicador ×1,N | barrido ascendente + acorde brillante (más fuerte con ×1,5) | A |  |
