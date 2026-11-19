@@ -651,3 +651,12 @@ Las entradas no se borran. Las nuevas se añaden al final.
 ## 2026-11-19 · Paso 5.1 · Sonidos 30–33
 - Aprobados 27, 28 y 29. Sintetizados 30 (swish de fundido), 31 (whoosh de cierre), 32 (pop de fila + variante con campanilla) y 33 (fanfarria final con la gaita del 25); pendientes de OK.
 - Siguiente: 34 (mugido, opcional, necesita muestra real) y luego el paso 5.2 (montaje con los números del esquema).
+
+## 2026-11-19 · Paso 5.2 (en curso) · Montaje del audio
+- Aprobados 30–33. El 34 (mugido) queda omitido: sintetizado suena a juguete y no hay muestra real.
+- **Qué se hizo:** `src/render/linea_tiempo.py` calcula, a partir de los tiempos de cada escena, qué sonido del esquema va en qué instante (tabla en `docs/SONIDOS.md`). `src/audio/mezcla.py` los coloca (÷ 1,296), normaliza a −14 LUFS (loudnorm de dos pasadas, pico ≤ −1,5 dBTP) y une el audio al vídeo ya renderizado sin tocar la imagen (`-c:v copy`).
+- **Cómo:** los tics 05 y 08 se generan con los pasos reales del sorteo (idénticos a los aprobados cuando son los pasos habituales; con un solo candidato ya no falla); la morte súbita (22) se alarga según las rondas; los pops del 28 siguen la curva real de extensión del color; el 17 y el 20 eligen archivo por puntos y por multiplicador.
+- **Archivos:** `src/render/linea_tiempo.py`, `src/audio/mezcla.py`, `tests/test_linea_tiempo.py` (8 tests; suite: 261 en verde), `docs/SONIDOS.md` (tabla de montaje).
+- **Salidas (no se suben a git):** `output/muestras/ataque_episodio1_con_audio.mp4` (21,2 s, −14,1 LUFS) y `episodio100_con_audio.mp4` (65,6 s, −14,1 LUFS).
+- **Decisiones mías, a revisar:** el «pop» de la frase (02) a 0,25 s (en el vídeo la frase está desde el primer fotograma); sin sonido en el alejamiento entre batallas (el 29 solo suena al final del ataque suelto); sin confeti sonoro en el final de serie; confeti 26 en las dos tandas.
+- **Pendiente:** el usuario revisa la sincronía; cualquier cambio se pide por número. El paso 5.2 sigue `[~]` hasta su visto bueno.

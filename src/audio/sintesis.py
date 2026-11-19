@@ -173,7 +173,7 @@ def _secuencia_tics(pasos_montaje: tuple, f_ini: float, semitonos: float, fuerza
     izq, der = np.zeros(int(dur * SR)), np.zeros(int(dur * SR))
     inicio = 0.0
     for i, paso in enumerate(pasos):
-        u = i / (n - 1)
+        u = i / (n - 1) if n > 1 else 1.0
         tic = _tic(f_ini * 2 ** (semitonos * u / 12), fuerza_ini + (1 - fuerza_ini) * u)
         a = int(inicio * SR)
         reparto = 0.5 + 0.18 * np.sin(i * semilla_pan)  # los tics bailan un poco entre izquierda y derecha
@@ -229,6 +229,9 @@ def whoosh_zoom() -> np.ndarray:
     return normalizar(fundidos(estereo(x * np.sqrt(1 - pan), x * np.sqrt(pan)), 0.01, 0.02), -8.0)
 
 
+T_POP_MORPH = 0.45 / VELOCIDAD  # el defensor entra en el panel a los 0,45 s del zoom (montaje)
+
+
 def whoosh_morph() -> np.ndarray:
     """10 · Zoom a los dos bandos (1,1 s de montaje = 0,85 s de vídeo): whoosh suave algo más agudo que el 07
     y, cuando el defensor entra en el panel (a los 0,45 s del montaje), un «pop» más grave y redondo que el
@@ -239,8 +242,7 @@ def whoosh_morph() -> np.ndarray:
     x = filtro_banda_variable(ruido(len(t), 10), 420 * (5.0 ** u), q=1.6)
     x *= np.sin(np.pi * u) ** 2.2
     x = normalizar(x, -9.0)
-    t0 = 0.45 / VELOCIDAD
-    a = int(t0 * SR)
+    a = int(T_POP_MORPH * SR)
     tp = t_(0.22)
     pop = (seno_barrido(tp, 760, 260, 0.03) * env_exp(tp, 0.05, 0.001)
            + 0.3 * paso_bajo(ruido(len(tp), 11), 4000) * env_exp(tp, 0.004, 0.0005))
@@ -488,11 +490,11 @@ def crepitar(n: int, semilla: int, densidad: float, fuerza: np.ndarray) -> np.nd
     return (x + 0.9 * rumor) * fuerza
 
 
-def morte_subita() -> np.ndarray:
+def morte_subita(rondas: int = 1) -> np.ndarray:
     """22 · Morte súbita: aparece la tarjeta en llamas (entra en 0,39 s) y se mantiene durante la ronda. Dos
     bocinazos graves de alarma + un soplido de fuego que prende, y después un crepitar que dura toda la ronda
-    y se apaga al final. Esta versión cubre UNA ronda (≈1,9 s); en el montaje se alarga según las rondas."""
-    dur = (0.5 + 0.9 + 1.1) / VELOCIDAD
+    y se apaga al final. Por defecto cubre UNA ronda (≈1,9 s); `rondas` la alarga (cada ronda extra: +2,0 s de montaje)."""
+    dur = (0.5 + rondas * (0.9 + 1.1)) / VELOCIDAD
     t = t_(dur)
     entrada = 0.5 / VELOCIDAD
     bocina = np.zeros_like(t)

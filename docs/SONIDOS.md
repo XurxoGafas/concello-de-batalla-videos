@@ -39,11 +39,11 @@ Prioridad: **A** imprescindible · **B** deseable · **C** opcional.
 | 27 |  | pastillas «+N vacas» y «+K concellos» | campanilla / «cha-ching» | B |  ✅ |
 | 28 |  | el color se extiende (hasta 24 pasos) | «pop» suave por paso, cada vez más agudo | A |  ✅ |
 | 29 | Alejamiento (ataque suelto) | el mapa se aleja | whoosh descendente | B |  ✅ |
-| 30 | Fundidos entre escenas |  | «swish» muy suave | C |  ⏳ (0,3 s; en cada fundido entre escenas) |
-| 31 | Cierre | aparece el panel de rankings | whoosh corto | B |  ⏳ (0,5 s) |
-| 32 |  | cada fila del ranking (10) | «pop»/tic; la primera de cada lista con campanilla | B |  ⏳ (pop de 0,1 s por fila + variante con campanilla para la primera de cada lista) |
-| 33 | Final de la serie | «CAMPIÓN DE GALICIA» | fanfarria grande + gaita | A |  ⏳ (4,5 s; golpe inicial con la entrada del título, 0,3 s del montaje; incluye la gaita) |
-| 34 | Opcional | pastillas de vacas | mugido (necesita una muestra real; sintetizado suena a juguete) | C |  |
+| 30 | Fundidos entre escenas |  | «swish» muy suave | C |  ✅ |
+| 31 | Cierre | aparece el panel de rankings | whoosh corto | B |  ✅ |
+| 32 |  | cada fila del ranking (10) | «pop»/tic; la primera de cada lista con campanilla | B |  ✅ |
+| 33 | Final de la serie | «CAMPIÓN DE GALICIA» | fanfarria grande + gaita | A |  ✅ |
+| 34 | Opcional | pastillas de vacas | mugido (necesita una muestra real; sintetizado suena a juguete) | C |  ⏸ omitido (sin muestra real) |
 
 ## Reglas de mezcla
 - Mono/estéreo según el efecto; volumen normalizado ≈ −14 LUFS; sin picos (limitador).
@@ -54,3 +54,28 @@ Prioridad: **A** imprescindible · **B** deseable · **C** opcional.
 Melodía original (no una pieza existente), ≈3 s, en modo mixolidio/dórico con ritmo de muiñeira (6/8), sobre un
 bordón continuo. Renderizado con timbre sintetizado; si el usuario aporta muestras de una gaita real, se usan
 (registrando su licencia en `docs/FUENTES.md`).
+
+## Montaje (paso 5.2): dónde cae cada número
+Código: `src/render/linea_tiempo.py` (instantes) y `src/audio/mezcla.py` (mezcla, −14 LUFS, unión con el vídeo).
+Instantes en segundos de montaje (÷ 1,296 en el vídeo). `T` = línea de tiempo de la escena.
+
+| Nº | Instante |
+|---|---|
+| 01 · 02 · 03 | portada: 0 s · 0,25 s · 2,0 s (inicio del vuelo) |
+| 04 | silencio |
+| 05 | `t_a`: un tic por paso real del sorteo (se resalta cada dueño) |
+| 06 | `t_a_bloqueo` (atacante) y `t_d_bloqueo` (defensor) |
+| 07 | `t_z` (zoom al atacante) |
+| 08 | `t_d`: un tic por paso real del sorteo (se resalta cada concello) |
+| 10 | `t_m` (el «pop» cae a +0,45 s: entra el defensor en el panel) |
+| 11 · 12 | `T.espadas`; 13 · 14: `T.espadas` + 0,55 s (choque) |
+| 15 | inicio de cada tirada; 16 y 19: +0,9 s (se paran los dados); 17 (N = puntos) y 18: +1,0 s |
+| 20 | `T.mult` (el acorde cae a +0,5 s, cuando el marcador pasa a decimales) |
+| 22 · 23 | `T.sd` (alargado según las rondas) · inicio de cada ronda |
+| 21 | `T.final` (recuadro dorado) |
+| 30 | inicio de cada fundido entre escenas |
+| 24 · 25 · 26 · 27 | conquista: 0,5 s · 1,0 s · 1,0 s y 2,0 s · 2,0 s y 2,15 s |
+| 28 | un pop por paso de redibujado del mapa (hasta 24), entre 0,5 s y 2,3 s de la conquista |
+| 29 | inicio del alejamiento |
+| 31 · 32 | cierre: al aparecer el panel · una tanda por fila (de la 5.ª a la 1.ª; la 1.ª con campanilla) |
+| 33 | final de serie: 0,3 s (entrada del título) |
