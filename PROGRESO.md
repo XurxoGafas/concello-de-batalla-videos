@@ -622,3 +622,7 @@ Las entradas no se borran. Las nuevas se añaden al final.
 ## 2026-11-19 — Sonidos 05–07 aprobados; generados 08 y 10
 - **Usuario:** 05, 06 y 07 aprobados; **indicación para el montaje:** los tics del 05 (y por extensión del 08) deben coincidir con el instante en que se resalta cada concello/dueño (se colocarán uno a uno con la línea de tiempo real de `EscenaSeleccion`, no como un bloque).
 - **Generados:** 08 (tics del sorteo del defensor, más graves y suaves, 10 tics con los pasos reales) y 10 (whoosh del zoom a los dos bandos + «pop» cuando entra el defensor en el panel). El 09 reutiliza el 06. El 05 se regeneró y es idéntico al aprobado (comprobado byte a byte).
+
+## 2026-11-19 — Sonidos 08 y 10 aprobados; generados 11–14 (duelo)
+- **Usuario:** 08 y 10 aprobados; **para el montaje**, el «pop» del 10 debe coincidir con la entrada del defensor en el panel (instante 0,45 s del morph, ya usado en el sonido).
+- **Generados (⏳):** 11 silbido de la navaja y 12 deslizar de la botella (0,42 s cada uno, terminan en el choque; paneo izquierda/derecha → centro), 13 choque con tintineo y 14 golpe de graves de «LIORTA!» (ambos empiezan en el choque, a los 0,55 s del duelo en el montaje = 0,42 s en el vídeo). Además `preview_11-14_duelo.wav`, con los cuatro colocados como en la animación, solo para escuchar el conjunto.

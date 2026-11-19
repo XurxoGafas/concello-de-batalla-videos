@@ -251,6 +251,86 @@ def whoosh_morph() -> np.ndarray:
     return normalizar(fundidos(estereo(izq, der), 0.01, 0.02), -5.0)
 
 
+def _parciales(t: np.ndarray, f0: float, ratios, amps, taus, ataque: float = 0.0008) -> np.ndarray:
+    """Suma de parciales (con relaciones inarmónicas dan timbre de metal o cristal), cada uno con su caída."""
+    x = np.zeros_like(t)
+    for k, (r, a, tau) in enumerate(zip(ratios, amps, taus)):
+        x += a * np.sin(2 * np.pi * f0 * r * t + k * 0.7) * env_exp(t, tau, ataque)
+    return x
+
+
+D_ENTRADA_DUELO = 0.55 / VELOCIDAD  # la navaja y la botella tardan esto en llegar al choque (vídeo)
+
+
+def silbido_navaja() -> np.ndarray:
+    """11 · Duelo: entra la navaja por la izquierda (0,42 s, justo hasta el choque). Silbido de metal: ruido
+    agudo que sube de tono y de volumen, con un timbre metálico que vibra; va de izquierda al centro."""
+    dur = D_ENTRADA_DUELO
+    t = t_(dur)
+    u = t / dur
+    aire = filtro_banda_variable(ruido(len(t), 12), 1500 * (3.7 ** (u ** 1.2)), q=3.0) * (u ** 1.5)
+    metal = (np.sin(2 * np.pi * 2400 * t) + 0.7 * np.sin(2 * np.pi * 3700 * t + 1)) * (u ** 2) * (
+        0.6 + 0.4 * np.sin(2 * np.pi * 38 * t)) * 0.18
+    x = normalizar(aire, -9.0) + metal * 0.5
+    pan = 0.5 * u  # de la izquierda (0) al centro (0,5)
+    return normalizar(fundidos(estereo(x * np.sqrt(1 - pan), x * np.sqrt(pan)), 0.005, 0.004), -7.0)
+
+
+def deslizar_botella() -> np.ndarray:
+    """12 · Duelo: entra la botella por la derecha (0,42 s). Deslizar de cristal: roce grave-medio que
+    gana volumen y un tono de cristal suave que vibra; va de la derecha al centro."""
+    dur = D_ENTRADA_DUELO
+    t = t_(dur)
+    u = t / dur
+    roce = filtro_banda_variable(ruido(len(t), 13), 480 * (2.0 ** u), q=1.3) * (u ** 1.1)
+    cristal = (np.sin(2 * np.pi * 1250 * t + 3 * np.sin(2 * np.pi * 7 * t) * 0.1)
+               + 0.6 * np.sin(2 * np.pi * 1870 * t)) * (u ** 1.8) * 0.2
+    x = normalizar(roce, -10.0) + cristal * 0.4
+    pan = 1 - 0.5 * u  # de la derecha (1) al centro (0,5)
+    return normalizar(fundidos(estereo(x * np.sqrt(1 - pan), x * np.sqrt(pan)), 0.005, 0.004), -8.0)
+
+
+def choque_navaja_botella() -> np.ndarray:
+    """13 · Duelo: choque de la navaja con la botella (el destello). Clang metálico + tintineo de cristal
+    que se apaga; empieza exactamente en el choque. ≈1,1 s."""
+    dur = 1.1
+    t = t_(dur)
+    clic = paso_bajo(ruido(len(t), 14), 9000) * env_exp(t, 0.003, 0.0003) * 1.1
+    clang = _parciales(t, 880, (1, 2.32, 3.18, 4.6, 6.7), (1, 0.7, 0.5, 0.35, 0.2), (0.35, 0.25, 0.2, 0.15, 0.1)) * 0.5
+    cristal_l = _parciales(t, 2637, (1, 1.33, 1.78), (0.5, 0.4, 0.3), (0.3, 0.24, 0.18)) * 0.28
+    cristal_r = _parciales(t, 2650, (1, 1.34, 1.77), (0.5, 0.4, 0.3), (0.32, 0.22, 0.2)) * 0.28
+    izq, der = clic + clang + cristal_l, clic + clang + cristal_r
+    return normalizar(fundidos(estereo(izq, der), 0.0003, 0.08), -2.0)
+
+
+def golpe_liorta() -> np.ndarray:
+    """14 · Duelo: aparece «LIORTA!» (con el choque). Golpe de graves con un temblor que se apaga a la vez
+    que el temblor de la imagen (≈0,27 s). ≈0,9 s."""
+    dur = 0.9
+    t = t_(dur)
+    thump = seno_barrido(t, 95, 38, 0.06) * env_exp(t, 0.22, 0.002)
+    sub = 0.6 * np.sin(2 * np.pi * 48 * t) * env_exp(t, 0.4, 0.01)
+    u = np.clip(t / (0.35 / VELOCIDAD), 0, 1)
+    temblor = paso_bajo(ruido(len(t), 15), 220) * (1 - u) * (0.6 + 0.4 * np.sin(5 * np.pi * u)) * 2.2
+    x = thump + sub + temblor
+    return normalizar(fundidos(estereo(x), 0.001, 0.08), -3.0)
+
+
+def duelo_preview() -> np.ndarray:
+    """Vista previa (no es un efecto del esquema): 11 + 12 + 13 + 14 colocados como en la animación, para
+    juzgar cómo suenan juntos."""
+    from_ = {}
+    for n, fn in ((11, silbido_navaja), (12, deslizar_botella), (13, choque_navaja_botella), (14, golpe_liorta)):
+        from_[n] = fn()
+    dur = D_ENTRADA_DUELO + 1.1
+    mezcla = np.zeros((int(dur * SR), 2))
+    for n, inicio in ((11, 0.0), (12, 0.0), (13, D_ENTRADA_DUELO), (14, D_ENTRADA_DUELO)):
+        a = int(inicio * SR)
+        x = from_[n]
+        mezcla[a:a + len(x)] += x[: len(mezcla) - a]
+    return normalizar(mezcla, -3.0)
+
+
 EFECTOS = {
     1: ("01_portada_golpe", golpe_portada),
     2: ("02_portada_frase_pop", pop_frase),
@@ -260,6 +340,11 @@ EFECTOS = {
     7: ("07_zoom_atacante_whoosh", whoosh_zoom),
     8: ("08_sorteo_defensor_tics", tics_sorteo_defensor),
     10: ("10_zoom_bandos_whoosh_pop", whoosh_morph),
+    11: ("11_duelo_navaja_silbido", silbido_navaja),
+    12: ("12_duelo_botella_deslizar", deslizar_botella),
+    13: ("13_duelo_choque", choque_navaja_botella),
+    14: ("14_duelo_liorta_graves", golpe_liorta),
+    111: ("preview_11-14_duelo", duelo_preview),  # vista previa conjunta, no es un efecto del esquema
 }
 
 
