@@ -618,3 +618,7 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Qué se pidió (usuario):** numerar el esquema de sonidos y marcar los aprobados, para pedir cambios por número; los sonidos 1–3 (portada) quedan aprobados; después, montar todo en el vídeo.
 - **Cómo:** `docs/SONIDOS.md` pasa a tener 34 filas numeradas (01–34) con columna de estado (✅ aprobado, ⏳ pendiente). Código en `src/audio/sintesis.py` (numpy, WAV 44,1 kHz estéreo, ya a la duración del vídeo final ×1,296), archivos en `assets/audio/NN_nombre.wav`. Generados: 01–03 (✅) y 05 (tics del sorteo del atacante con los pasos reales de la animación), 06 (clac + campanilla de bloqueo), 07 (whoosh del zoom al atacante) (⏳). El 04 (intro) queda en silencio por defecto.
 - **Pendiente:** aprobación de 05–07; seguir con 08–… y, al final, el montaje del audio en el vídeo (paso 5.2).
+
+## 2026-11-19 — Sonidos 05–07 aprobados; generados 08 y 10
+- **Usuario:** 05, 06 y 07 aprobados; **indicación para el montaje:** los tics del 05 (y por extensión del 08) deben coincidir con el instante en que se resalta cada concello/dueño (se colocarán uno a uno con la línea de tiempo real de `EscenaSeleccion`, no como un bloque).
+- **Generados:** 08 (tics del sorteo del defensor, más graves y suaves, 10 tics con los pasos reales) y 10 (whoosh del zoom a los dos bandos + «pop» cuando entra el defensor en el panel). El 09 reutiliza el 06. El 05 se regeneró y es idéntico al aprobado (comprobado byte a byte).

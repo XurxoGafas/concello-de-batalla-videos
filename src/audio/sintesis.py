@@ -164,24 +164,41 @@ def _tic(frecuencia: float, fuerza: float) -> np.ndarray:
     return x * fuerza
 
 
-def tics_sorteo_atacante() -> np.ndarray:
-    """05 · Sorteo del atacante: un tic cada vez que se resalta otro dueño (15 en total, con los pasos
-    reales de la animación: empiezan rápidos y se frenan). Cada tic es más agudo y más fuerte que el
-    anterior (de Mi5 a Mi6 por semitonos); el último, el del elegido, es el más brillante. ≈1,8 s."""
-    pasos = [p / VELOCIDAD for p in PASOS_SORTEO_ATACANTE]
+def _secuencia_tics(pasos_montaje: tuple, f_ini: float, semitonos: float, fuerza_ini: float, pico_db: float,
+                    semilla_pan: float = 2.1) -> np.ndarray:
+    """Un tic al inicio de cada paso del sorteo: cada vez más agudo (`semitonos` en total) y más fuerte."""
+    pasos = [p / VELOCIDAD for p in pasos_montaje]
     n = len(pasos)
     dur = sum(pasos) + 0.1
     izq, der = np.zeros(int(dur * SR)), np.zeros(int(dur * SR))
     inicio = 0.0
     for i, paso in enumerate(pasos):
-        frecuencia = 1318.5 * 2 ** ((12 * i / (n - 1)) / 12)
-        tic = _tic(frecuencia, 0.55 + 0.45 * i / (n - 1))
+        u = i / (n - 1)
+        tic = _tic(f_ini * 2 ** (semitonos * u / 12), fuerza_ini + (1 - fuerza_ini) * u)
         a = int(inicio * SR)
-        reparto = 0.5 + 0.18 * np.sin(i * 2.1)  # los tics bailan un poco entre izquierda y derecha
+        reparto = 0.5 + 0.18 * np.sin(i * semilla_pan)  # los tics bailan un poco entre izquierda y derecha
         izq[a:a + len(tic)] += tic * np.sqrt(1 - reparto)
         der[a:a + len(tic)] += tic * np.sqrt(reparto)
         inicio += paso
-    return normalizar(estereo(izq, der), -5.0)
+    return normalizar(estereo(izq, der), pico_db)
+
+
+def tics_sorteo_atacante() -> np.ndarray:
+    """05 · Sorteo del atacante: un tic cada vez que se resalta otro dueño (15 en total, con los pasos
+    reales de la animación: empiezan rápidos y se frenan). Cada tic es más agudo y más fuerte que el
+    anterior (de Mi5 a Mi6 por semitonos); el último, el del elegido, es el más brillante. ≈1,8 s.
+    En el montaje, cada tic va en el instante exacto en que se resalta ese dueño."""
+    return _secuencia_tics(PASOS_SORTEO_ATACANTE, 1318.5, 12, 0.55, -5.0)
+
+
+# Pasos del sorteo del defensor (montaje): los de `escenas.PASOS_DEFENSOR` + el último (D_ULTIMO)
+PASOS_SORTEO_DEFENSOR = (0.08, 0.08, 0.09, 0.10, 0.11, 0.13, 0.16, 0.20, 0.26, 0.35)
+
+
+def tics_sorteo_defensor() -> np.ndarray:
+    """08 · Sorteo del defensor: un tic por cada concello vecino resaltado (10). Igual que el 05 pero más
+    grave y suave (de La5 a Mi6) para distinguirlo; sigue el ritmo real de la animación. ≈1,3 s."""
+    return _secuencia_tics(PASOS_SORTEO_DEFENSOR, 880.0, 7, 0.4, -8.0, semilla_pan=1.3)
 
 
 def clac_campanilla() -> np.ndarray:
@@ -212,6 +229,28 @@ def whoosh_zoom() -> np.ndarray:
     return normalizar(fundidos(estereo(x * np.sqrt(1 - pan), x * np.sqrt(pan)), 0.01, 0.02), -8.0)
 
 
+def whoosh_morph() -> np.ndarray:
+    """10 · Zoom a los dos bandos (1,1 s de montaje = 0,85 s de vídeo): whoosh suave algo más agudo que el 07
+    y, cuando el defensor entra en el panel (a los 0,45 s del montaje), un «pop» más grave y redondo que el
+    de la frase. ≈0,85 s."""
+    dur = 1.1 / VELOCIDAD
+    t = t_(dur)
+    u = t / dur
+    x = filtro_banda_variable(ruido(len(t), 10), 420 * (5.0 ** u), q=1.6)
+    x *= np.sin(np.pi * u) ** 2.2
+    x = normalizar(x, -9.0)
+    t0 = 0.45 / VELOCIDAD
+    a = int(t0 * SR)
+    tp = t_(0.22)
+    pop = (seno_barrido(tp, 760, 260, 0.03) * env_exp(tp, 0.05, 0.001)
+           + 0.3 * paso_bajo(ruido(len(tp), 11), 4000) * env_exp(tp, 0.004, 0.0005))
+    pop = normalizar(pop, -6.0)
+    izq, der = x.copy(), x.copy()
+    izq[a:a + len(pop)] += pop
+    der[a:a + len(pop)] += pop
+    return normalizar(fundidos(estereo(izq, der), 0.01, 0.02), -5.0)
+
+
 EFECTOS = {
     1: ("01_portada_golpe", golpe_portada),
     2: ("02_portada_frase_pop", pop_frase),
@@ -219,6 +258,8 @@ EFECTOS = {
     5: ("05_sorteo_atacante_tics", tics_sorteo_atacante),
     6: ("06_sorteo_bloqueo_clac", clac_campanilla),
     7: ("07_zoom_atacante_whoosh", whoosh_zoom),
+    8: ("08_sorteo_defensor_tics", tics_sorteo_defensor),
+    10: ("10_zoom_bandos_whoosh_pop", whoosh_morph),
 }
 
 

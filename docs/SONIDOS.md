@@ -14,12 +14,12 @@ Prioridad: **A** imprescindible · **B** deseable · **C** opcional.
 | 02 |  | aparece la frase | «pop» suave | B | ✅ |
 | 03 |  | la silueta vuela al mapa (0,8 s) | whoosh ascendente | A | ✅ |
 | 04 | Intro (1 s) | mapa visible | silencio (o un «ding» breve) — por defecto, silencio | C |  |
-| 05 | Sorteo del atacante (≈2 s) | cada dueño resaltado (15 tics) | tic de bloque de madera, cada vez más lento, agudo y fuerte | A | ⏳ |
-| 06 |  | queda bloqueado (rojo) — también se usa en el sorteo del defensor (9) | «clac» + campanilla | A | ⏳ |
-| 07 | Zoom al atacante | el mapa se acerca | whoosh suave | A | ⏳ |
-| 08 | Sorteo del defensor | cada candidato (≈9) | tic más suave | A |  |
-| 09 |  | queda bloqueado | usa el 06 (clac + campanilla) | A |  |
-| 10 | Zoom a los dos bandos | el mapa se acerca; entra el defensor en el panel | whoosh + «pop» | A |  |
+| 05 | Sorteo del atacante (≈2 s) | cada dueño resaltado (15 tics) | tic de bloque de madera, cada vez más lento, agudo y fuerte. **Montaje: cada tic exactamente cuando se resalta ese dueño** (indicación del usuario) | A | ✅ |
+| 06 |  | queda bloqueado (rojo) — también se usa en el sorteo del defensor (9) | «clac» + campanilla | A | ✅ |
+| 07 | Zoom al atacante | el mapa se acerca | whoosh suave | A | ✅ |
+| 08 | Sorteo del defensor | cada candidato (≈9) | tic más suave y grave que el 05. **Montaje: cada tic cuando se resalta ese concello** | A | ⏳ |
+| 09 |  | queda bloqueado | usa el 06 (clac + campanilla) | A | ✅ |
+| 10 | Zoom a los dos bandos | el mapa se acerca; entra el defensor en el panel | whoosh + «pop» | A | ⏳ |
 | 11 | Duelo (1,7 s) | entra la navaja | silbido de metal | A |  |
 | 12 |  | entra la botella | deslizar de cristal | A |  |
 | 13 |  | choque y destello | choque metálico + tintineo de cristal | A |  |
