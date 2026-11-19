@@ -529,6 +529,92 @@ def dado_extra() -> np.ndarray:
     return normalizar(fundidos(mezcla, 0.002, 0.06), -3.0)
 
 
+def destello_rotulos() -> np.ndarray:
+    """24 · Cambian los rótulos ATACA/DEFENDE → CAMPIÓN/MALOGRADO: whoosh brillante que sube rápido y se abre
+    en chispas agudas (granos de ruido muy cortos). Empieza justo en el cambio de rótulos. ≈0,8 s."""
+    dur = 0.8
+    t = t_(dur)
+    u = np.clip(t / 0.28, 0, 1)
+    barrido = filtro_banda_variable(ruido(len(t), 24), 500 * (14.0 ** u), q=2.0) * np.sin(np.pi * np.clip(t / 0.4, 0, 1)) ** 1.5
+    barrido *= (t < 0.4)
+    rng = np.random.default_rng(25)
+    chispas = np.zeros((len(t), 2))
+    for k in range(26):
+        ti = 0.12 + 0.5 * rng.random() ** 1.3
+        f = rng.uniform(3200, 7800)
+        d = t_(0.05)
+        g = np.sin(2 * np.pi * f * d) * env_exp(d, rng.uniform(0.006, 0.016), 0.0004) * (0.25 + 0.5 * rng.random()) * (1 - ti)
+        _poner(chispas, g, ti, rng.random())
+    x = estereo(0.9 * normalizar(barrido, -8.0)) + 0.5 * chispas
+    return normalizar(fundidos(x, 0.002, 0.08), -5.0)
+
+
+# Cancioncilla de gaita: Re mixolidio, ritmo de muiñeira (compás 6/8, corcheas). (nota MIDI, corcheas)
+GAITA_MELODIA = ((74, 2), (72, 1), (71, 2), (69, 1),
+                 (67, 1), (69, 1), (71, 1), (69, 2), (66, 1),
+                 (67, 1), (66, 1), (64, 1), (62, 3))
+D_CORCHEA_GAITA = 0.145  # segundos de vídeo
+
+
+def _midi(n: float) -> float:
+    return 440.0 * 2 ** ((n - 69) / 12)
+
+
+def _caramillo(t: np.ndarray, f: float) -> np.ndarray:
+    """Timbre de lengüeta (gaita): armónicos impares y pares con caída lenta, algo nasal (resonancias ≈1,2 y 2,6 kHz)."""
+    x = sum(np.sin(2 * np.pi * f * h * t + 0.3 * h) / h ** 0.8 for h in range(1, 18) if f * h < 9000)
+    return x
+
+
+def gaita_cancion() -> np.ndarray:
+    """25 · Entra la gaita: cancioncilla original de ≈2,6 s (muiñeira en Re mixolidio) sobre un bordón de Re+La.
+    Timbre sintetizado de lengüeta; si el usuario aporta muestras de gaita real, se sustituye (docs/FUENTES.md)."""
+    n_total = sum(d for _, d in GAITA_MELODIA)
+    dur = n_total * D_CORCHEA_GAITA + 0.45
+    t = t_(dur)
+    melodia = np.zeros_like(t)
+    ini = 0.0
+    previa = None
+    for nota, d in GAITA_MELODIA:
+        a = int(ini * SR)
+        largo = d * D_CORCHEA_GAITA
+        b = int(min(len(t), (ini + largo) * SR))
+        seg = t[: b - a]
+        env = np.minimum(1, seg / 0.012) * np.minimum(1, np.maximum(0, (largo - seg) / 0.02 + 0.0))
+        env = np.where(seg > largo - 0.018, np.clip((largo - seg) / 0.018, 0, 1), env)
+        melodia[a:b] += _caramillo(seg, _midi(nota)) * env
+        if previa == nota:  # notas repetidas: se separan con un gorgorito (nota de adorno muy corta)
+            g = int(0.03 * SR)
+            melodia[a:a + g] *= 0.0
+            melodia[a:a + g] += _caramillo(t[:g], _midi(nota + 2)) * 0.8
+        previa = nota
+        ini += largo
+    cola = np.clip((dur - t) / 0.4, 0, 1)
+    melodia *= cola
+    bordon = (_caramillo(t, _midi(38)) + 0.7 * _caramillo(t, _midi(45))) * np.minimum(1, t / 0.05) * cola
+    bordon = paso_bajo(bordon, 900)
+    mel = filtro_banda_variable(melodia, np.full(len(t), 1500.0), q=0.7) * 0.6 + 0.5 * melodia * 0.4
+    x = 0.7 * normalizar(mel, -6.0) + 0.45 * normalizar(bordon, -6.0)
+    return normalizar(fundidos(estereo(x), 0.004, 0.1), -5.0)
+
+
+def confeti() -> np.ndarray:
+    """26 · Confeti (se usa en las 2 tandas): «pop» de cañón con un chorro de papelillos (chasquidos ligeros y
+    agudos que se espacian al caer). ≈1,1 s."""
+    dur = 1.1
+    t = t_(dur)
+    pop = seno_barrido(t, 320, 90, 0.03) * env_exp(t, 0.035, 0.0005) + 0.8 * paso_bajo(ruido(len(t), 26), 4500) * env_exp(t, 0.012, 0.0004)
+    mezcla = np.zeros((len(t), 2))
+    _poner(mezcla, pop * 0.9, 0.0, 0.5)
+    rng = np.random.default_rng(27)
+    for k in range(70):
+        ti = 0.02 + 0.95 * rng.random() ** 1.8  # muchos al principio, cada vez menos
+        d = t_(0.03)
+        g = paso_bajo(ruido(len(d), int(rng.integers(1, 10 ** 6))), rng.uniform(3500, 9000)) * env_exp(d, rng.uniform(0.002, 0.007), 0.0003)
+        _poner(mezcla, g * (0.15 + 0.5 * rng.random()) * (1.1 - ti), ti, rng.random())
+    return normalizar(fundidos(mezcla, 0.0005, 0.1), -5.0)
+
+
 EFECTOS = {
     1: ("01_portada_golpe", golpe_portada),
     2: ("02_portada_frase_pop", pop_frase),
@@ -553,6 +639,9 @@ EFECTOS = {
     21: ("21_ganador_campanilla", campanilla_ganador),
     22: ("22_morte_subita_tarjeta", morte_subita),
     23: ("23_morte_subita_dado_extra", dado_extra),
+    24: ("24_rotulos_destello", destello_rotulos),
+    25: ("25_gaita_cancion", gaita_cancion),
+    26: ("26_confeti", confeti),
     19: ("19_marcador_moneda", tic_moneda),
     201: ("20_multiplicador_x1_1", lambda: multiplicador(1)),
     202: ("20_multiplicador_x1_2", lambda: multiplicador(2)),

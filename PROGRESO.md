@@ -638,3 +638,8 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - Aprobados 18, 19 y 20. Sintetizados 21 (campanilla del ganador), 22 (morte súbita: alarma + fuego) y 23 (dado extra) con `python -m src.audio.sintesis 21 22 23`; pendientes de OK.
 - Montaje: 21 al aparecer el recuadro del ganador; 22 en la entrada de la tarjeta, alargado según las rondas; 23 por cada ronda de dado extra, con el golpe al final de la rodada.
 - Siguiente: 24 (rótulos CAMPIÓN/MALOGRADO), 25 (gaita) y 26–34.
+
+## 2026-11-19 · Paso 5.1 · Sonidos 21–26
+- Aprobados 21, 22 y 23. Sintetizados 24 (destello de rótulos), 25 (cancioncilla de gaita original, muiñeira en Re mixolidio, timbre de lengüeta sintetizado + bordón) y 26 (confeti); pendientes de OK.
+- Pendiente: decidir si se sustituye la gaita sintetizada por muestras reales (registrar licencia en docs/FUENTES.md).
+- Siguiente: 27–34.

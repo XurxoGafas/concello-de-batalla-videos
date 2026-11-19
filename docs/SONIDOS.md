@@ -30,12 +30,12 @@ Prioridad: **A** imprescindible · **B** deseable · **C** opcional.
 | 18 |  | «=» (empate de tirada) | tic apagado (suena con la insignia «=», 0,1 s después de pararse el dado) | B | ✅ |
 | 19 |  | el marcador suma | tic de moneda (suena cuando el marcador suma, al pararse el dado) | B | ✅ |
 | 20 |  | multiplicador ×1,N | barrido ascendente + acorde brillante, más fuerte cuanto mayor el multiplicador: 5 archivos `20_multiplicador_x1_N.wav`; el acorde coincide con el cambio del marcador a decimales | A | ✅ |
-| 21 |  | recuadro del ganador | campanilla de victoria corta | A |  ⏳ |
-| 22 | Morte súbita | tarjeta en llamas | alarma grave + crepitar de fuego | A |  ⏳ (1,9 s = una ronda; en el montaje se alarga con las rondas) |
-| 23 |  | dado extra | traqueteo + golpe | A |  ⏳ (1,1 s; el golpe cae al final de la rodada, una vez por ronda) |
-| 24 | Conquista | cambian los rótulos CAMPIÓN/MALOGRADO | destello (whoosh + chispas) | A |  |
-| 25 |  | entra la gaita | cancioncilla de gaita (≈3 s) | A |  |
-| 26 |  | confeti (2 tandas) | estallidos de papel/«pops» | B |  |
+| 21 |  | recuadro del ganador | campanilla de victoria corta | A | ✅ |
+| 22 | Morte súbita | tarjeta en llamas | alarma grave + crepitar de fuego | A | ✅ (1,9 s = una ronda; en el montaje se alarga con las rondas) |
+| 23 |  | dado extra | traqueteo + golpe | A | ✅ (1,1 s; el golpe cae al final de la rodada, una vez por ronda) |
+| 24 | Conquista | cambian los rótulos CAMPIÓN/MALOGRADO | destello (whoosh + chispas) | A |  ⏳ (0,8 s; empieza en el cambio de rótulos, 0,5 s del montaje) |
+| 25 |  | entra la gaita | cancioncilla de gaita (≈3 s) | A |  ⏳ (3,06 s; empieza al aparecer la gaita, 1,0 s del montaje) |
+| 26 |  | confeti (2 tandas) | estallidos de papel/«pops» | B |  ⏳ (1,1 s; se lanza dos veces: con la gaita y a los 2,0 s del montaje) |
 | 27 |  | pastillas «+N vacas» y «+K concellos» | campanilla / «cha-ching» | B |  |
 | 28 |  | el color se extiende (hasta 24 pasos) | «pop» suave por paso, cada vez más agudo | A |  |
 | 29 | Alejamiento (ataque suelto) | el mapa se aleja | whoosh descendente | B |  |
