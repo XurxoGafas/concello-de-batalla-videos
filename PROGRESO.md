@@ -676,3 +676,9 @@ Las entradas no se borran. Las nuevas se añaden al final.
 
 ## 2026-11-19 · Corrección del episodio 1
 - El usuario aclara que en el episodio 1 deben aparecer todos los concellos y que Ordes no puede ser gigante: el mapa con Ordes en 1/3 era solo una muestra gráfica. `src/render/episodio1.py` parte ahora de la partida nueva (313 dueños, uno por concello) con la semilla `ep1-0`. Batallas: Negueira de Muñiz→A Fonsagrada (gana Negueira de Muñiz), Lobios→Entrimo (gana Entrimo), Vilaboa→Marín (gana Marín); sin muerte súbita. 65,6 s, −14,2 LUFS.
+
+## 2026-11-23 · Serie real: episodio 1 guardado y continuación
+- El usuario da por bueno el episodio 1 (semilla `ep1-0`) y pide guardar su resultado y generar los 2 siguientes de forma coherente.
+- **Guardado:** `src/render/serie.py` (`registrar`) escribe, tras el vídeo y solo si todo cuadra, `data/partida/estado_actual.json`, `historial.jsonl` (batallas con su semilla), `portadas.jsonl` (frase usada), copia numerada `data/partida/episodios/estado_NNN.json` y el resumen legible `docs/EPISODIOS.md`. Episodio 1: Negueira de Muñiz (98 🐄) ganó a A Fonsagrada (5528 🐄), Entrimo a Lobios, Marín a Vilaboa; 310 dueños. Tests: `tests/test_serie.py`.
+- **Semilla (decisión mía, revisable):** el episodio 1 se jugó con la semilla de muestra `ep1-0` (queda registrada la semilla de cada batalla). Para el 2 y el 3 uso una semilla de serie **secreta** nueva en `.env` (ignorado por git, regla g; `docs/DECISIONES.md` pide que no esté en el repositorio público). Cada batalla deriva su semilla del número de batalla, así que la serie continúa sin saltos. **Hay que guardar ese valor** (y ponerlo como Secret de GitHub cuando se automatice): sin él no se pueden generar más episodios con los mismos resultados.
+- Vídeos en `output/episodios/episodio_NNN.mp4` (no van a git).
