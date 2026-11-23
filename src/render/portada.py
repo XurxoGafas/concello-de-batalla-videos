@@ -85,6 +85,7 @@ class EscenaPortada:
     def __init__(self, estado: dict, portada: Portada, mapa: MapaGalicia, intro: Image.Image, ventana_general,
                  alto_mapa: int) -> None:
         self.intro = intro
+        self.portada = portada
         geom = mapa.geometria([portada.concello])
         minx, miny, maxx, maxy = geom.bounds
         # --- tamaño de la silueta en la portada: encaja en la caja SIL_ANCHO × SIL_ALTO
