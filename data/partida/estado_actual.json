@@ -1,5 +1,5 @@
 {
- "batallas_jugadas": 3,
+ "batallas_jugadas": 9,
  "concellos": {
   "34121515001": {
    "cor": {
@@ -1914,7 +1914,7 @@
      1.0
     ]
    },
-   "dono": "34121515083",
+   "dono": "34122727020",
    "nome": "Toques",
    "provincia": "A Coruña",
    "vacas": 2734,
@@ -2058,7 +2058,7 @@
      0.3528
     ]
    },
-   "dono": "34121515089",
+   "dono": "34121515012",
    "nome": "Vedra",
    "provincia": "A Coruña",
    "vacas": 427,
@@ -3261,7 +3261,7 @@
      1.0
     ]
    },
-   "dono": "34122727044",
+   "dono": "34122727015",
    "nome": "Pastoriza",
    "provincia": "Lugo",
    "vacas": 15204,
@@ -3935,7 +3935,7 @@
      1.0
     ]
    },
-   "dono": "34123232004",
+   "dono": "34123232040",
    "nome": "Avión",
    "provincia": "Ourense",
    "vacas": 262,
@@ -5180,7 +5180,7 @@
      1.0
     ]
    },
-   "dono": "34123232055",
+   "dono": "34123232031",
    "nome": "Paderne de Allariz",
    "provincia": "Ourense",
    "vacas": 63,
@@ -5578,7 +5578,7 @@
      0.1664
     ]
    },
-   "dono": "34123232071",
+   "dono": "34123232034",
    "nome": "O Riós",
    "provincia": "Ourense",
    "vacas": 562,
@@ -7771,10 +7771,11 @@
    },
    "nome": "Boqueixón",
    "territorio": [
-    "34121515012"
+    "34121515012",
+    "34121515089"
    ],
-   "vacas": 2130,
-   "victorias": 0
+   "vacas": 2557,
+   "victorias": 1
   },
   "34121515013": {
    "cor": {
@@ -9070,24 +9071,6 @@
    "vacas": 190,
    "victorias": 0
   },
-  "34121515083": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15083.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Toques",
-   "territorio": [
-    "34121515083"
-   ],
-   "vacas": 2734,
-   "victorias": 0
-  },
   "34121515084": {
    "cor": {
     "colores": [
@@ -9180,25 +9163,6 @@
     "34121515088"
    ],
    "vacas": 2911,
-   "victorias": 0
-  },
-  "34121515089": {
-   "cor": {
-    "colores": [
-     "#078930",
-     "#fcdd09"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.6472,
-     0.3528
-    ]
-   },
-   "nome": "Vedra",
-   "territorio": [
-    "34121515089"
-   ],
-   "vacas": 427,
    "victorias": 0
   },
   "34121515090": {
@@ -9608,10 +9572,11 @@
    },
    "nome": "Cospeito",
    "territorio": [
-    "34122727015"
+    "34122727015",
+    "34122727044"
    ],
-   "vacas": 7948,
-   "victorias": 0
+   "vacas": 23152,
+   "victorias": 1
   },
   "34122727016": {
    "cor": {
@@ -9684,10 +9649,11 @@
    },
    "nome": "Friol",
    "territorio": [
+    "34121515083",
     "34122727020"
    ],
-   "vacas": 9581,
-   "victorias": 0
+   "vacas": 12315,
+   "victorias": 1
   },
   "34122727021": {
    "cor": {
@@ -10100,24 +10066,6 @@
     "34122727043"
    ],
    "vacas": 4740,
-   "victorias": 0
-  },
-  "34122727044": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/27044.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Pastoriza",
-   "territorio": [
-    "34122727044"
-   ],
-   "vacas": 15204,
    "victorias": 0
   },
   "34122727045": {
@@ -10628,24 +10576,6 @@
    "vacas": 1,
    "victorias": 0
   },
-  "34123232004": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/32004.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Avión",
-   "territorio": [
-    "34123232004"
-   ],
-   "vacas": 262,
-   "victorias": 0
-  },
   "34123232005": {
    "cor": {
     "colores": [
@@ -11150,10 +11080,11 @@
    },
    "nome": "Esgos",
    "territorio": [
-    "34123232031"
+    "34123232031",
+    "34123232055"
    ],
-   "vacas": 118,
-   "victorias": 0
+   "vacas": 181,
+   "victorias": 1
   },
   "34123232032": {
    "cor": {
@@ -11209,10 +11140,11 @@
    },
    "nome": "A Gudiña",
    "territorio": [
-    "34123232034"
+    "34123232034",
+    "34123232071"
    ],
-   "vacas": 456,
-   "victorias": 0
+   "vacas": 1018,
+   "victorias": 1
   },
   "34123232035": {
    "cor": {
@@ -11321,10 +11253,11 @@
    },
    "nome": "Leiro",
    "territorio": [
+    "34123232004",
     "34123232040"
    ],
-   "vacas": 4,
-   "victorias": 0
+   "vacas": 266,
+   "victorias": 1
   },
   "34123232041": {
    "cor": {
@@ -11574,24 +11507,6 @@
     "34123232054"
    ],
    "vacas": 26,
-   "victorias": 0
-  },
-  "34123232055": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/32055.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Paderne de Allariz",
-   "territorio": [
-    "34123232055"
-   ],
-   "vacas": 63,
    "victorias": 0
   },
   "34123232056": {
@@ -11877,29 +11792,6 @@
     "34123232070"
    ],
    "vacas": 579,
-   "victorias": 0
-  },
-  "34123232071": {
-   "cor": {
-    "colores": [
-     "#f6c61d",
-     "#036c4f",
-     "#0071b6",
-     "#ffffff"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.4819,
-     0.184,
-     0.1677,
-     0.1664
-    ]
-   },
-   "nome": "O Riós",
-   "territorio": [
-    "34123232071"
-   ],
-   "vacas": 562,
    "victorias": 0
   },
   "34123232072": {
@@ -13450,6 +13342,6 @@
    "victorias": 0
   }
  },
- "episodio": 1,
+ "episodio": 3,
  "version": 1
 }
