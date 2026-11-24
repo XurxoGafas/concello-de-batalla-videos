@@ -683,3 +683,6 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - **Semilla (decisión mía, revisable):** el episodio 1 se jugó con la semilla de muestra `ep1-0` (queda registrada la semilla de cada batalla). Para el 2 y el 3 uso una semilla de serie **secreta** nueva en `.env` (ignorado por git, regla g; `docs/DECISIONES.md` pide que no esté en el repositorio público). Cada batalla deriva su semilla del número de batalla, así que la serie continúa sin saltos. **Hay que guardar ese valor** (y ponerlo como Secret de GitHub cuando se automatice): sin él no se pueden generar más episodios con los mismos resultados.
 - Vídeos en `output/episodios/episodio_NNN.mp4` (no van a git).
 - **Episodios 2 y 3 generados y guardados** con `python -m src.render.serie 2` (≈10 min de render cada uno, −14,3 LUFS). Resumen de resultados en `docs/EPISODIOS.md`; el estado actual (tras el episodio 3, 9 batallas) está en `data/partida/estado_actual.json`. El siguiente episodio será el 4 (`python -m src.render.serie`, con `SEMILLA_SERIE` en `.env`).
+
+## 2026-11-24 · Episodios 4 y 5
+- Generados y guardados con `python -m src.render.serie 2` (≈10 min de render cada uno, −14,3 LUFS). Resultados en `docs/EPISODIOS.md`; estado tras el episodio 5 (15 batallas) en `data/partida/estado_actual.json`. Siguiente: episodio 6.

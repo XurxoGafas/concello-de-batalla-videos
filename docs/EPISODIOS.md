@@ -43,3 +43,31 @@ Clasificación tras el episodio:
 - Vitorias: Cospeito (1), Friol (1), Negueira de Muñiz (1), Boqueixón (1), A Gudiña (1)
 - Vacas: Cospeito (23152), Lalín (14794), Mazaricos (13864), Friol (12315), Sarria (12277)
 - Dueños que quedan: 304.
+
+## Episodio 4
+
+Portada: «A Caniza ten tanto gando que non hai quen o aguante!» (frase 40, protagonista A Caniza).
+
+- Batalla 10: **A Caniza** (323 🐄) ataca a **Crecente** (21 🐄) → gana **A Caniza**; semilla `6908880740184423230`.
+- Batalla 11: **San Xoán de Río** (579 🐄) ataca a **Ribas de Sil** (71 🐄) → gana **San Xoán de Río**; semilla `7945497335042870661`.
+- Batalla 12: **Palas de Rei** (7111 🐄) ataca a **Guntín** (8235 🐄) → gana **Palas de Rei**; semilla `5163442803302489225`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (1), Palas de Rei (1), Friol (1), Negueira de Muñiz (1), Boqueixón (1)
+- Vacas: Cospeito (23152), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Friol (12315)
+- Dueños que quedan: 301.
+
+## Episodio 5
+
+Portada: «Moito gando, moita guerra: Pontevedra multiplica!» (frase 36, protagonista Pontevedra).
+
+- Batalla 13: **Neda** (101 🐄) ataca a **San Sadurniño** (1858 🐄) → gana **San Sadurniño**; semilla `5233637407650124750`.
+- Batalla 14: **Valga** (85 🐄) ataca a **Dodro** (36 🐄) → gana **Dodro**; semilla `12404064368070496929`.
+- Batalla 15: **Pontevedra** (124 🐄) ataca a **Marín** (22 🐄) → gana **Pontevedra**; semilla `15441540475350199242`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (1), Palas de Rei (1), Friol (1), Negueira de Muñiz (1), Boqueixón (1)
+- Vacas: Cospeito (23152), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Friol (12315)
+- Dueños que quedan: 298.

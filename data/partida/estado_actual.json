@@ -1,5 +1,5 @@
 {
- "batallas_jugadas": 9,
+ "batallas_jugadas": 15,
  "concellos": {
   "34121515001": {
    "cor": {
@@ -1253,7 +1253,7 @@
      1.0
     ]
    },
-   "dono": "34121515055",
+   "dono": "34121515076",
    "nome": "Neda",
    "provincia": "A Coruña",
    "vacas": 101,
@@ -2774,7 +2774,7 @@
      1.0
     ]
    },
-   "dono": "34122727023",
+   "dono": "34122727040",
    "nome": "Guntín",
    "provincia": "Lugo",
    "vacas": 8235,
@@ -3456,7 +3456,7 @@
      0.0801
     ]
    },
-   "dono": "34122727052",
+   "dono": "34123232070",
    "nome": "Ribas de Sil",
    "provincia": "Lugo",
    "vacas": 71,
@@ -6354,7 +6354,7 @@
      1.0
     ]
    },
-   "dono": "34123636014",
+   "dono": "34123636009",
    "nome": "Crecente",
    "provincia": "Pontevedra",
    "vacas": 21,
@@ -6653,7 +6653,7 @@
      0.4924
     ]
    },
-   "dono": "34123636026",
+   "dono": "34123636038",
    "nome": "Marín",
    "provincia": "Pontevedra",
    "vacas": 6,
@@ -7376,7 +7376,7 @@
      0.0692
     ]
    },
-   "dono": "34123636056",
+   "dono": "34121515033",
    "nome": "Valga",
    "provincia": "Pontevedra",
    "vacas": 85,
@@ -7429,7 +7429,7 @@
      0.0599
     ]
    },
-   "dono": "34123636026",
+   "dono": "34123636038",
    "nome": "Vilaboa",
    "provincia": "Pontevedra",
    "vacas": 16,
@@ -8149,10 +8149,11 @@
    },
    "nome": "Dodro",
    "territorio": [
-    "34121515033"
+    "34121515033",
+    "34123636056"
    ],
-   "vacas": 36,
-   "victorias": 0
+   "vacas": 121,
+   "victorias": 1
   },
   "34121515034": {
    "cor": {
@@ -8552,24 +8553,6 @@
    "vacas": 461,
    "victorias": 0
   },
-  "34121515055": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15055.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Neda",
-   "territorio": [
-    "34121515055"
-   ],
-   "vacas": 101,
-   "victorias": 0
-  },
   "34121515056": {
    "cor": {
     "colores": [
@@ -8951,10 +8934,11 @@
    },
    "nome": "San Sadurniño",
    "territorio": [
+    "34121515055",
     "34121515076"
    ],
-   "vacas": 1858,
-   "victorias": 0
+   "vacas": 1959,
+   "victorias": 1
   },
   "34121515077": {
    "cor": {
@@ -9690,24 +9674,6 @@
    "vacas": 8291,
    "victorias": 0
   },
-  "34122727023": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/27023.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Guntín",
-   "territorio": [
-    "34122727023"
-   ],
-   "vacas": 8235,
-   "victorias": 0
-  },
   "34122727024": {
    "cor": {
     "colores": [
@@ -10001,10 +9967,11 @@
    },
    "nome": "Palas de Rei",
    "territorio": [
+    "34122727023",
     "34122727040"
    ],
-   "vacas": 7111,
-   "victorias": 0
+   "vacas": 15346,
+   "victorias": 1
   },
   "34122727041": {
    "cor": {
@@ -10198,25 +10165,6 @@
     "34122727051"
    ],
    "vacas": 3334,
-   "victorias": 0
-  },
-  "34122727052": {
-   "cor": {
-    "colores": [
-     "#194486",
-     "#ffffff"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.9199,
-     0.0801
-    ]
-   },
-   "nome": "Ribas de Sil",
-   "territorio": [
-    "34122727052"
-   ],
-   "vacas": 71,
    "victorias": 0
   },
   "34122727053": {
@@ -11789,10 +11737,11 @@
    },
    "nome": "San Xoán de Río",
    "territorio": [
+    "34122727052",
     "34123232070"
    ],
-   "vacas": 579,
-   "victorias": 0
+   "vacas": 650,
+   "victorias": 1
   },
   "34123232072": {
    "cor": {
@@ -12356,10 +12305,11 @@
    },
    "nome": "A Caniza",
    "territorio": [
-    "34123636009"
+    "34123636009",
+    "34123636014"
    ],
-   "vacas": 323,
-   "victorias": 0
+   "vacas": 344,
+   "victorias": 1
   },
   "34123636010": {
    "cor": {
@@ -12400,23 +12350,6 @@
     "34123636013"
    ],
    "vacas": 440,
-   "victorias": 0
-  },
-  "34123636014": {
-   "cor": {
-    "colores": [
-     "#b71d52"
-    ],
-    "fonte": "provisional",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Crecente",
-   "territorio": [
-    "34123636014"
-   ],
-   "vacas": 21,
    "victorias": 0
   },
   "34123636015": {
@@ -12630,26 +12563,6 @@
    ],
    "vacas": 812,
    "victorias": 0
-  },
-  "34123636026": {
-   "cor": {
-    "colores": [
-     "#ffffff",
-     "#0d71b9"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.5076,
-     0.4924
-    ]
-   },
-   "nome": "Marín",
-   "territorio": [
-    "34123636026",
-    "34123636058"
-   ],
-   "vacas": 22,
-   "victorias": 1
   },
   "34123636027": {
    "cor": {
@@ -12872,10 +12785,12 @@
    },
    "nome": "Pontevedra",
    "territorio": [
-    "34123636038"
+    "34123636026",
+    "34123636038",
+    "34123636058"
    ],
-   "vacas": 124,
-   "victorias": 0
+   "vacas": 146,
+   "victorias": 1
   },
   "34123636039": {
    "cor": {
@@ -13206,27 +13121,6 @@
    "vacas": 29,
    "victorias": 0
   },
-  "34123636056": {
-   "cor": {
-    "colores": [
-     "#0f47af",
-     "#fcdd09",
-     "#e8e8e7"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.7047,
-     0.2262,
-     0.0692
-    ]
-   },
-   "nome": "Valga",
-   "territorio": [
-    "34123636056"
-   ],
-   "vacas": 85,
-   "victorias": 0
-  },
   "34123636057": {
    "cor": {
     "colores": [
@@ -13342,6 +13236,6 @@
    "victorias": 0
   }
  },
- "episodio": 3,
+ "episodio": 5,
  "version": 1
 }
