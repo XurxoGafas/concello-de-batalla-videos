@@ -1,5 +1,5 @@
 {
- "batallas_jugadas": 15,
+ "batallas_jugadas": 21,
  "concellos": {
   "34121515001": {
    "cor": {
@@ -991,7 +991,7 @@
      1.0
     ]
    },
-   "dono": "34121515044",
+   "dono": "34122727038",
    "nome": "Mañón",
    "provincia": "A Coruña",
    "vacas": 799,
@@ -2675,7 +2675,7 @@
      0.2685
     ]
    },
-   "dono": "34122727019",
+   "dono": "34122727902",
    "nome": "Foz",
    "provincia": "Lugo",
    "vacas": 963,
@@ -3309,7 +3309,7 @@
      1.0
     ]
    },
-   "dono": "34122727046",
+   "dono": "34122727011",
    "nome": "Pol",
    "provincia": "Lugo",
    "vacas": 7039,
@@ -4711,7 +4711,7 @@
      1.0
     ]
    },
-   "dono": "34123232036",
+   "dono": "34123232078",
    "nome": "Xunqueira de Ambía",
    "provincia": "Ourense",
    "vacas": 110,
@@ -6311,7 +6311,7 @@
      0.0799
     ]
    },
-   "dono": "34123636010",
+   "dono": "34121515033",
    "nome": "Catoira",
    "provincia": "Pontevedra",
    "vacas": 1,
@@ -7036,7 +7036,7 @@
      0.0924
     ]
    },
-   "dono": "34123636042",
+   "dono": "34123636049",
    "nome": "Ponteareas",
    "provincia": "Pontevedra",
    "vacas": 99,
@@ -8150,10 +8150,11 @@
    "nome": "Dodro",
    "territorio": [
     "34121515033",
+    "34123636010",
     "34123636056"
    ],
-   "vacas": 121,
-   "victorias": 1
+   "vacas": 122,
+   "victorias": 2
   },
   "34121515034": {
    "cor": {
@@ -8345,24 +8346,6 @@
     "34121515043"
    ],
    "vacas": 824,
-   "victorias": 0
-  },
-  "34121515044": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15044.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Mañón",
-   "territorio": [
-    "34121515044"
-   ],
-   "vacas": 799,
    "victorias": 0
   },
   "34121515045": {
@@ -9474,10 +9457,11 @@
    },
    "nome": "Castroverde",
    "territorio": [
-    "34122727011"
+    "34122727011",
+    "34122727046"
    ],
-   "vacas": 6653,
-   "victorias": 0
+   "vacas": 13692,
+   "victorias": 1
   },
   "34122727012": {
    "cor": {
@@ -9597,27 +9581,6 @@
     "34122727017"
    ],
    "vacas": 438,
-   "victorias": 0
-  },
-  "34122727019": {
-   "cor": {
-    "colores": [
-     "#ffffff",
-     "#0071bc",
-     "#009900"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.4378,
-     0.2937,
-     0.2685
-    ]
-   },
-   "nome": "Foz",
-   "territorio": [
-    "34122727019"
-   ],
-   "vacas": 963,
    "victorias": 0
   },
   "34122727020": {
@@ -9931,10 +9894,11 @@
    },
    "nome": "Ourol",
    "territorio": [
+    "34121515044",
     "34122727038"
    ],
-   "vacas": 1285,
-   "victorias": 0
+   "vacas": 2084,
+   "victorias": 1
   },
   "34122727039": {
    "cor": {
@@ -10051,24 +10015,6 @@
     "34122727045"
    ],
    "vacas": 1584,
-   "victorias": 0
-  },
-  "34122727046": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/27046.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Pol",
-   "territorio": [
-    "34122727046"
-   ],
-   "vacas": 7039,
    "victorias": 0
   },
   "34122727047": {
@@ -10465,10 +10411,11 @@
    },
    "nome": "Burela",
    "territorio": [
+    "34122727019",
     "34122727902"
    ],
-   "vacas": 46,
-   "victorias": 0
+   "vacas": 1009,
+   "victorias": 1
   },
   "34123232001": {
    "cor": {
@@ -11110,24 +11057,6 @@
     "34123232035"
    ],
    "vacas": 219,
-   "victorias": 0
-  },
-  "34123232036": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/32036.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Xunqueira de Ambía",
-   "territorio": [
-    "34123232036"
-   ],
-   "vacas": 110,
    "victorias": 0
   },
   "34123232037": {
@@ -11864,10 +11793,11 @@
    },
    "nome": "Sarreaus",
    "territorio": [
+    "34123232036",
     "34123232078"
    ],
-   "vacas": 421,
-   "victorias": 0
+   "vacas": 531,
+   "victorias": 1
   },
   "34123232079": {
    "cor": {
@@ -12310,29 +12240,6 @@
    ],
    "vacas": 344,
    "victorias": 1
-  },
-  "34123636010": {
-   "cor": {
-    "colores": [
-     "#cc2d27",
-     "#fbfdfb",
-     "#495e76",
-     "#eae7a3"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.55,
-     0.205,
-     0.1652,
-     0.0799
-    ]
-   },
-   "nome": "Catoira",
-   "territorio": [
-    "34123636010"
-   ],
-   "vacas": 1,
-   "victorias": 0
   },
   "34123636013": {
    "cor": {
@@ -12850,27 +12757,6 @@
    "vacas": 1,
    "victorias": 0
   },
-  "34123636042": {
-   "cor": {
-    "colores": [
-     "#0099cc",
-     "#ffffff",
-     "#020074"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.454,
-     0.4536,
-     0.0924
-    ]
-   },
-   "nome": "Ponteareas",
-   "territorio": [
-    "34123636042"
-   ],
-   "vacas": 99,
-   "victorias": 0
-  },
   "34123636043": {
    "cor": {
     "colores": [
@@ -12998,10 +12884,11 @@
    },
    "nome": "Salceda de Caselas",
    "territorio": [
+    "34123636042",
     "34123636049"
    ],
-   "vacas": 9,
-   "victorias": 0
+   "vacas": 108,
+   "victorias": 1
   },
   "34123636050": {
    "cor": {
@@ -13236,6 +13123,6 @@
    "victorias": 0
   }
  },
- "episodio": 5,
+ "episodio": 7,
  "version": 1
 }

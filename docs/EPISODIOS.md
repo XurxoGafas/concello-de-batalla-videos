@@ -71,3 +71,31 @@ Clasificación tras el episodio:
 - Vitorias: Cospeito (1), Palas de Rei (1), Friol (1), Negueira de Muñiz (1), Boqueixón (1)
 - Vacas: Cospeito (23152), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Friol (12315)
 - Dueños que quedan: 298.
+
+## Episodio 6
+
+Portada: «Ponteareas vén con reforzo de gando!» (frase 35, protagonista Ponteareas).
+
+- Batalla 16: **Pol** (7039 🐄) ataca a **Castroverde** (6653 🐄) → gana **Castroverde**; semilla `14262445361959439537`.
+- Batalla 17: **Catoira** (1 🐄) ataca a **Dodro** (121 🐄) → gana **Dodro**; semilla `15243629555309934972`.
+- Batalla 18: **Salceda de Caselas** (9 🐄) ataca a **Ponteareas** (99 🐄) → gana **Salceda de Caselas**; semilla `3521424494741598849`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Dodro (2), Cospeito (1), Palas de Rei (1), Castroverde (1), Friol (1)
+- Vacas: Cospeito (23152), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Castroverde (13692)
+- Dueños que quedan: 295.
+
+## Episodio 7
+
+Portada: «As vacas de Sarreaus pesan moito!» (frase 32, protagonista Sarreaus).
+
+- Batalla 19: **Ourol** (1285 🐄) ataca a **Mañón** (799 🐄) → gana **Ourol**; semilla `919311802425138544`.
+- Batalla 20: **Xunqueira de Ambía** (110 🐄) ataca a **Sarreaus** (421 🐄) → gana **Sarreaus**; semilla `5819501846053064235`.
+- Batalla 21: **Burela** (46 🐄) ataca a **Foz** (963 🐄) → gana **Burela**; semilla `9456294866118039231`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Dodro (2), Cospeito (1), Palas de Rei (1), Castroverde (1), Friol (1)
+- Vacas: Cospeito (23152), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Castroverde (13692)
+- Dueños que quedan: 292.
