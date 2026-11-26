@@ -1,5 +1,5 @@
 {
- "batallas_jugadas": 21,
+ "batallas_jugadas": 30,
  "concellos": {
   "34121515001": {
    "cor": {
@@ -1498,7 +1498,7 @@
      1.0
     ]
    },
-   "dono": "34121515066",
+   "dono": "34121515060",
    "nome": "O Pino",
    "provincia": "A Coruña",
    "vacas": 2963,
@@ -2800,7 +2800,7 @@
      0.4212
     ]
    },
-   "dono": "34122727024",
+   "dono": "34122727008",
    "nome": "O Incio",
    "provincia": "Lugo",
    "vacas": 2682,
@@ -3286,7 +3286,7 @@
      1.0
     ]
    },
-   "dono": "34122727045",
+   "dono": "34122727062",
    "nome": "Pedrafita do Cebreiro",
    "provincia": "Lugo",
    "vacas": 1584,
@@ -3356,7 +3356,7 @@
      1.0
     ]
    },
-   "dono": "34122727048",
+   "dono": "34122727054",
    "nome": "A Pontenova",
    "provincia": "Lugo",
    "vacas": 816,
@@ -3598,7 +3598,7 @@
      1.0
     ]
    },
-   "dono": "34122727058",
+   "dono": "34122727042",
    "nome": "O Saviñao",
    "provincia": "Lugo",
    "vacas": 5522,
@@ -4539,7 +4539,7 @@
      1.0
     ]
    },
-   "dono": "34123232029",
+   "dono": "34123232023",
    "nome": "Chandrexa de Queixa",
    "provincia": "Ourense",
    "vacas": 962,
@@ -5812,7 +5812,7 @@
      0.0415
     ]
    },
-   "dono": "34123232081",
+   "dono": "34123232008",
    "nome": "Toén",
    "provincia": "Ourense",
    "vacas": 1,
@@ -6678,7 +6678,7 @@
      0.162
     ]
    },
-   "dono": "34123636027",
+   "dono": "34123636006",
    "nome": "Meaño",
    "provincia": "Pontevedra",
    "vacas": 14,
@@ -6746,7 +6746,7 @@
      1.0
     ]
    },
-   "dono": "34123636030",
+   "dono": "34123636019",
    "nome": "Mondariz",
    "provincia": "Pontevedra",
    "vacas": 80,
@@ -8628,10 +8628,11 @@
    },
    "nome": "Oroso",
    "territorio": [
-    "34121515060"
+    "34121515060",
+    "34121515066"
    ],
-   "vacas": 1842,
-   "victorias": 0
+   "vacas": 4805,
+   "victorias": 1
   },
   "34121515061": {
    "cor": {
@@ -8709,24 +8710,6 @@
     "34121515065"
    ],
    "vacas": 222,
-   "victorias": 0
-  },
-  "34121515066": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15066.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "O Pino",
-   "territorio": [
-    "34121515066"
-   ],
-   "vacas": 2963,
    "victorias": 0
   },
   "34121515067": {
@@ -9403,10 +9386,11 @@
    },
    "nome": "Bóveda",
    "territorio": [
-    "34122727008"
+    "34122727008",
+    "34122727024"
    ],
-   "vacas": 901,
-   "victorias": 0
+   "vacas": 3583,
+   "victorias": 1
   },
   "34122727009": {
    "cor": {
@@ -9635,25 +9619,6 @@
     "34122727022"
    ],
    "vacas": 8291,
-   "victorias": 0
-  },
-  "34122727024": {
-   "cor": {
-    "colores": [
-     "#ce1818",
-     "#ffcc00"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.5788,
-     0.4212
-    ]
-   },
-   "nome": "O Incio",
-   "territorio": [
-    "34122727024"
-   ],
-   "vacas": 2682,
    "victorias": 0
   },
   "34122727025": {
@@ -9971,10 +9936,11 @@
    },
    "nome": "Paradela",
    "territorio": [
-    "34122727042"
+    "34122727042",
+    "34122727058"
    ],
-   "vacas": 6917,
-   "victorias": 0
+   "vacas": 12439,
+   "victorias": 1
   },
   "34122727043": {
    "cor": {
@@ -9999,24 +9965,6 @@
    "vacas": 4740,
    "victorias": 0
   },
-  "34122727045": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/27045.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Pedrafita do Cebreiro",
-   "territorio": [
-    "34122727045"
-   ],
-   "vacas": 1584,
-   "victorias": 0
-  },
   "34122727047": {
    "cor": {
     "colores": [
@@ -10033,23 +9981,6 @@
     "34122727047"
    ],
    "vacas": 939,
-   "victorias": 0
-  },
-  "34122727048": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "A Pontenova",
-   "territorio": [
-    "34122727048"
-   ],
-   "vacas": 816,
    "victorias": 0
   },
   "34122727049": {
@@ -10144,10 +10075,11 @@
    },
    "nome": "Riotorto",
    "territorio": [
+    "34122727048",
     "34122727054"
    ],
-   "vacas": 1678,
-   "victorias": 0
+   "vacas": 2494,
+   "victorias": 1
   },
   "34122727055": {
    "cor": {
@@ -10206,23 +10138,6 @@
     "34122727057"
    ],
    "vacas": 12277,
-   "victorias": 0
-  },
-  "34122727058": {
-   "cor": {
-    "colores": [
-     "#002654"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "O Saviñao",
-   "territorio": [
-    "34122727058"
-   ],
-   "vacas": 5522,
    "victorias": 0
   },
   "34122727059": {
@@ -10295,10 +10210,11 @@
    },
    "nome": "Triacastela",
    "territorio": [
+    "34122727045",
     "34122727062"
    ],
-   "vacas": 2553,
-   "victorias": 0
+   "vacas": 4137,
+   "victorias": 1
   },
   "34122727063": {
    "cor": {
@@ -10538,10 +10454,11 @@
    },
    "nome": "Barbadás",
    "territorio": [
-    "34123232008"
+    "34123232008",
+    "34123232081"
    ],
-   "vacas": 1,
-   "victorias": 0
+   "vacas": 2,
+   "victorias": 1
   },
   "34123232009": {
    "cor": {
@@ -10824,10 +10741,11 @@
    },
    "nome": "O Castro de Caldelas",
    "territorio": [
-    "34123232023"
+    "34123232023",
+    "34123232029"
    ],
-   "vacas": 1505,
-   "victorias": 0
+   "vacas": 2467,
+   "victorias": 1
   },
   "34123232024": {
    "cor": {
@@ -10922,24 +10840,6 @@
     "34123232028"
    ],
    "vacas": 69,
-   "victorias": 0
-  },
-  "34123232029": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/32029.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Chandrexa de Queixa",
-   "territorio": [
-    "34123232029"
-   ],
-   "vacas": 962,
    "victorias": 0
   },
   "34123232030": {
@@ -11838,29 +11738,6 @@
    "vacas": 195,
    "victorias": 0
   },
-  "34123232081": {
-   "cor": {
-    "colores": [
-     "#ffffff",
-     "#078930",
-     "#eac103",
-     "#0a42ad"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.4587,
-     0.3963,
-     0.1035,
-     0.0415
-    ]
-   },
-   "nome": "Toén",
-   "territorio": [
-    "34123232081"
-   ],
-   "vacas": 1,
-   "victorias": 0
-  },
   "34123232082": {
    "cor": {
     "colores": [
@@ -12179,10 +12056,11 @@
    },
    "nome": "Cambados",
    "territorio": [
-    "34123636006"
+    "34123636006",
+    "34123636027"
    ],
-   "vacas": 6,
-   "victorias": 0
+   "vacas": 20,
+   "victorias": 1
   },
   "34123636007": {
    "cor": {
@@ -12354,10 +12232,11 @@
    },
    "nome": "Fornelos de Montes",
    "territorio": [
-    "34123636019"
+    "34123636019",
+    "34123636030"
    ],
-   "vacas": 379,
-   "victorias": 0
+   "vacas": 459,
+   "victorias": 1
   },
   "34123636020": {
    "cor": {
@@ -12471,27 +12350,6 @@
    "vacas": 812,
    "victorias": 0
   },
-  "34123636027": {
-   "cor": {
-    "colores": [
-     "#e7e2d7",
-     "#3b9836",
-     "#566829"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.4486,
-     0.3894,
-     0.162
-    ]
-   },
-   "nome": "Meaño",
-   "territorio": [
-    "34123636027"
-   ],
-   "vacas": 14,
-   "victorias": 0
-  },
   "34123636028": {
    "cor": {
     "colores": [
@@ -12525,24 +12383,6 @@
     "34123636029"
    ],
    "vacas": 4,
-   "victorias": 0
-  },
-  "34123636030": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/36030.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Mondariz",
-   "territorio": [
-    "34123636030"
-   ],
-   "vacas": 80,
    "victorias": 0
   },
   "34123636031": {
@@ -13123,6 +12963,6 @@
    "victorias": 0
   }
  },
- "episodio": 7,
+ "episodio": 10,
  "version": 1
 }

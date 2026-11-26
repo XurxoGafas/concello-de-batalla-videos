@@ -693,3 +693,8 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - Semilla en el Secret `SEMILLA_SERIE` del repositorio (regla g).
 - `serie.py`: si la serie ya terminó, no hace nada (las ejecuciones siguientes acaban limpias).
 - Faltan ≈99 episodios (298 dueños tras el 5) → ≈33 días.
+
+## 2026-11-26 · Episodios 6–10 (en local) y limitador de audio
+- El usuario no quiere tocar GitHub, y desde la sesión no se puede crear el Secret (el proxy bloquea la API de Actions). El workflow queda instalado pero sin `SEMILLA_SERIE` falla al empezar sin tocar nada; los episodios se siguen generando en sesión con `python -m src.render.serie N`.
+- Generados y guardados los episodios 6–10.
+- El 9 salió con pico de +2,2 dBTP: `mezcla.normalizar_lufs` añade ahora un `alimiter` tras loudnorm (techo −2 dBFS). El vídeo del 9 se re-codificó con el limitador (−14,3 LUFS, −1,0 dBTP).

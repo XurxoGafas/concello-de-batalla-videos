@@ -99,3 +99,45 @@ Clasificación tras el episodio:
 - Vitorias: Dodro (2), Cospeito (1), Palas de Rei (1), Castroverde (1), Friol (1)
 - Vacas: Cospeito (23152), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Castroverde (13692)
 - Dueños que quedan: 292.
+
+## Episodio 8
+
+Portada: «Riotorto ten máis vacas! Bonus!» (frase 31, protagonista Riotorto).
+
+- Batalla 22: **Riotorto** (1678 🐄) ataca a **A Pontenova** (816 🐄) → gana **Riotorto**; semilla `7333740735036332973`.
+- Batalla 23: **Oroso** (1842 🐄) ataca a **O Pino** (2963 🐄) → gana **Oroso**; semilla `13932991321549890007`.
+- Batalla 24: **Cambados** (6 🐄) ataca a **Meaño** (14 🐄) → gana **Cambados**; semilla `14555279141325183323`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Dodro (2), Cospeito (1), Palas de Rei (1), Castroverde (1), Friol (1)
+- Vacas: Cospeito (23152), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Castroverde (13692)
+- Dueños que quedan: 289.
+
+## Episodio 9
+
+Portada: «O Incio saca o músculo bovino!» (frase 33, protagonista O Incio).
+
+- Batalla 25: **O Saviñao** (5522 🐄) ataca a **Paradela** (6917 🐄) → gana **Paradela**; semilla `16227727428127009983`.
+- Batalla 26: **Toén** (1 🐄) ataca a **Barbadás** (1 🐄) → gana **Barbadás**; semilla `10497451235302456165`.
+- Batalla 27: **Bóveda** (901 🐄) ataca a **O Incio** (2682 🐄) → gana **Bóveda**; semilla `18130767787766138641`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Dodro (2), Cospeito (1), Palas de Rei (1), Castroverde (1), Paradela (1)
+- Vacas: Cospeito (23152), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Castroverde (13692)
+- Dueños que quedan: 286.
+
+## Episodio 10
+
+Portada: «Aquí o que importa é o tamaño… do gando! O Castro de Caldelas!» (frase 37, protagonista O Castro de Caldelas).
+
+- Batalla 28: **Chandrexa de Queixa** (962 🐄) ataca a **O Castro de Caldelas** (1505 🐄) → gana **O Castro de Caldelas**; semilla `15833311332583529598`.
+- Batalla 29: **Pedrafita do Cebreiro** (1584 🐄) ataca a **Triacastela** (2553 🐄) → gana **Triacastela**; semilla `1546195828668331726`.
+- Batalla 30: **Fornelos de Montes** (379 🐄) ataca a **Mondariz** (80 🐄) → gana **Fornelos de Montes**; semilla `690789087261773101`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Dodro (2), Cospeito (1), Palas de Rei (1), Castroverde (1), Paradela (1)
+- Vacas: Cospeito (23152), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Castroverde (13692)
+- Dueños que quedan: 283.

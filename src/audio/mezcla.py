@@ -81,7 +81,9 @@ def normalizar_lufs(wav_in: Path, wav_out: Path) -> dict:
     js = json.loads(r.stderr[r.stderr.rfind("{"):r.stderr.rfind("}") + 1])
     med = (f":measured_I={js['input_i']}:measured_TP={js['input_tp']}:measured_LRA={js['input_lra']}"
            f":measured_thresh={js['input_thresh']}:offset={js['target_offset']}:linear=true")
-    _ffmpeg("-i", str(wav_in), "-af", base + med, "-ar", str(S.SR), "-c:a", "pcm_s16le", str(wav_out))
+    # limitador final: loudnorm lineal no siempre respeta el pico (el ep. 9 salió a +2,2 dBTP)
+    limite = 10 ** ((PICO_VERDADERO - 0.5) / 20)
+    _ffmpeg("-i", str(wav_in), "-af", base + med + f",alimiter=limit={limite:.4f}:level=false", "-ar", str(S.SR), "-c:a", "pcm_s16le", str(wav_out))
     return {"entrada_LUFS": float(js["input_i"]), "pico_entrada_dBTP": float(js["input_tp"])}
 
 
