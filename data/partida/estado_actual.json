@@ -1,5 +1,5 @@
 {
- "batallas_jugadas": 54,
+ "batallas_jugadas": 60,
  "concellos": {
   "34121515001": {
    "cor": {
@@ -85,7 +85,7 @@
      1.0
     ]
    },
-   "dono": "34121515004",
+   "dono": "34121515051",
    "nome": "Ares",
    "provincia": "A Coruña",
    "vacas": 1,
@@ -1040,7 +1040,7 @@
      1.0
     ]
    },
-   "dono": "34121515046",
+   "dono": "34122727020",
    "nome": "Melide",
    "provincia": "A Coruña",
    "vacas": 3495,
@@ -3017,7 +3017,7 @@
      1.0
     ]
    },
-   "dono": "34122727033",
+   "dono": "34122727021",
    "nome": "Muras",
    "provincia": "Lugo",
    "vacas": 3233,
@@ -3888,7 +3888,7 @@
      1.0
     ]
    },
-   "dono": "34123232002",
+   "dono": "34123232054",
    "nome": "Amoeiro",
    "provincia": "Ourense",
    "vacas": 146,
@@ -4664,7 +4664,7 @@
      1.0
     ]
    },
-   "dono": "34123232034",
+   "dono": "34123232086",
    "nome": "A Gudiña",
    "provincia": "Ourense",
    "vacas": 456,
@@ -5471,7 +5471,7 @@
      1.0
     ]
    },
-   "dono": "34123232067",
+   "dono": "34123232062",
    "nome": "Rairiz de Veiga",
    "provincia": "Ourense",
    "vacas": 592,
@@ -5578,7 +5578,7 @@
      0.1664
     ]
    },
-   "dono": "34123232034",
+   "dono": "34123232086",
    "nome": "O Riós",
    "provincia": "Ourense",
    "vacas": 562,
@@ -7614,24 +7614,6 @@
    "vacas": 3589,
    "victorias": 0
   },
-  "34121515004": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15004.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Ares",
-   "territorio": [
-    "34121515004"
-   ],
-   "vacas": 1,
-   "victorias": 0
-  },
   "34121515005": {
    "cor": {
     "colores": [
@@ -8295,24 +8277,6 @@
    "vacas": 13864,
    "victorias": 0
   },
-  "34121515046": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15046.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Melide",
-   "territorio": [
-    "34121515046"
-   ],
-   "vacas": 3495,
-   "victorias": 0
-  },
   "34121515047": {
    "cor": {
     "colores": [
@@ -8405,10 +8369,11 @@
    },
    "nome": "Mugardos",
    "territorio": [
+    "34121515004",
     "34121515051"
    ],
-   "vacas": 107,
-   "victorias": 0
+   "vacas": 108,
+   "victorias": 1
   },
   "34121515052": {
    "cor": {
@@ -9367,11 +9332,12 @@
    },
    "nome": "Friol",
    "territorio": [
+    "34121515046",
     "34121515083",
     "34122727020"
    ],
-   "vacas": 12315,
-   "victorias": 1
+   "vacas": 15810,
+   "victorias": 2
   },
   "34122727021": {
    "cor": {
@@ -9386,10 +9352,11 @@
    },
    "nome": "Xermade",
    "territorio": [
-    "34122727021"
+    "34122727021",
+    "34122727033"
    ],
-   "vacas": 4793,
-   "victorias": 0
+   "vacas": 8026,
+   "victorias": 1
   },
   "34122727026": {
    "cor": {
@@ -9501,24 +9468,6 @@
     "34122727032"
    ],
    "vacas": 4645,
-   "victorias": 0
-  },
-  "34122727033": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/27033.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Muras",
-   "territorio": [
-    "34122727033"
-   ],
-   "vacas": 3233,
    "victorias": 0
   },
   "34122727034": {
@@ -10067,24 +10016,6 @@
    "vacas": 519,
    "victorias": 0
   },
-  "34123232002": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/32002.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Amoeiro",
-   "territorio": [
-    "34123232002"
-   ],
-   "vacas": 146,
-   "victorias": 0
-  },
   "34123232003": {
    "cor": {
     "colores": [
@@ -10589,25 +10520,6 @@
    "vacas": 395,
    "victorias": 0
   },
-  "34123232034": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/32034.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "A Gudiña",
-   "territorio": [
-    "34123232034",
-    "34123232071"
-   ],
-   "vacas": 1018,
-   "victorias": 1
-  },
   "34123232035": {
    "cor": {
     "colores": [
@@ -10949,10 +10861,11 @@
    },
    "nome": "Ourense",
    "territorio": [
+    "34123232002",
     "34123232054"
    ],
-   "vacas": 26,
-   "victorias": 0
+   "vacas": 172,
+   "victorias": 1
   },
   "34123232056": {
    "cor": {
@@ -11077,10 +10990,11 @@
    },
    "nome": "Porqueira",
    "territorio": [
-    "34123232062"
+    "34123232062",
+    "34123232067"
    ],
-   "vacas": 127,
-   "victorias": 0
+   "vacas": 719,
+   "victorias": 1
   },
   "34123232063": {
    "cor": {
@@ -11139,24 +11053,6 @@
     "34123232066"
    ],
    "vacas": 155,
-   "victorias": 0
-  },
-  "34123232067": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/32067.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Rairiz de Veiga",
-   "territorio": [
-    "34123232067"
-   ],
-   "vacas": 592,
    "victorias": 0
   },
   "34123232068": {
@@ -11479,10 +11375,12 @@
    },
    "nome": "Viana do Bolo",
    "territorio": [
+    "34123232034",
+    "34123232071",
     "34123232086"
    ],
-   "vacas": 1511,
-   "victorias": 0
+   "vacas": 2529,
+   "victorias": 1
   },
   "34123232088": {
    "cor": {
@@ -12544,6 +12442,6 @@
    "victorias": 0
   }
  },
- "episodio": 18,
+ "episodio": 20,
  "version": 1
 }

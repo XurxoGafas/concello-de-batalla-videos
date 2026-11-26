@@ -698,3 +698,6 @@ Las entradas no se borran. Las nuevas se añaden al final.
 - El usuario no quiere tocar GitHub, y desde la sesión no se puede crear el Secret (el proxy bloquea la API de Actions). El workflow queda instalado pero sin `SEMILLA_SERIE` falla al empezar sin tocar nada; los episodios se siguen generando en sesión con `python -m src.render.serie N`.
 - Generados y guardados los episodios 6–10.
 - El 9 salió con pico de +2,2 dBTP: `mezcla.normalizar_lufs` añade ahora un `alimiter` tras loudnorm (techo −2 dBFS). El vídeo del 9 se re-codificó con el limitador (−14,3 LUFS, −1,0 dBTP).
+
+## 2026-11-26 · Episodios 11–20
+- Generados y guardados en sesión (`python -m src.render.serie 10`, ≈10–11 min cada uno; picos ya por debajo de 0 dBTP con el limitador). Estado tras el 20 en `data/partida/estado_actual.json`.

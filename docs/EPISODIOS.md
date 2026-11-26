@@ -253,3 +253,31 @@ Clasificación tras el episodio:
 - Vitorias: Cospeito (2), Paradela (2), Negueira de Muñiz (2), Fornelos de Montes (2), A Caniza (2)
 - Vacas: Cospeito (36844), Paradela (16022), Sarria (16022), Palas de Rei (15346), Lalín (14794)
 - Dueños que quedan: 259.
+
+## Episodio 19
+
+Portada: «Amoeiro saca o músculo bovino!» (frase 33, protagonista Amoeiro).
+
+- Batalla 55: **Muras** (3233 🐄) ataca a **Xermade** (4793 🐄) → gana **Xermade**; semilla `12221466209798909631`.
+- Batalla 56: **A Gudiña** (1018 🐄) ataca a **Viana do Bolo** (1511 🐄) → gana **Viana do Bolo**; semilla `9739337791944364816`.
+- Batalla 57: **Ourense** (26 🐄) ataca a **Amoeiro** (146 🐄) → gana **Ourense**; semilla `15574818533503057502`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (2), Paradela (2), Negueira de Muñiz (2), Fornelos de Montes (2), A Caniza (2)
+- Vacas: Cospeito (36844), Paradela (16022), Sarria (16022), Palas de Rei (15346), Lalín (14794)
+- Dueños que quedan: 256.
+
+## Episodio 20
+
+Portada: «Aquí o que importa é o tamaño… do gando! Rairiz de Veiga!» (frase 37, protagonista Rairiz de Veiga).
+
+- Batalla 58: **Porqueira** (127 🐄) ataca a **Rairiz de Veiga** (592 🐄) → gana **Porqueira**; semilla `4007267399637897778`.
+- Batalla 59: **Mugardos** (107 🐄) ataca a **Ares** (1 🐄) → gana **Mugardos**; semilla `2115412014661644080`.
+- Batalla 60: **Melide** (3495 🐄) ataca a **Friol** (12315 🐄) → gana **Friol**; semilla `6606719169658575959`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (2), Paradela (2), Friol (2), Negueira de Muñiz (2), Fornelos de Montes (2)
+- Vacas: Cospeito (36844), Paradela (16022), Sarria (16022), Friol (15810), Palas de Rei (15346)
+- Dueños que quedan: 253.
