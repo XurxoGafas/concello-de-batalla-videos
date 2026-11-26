@@ -225,3 +225,31 @@ Clasificación tras el episodio:
 - Vitorias: Cospeito (2), Paradela (2), Negueira de Muñiz (2), A Caniza (2), Palas de Rei (1)
 - Vacas: Cospeito (36844), Paradela (16022), Palas de Rei (15346), Lalín (14794), Frades (14114)
 - Dueños que quedan: 265.
+
+## Episodio 17
+
+Portada: «As vacas de Leiro pesan moito!» (frase 32, protagonista Leiro).
+
+- Batalla 49: **Cenlle** (2 🐄) ataca a **Leiro** (266 🐄) → gana **Leiro**; semilla `6205417091485601415`.
+- Batalla 50: **Fornelos de Montes** (459 🐄) ataca a **Ponte Caldelas** (160 🐄) → gana **Fornelos de Montes**; semilla `9162134487779458229`.
+- Batalla 51: **Sobrado** (4188 🐄) ataca a **Guitiriz** (8291 🐄) → gana **Sobrado**; semilla `703807633715792697`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (2), Paradela (2), Negueira de Muñiz (2), Fornelos de Montes (2), A Caniza (2)
+- Vacas: Cospeito (36844), Paradela (16022), Palas de Rei (15346), Lalín (14794), Frades (14114)
+- Dueños que quedan: 262.
+
+## Episodio 18
+
+Portada: «Baralla ten máis vacas! Bonus!» (frase 31, protagonista Baralla).
+
+- Batalla 52: **Baralla** (3756 🐄) ataca a **Becerreá** (2559 🐄) → gana **Baralla**; semilla `16809011513288277656`.
+- Batalla 53: **Sarria** (12277 🐄) ataca a **Samos** (3745 🐄) → gana **Sarria**; semilla `11297880103524587396`.
+- Batalla 54: **Vilamarín** (250 🐄) ataca a **Coles** (183 🐄) → gana **Coles**; semilla `5721474735013120231`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (2), Paradela (2), Negueira de Muñiz (2), Fornelos de Montes (2), A Caniza (2)
+- Vacas: Cospeito (36844), Paradela (16022), Sarria (16022), Palas de Rei (15346), Lalín (14794)
+- Dueños que quedan: 259.

@@ -1,5 +1,5 @@
 {
- "batallas_jugadas": 48,
+ "batallas_jugadas": 54,
  "concellos": {
   "34121515001": {
    "cor": {
@@ -2351,7 +2351,7 @@
      1.0
     ]
    },
-   "dono": "34122727006",
+   "dono": "34122727901",
    "nome": "Becerreá",
    "provincia": "Lugo",
    "vacas": 2559,
@@ -2748,7 +2748,7 @@
      1.0
     ]
    },
-   "dono": "34122727022",
+   "dono": "34121515080",
    "nome": "Guitiriz",
    "provincia": "Lugo",
    "vacas": 8291,
@@ -3530,7 +3530,7 @@
      0.2763
     ]
    },
-   "dono": "34122727055",
+   "dono": "34122727057",
    "nome": "Samos",
    "provincia": "Lugo",
    "vacas": 3745,
@@ -4438,7 +4438,7 @@
      1.0
     ]
    },
-   "dono": "34123232025",
+   "dono": "34123232040",
    "nome": "Cenlle",
    "provincia": "Ourense",
    "vacas": 2,
@@ -5956,7 +5956,7 @@
      1.0
     ]
    },
-   "dono": "34123232087",
+   "dono": "34123232026",
    "nome": "Vilamarín",
    "provincia": "Ourense",
    "vacas": 250,
@@ -7061,7 +7061,7 @@
      1.0
     ]
    },
-   "dono": "34123636043",
+   "dono": "34123636019",
    "nome": "Ponte Caldelas",
    "provincia": "Pontevedra",
    "vacas": 160,
@@ -8856,10 +8856,11 @@
    },
    "nome": "Sobrado",
    "territorio": [
-    "34121515080"
+    "34121515080",
+    "34122727022"
    ],
-   "vacas": 4188,
-   "victorias": 0
+   "vacas": 12479,
+   "victorias": 1
   },
   "34121515081": {
    "cor": {
@@ -9171,24 +9172,6 @@
    "vacas": 2454,
    "victorias": 0
   },
-  "34122727006": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/27006.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Becerreá",
-   "territorio": [
-    "34122727006"
-   ],
-   "vacas": 2559,
-   "victorias": 0
-  },
   "34122727007": {
    "cor": {
     "colores": [
@@ -9406,23 +9389,6 @@
     "34122727021"
    ],
    "vacas": 4793,
-   "victorias": 0
-  },
-  "34122727022": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Guitiriz",
-   "territorio": [
-    "34122727022"
-   ],
-   "vacas": 8291,
    "victorias": 0
   },
   "34122727026": {
@@ -9849,27 +9815,6 @@
    "vacas": 2494,
    "victorias": 1
   },
-  "34122727055": {
-   "cor": {
-    "colores": [
-     "#00923f",
-     "#0193dc",
-     "#ffffff"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.3844,
-     0.3393,
-     0.2763
-    ]
-   },
-   "nome": "Samos",
-   "territorio": [
-    "34122727055"
-   ],
-   "vacas": 3745,
-   "victorias": 0
-  },
   "34122727056": {
    "cor": {
     "colores": [
@@ -9903,10 +9848,11 @@
    },
    "nome": "Sarria",
    "territorio": [
+    "34122727055",
     "34122727057"
    ],
-   "vacas": 12277,
-   "victorias": 0
+   "vacas": 16022,
+   "victorias": 1
   },
   "34122727059": {
    "cor": {
@@ -10077,10 +10023,11 @@
    },
    "nome": "Baralla",
    "territorio": [
+    "34122727006",
     "34122727901"
    ],
-   "vacas": 3756,
-   "victorias": 0
+   "vacas": 6315,
+   "victorias": 1
   },
   "34122727902": {
    "cor": {
@@ -10518,24 +10465,6 @@
    "vacas": 396,
    "victorias": 0
   },
-  "34123232025": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/32025.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Cenlle",
-   "territorio": [
-    "34123232025"
-   ],
-   "vacas": 2,
-   "victorias": 0
-  },
   "34123232026": {
    "cor": {
     "colores": [
@@ -10549,10 +10478,11 @@
    },
    "nome": "Coles",
    "territorio": [
-    "34123232026"
+    "34123232026",
+    "34123232087"
    ],
-   "vacas": 183,
-   "victorias": 0
+   "vacas": 433,
+   "victorias": 1
   },
   "34123232027": {
    "cor": {
@@ -10768,10 +10698,11 @@
    "nome": "Leiro",
    "territorio": [
     "34123232004",
+    "34123232025",
     "34123232040"
    ],
-   "vacas": 266,
-   "victorias": 1
+   "vacas": 268,
+   "victorias": 2
   },
   "34123232041": {
    "cor": {
@@ -11553,24 +11484,6 @@
    "vacas": 1511,
    "victorias": 0
   },
-  "34123232087": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/32087.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Vilamarín",
-   "territorio": [
-    "34123232087"
-   ],
-   "vacas": 250,
-   "victorias": 0
-  },
   "34123232088": {
    "cor": {
     "colores": [
@@ -11935,10 +11848,11 @@
    "nome": "Fornelos de Montes",
    "territorio": [
     "34123636019",
-    "34123636030"
+    "34123636030",
+    "34123636043"
    ],
-   "vacas": 459,
-   "victorias": 1
+   "vacas": 619,
+   "victorias": 2
   },
   "34123636020": {
    "cor": {
@@ -12278,23 +12192,6 @@
     "34123636041"
    ],
    "vacas": 1,
-   "victorias": 0
-  },
-  "34123636043": {
-   "cor": {
-    "colores": [
-     "#5843b3"
-    ],
-    "fonte": "provisional",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Ponte Caldelas",
-   "territorio": [
-    "34123636043"
-   ],
-   "vacas": 160,
    "victorias": 0
   },
   "34123636044": {
@@ -12647,6 +12544,6 @@
    "victorias": 0
   }
  },
- "episodio": 16,
+ "episodio": 18,
  "version": 1
 }
