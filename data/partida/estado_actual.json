@@ -1,5 +1,5 @@
 {
- "batallas_jugadas": 30,
+ "batallas_jugadas": 36,
  "concellos": {
   "34121515001": {
    "cor": {
@@ -2033,7 +2033,7 @@
      0.0837
     ]
    },
-   "dono": "34121515088",
+   "dono": "34121515007",
    "nome": "Val do Dubra",
    "provincia": "A Coruña",
    "vacas": 2911,
@@ -2477,7 +2477,7 @@
      1.0
     ]
    },
-   "dono": "34122727011",
+   "dono": "34122727015",
    "nome": "Castroverde",
    "provincia": "Lugo",
    "vacas": 6653,
@@ -2871,7 +2871,7 @@
      0.043
     ]
    },
-   "dono": "34122727027",
+   "dono": "34122727061",
    "nome": "Lourenzá",
    "provincia": "Lugo",
    "vacas": 716,
@@ -3309,7 +3309,7 @@
      1.0
     ]
    },
-   "dono": "34122727011",
+   "dono": "34122727015",
    "nome": "Pol",
    "provincia": "Lugo",
    "vacas": 7039,
@@ -4640,7 +4640,7 @@
      1.0
     ]
    },
-   "dono": "34123232033",
+   "dono": "34123232064",
    "nome": "Gomesende",
    "provincia": "Ourense",
    "vacas": 35,
@@ -6098,7 +6098,7 @@
      0.0834
     ]
    },
-   "dono": "34123636001",
+   "dono": "34123636009",
    "nome": "Arbo",
    "provincia": "Pontevedra",
    "vacas": 98,
@@ -6583,7 +6583,7 @@
      0.3658
     ]
    },
-   "dono": "34123636023",
+   "dono": "34123636048",
    "nome": "A Guarda",
    "provincia": "Pontevedra",
    "vacas": 91,
@@ -7681,10 +7681,11 @@
    },
    "nome": "A Baña",
    "territorio": [
-    "34121515007"
+    "34121515007",
+    "34121515088"
    ],
-   "vacas": 2760,
-   "victorias": 0
+   "vacas": 5671,
+   "victorias": 1
   },
   "34121515008": {
    "cor": {
@@ -9094,27 +9095,6 @@
    "vacas": 637,
    "victorias": 0
   },
-  "34121515088": {
-   "cor": {
-    "colores": [
-     "#194586",
-     "#fdfefc",
-     "#192d50"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.7141,
-     0.2022,
-     0.0837
-    ]
-   },
-   "nome": "Val do Dubra",
-   "territorio": [
-    "34121515088"
-   ],
-   "vacas": 2911,
-   "victorias": 0
-  },
   "34121515090": {
    "cor": {
     "colores": [
@@ -9428,25 +9408,6 @@
    "vacas": 11333,
    "victorias": 0
   },
-  "34122727011": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/27011.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Castroverde",
-   "territorio": [
-    "34122727011",
-    "34122727046"
-   ],
-   "vacas": 13692,
-   "victorias": 1
-  },
   "34122727012": {
    "cor": {
     "colores": [
@@ -9524,11 +9485,13 @@
    },
    "nome": "Cospeito",
    "territorio": [
+    "34122727011",
     "34122727015",
-    "34122727044"
+    "34122727044",
+    "34122727046"
    ],
-   "vacas": 23152,
-   "victorias": 1
+   "vacas": 36844,
+   "victorias": 2
   },
   "34122727016": {
    "cor": {
@@ -9655,27 +9618,6 @@
     "34122727026"
    ],
    "vacas": 7501,
-   "victorias": 0
-  },
-  "34122727027": {
-   "cor": {
-    "colores": [
-     "#409a3b",
-     "#fac804",
-     "#fae89a"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.5761,
-     0.3809,
-     0.043
-    ]
-   },
-   "nome": "Lourenzá",
-   "territorio": [
-    "34122727027"
-   ],
-   "vacas": 716,
    "victorias": 0
   },
   "34122727028": {
@@ -10192,10 +10134,11 @@
    },
    "nome": "Trabada",
    "territorio": [
+    "34122727027",
     "34122727061"
    ],
-   "vacas": 2347,
-   "victorias": 0
+   "vacas": 3063,
+   "victorias": 1
   },
   "34122727062": {
    "cor": {
@@ -10904,24 +10847,6 @@
    "vacas": 395,
    "victorias": 0
   },
-  "34123232033": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/32033.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Gomesende",
-   "territorio": [
-    "34123232033"
-   ],
-   "vacas": 35,
-   "victorias": 0
-  },
   "34123232034": {
    "cor": {
     "colores": [
@@ -11445,10 +11370,11 @@
    },
    "nome": "Pontedeva",
    "territorio": [
+    "34123232033",
     "34123232064"
    ],
-   "vacas": 5,
-   "victorias": 0
+   "vacas": 40,
+   "victorias": 1
   },
   "34123232065": {
    "cor": {
@@ -11945,27 +11871,6 @@
    "vacas": 303,
    "victorias": 0
   },
-  "34123636001": {
-   "cor": {
-    "colores": [
-     "#0071bc",
-     "#f3d42b",
-     "#12161c"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.6114,
-     0.3052,
-     0.0834
-    ]
-   },
-   "nome": "Arbo",
-   "territorio": [
-    "34123636001"
-   ],
-   "vacas": 98,
-   "victorias": 0
-  },
   "34123636002": {
    "cor": {
     "colores": [
@@ -12113,11 +12018,12 @@
    },
    "nome": "A Caniza",
    "territorio": [
+    "34123636001",
     "34123636009",
     "34123636014"
    ],
-   "vacas": 344,
-   "victorias": 1
+   "vacas": 442,
+   "victorias": 2
   },
   "34123636013": {
    "cor": {
@@ -12292,25 +12198,6 @@
     "34123636022"
    ],
    "vacas": 16,
-   "victorias": 0
-  },
-  "34123636023": {
-   "cor": {
-    "colores": [
-     "#ff001a",
-     "#ffffff"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.6342,
-     0.3658
-    ]
-   },
-   "nome": "A Guarda",
-   "territorio": [
-    "34123636023"
-   ],
-   "vacas": 91,
    "victorias": 0
   },
   "34123636024": {
@@ -12706,10 +12593,11 @@
    },
    "nome": "O Rosal",
    "territorio": [
+    "34123636023",
     "34123636048"
    ],
-   "vacas": 78,
-   "victorias": 0
+   "vacas": 169,
+   "victorias": 1
   },
   "34123636049": {
    "cor": {
@@ -12963,6 +12851,6 @@
    "victorias": 0
   }
  },
- "episodio": 10,
+ "episodio": 12,
  "version": 1
 }

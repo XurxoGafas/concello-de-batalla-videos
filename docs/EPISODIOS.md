@@ -141,3 +141,31 @@ Clasificación tras el episodio:
 - Vitorias: Dodro (2), Cospeito (1), Palas de Rei (1), Castroverde (1), Paradela (1)
 - Vacas: Cospeito (23152), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Castroverde (13692)
 - Dueños que quedan: 283.
+
+## Episodio 11
+
+Portada: «Cospeito presume de ubres… e con razón!» (frase 38, protagonista Cospeito).
+
+- Batalla 31: **Pontedeva** (5 🐄) ataca a **Gomesende** (35 🐄) → gana **Pontedeva**; semilla `15239411000794087665`.
+- Batalla 32: **Castroverde** (13692 🐄) ataca a **Cospeito** (23152 🐄) → gana **Cospeito**; semilla `12653121713766382641`.
+- Batalla 33: **Arbo** (98 🐄) ataca a **A Caniza** (344 🐄) → gana **A Caniza**; semilla `394958428282428498`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (2), A Caniza (2), Dodro (2), Palas de Rei (1), Paradela (1)
+- Vacas: Cospeito (36844), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Paradela (12439)
+- Dueños que quedan: 280.
+
+## Episodio 12
+
+Portada: «Trabada ten moito que ofrecer: leite, forza e moita vaca!» (frase 39, protagonista Trabada).
+
+- Batalla 34: **Val do Dubra** (2911 🐄) ataca a **A Baña** (2760 🐄) → gana **A Baña**; semilla `1368354665829920155`.
+- Batalla 35: **A Guarda** (91 🐄) ataca a **O Rosal** (78 🐄) → gana **O Rosal**; semilla `9363339279002504221`.
+- Batalla 36: **Trabada** (2347 🐄) ataca a **Lourenzá** (716 🐄) → gana **Trabada**; semilla `6516580512448115297`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (2), A Caniza (2), Dodro (2), Palas de Rei (1), Paradela (1)
+- Vacas: Cospeito (36844), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Paradela (12439)
+- Dueños que quedan: 277.
