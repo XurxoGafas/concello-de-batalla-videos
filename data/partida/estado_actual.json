@@ -1,5 +1,5 @@
 {
- "batallas_jugadas": 36,
+ "batallas_jugadas": 42,
  "concellos": {
   "34121515001": {
    "cor": {
@@ -359,7 +359,7 @@
      1.0
     ]
    },
-   "dono": "34121515016",
+   "dono": "34121515052",
    "nome": "Camariñas",
    "provincia": "A Coruña",
    "vacas": 17,
@@ -1209,7 +1209,7 @@
      1.0
     ]
    },
-   "dono": "34121515053",
+   "dono": "34121515020",
    "nome": "Muros",
    "provincia": "A Coruña",
    "vacas": 49,
@@ -2304,7 +2304,7 @@
      1.0
     ]
    },
-   "dono": "34122727004",
+   "dono": "34122727035",
    "nome": "Baleira",
    "provincia": "Lugo",
    "vacas": 3163,
@@ -2406,7 +2406,7 @@
      0.3899
     ]
    },
-   "dono": "34122727008",
+   "dono": "34122727042",
    "nome": "Bóveda",
    "provincia": "Lugo",
    "vacas": 901,
@@ -2800,7 +2800,7 @@
      0.4212
     ]
    },
-   "dono": "34122727008",
+   "dono": "34122727042",
    "nome": "O Incio",
    "provincia": "Lugo",
    "vacas": 2682,
@@ -2823,7 +2823,7 @@
      1.0
     ]
    },
-   "dono": "34122727025",
+   "dono": "34122727013",
    "nome": "Xove",
    "provincia": "Lugo",
    "vacas": 989,
@@ -4236,7 +4236,7 @@
      1.0
     ]
    },
-   "dono": "34123232017",
+   "dono": "34123232009",
    "nome": "Carballeda de Valdeorras",
    "provincia": "Ourense",
    "vacas": 143,
@@ -7832,24 +7832,6 @@
    "vacas": 62,
    "victorias": 0
   },
-  "34121515016": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15016.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Camariñas",
-   "territorio": [
-    "34121515016"
-   ],
-   "vacas": 17,
-   "victorias": 0
-  },
   "34121515017": {
    "cor": {
     "colores": [
@@ -7924,10 +7906,11 @@
    },
    "nome": "Carnota",
    "territorio": [
-    "34121515020"
+    "34121515020",
+    "34121515053"
    ],
-   "vacas": 8,
-   "victorias": 0
+   "vacas": 57,
+   "victorias": 1
   },
   "34121515021": {
    "cor": {
@@ -8495,28 +8478,11 @@
    },
    "nome": "Muxía",
    "territorio": [
+    "34121515016",
     "34121515052"
    ],
-   "vacas": 3695,
-   "victorias": 0
-  },
-  "34121515053": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15053.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Muros",
-   "territorio": [
-    "34121515053"
-   ],
-   "vacas": 49,
-   "victorias": 0
+   "vacas": 3712,
+   "victorias": 1
   },
   "34121515054": {
    "cor": {
@@ -9275,24 +9241,6 @@
    "vacas": 2385,
    "victorias": 0
   },
-  "34122727004": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/27004.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Baleira",
-   "territorio": [
-    "34122727004"
-   ],
-   "vacas": 3163,
-   "victorias": 0
-  },
   "34122727005": {
    "cor": {
     "colores": [
@@ -9351,26 +9299,6 @@
    ],
    "vacas": 1580,
    "victorias": 0
-  },
-  "34122727008": {
-   "cor": {
-    "colores": [
-     "#0071bc",
-     "#ffffff"
-    ],
-    "fonte": "bandeira",
-    "pesos": [
-     0.6101,
-     0.3899
-    ]
-   },
-   "nome": "Bóveda",
-   "territorio": [
-    "34122727008",
-    "34122727024"
-   ],
-   "vacas": 3583,
-   "victorias": 1
   },
   "34122727009": {
    "cor": {
@@ -9444,10 +9372,11 @@
    },
    "nome": "Cervo",
    "territorio": [
-    "34122727013"
+    "34122727013",
+    "34122727025"
    ],
-   "vacas": 516,
-   "victorias": 0
+   "vacas": 1505,
+   "victorias": 1
   },
   "34122727014": {
    "cor": {
@@ -9582,24 +9511,6 @@
     "34122727022"
    ],
    "vacas": 8291,
-   "victorias": 0
-  },
-  "34122727025": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/27025.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Xove",
-   "territorio": [
-    "34122727025"
-   ],
-   "vacas": 989,
    "victorias": 0
   },
   "34122727026": {
@@ -9763,11 +9674,12 @@
    },
    "nome": "Negueira de Muñiz",
    "territorio": [
+    "34122727004",
     "34122727018",
     "34122727035"
    ],
-   "vacas": 5626,
-   "victorias": 1
+   "vacas": 8789,
+   "victorias": 2
   },
   "34122727037": {
    "cor": {
@@ -9878,11 +9790,13 @@
    },
    "nome": "Paradela",
    "territorio": [
+    "34122727008",
+    "34122727024",
     "34122727042",
     "34122727058"
    ],
-   "vacas": 12439,
-   "victorias": 1
+   "vacas": 16022,
+   "victorias": 2
   },
   "34122727043": {
    "cor": {
@@ -10421,10 +10335,11 @@
    },
    "nome": "O Barco de Valdeorras",
    "territorio": [
-    "34123232009"
+    "34123232009",
+    "34123232017"
    ],
-   "vacas": 3,
-   "victorias": 0
+   "vacas": 146,
+   "victorias": 1
   },
   "34123232010": {
    "cor": {
@@ -10552,23 +10467,6 @@
     "34123232016"
    ],
    "vacas": 651,
-   "victorias": 0
-  },
-  "34123232017": {
-   "cor": {
-    "colores": [
-     "#423cc2"
-    ],
-    "fonte": "provisional",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Carballeda de Valdeorras",
-   "territorio": [
-    "34123232017"
-   ],
-   "vacas": 143,
    "victorias": 0
   },
   "34123232018": {
@@ -12851,6 +12749,6 @@
    "victorias": 0
   }
  },
- "episodio": 12,
+ "episodio": 14,
  "version": 1
 }

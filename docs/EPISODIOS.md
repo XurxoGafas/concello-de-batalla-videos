@@ -169,3 +169,31 @@ Clasificación tras el episodio:
 - Vitorias: Cospeito (2), A Caniza (2), Dodro (2), Palas de Rei (1), Paradela (1)
 - Vacas: Cospeito (36844), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Paradela (12439)
 - Dueños que quedan: 277.
+
+## Episodio 13
+
+Portada: «Tanta vaca dálle moita forza a Xove!» (frase 34, protagonista Xove).
+
+- Batalla 37: **Muxía** (3695 🐄) ataca a **Camariñas** (17 🐄) → gana **Muxía**; semilla `14983425462158142404`.
+- Batalla 38: **Carballeda de Valdeorras** (143 🐄) ataca a **O Barco de Valdeorras** (3 🐄) → gana **O Barco de Valdeorras**; semilla `13664403305841696564`.
+- Batalla 39: **Xove** (989 🐄) ataca a **Cervo** (516 🐄) → gana **Cervo**; semilla `13078455886978834356`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (2), A Caniza (2), Dodro (2), Palas de Rei (1), Paradela (1)
+- Vacas: Cospeito (36844), Palas de Rei (15346), Lalín (14794), Mazaricos (13864), Paradela (12439)
+- Dueños que quedan: 274.
+
+## Episodio 14
+
+Portada: «Muros ten tanto gando que non hai quen o aguante!» (frase 40, protagonista Muros).
+
+- Batalla 40: **Bóveda** (3583 🐄) ataca a **Paradela** (12439 🐄) → gana **Paradela**; semilla `10164846590765611832`.
+- Batalla 41: **Negueira de Muñiz** (5626 🐄) ataca a **Baleira** (3163 🐄) → gana **Negueira de Muñiz**; semilla `8140988466858444580`.
+- Batalla 42: **Muros** (49 🐄) ataca a **Carnota** (8 🐄) → gana **Carnota**; semilla `12971671782368885044`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (2), Paradela (2), Negueira de Muñiz (2), A Caniza (2), Dodro (2)
+- Vacas: Cospeito (36844), Paradela (16022), Palas de Rei (15346), Lalín (14794), Mazaricos (13864)
+- Dueños que quedan: 271.
