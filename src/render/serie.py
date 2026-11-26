@@ -27,6 +27,7 @@ from src.audio.mezcla import medir_lufs, poner_audio
 from src.motor import momentos
 from src.motor.persistencia import (RUTA_ESTADO, RUTA_HISTORIAL, VARIABLE_SEMILLA, anadir_al_historial, cargar_estado,
                                     guardar_estado, jugar_episodio, nueva_partida)
+from src.motor.estado import partida_terminada
 from src.render import estilo as E
 from src.render import ranking as R
 from src.render.escenas import Montaje, construir_episodio, renderizar
@@ -87,11 +88,14 @@ def registrar(estado: dict, semilla: str, montaje: Montaje, *, ruta_estado: Path
     return final
 
 
-def generar_siguiente(semilla: str, solo_registrar: bool = False, mapa: MapaGalicia | None = None) -> dict:
-    """Genera (vídeo con sonido) y registra el siguiente episodio de la partida."""
+def generar_siguiente(semilla: str, solo_registrar: bool = False, mapa: MapaGalicia | None = None) -> dict | None:
+    """Genera (vídeo con sonido) y registra el siguiente episodio de la partida. `None` si la serie ya acabó."""
     t0 = time.time()
-    mapa = mapa or MapaGalicia()
     estado = cargar_estado(RUTA_ESTADO) if RUTA_ESTADO.exists() else nueva_partida()
+    if partida_terminada(estado):
+        print(f"La serie ya terminó en el episodio {estado['episodio']}: no hay más episodios", flush=True)
+        return None
+    mapa = mapa or MapaGalicia()
     n = estado["episodio"] + 1
     m = construir_episodio(estado, semilla, mapa, recientes=momentos.leer_recientes())
     print(f"Episodio {n}: montaje {m.duracion:.1f} s, {len(m.escenas)} escenas ({time.time() - t0:.0f} s)", flush=True)
@@ -120,7 +124,8 @@ def main() -> None:
         raise SystemExit(f"Falta la semilla de la serie ({VARIABLE_SEMILLA} en .env o --semilla)")
     mapa = MapaGalicia()
     for _ in range(a.cuantos):
-        generar_siguiente(semilla, a.registrar, mapa)
+        if generar_siguiente(semilla, a.registrar, mapa) is None:
+            break
 
 
 if __name__ == "__main__":

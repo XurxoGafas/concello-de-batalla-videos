@@ -686,3 +686,10 @@ Las entradas no se borran. Las nuevas se añaden al final.
 
 ## 2026-11-24 · Episodios 4 y 5
 - Generados y guardados con `python -m src.render.serie 2` (≈10 min de render cada uno, −14,3 LUFS). Resultados en `docs/EPISODIOS.md`; estado tras el episodio 5 (15 batallas) en `data/partida/estado_actual.json`. Siguiente: episodio 6.
+
+## 2026-11-26 · Paso 8 (adelantado a petición del usuario) · Episodios automáticos, 3 al día
+- El usuario pide generar episodios solos hasta el final de la serie, 3 al día. Elegido GitHub Actions (gratis en repositorio público, no gasta tokens ni depende de una sesión de Claude).
+- `.github/workflows/episodios.yml`: cron `41 6,14,22 * * *` (UTC; 7:41, 15:41 y 23:41 en Madrid en invierno) y botón manual con «cuántos». Instala ffmpeg/cairo y dependencias, ejecuta `python -m src.render.serie`, sube vídeo y portada a una **release en borrador** `episodio-NNN` (privada: nada público, regla h) con el resumen como notas, y hace commit del estado (`data/partida/`, `docs/EPISODIOS.md`). `concurrency` evita dos ejecuciones a la vez.
+- Semilla en el Secret `SEMILLA_SERIE` del repositorio (regla g).
+- `serie.py`: si la serie ya terminó, no hace nada (las ejecuciones siguientes acaban limpias).
+- Faltan ≈99 episodios (298 dueños tras el 5) → ≈33 días.
