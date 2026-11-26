@@ -1,5 +1,5 @@
 {
- "batallas_jugadas": 42,
+ "batallas_jugadas": 48,
  "concellos": {
   "34121515001": {
    "cor": {
@@ -219,7 +219,7 @@
      1.0
     ]
    },
-   "dono": "34121515010",
+   "dono": "34121515038",
    "nome": "Boimorto",
    "provincia": "A Coruña",
    "vacas": 4161,
@@ -738,7 +738,7 @@
      1.0
     ]
    },
-   "dono": "34121515033",
+   "dono": "34123636015",
    "nome": "Dodro",
    "provincia": "A Coruña",
    "vacas": 36,
@@ -944,7 +944,7 @@
      1.0
     ]
    },
-   "dono": "34121515042",
+   "dono": "34121515072",
    "nome": "Lousame",
    "provincia": "A Coruña",
    "vacas": 1199,
@@ -1298,7 +1298,7 @@
      1.0
     ]
    },
-   "dono": "34121515057",
+   "dono": "34121515071",
    "nome": "Noia",
    "provincia": "A Coruña",
    "vacas": 22,
@@ -1423,7 +1423,7 @@
      1.0
     ]
    },
-   "dono": "34121515062",
+   "dono": "34121515056",
    "nome": "Outes",
    "provincia": "A Coruña",
    "vacas": 774,
@@ -4640,7 +4640,7 @@
      1.0
     ]
    },
-   "dono": "34123232064",
+   "dono": "34123232027",
    "nome": "Gomesende",
    "provincia": "Ourense",
    "vacas": 35,
@@ -5395,7 +5395,7 @@
      1.0
     ]
    },
-   "dono": "34123232064",
+   "dono": "34123232027",
    "nome": "Pontedeva",
    "provincia": "Ourense",
    "vacas": 5,
@@ -6311,7 +6311,7 @@
      0.0799
     ]
    },
-   "dono": "34121515033",
+   "dono": "34123636015",
    "nome": "Catoira",
    "provincia": "Pontevedra",
    "vacas": 1,
@@ -7376,7 +7376,7 @@
      0.0692
     ]
    },
-   "dono": "34121515033",
+   "dono": "34123636015",
    "nome": "Valga",
    "provincia": "Pontevedra",
    "vacas": 85,
@@ -7721,24 +7721,6 @@
     "34121515009"
    ],
    "vacas": 111,
-   "victorias": 0
-  },
-  "34121515010": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15010.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Boimorto",
-   "territorio": [
-    "34121515010"
-   ],
-   "vacas": 4161,
    "victorias": 0
   },
   "34121515011": {
@@ -8120,26 +8102,6 @@
    "vacas": 5860,
    "victorias": 0
   },
-  "34121515033": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15033.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Dodro",
-   "territorio": [
-    "34121515033",
-    "34123636010",
-    "34123636056"
-   ],
-   "vacas": 122,
-   "victorias": 2
-  },
   "34121515034": {
    "cor": {
     "colores": [
@@ -8230,10 +8192,11 @@
    },
    "nome": "Frades",
    "territorio": [
+    "34121515010",
     "34121515038"
    ],
-   "vacas": 9953,
-   "victorias": 0
+   "vacas": 14114,
+   "victorias": 1
   },
   "34121515039": {
    "cor": {
@@ -8291,24 +8254,6 @@
     "34121515041"
    ],
    "vacas": 1971,
-   "victorias": 0
-  },
-  "34121515042": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15042.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Lousame",
-   "territorio": [
-    "34121515042"
-   ],
-   "vacas": 1199,
    "victorias": 0
   },
   "34121515043": {
@@ -8516,28 +8461,11 @@
    },
    "nome": "Negreira",
    "territorio": [
-    "34121515056"
+    "34121515056",
+    "34121515062"
    ],
-   "vacas": 3135,
-   "victorias": 0
-  },
-  "34121515057": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15057.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Noia",
-   "territorio": [
-    "34121515057"
-   ],
-   "vacas": 22,
-   "victorias": 0
+   "vacas": 3909,
+   "victorias": 1
   },
   "34121515058": {
    "cor": {
@@ -8618,24 +8546,6 @@
     "34121515061"
    ],
    "vacas": 2249,
-   "victorias": 0
-  },
-  "34121515062": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/15062.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Outes",
-   "territorio": [
-    "34121515062"
-   ],
-   "vacas": 774,
    "victorias": 0
   },
   "34121515064": {
@@ -8771,10 +8681,11 @@
    },
    "nome": "O Porto do Son",
    "territorio": [
+    "34121515057",
     "34121515071"
    ],
-   "vacas": 170,
-   "victorias": 0
+   "vacas": 192,
+   "victorias": 1
   },
   "34121515072": {
    "cor": {
@@ -8788,10 +8699,11 @@
    },
    "nome": "Rianxo",
    "territorio": [
+    "34121515042",
     "34121515072"
    ],
-   "vacas": 40,
-   "victorias": 0
+   "vacas": 1239,
+   "victorias": 1
   },
   "34121515073": {
    "cor": {
@@ -10660,10 +10572,12 @@
    },
    "nome": "Cortegada",
    "territorio": [
-    "34123232027"
+    "34123232027",
+    "34123232033",
+    "34123232064"
    ],
-   "vacas": 4,
-   "victorias": 0
+   "vacas": 44,
+   "victorias": 1
   },
   "34123232028": {
    "cor": {
@@ -11254,25 +11168,6 @@
    ],
    "vacas": 839,
    "victorias": 0
-  },
-  "34123232064": {
-   "cor": {
-    "colores": [
-     "#ffffff"
-    ],
-    "escudo": "assets/escudos/32064.png",
-    "fonte": "escudo",
-    "pesos": [
-     1.0
-    ]
-   },
-   "nome": "Pontedeva",
-   "territorio": [
-    "34123232033",
-    "34123232064"
-   ],
-   "vacas": 40,
-   "victorias": 1
   },
   "34123232065": {
    "cor": {
@@ -11957,10 +11852,13 @@
    },
    "nome": "Cuntis",
    "territorio": [
-    "34123636015"
+    "34121515033",
+    "34123636010",
+    "34123636015",
+    "34123636056"
    ],
-   "vacas": 256,
-   "victorias": 0
+   "vacas": 378,
+   "victorias": 1
   },
   "34123636016": {
    "cor": {
@@ -12749,6 +12647,6 @@
    "victorias": 0
   }
  },
- "episodio": 14,
+ "episodio": 16,
  "version": 1
 }

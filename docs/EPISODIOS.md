@@ -197,3 +197,31 @@ Clasificación tras el episodio:
 - Vitorias: Cospeito (2), Paradela (2), Negueira de Muñiz (2), A Caniza (2), Dodro (2)
 - Vacas: Cospeito (36844), Paradela (16022), Palas de Rei (15346), Lalín (14794), Mazaricos (13864)
 - Dueños que quedan: 271.
+
+## Episodio 15
+
+Portada: «Moito gando, moita guerra: Negreira multiplica!» (frase 36, protagonista Negreira).
+
+- Batalla 43: **Pontedeva** (40 🐄) ataca a **Cortegada** (4 🐄) → gana **Cortegada**; semilla `6357015909589480019`.
+- Batalla 44: **Outes** (774 🐄) ataca a **Negreira** (3135 🐄) → gana **Negreira**; semilla `10476147408197587068`.
+- Batalla 45: **Frades** (9953 🐄) ataca a **Boimorto** (4161 🐄) → gana **Frades**; semilla `5475596220303206646`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (2), Paradela (2), Negueira de Muñiz (2), A Caniza (2), Dodro (2)
+- Vacas: Cospeito (36844), Paradela (16022), Palas de Rei (15346), Lalín (14794), Frades (14114)
+- Dueños que quedan: 268.
+
+## Episodio 16
+
+Portada: «Lousame vén con reforzo de gando!» (frase 35, protagonista Lousame).
+
+- Batalla 46: **Rianxo** (40 🐄) ataca a **Lousame** (1199 🐄) → gana **Rianxo**; semilla `10462374288649215168`.
+- Batalla 47: **Cuntis** (256 🐄) ataca a **Dodro** (122 🐄) → gana **Cuntis**; semilla `11171249803220584709`.
+- Batalla 48: **O Porto do Son** (170 🐄) ataca a **Noia** (22 🐄) → gana **O Porto do Son**; semilla `15999304034845434435`.
+
+Clasificación tras el episodio:
+
+- Vitorias: Cospeito (2), Paradela (2), Negueira de Muñiz (2), A Caniza (2), Palas de Rei (1)
+- Vacas: Cospeito (36844), Paradela (16022), Palas de Rei (15346), Lalín (14794), Frades (14114)
+- Dueños que quedan: 265.
